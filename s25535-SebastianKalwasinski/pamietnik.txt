@@ -26,7 +26,7 @@ jako main OS >:D.
  W zasadzie to pamiętnik powieniem pisać po zrobieniu zadań, ale wszystkie 
 ohy, ehy i ahy zostawię na opis instalacji debiana, którą pamiętam, ale nie
 na tyle dobrze by powiedzieć że umiem. Powoli przejdę się przez instalator
-i przeczytam o tym co tam znajdę. Pamiętam że na Pan prowadzący wykłady
+i przeczytam o tym co tam znajdę. Pamiętam że Pan prowadzący wykłady
 używa linuxa jako swojego domyślego systemu. Dodatkowo raczył się pochwalić
 jakie katalogi warto tam mieć, a jakie to dodatki. Przyda się przy instalacji
 debiana. Najwyżej go zaatakuję by mi pomógł z instalacją jak będzie problem :P.
