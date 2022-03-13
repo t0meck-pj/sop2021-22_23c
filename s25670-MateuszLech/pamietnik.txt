@@ -1,0 +1,3 @@
+Zajecia 1.
+
+Na dzisiejszych zajeciach nauczylem sie instalacji Debiana, tworzenia  partycji w linuxie oraz kilka przydatnych funkcji w VW

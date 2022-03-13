@@ -1,0 +1,19 @@
+Zadanie: instalacja debiana
+
+Pierwszy krok to odpowiednie skonfigurowanie VW. Nalezalo wczesniej pobrac plik z obrazem systemu a nastepnie podpiac go w odpowienim miejscu.
+Plik podpinamy w ustawieniach naszego systemu w VM (settings > storage > controler: IDE > optical drive > plik_z_systemem.iso). W ten sposob
+mozemy niejako zasymulowac wlozenie plytki z systemem do napedu.
+
+Nastepnie uruchamiamy maszyne i wybieramy install. Na poczatku wymieramy jezyk w jakim chcemy obslugiwac nasz system a nastepnie region w ktorym
+sie znajdujemy (np. other > Europe > Poland). Dalej wpisujemy nazwe hosta, haslo dla roota oraz tworzymy nowego uzytkownika.
+
+Kolejny krok to przydzial miejsca dla nowych partycji. Na poczatku tworzymy partycje podstawowa "primary" (mozna ich miec maks. 4 lub kombinacje partycji podstawowej i logicznych),
+poniewaz system mozemy zainstalowac wylaccznie na partycji podstawowej. Przydzielamy jej odpowiednia ilosc miejsca oraz wybieramy interesujace nas funkcje.
+Reszte wolnego miejsca na dysku mozemy przydzielic nowej partycji logicznej. Tworzymy ja podobnie jak podstawawa tylko wybieramy opcje "logical".
+
+Dalej wybieramy region oraz serwer z ktorego bedziemy pobierac aktualizacje/programy. Wybor odpowiedniego serwera pozwoli na szybsze pobieranie plikow.
+
+Na koncu pozostaja nam dodatkowe opcje do zainstalowania np. serwer SSH oraz mozliwosc instalacji GRUBA (taki jakby program posredniczacy miedzy UEFI a systemem, za jego 
+pomoca mozemy m.in. wybrac wersje kernela).
+
+
