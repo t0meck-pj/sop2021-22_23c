@@ -1,0 +1,99 @@
+================================================================================
+Zajecia 1: Instalacja systemu linux na maszynach wirtualnych.
+================================================================================
+Win 10, VirtualBox + Debian z neta: https://www.debian.org/download
+
+1."Nowa" -> Name Debian, Typ Linux, Wersja 64 bit.
+2. 2048 MB pamięci, mam 16 GB to mnie stać.
+3."Stwórz wirtualny dysk twardy."
+4."Dynamicznie przydzielana pamięć".- Jak będzie miał za mało to sobie więcej
+    weźmie, a jak mu stały rozmiar za mały dam to będzie trzeba się samemu
+    pofatygować i przydzielać. Nie potrzebuję narazie takiego utrudnienia.
+5. 8GB Miejsca na dysku twardym. Nie ma co narazie kombinować. Odtwarzam narazie
+   to co na zajęciach było.
+6.Utwórz.
+7.Ustawienia -> System -> Zaznaczyć tylko napęd optyczny by narpierw z płytki
+  instalator mi odpaliło.
+8.Uruchom -> Dysk startowy Debiana, który mam z neta.
+
+9.Monitor 1440p mnie zabije. Rozmiar okienka instalacyjnego jest dla mrówek.
+  Internety -> "VirtualBox how to make it bigger". -> Plik
+  -> Globalne ustawienia -> Ekran -> 2560x1440 , Współczynnik skali 200%.
+  Brzydziej, ale większe, że da się przeczytać bez wytrzeszczania oczu.
+
+10.Graphical install, jakbym miał Windowsa instalować. To mnie
+   nie interesuje, ale chciałem zobaczyć co się stanie jak wcisnę xd.
+   Install to instalacja bez trzymania za rączkę, czarny kontrast raczej mi
+   nie potrzebny, help to dużo tekstu, a istalacja głosowa ma gorszy głos
+   od IVONY na dworcu kolejowym.
+
+--------------------------------------------------------------------------------
+1. Wybieram install
+2. Poski -> Polska ->Polski
+3. Nazwa hosta niech zostanie debian.
+4. Domeny nie mam to puste zostanie.
+5. Hasło roota.
+6. Nazwa użytkownika.
+7. Hasło dla użytkownika
+8. Partycjonowanie -> Ręcznie -> SCSI2 ... -> Utwórz
+9. Wolna przestrzeń -> Utwórz nową -> 6GB -> Podstawowa -> Początek
+10.Wolna przestrzeń -> Utwórz nową -> 2.6GB -> Logiczna 
+11.Zapisz i dalej
+12.Menedżer pakietów -> Polska -> domyślny serwer Debiana -> Puste pole dla
+   Serwera pośredniczącego.
+13.Nie chcę śledzenia.
+14.Dodatkowe oprogramowanie. Niech zostanie tak jak jest.
+   Podstawnowe składniki, narzędzia + GNOME.
+ 
+   GNOME = "(ang. GNU Network Object Model Environment) –
+   graficzne środowisko użytkownika bla bla bla..." - Tłumacząc na polski będę miał
+   pulpit jak w windowsie tylko trochę inny.
+
+15.Czy zainstalować GRUB?
+   "GRUB (GRand Unified Bootloader) is a boot loader package developed to
+    support multiple operating systems." Mogę wybrać z jakim systemem
+   komputer ma się odpalać, ale dla jednego systemu ma być bezpiecznie.
+   Niech będzie tak.
+
+16.Spam F12 by wybrać hard disc by mi się system odpalił.
+17.Działa.
+
+To było straszne, okropne, połowę rzeczy nie rozumiałem, tylko szedłem
+z pamięci to co się dało. "Nigdy więcej." A jeszcze na laptopie 
+muszę to zainstalować (-,-) .
+--------------------------------------------------------------------------------
+Czas na laptopa.
+
+1-7. Tak samo.
+
+8.Ustawnienie LVM - "Mechanizm do zarządzania pamięcią dyskową, bez konieczności
+  przerywania działania usług czy sytemu". Nie potrzebuję tego. Chyba.
+  Nie wiem jeszcze jak bym mógł z tego korzystać.
+
+9.Tym razem wezmę zalecane i niech wszytko jest na jednej partycji.
+  W zasadzie zrobiło mi to samo jak bym ręcznie partycjonował, tylko że do
+  przestrzeni wymiany dało 1GB a nie 2.6GB.
+10. Zakończ i ok.
+11. Dalej -> Dalej -> Dalej.
+12. Dalej nie chcę tego śledzenia.
+13. Miałem nie zaznaczać GNOME, ale mi się wcisło xd . W sumie to może lepiej
+    mieć niż nie mieć.
+14. Nie dla GRUB. I nie działa... Ha ha. Czyli że jeszcze raz instalujemy.
+    Zaraz się ropłaczę, ale warto było.
+15. Tym razem z GRUB. Działa. Czyli jednak to przez brak GRUB.
+    Co z tego że z definicji wynika że GRUB to bootloader i bez niego system
+    nie będzie się uruchamiał. Na wirtualce mogę robić to co chcę. (￣ω￣). 
+
+ 
+ Pomęczyłem się, powiedziałbym że fajnie było, ale wyszedłbym na masohistę.
+Wiem więcej po instalacji nawet jak mnie za rączkę prowadziła niż jakbym,
+jej nie robił. Nie ukrywam jednak że mam braki jeśli chodzi o niektóre opcje,
+które się pojawiały, ale fakt że mi się udało to i tak sukcess.
+
+ Tak na dobrą sprawę Pana wykładowcy można się dokładniej zapytać co to wszystko
+podczas instalacji znaczy. To nawet nie jest taki zły pomysł, by rozwinął temat.
+Samemu ciężko dojść po co mi niektóre rzeczy są potrzebne, albo nie.
+Nauka instalacji na start gdy nie specjalnie wiadomo o co chodzi to mordęga.
+
+
+
