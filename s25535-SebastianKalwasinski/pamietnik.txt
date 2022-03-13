@@ -1,0 +1,63 @@
+================================================================================
+=--------------------- Pamiętnik SOP, Rok 1, Semestr 2 ------------------------=
+================================================================================
+2022-03-05
+
+Drogi pamiętniczku.
+
+ Przypomnienie sobie jak to się używało gita klonując nowe repozytorium
+to nie jest taki zły pomysł. Nie będzie bajzlu i nadmiarowej ilości danych
+z poprzednich zajęc, które by rozpraszały.
+Jak chcę to mam je u siebie na koncie. Poszło o wiele szybciej niż jak za
+pierwszym razem, ale trzeba było pamięć przekopać by przypomnieć sobie
+jak to szło by było dobrze.
+
+ Słyszałem że do vima można pluginy dodawać, a nawet pisać. Takiego co by
+mi pisownię sprawdzał z radością przytulę, a pluginy do vima to brzmi jak coś 
+o czym warto by poczytać, bo się okaże że sam by mi mógł połowę pamiętnika
+napisać. Wydawać by się mogło że nie ma czegoś takiego że się nie da.
+Wystarczy napisać własny plugin i już się da. Chyba że nie warto to inna sprawa.
+
+ Jak to było na zajęciach?
+Połowę nie pamiętam xD. Tylko tyle że byłem w szoku że znowu na uczeli siedzę,
+a laptop się na mnie obraził, wredny on :C, chyba mu linuxa za karę zainstaluję
+jako main OS >:D.
+
+ W zasadzie to pamiętnik powieniem pisać po zrobieniu zadań, ale wszystkie 
+ohy, ehy i ahy zostawię na opis instalacji debiana, którą pamiętam, ale nie
+na tyle dobrze by powiedzieć że umiem. Powoli przejdę się przez instalator
+i przeczytam o tym co tam znajdę. Pamiętam że na Pan prowadzący wykłady
+używa linuxa jako swojego domyślego systemu. Dodatkowo raczył się pochwalić
+jakie katalogi warto tam mieć, a jakie to dodatki. Przyda się przy instalacji
+debiana. Najwyżej go zaatakuję by mi pomógł z instalacją jak będzie problem :P.
+
+ Czytałem instrukcję jak pisać pamiętnik i opisywać zadania.
+Chyba nie będę w stanie tak od punktów pisać jak zostały narzucone.
+Do tej pory pisałem jak mi się podobało, ale z zastrzeżeniem by było na temat,
+albo powiązane z przedmiotem/informatyką, no i czasem jakieś śmieszki :P .
+ Nie mogę oprzeć się wrażeniu że ta instrukcja to moja wina bo z zasady się
+rozpisuję, ale też innych osób, które z kolei pisały zbyt oszczędnie.
+
+ Dla formalności jeszcze ostatnie dwa punkty:
+
+-"Co bylo zaskakujacego" - "~~SZOK~~" ale do czego mi to potrzebne?
+-"Twoje przemyslenia o calych zajeciach i zadaniach"- naprawdę będzie potrzebne?
+
+--=== Uwaga dygresja sprostowanie - "Wiem że będzie mi potrzebne." ===---
+
+To są przemyślena uniwersalne, których nie powinno się mówić na głos,
+bo mogą być krzywdzące dla osób, które wkładają dużo serduszka w to co robią.
+
+ Tak samo jak dzieci w szkole nie wiedzą po co się czegoś uczą, a potem jest
+takie "wow, przydało się", tak samo ja niektórych zadań i ćwiczeń nie jestem
+w stanie natychmiast ocenić. To jest inwestycja, która procentuje z czasem.
+Jak bezużyteczna by się nie wydawała to pewnego dnia, zignorowanie jej może
+drogo kosztować.
+Mam trochę w drugą stronę. Nie ignorowałem, a teraz zbieram moje procenty.
+
+Nowy semestr - nowe możliwości
+
+Zawsze twój s25535
+
+
+
