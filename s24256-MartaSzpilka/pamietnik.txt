@@ -1,1 +1,15 @@
-Pamietnik SOP 
+Pamiętnik SOP 2022
+
+1.Opis zajec
+2.Czego sie nauczylas/es
+3.Co jest dla Ciebie jeszcze nie jasne i musisz poglebic temat
+4.Co bylo zaskakujacego
+5.Twoje przemyslenia o calych zajeciach i zadaniach
+
+- 05.03.2022 
+
+1. Na pierwszych zajęciach instalowaliśmy debiana na maszynie wirtualnej.
+2. Instalować debiana.
+3. Nie do końca zrozumiałam partycje i przydzielanie pamięci. 
+4. Ilość ustawień do zmiany podczas instalacji.
+5. Dużo informacji do zapamiętania co gdzie i jak trzeba kliknąć i zmienić, bardzo żałuję, że robiłam to na komputerze uczelnianym. Teraz nie jestem pewna czy instalacja na moim koputerze dobrze przebiegła. 
