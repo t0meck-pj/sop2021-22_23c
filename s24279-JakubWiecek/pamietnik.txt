@@ -1,0 +1,24 @@
+------------------------------------------------------------------------------------------------------------
+17-03-2022
+
+Drogi pamietniku,
+
+na pierwszych zajeciach SOP instalowalismy LINUX'a manualnie. Z pomoca prowadzacego, przeslismy przez caly 
+proces instalacji, do momentu otrzymania "czystego" linux, bez zadnego GUI.
+
+Bylismy prowadzeni za reke przez caly proces, ale prowadzacy omawial z nami kazda mozliwa opcje, co robi i co 
+sie stanie jak ja uzyjemy. Dla utrwalenia, postanowilem w domu przejsc przez instalacje ponownie samemu. W 
+dwoch momentach zwatpilem, w momencie podzialu partycji i pozniej w wyborze software'u do zainstalowania, o 
+ktory juz musialem podpytac p.Tomasza. I dobrze, ze zadna z opcji, ktora obstawialem, nie byla poprawna.
+
+Mam pozytywne odczucia co do przyszlych zajec, moga byc interesujace i przydatne w przyszlosci. Moze nie 
+planuje byc administratorem, ale mimo wszystko ciekawi mnie ta "czarna konsola". Poza tym mamy uczyc sie 
+pisac skryptow ktore przydaja sie raczej w roznych dziedzinach IT z tego co wiem, wiec chetnie sie ich naucze 
+z pomoca p.Tomasza.
+
+Sam proces instalacji linuxa z zajec, zalaczylem w osobnym pliku, wiec tam drogi pamietniczku zerknij.
+
+Do nastepnego,
+JW.
+
+-------------------------------------------------------------------------------------------------------------

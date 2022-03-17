@@ -1,0 +1,42 @@
+Na pierwszych zajęciach z SOP, uczyliśmy sie, jak skonfiruować ręcznie maszynę wirtualna z Linuxem Debian.
+
+Pomijając ściągniecie obrazu Debiana, trzeba najpierw stworzyć nowa maszynę wirtualna. Wybieramy w VM opcje 
+„Nowy” i wybieramy odpowiednie, interesujące nas opcje, np. Pojemność RAM do użycia, pojemność wirtualnego 
+dysku twardego. Po dodaniu maszyny, musimy jeszcze wejść w ustawienia VM i tam pozmieniać niektóre rzeczy.
+
+Prowadzący zasugerował nam ustawienia, które mamy wprowadzić. Miedzy innymi w sekcji „System” wylaczyc 
+bootowanie z Floppy i Dysku twardego (maszyna szuka z tych miejsc obrazu/pliku z systemem i uruchamia go z 
+niego. Jako, ze my mamy obraz plyty tylko, nie sa one potrzebne). Zostawiamy sam napęd (czyli obraz płyty 
+systemu). Do tego można dostosować RAM, ilość procesorów użytych i opcjonalnie włączenie rozszerzenia PAE/NX. 
+W sekcji „pamięć” trzeba dodać do napędu wirtualnego, nasza wirtualna płytę.
+
+Po tej pierwszej konfiguracji samej maszyny, możemy przejść do konfiguracji samego Linuxa. Właczamy maszynę. 
+Jak jesteśmy jeszcze przy logo VM, można wcisnąć F12 i wybrać, skąd VM ma pobrać obraz. Przechodzimy do 
+ręcznej instalacji Debiana.
+
+
+-Najpierw wybieramy odpowiednie języki i regiony Później konfigurujemy siec: Najpierw wybieramy hostname - 
+nazwa systemu, jaka będzie widzieć sieć. Domene omijamy.
+
+-Teraz trzeba nadać hasło dla root’a, a potem je jeszcze powtorzyc.
+-Następnie nazwać user’a i ustawić mu hasło. - Wieza123
+
+-Następnie trzeba ustalic partycyje. Wybieramy opcje Guided - use entire disk. Dostepna jest rowniez opcja z 
+LVM (logical Volume Manager), ktora sluzy na tworzenu dysku wirtualnego z roznych urzadzen pamieci.
+
+-Wybieramy dysk do podziału (mamy tylko jeden do wyboru), a następnie typ podziału dysku.
+
+-Możemy wybrać, aby wszystkie pliki były w jednym miejscu i osobno będzie swap. Swap to swojego rodzaju 
+"backup" dla zuzywanej pamieci RAM. Gdy pamiec RAM zacznie byc przeciazana, czesc aplikacji moze byc 
+uruchomiona na dysku swap, ktory odciazy RAM. Można dodatkowo wydzielić home (oddziela pliki systemowe od 
+plikow uzytkownika i konfiguracyjnych), tmp(miejsce na tymczasowe pechowywanie plikow przez system, aby 
+zmniejszych obciazenie innych dyskow), var(dla plikow ze zmiennym rozmiarem), można wydzielić sam home. 
+Wybrałem pierwsza opcje, czyli sam swap. Przechodzimy dalej.
+
+Po wstępnej instalacji, instalator poprosi nas o ustawienie mirror archive (serwer, ktory zawiera wszystkie 
+komponenty linuxa i inne powiazane programy). Wybieramy polskie + ftp.task.gda.pl. Ustawienia proxy omijamy i 
+przechodzimy dalej.
+
+Zacznie sie instalacja software’u. Będzie można w międzyczasie wybrać, które z podanych programów chcemy 
+zainstalować. My akurat wybieramy tylko najbardziej podstawowa opcje (czyli rezygnujemy z GUI GNOME), 
+„standard system utilities”. Po tym, instalacja się dokończy i otrzymamy czysty linux.
