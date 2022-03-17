@@ -1,0 +1,23 @@
+## Instalacja debiana 2022.03.17
+
+- Pobranie iso. debiana z oficjalnej stronki
+- Utworzenie i skonfigurowanie wirtualki ( dodanie iso debiana w zakladce Storage->ISO)
+- Odpalenie wirtualki i samo powinno wybrac nasze iso, jesli nie to trzeba kliknac "F12" -> boot menu i tam wybrac nasza instalke
+- Wybieramy jezyk, region, uklad klawiatury
+- Konfigurujemy siec
+- Pytanie o adres domeny pod ktora dziala nasz serwer/urzadzenie, tutaj nic nie wpisujemy bo to wirutalka w prywatnej sieci
+- Pytanie o haslo roota trzeba ustawic "x" bo inaczej nie zadziala. Pozatym haslo tak genialne ze w zadnym slowniku bruteforcowym go nie ma. Haslo nie do zlamania
+- Potwierdzenie hasla
+- Stworzenie nowego uzytkownika ale juz tym razem nie roota, pytanie o "full name" potem o "nickname", a na koncu o haslo.
+- Teraz pora na konfiguracje dysku - wybieramy hardcore mode jak na zajeciach czyli manual.
+- Wybieramy partycje, tam potem dalem automatyczne configure i mi podzielilo elegancko 8.6 GB na 
+- 1 #1 partycje 7.6GB ext4
+- 2 #5 partycje 1.0GB swap (powinna byc dwuktornosc ilosc pamieci ram)
+- Klikamy finish partitioning and make changes 
+- I juz, pyta o jakies pierdulki
+- Pytanie o software selection, bo narazie mamy tylko zainstalowane podstawowe rzeczy systemowe jesli chcemy miec ssh server albo web server, albo zmienic srodowisko graficzne na Xfce to mozemy teraz to tutaj zaznaczyc.
+- Z tego co sie dowiedzialem na cwiczeniach pozniej tez mozna te opcje odpalic.
+- Instalator zauwazyl ze jest to swiezy system i pyta sie czy chcemy grub'a jak bedziemy instalowali kolejne systemy ulatwi to sprawe bo juz bedziemy mieli bootloader.
+- Instalacja zakonczona
+- Po ponownym uruchomieniu wybieramy w grubie Debian GNU/Linux
+- Koniec
