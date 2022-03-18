@@ -15,7 +15,7 @@ Instalacja systemu linux na maszynach wirtualnych
   Innymi opcjami sa rowniez nie dodawanie dysku w ogole - jednak bez tego nasz system nie mialby prawa funkcjonowac 
   oraz dodanie istniejacego juz wirtualnego dysku. W nastepnym kroku powinno sie nam pojawic okienko z wyborem typu
   pliku wirtualnego dysku. Tutaj wybieramy domyslna opcje czyli "VDI". W nastepnym kroku wybieramy dynamiczne przydzielanie
-  i przechodzimy dalej. Teraz powinno sie nam pojawic okienko z mozliwoscia wybrania lokalizacji oraz rozmiaru dysku twardego
+  i przechodzimy dalej. Teraz powinno sie nam pojawic okienko z mozliwoscia wybrania lokalizacji oraz rozmiaru dysku
   Osobiscie polecam ustawic rozmiar dysku na 32,00 GB - mysle ze powinno nam wystarczyc.
   I w taki o to prosty sposob udalo sie nam stworzyc maszyne wirtualna!
 
