@@ -1,0 +1,28 @@
+Zacząłem od sworzenia wirtualnej maszyny: wybrałem system operacyjny jaki chce zainstalować [debian], pamięc ram, 
+typ pliku z dyskiem twardym [VDI - VitualBox Disk Image], potem z kolei należy wybrać czy rozmiar maszyny na dysku 
+twardym ma być ograniczony czy nie, na końcu zostaje wybranie lokalizacji naszej maszyny na dysku. 
+
+Nastepnie wszedłem w ustawienia: 
+- w zakładce system - odznaczyłem "Floppy" oraz "Dysk Twardy" gdyż nie jest póki co wymagany 
+(instalacja wykonuje się z plyty),
+- w zakładce pamięc - w polu `storage devices/kontroler: IDE` przy braku dodałem obraz systemu 
+[wczesniej pobrałem obraz .iso]
+- w zakładce sieć - podłączyłem się do mostkowej karty sieciowej aby można było się połączyć przez SSH
+
+Nastepnie uruchomiłem maszyne:
+
+- w pierwszym oknie- wybrałem zwykły install bez graphical install by zainstalować system niegraficzny
+- w drugin oknie wybrałem jezyk angielski 
+- nastepnie wybrałem serwer polski 
+- nastepnie system kodowania
+- keyma
+- nastepnie wybranie hostname
+- nazwe domeny dałem pusta, nie jest mi potrzebna 
+- wybralem haslo dla root'a
+- nastepnie dodajemy uzytkownika dla systemu, nazwa i haslo
+- potem wybieramy partycje ja wybrałem: Guided - use entire disk 
+- wybieramy dysk do podzialu wybrałem pierwsza opcje 
+- instalacje podstawowego systemu
+- nastepnie konfiguracja mirror archive
+- potem pokazuje ekran do wybrania dodatkowych programów - rezygnuje z GUI GNOME, standard system utilities. 
+- koniec instalacji 

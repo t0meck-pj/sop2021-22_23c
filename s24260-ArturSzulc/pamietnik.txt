@@ -1,0 +1,13 @@
+2022-03-18
+
+Moj kochany pamietniczku na pierwszych zajeciach zajeciach instalowalismy system operacyjny debian. 
+Zaczelismy od zapoznania sie z narzedziem do wirtualizacji Oracle VM VirtualBox.
+Nastepnie przystapilismy do instalacji systemu operacyjnego, w trakcie jego instalacji dowiedziałem
+sie rzeczy o których wcześniej nie miałem pojecia a mianowicie jak wiele informacji kryje sie w takowej
+instalacji, i jak zaznaczenie/odznaczenie elementow ma wplyw na prace systemu, jedna z takich rzeczy 
+było na przykład ustawianie patrycjonowania dysku, w jaki sposób ma to wpływ a fizyczny na zapis na dysku fizycznym. 
+Pamietam że rozmawialiśmy o rozłożęniu danych na dysku że lepiej miec dane na jednym i na drugim
+dysku takie same a nie na obu rozłożone. Jeśli chodzi o to czego się nauczyłem to dogłebniejszego/bardziej 
+detalicznego podejscia jesli chodzi instalacje systemu operacyjnego, czasami warto poczytać informacje o tym co warto 
+wybrać niż bezmyślnie przeklikiwać kolejne okna instalacji.
+Wiem że jeszcze daleka droga przede mną jeśli chodzi o instalacje systemów operacyjnych.
