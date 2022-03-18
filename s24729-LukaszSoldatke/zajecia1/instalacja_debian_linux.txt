@@ -1,0 +1,139 @@
+Zajecia 1: Instalacja systemu linux na maszynach wirtualnych
+-------------------------------------------------------------------------------------------------------
+Opis zadania:
+Prosze zrobic commit do swojego repozytorum do galezi glownej (master lub main) w katalogu o nazwie 
+sXXXXX-ImieNazwisko. W nim proszę stworzyć katalog zajecia1 a w nim plik instalacja_debian_linux.txt z 
+opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja_debian_linux.txt
+-------------------------------------------------------------------------------------------------------
+
+1. Na poczatek przydaloby sie pobrac obraz instalacyjny systemu. W tym celu otwieram przegladarke i 
+	wyszukuje "debian". Pierwszym wynikiem, ktory mi sie ukazuje jest link prowadzacy do oficjalnej 
+	strony Debiana (www.debian.org). Pod nim widoczna jest pozycja Getting Debian, prowadzaca do 
+	strony pobierania. Wybieram ta opcje, po czym na stronie tej widoczna jest pozycja Maly plik 
+	obrazu, a pod nia odnosnik ISO netinst odpowiednio dla 64 i 32 bitowego PC. Wybieram opcje 
+	odpowiednia dla mojego komputera, czyli wersje 64-bitowa po czym zaczyna pobierac mi sie 
+	wzglednie maly prawie 400 MB plik obrazu ISO.
+
+2. Majac juz potrzebny obraz instalacyjny, uruchamiam VirtualBoxa i tworze nowa wirtualna maszyne, na 
+	ktorej zainstaluje system. Po wpisaniu nazwy maszyny nawiazujacej do tej wersji systemu, 
+	(w moim przypadku "debian") VirtualBox rozpozna ze chodzi o ta a nie inna dystrybucje i 
+	wybierze domyslnie odpowiednie dla niej opcje (co mozna jednak zmienic wedlug wlasnych potrzeb). 
+	W nastepnym kroku wybieram ilosc przeznaczonej pamieci RAM dla tej maszyny, wybieram sobie 
+	4096 MB. Taka ilosc powinna pozwolic na bezproblemowe, plynne dzialanie maszyny. Potem tworze 
+	nowy, dynamicznie alokowany wirtualny dysk twardy w formacie VDI. Innymi mozliwosciami sa tutaj 
+	nie dodawanie zadnego pliku dysku (co jednak nie pozwoli na dzialanie systemu na maszynie jezeli 
+	nie dodamy pozniej zadnego zawierajacego system), oraz dodanie istniejacego juz wirtualnego 
+	dysku z pliku. Jako ze celem zadania jest czysta instalacja, wybralem wlasnie opcje utworzenia 
+	nowego dysku. Jego dynamiczna alokacja pozwala wykorzystac na dysku komputera tyle miejsca ile 
+	faktycznie jest zajmowane przez system i inne dane znajdujace sie aktualnie na wirtualnym dysku. 
+	Mozna rowniez utworzyc wirtualny dysk o stalym rozmiarze. Format VDI jest domyslnym formatem 
+	wirtualnych dyskow VirtualBoxa dlatego tez wlasnie go wybralem. Ma on pewne zalety takie jak 
+	przenosnosc oraz wzglednie dobra wydajnosc. Ustawiam rowniez limit rozmiaru pliku wirtualnego 
+	dysku na 32 GB, co jest iloscia pamieci ktora powinna mi wystarczyc.
+ 
+3. Wirtualna maszyna zostala utworzona, jednak pozostaje jeszcze kilka waznych ustawien, ktore nalezy 
+	lub dobrze byloby zmienic przed jej uruchomieniem. W tym celu klikam na maszyne prawym 
+	przyciskiem myszy i wybieram ustawienia. W zakladce Ogolne/Zaawansowane ustawiam sobie 
+	"wspoldzielony schowek" oraz "przeciaganie i upuszczanie" na "dwustronny" co umozliwi mi latwe 
+	przenoszenie plikow, czy tekstu pomiedzy systemem hosta a gosczonym Debianem. Potrafi to 
+	znaczaco ulatwic prace, jednak nie zawsze jest to pozadany efekt. Przykladem moga byc wirtualne 
+	maszyny ktore powinny byc jak najbardziej odizolowane od systemu gospodarza. W zakladce 
+	System/Plyta glowna nalezaloby odpowiednio ustawic liste urzadzen do rozruchu, co tez 
+	zrobilem pozostawiajac naped optyczny i dysk twardy (w takiej kolejnosci). Jezeli mamy wiecej 
+	rdzeni procesora, mozna rozwazyc ile z nich chcemy aby nasza wirtualna maszyna uzywala oraz w 
+	jakim stopniu procentowym, ja pozostawilem te ustawienia na ich domyslnych wartosciach (1 rdzen, 
+	100%). W zakladce Ekran mozemy ustawic sobie w razie potrzeby ilosc pamieci wideo czy 
+	akceleracje 3D, co czasem tez sie przydaje. Tutaj zwiekszylem tylko pamiec wideo na 128 MB.
+	Chcielibysmy zainstalowac i uruchomic na tej maszynie Debiana wiec wazne jest aby miec z czego. 
+	W tym celu w zakladce Pamiec pod kontrolerem IDE widoczne jest miejsce na obraz plyty, klikamy 
+	na niego i po prawej stronie przy polu naped optyczny widzimy mala ikonke plytki, klikamy na nia 
+	i wybieramy "Choose a disk file" wskazujac nastepnie na plik obrazu instalacyjnego .iso ktory 
+	wczesniej pobralismy. Mozemy tez z tego miejsca otworzyc menedzer dyskow wirtualnych, wskazac ze 
+	maszyna ma korzystac z fizycznego napedu komputera oraz wybrac ostatnio uzywane obrazy plyt.
+	Mozemy rowniez pominac ten krok i przy pierwszym uruchomieniu maszyny zamontowac obraz dysku i 
+	klawiszem F12 podczas wyswietlania logo VirtualBoxa dostac sie do menu rozruchu skad mozna 
+	wybrac opcje CD-ROM. Osobiscie wybralem wlasnie ten drugi wariant, pomijajac na razie montowanie 
+	obrazu plyty. W zakladce Siec mozna wybrac ilosc kart sieciowych i ich rodzaj. Domyslnym 
+	jest NAT co raczej najczesciej wystarcza do korzystania z internetu w goszczonym systemie, 
+	jednak jezeli pojawiaja sie problemy np. w komunikacji pomiedzy maszynami wirtualnymi czy tez 
+	komputerami warto zwrocic uwage wlasnie na rodzaj uzywanej karty sieciowej w tym miejscu, 
+	zmieniajac ustawienie na mostkowana karte sieciowa lub inna wedlug potrzeb. Ja pozostawilem te 
+	ustawienia bez zmian. Moze zajsc potrzeba korzystania z urzadzen USB podlaczanych do naszego 
+	komputera poprzez goszczony system. W takim przypadku musimy to ustawic w zakladce USB 
+	wybierajac wersje kontrolera USB, jednak aby z tego korzystac potrzebna jest paczka rozszerzen 
+	(VirtualBox Extensions) ktora mozemy pobrac ze strony VirtualBoxa. Ja majac zainstalowane juz te 
+	rozszerzenia pozostawilem tutaj opcje domyslne (wlacz kontroler USB, USB 2.0). Przydac sie moze 
+	rowniez opcja udostepniania folderow dostepna w kolejnej zakladce, gdzie mozemy udostepnic 
+	katalogi z naszego dysku do uzytku przez maszyne wirtualna. Ja te opcje rowniez pozostawilem bez 
+	zmian nie udostepniajac zadnych folderow. Tak skonfigurowana maszyna jest gotowa do uruchomienia 
+	i zainstalowania na niej systemu operacyjnego. Zapisuje zmiany klikajac OK.
+
+4. Uruchamiam maszyne. Do wyboru sa 3 opcje jej uruchomienia jezeli rozwiniemy menu przy strzalce 
+	start: zwykly start (opcja domyslna, uruchomienie maszyny w oknie wyswietlajacym obraz z niej, 
+	tak jak na monitorze, po zamknieciu tego okna ukazuja sie opcje zakonczenia pracy maszyny), 
+	bezglowy start (uruchomienie maszyny bez obrazu, przydatne np. jezeli maszyna dziala jako serwer 
+	i nie ma potrzeby korzystania z obrazu) oraz oddzielny start (polaczenie dwoch poprzednich 
+	trybow, uruchamia sie w oknie, ale mozna to okno zamknac i wtedy maszyna przechodzi do trybu 
+	bezglowego). Wybralem zwykly start.
+
+5. Jezeli nie zamontowalismy wczesniej plyty pojawi sie informacja o braku nosnika do rozruchu, w takim 
+	przypadku uruchamiam maszyne jeszcze raz (maszyna/zresetuj) i podczas wyswietlania logo 
+	VirtualBoxa wciskam F12, a nastepnie klawisz C (od CD-ROM).
+
+6. Pojawia sie menu instalacji systemu. Do wyboru jest kilka opcji:
+	- Graphic install - Uruchamia prosty, graficzny instalator ktory przeprowadza uzytkownika przez 
+		proces instalacji systemu. Uzytkownik wybiera jezyk, kraj, uklad klawiatury, nazwe 
+		komputera/maszyny wirtualnej, domeny, tworzy haslo dla roota i tworzy konto 
+		standardowego uzytkownika, wybiera w jaki sposob spartycjonowac dysk (z uzyciem 
+		przewodnika, LVM, szyfrowania, recznie), czy tez uzyc calego dysku bez dzielenia go, 
+		konfiguruje menedzera pakietow wybierajac serwer, preferencje dotyczace danych 
+		statystycznych, opcjonalne oprogramowanie wraz ze srodowiskami graficznymi, lokalizacje 
+		instalacji bootloadera GRUB.
+	- Install - Podobnie jak wyzej, jednak bez interfejsu graficznego, a wlasciwie z uproszczonym 
+		srodowiskiem graficznym. Kolejne kroki instalacji opisane ponizej w punkcie 7.
+	- Advanced options - dodatkowe zaawansowane sposoby instalacji takie jak: zaawansowana 
+		instalacja (w porownaniu do zwyklej zawiera m.in. dodatkowe opcje ulatwien dostepnosci, 
+		sprawdzenie integralnosci nosnika instalacyjnego, zapis logow debugowania czy uzycie 
+		powloki ash), tryb ratunkowy (oferujacy opcje takie jak uruchomienie powloki czy tez  
+		reinstalacja GRUBa), instalacja zautomatyzowana (mozna instalowac system na wielu 
+		komputerach rownoczesnie, z uzyciem pliku konfiguracji co potrafi znacznie ulatwic 
+		proces i skrocic czas masowej instalacji systemu), wszystkie trzy opcje zarowno w trybie 
+		graficznym jak i klasycznym oraz zaawansowane opcje dostepnosci z uzyciem syntezatora 
+		mowy
+	- Accessible dark constrast installer menu - menu instalacyjne w trybie dostepnosci z duzym 
+		kontrastem
+	- Help - pomoc w trybie tekstowym
+	- Install with speech syntesis - instalacja z uzyciem syntezatora mowy
+
+7. Instalacja za pomoca opcji Install:
+	1. Na poczatku pojawia sie wybor jezyka ktory bedzie domyslnym jezykiem wyswietlanym w systemie 
+		- wybieram English.
+	2. Nastepnie pojawia sie pytanie o lokalizacje, wybieram kolejno other/Europe/Poland.
+	3. Wybieram kodowanie en_US.UTF-8
+	4. Keymap to use - wybieram American English
+	5. Wprowadzam nazwe komputera - w tym przypadku maszyny wirtualnej
+	6. Ewentualne wprowadzenie domeny
+	7. Wprowadzam nowe haslo dla roota
+	8. Wprowadzam nazwe dla domyslnego, standardowego uzytkownika nie bedacego rootem oraz haslo
+	9. Wyswietlone zostalo zapytanie o sposob wykorzystania przestrzeni dyskowej, wybieram reczne 
+		partycjonowanie ("manual"), nastepnie pozycje po srodku na ktorej widnieje moj 
+		wirtualny dysk. Potwierdzam utworzenie pustej partycji na nosniku. W tym miejscu 
+		pojawiaja sie rowniez opcje sluzace do konfiguracji macierzy dyskowych/LVM/
+		zaszyfrowanych woluminow, czy tez woluminow iSCSI ja jednak wybieram pozycje widniejaca 
+		ponizej tych opcji i ponizej nazwy dysku reprezentujaca wolna przestrzen. Wybieram 
+		Create new partition. Zakladajac ze rozmiar partycji wymiany swap powinnien miec 
+		pojemnosc 1.5x pojemnosc pamieci RAM (ramu dla tej maszyny jest 4 GB) odejmuje od 
+		34.4 GB dostepnego miejsca te 6 GB ktore bedzie przeznaczone na swap i wprowadzam 
+		wartosc 28.4 GB dla tworzonej partycji glownej. Dobrze jest zamiast jednej partycji 
+		stworzyc kilka oddzielajac od siebie takie katalogi jak np. /home czy /usr, jednak na 
+		potrzeby tego zadania tworze jedna partycje (wybierajac dla niej nastepnie opcje: 
+		primary (typ), beginning (lokalizacja), ext4 (system plikow), / (punkt montowania) oraz 
+		partycje wymiany swap (podobnie jak poprzednia partycje wykorzystujac pozostala 
+		przestrzen, logical, use as: swap area). Zmiany zatwierdzam i czekam az dane partycje 
+		#1 i #5 zostana sformatowane, a system zainstalowany. Nastepnie konfiguruje menedzer 
+		pakietow, wybierajac kraj i odpowiedni serwer (w moim przypadku wybralem domyslny 
+		deb.debian.org). W trakcie instalacji instalator pyta o dodatkowe oprogramowanie takie 
+		jak srodowiska graficzne, ktore mozna zainstalowac wraz z systemem, odpowiednie zaznacza 
+		sie spacja, wybieram dodatkowowo SSH server i przechodze dalej. Jako ze na dysku 
+		znajdowac sie bedzie tylko jeden system, bootloader GRUB instaluje na glownej partycji.
+		Po zainstalowaniu GRUBa system jest gotowy do uzytku.

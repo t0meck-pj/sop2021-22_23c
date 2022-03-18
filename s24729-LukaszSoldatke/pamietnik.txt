@@ -1,0 +1,12 @@
+2022-03-05
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie, a wlasciwie w duzej mierze 
+przypomnialem sobie jak pobrac i zainstalowac Linuxa (Debiana) na maszynie wirtualnej, w jaki sposob 
+taka maszyne skonfigurowac, na co przy tej konfiguracji zwrocic uwage, aby proces instalacji przebiegal 
+bezproblemowo i jak ten proces sobie ulatwic m.in. przy instalacji na wielu komputerach. Najpierw 
+pobralismy obraz ISO ze strony Debiana, po czym utworzylismy nowa maszyne wirtualna, odpowiednio ja 
+skonfigurowalismy, m.in. wybierajac adekwatne ustawienia kolejnosci bootowania, ilosc wirtualnej pamieci 
+RAM czy uzywanego do instalacji obrazu instalacyjnego. Potem przeszlismy przez proces instalacji, 
+rozpatrujac rozne opcje. Proces ten nie byl mi obcy z racji tego, ze zdarzalo mi sie nie raz instalowac 
+Linuxa, najczesciej Ubuntu ktory jest pochodna Debiana jednak znalazlo sie wiele opcji ktorych wczesniej 
+nie znalem a okazuja sie bardzo przydatne i ulatwiajace znacznie instalacje systemu. Uwazam ze zajecia 
+byly ciekawe i przyda mi sie to na przyszlosc.
