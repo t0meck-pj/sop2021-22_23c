@@ -1,0 +1,17 @@
+----------------------------------------------
+18-03-2022
+
+Drogi pamietniku,
+
+na ostatnich zajecia SOP nauczylem sie w jaki sposob poprawnie pobrac oraz zainstalowac Debiana manualnie
+na maszynie wirtualenej. Wczesniej instalowalem go z roznych dostepnych w sieci tutoriali ale zawsze przez proces
+instalacji przechodzilem dosc szybko nie zwracajac uwagi na szczegoly, ktore zostaly nam na tych zajeciach dokladnie
+przedstawione.
+
+Podczas zajec podobalo mi sie to w jaki sposob prowadzacy tlumaczyl kazda opcja, ktora mamy do wyboru 
+oraz kazda mozliwa akcje jaka mozemy w danym momencie wykonac. Caly proces instalacji zostal dokaldnie wytlumaczony
+przez co przebiegl on bezproblemowo na mojej maszynie wirtualnej. Wszystko zaczelo sie od pobrania obrazu Debiana
+a zaraz po tym udalo nam sie skonfigurowac maszyne wybierajac przerozne opcje takie jak: rozmiar pamieci wirtualnej, 
+wybor karty sieciowej, zaladowanie obrazu ISO Debiana czy tez wybranie kolejnosci bootowania. Z wiekszoscia z tych
+rzeczy mialem juz wczesniej stycznosc jednak nidgy nie zostaly mi one tak dokladnie zobrazowane.
+Szczerze mowiac, jestem mega ciekawy co bedziemy robic na nastepnych zajeciach :)

@@ -1,0 +1,59 @@
+-------------------------------------------------
+Instalacja systemu linux na maszynach wirtualnych
+-------------------------------------------------
+
+- Na poczatek pierwsze co musimy zrobic to pobrac obraz instalacyjny systemu (w tym przypadku Debiana).
+  Tak wiec wchodzimy na oficjalna strone Debiana i zaraz po wejsciu na nia obraz systemu powinien zaczac sie pobierac
+  automatycznie. Jest to oczywiscie najprostrzy sposob pobrania obrazu instalacyjnego, jednkaze na stronie mamy rowniez mozliwosc
+  pobrania obrazu dla systemow 64-bitowych oraz 32-biotwych.  
+
+- Jezeli udalo nam sie juz pobrac obraz instalacyjny Debiana to teraz mozemy spokojnie przejsc do stworzenia naszej
+  maszyny wirtualnej. Wiec wlaczamy program VirtualBox i kilkamy w ikonke "Nowa". Zaraz po tym powinno nam sie
+  ukazac okienko w ktorym musimy podac lokazlizacje dyskowa naszej maszyny oraz jej nazwe. Jezeli juz wybralismy to
+  przechodzimy dalej. Teraz powninismy widziec przed soba wybor rozmiaru pamieci RAM. Osobiscie polecam wybrac 4096 MB aby
+  maszyna chodzila plynnie i sprawnie. Nastepnym krokiem jest wybranie dynamicznie alokowanego dysku twardego VDI. 
+  Innymi opcjami sa rowniez nie dodawanie dysku w ogole - jednak bez tego nasz system nie mialby prawa funkcjonowac 
+  oraz dodanie istniejacego juz wirtualnego dysku. W nastepnym kroku powinno sie nam pojawic okienko z wyborem typu
+  pliku wirtualnego dysku. Tutaj wybieramy domyslna opcje czyli "VDI". W nastepnym kroku wybieramy dynamiczne przydzielanie
+  i przechodzimy dalej. Teraz powinno sie nam pojawic okienko z mozliwoscia wybrania lokalizacji oraz rozmiaru dysku twardego
+  Osobiscie polecam ustawic rozmiar dysku na 32,00 GB - mysle ze powinno nam wystarczyc.
+  I w taki o to prosty sposob udalo sie nam stworzyc maszyne wirtualna!
+
+- Nastepna rzecza, ktora musimy zrobic to skonfigurowanie naszej maszyny. A wiec kilkamy zolte kolo zebate aby wejsc
+  w ustawienia naszej maszyny. Nastepnie wybieramy pierwsza zakladke "Ogolne" i wchodzimy w zaawansowane - tutaj dla
+  wygody mozemy sobie ustawic "wspoldzielony schowek", ktory ulatwi nam przerzucanie plikow miedzy naszym systemem
+  a maszyna wirtualna. Nastepnie przechodzimy do drugiej zakladki jaka jest "System". Tutaj mozemy sobie ustawic
+  liste urzadzen do bootowania oraz ich kolejnosc. Tutaj wybieram odznaczam wszystkie urzadzenia poza napedem optycznym.
+  Nastepna zakladka do ktorej musimy przejsc jest "Pamiec". Tutaj kilkamy w kotroler IDE oraz jako naped optyczny wybieramy 
+  nasz obraz Debiana. Nastepna wazna zakladka jest "Siec" tutaj mozemy wybrac interesujaca nas karte sieciowa. 
+  Jednak domsylna karta NAT powinna tutaj nam spokojnie wystarczyc wiec pomine ten krok i przejde dalej. 
+  Mysle, ze nasza maszyna jest teraz poprawnie skonfigurowana i gotowa do uruchomienia
+
+- Po uruchomieniu maszyny powinno nam sie ukazac okno z wyborem opcji instalacji. Z racji, ze naszym celem jest 
+  instalacja bez interfejsu graficznego to wybieramy po prostu "install". 
+
+  - Nastepnie powinno nam sie pojawic okno z wyborem jezyka wyswietlanego w systeimie - wybieramy domyslny English
+  - Potem pojawia sie nam oknko gdzie musimy wybrac nasza lokalizacje - wybieramy other/Europe/Poland
+  - W nastepnym oknie wybieramy kodowanie en_US.UTF-8
+  - Pozniej w kroku Keymap to use - wybieramy American English
+  - Potem musimy wprowadzic nazwe naszego komputer (hostname) - ja zostawie tak jak jest czyli "debian"
+  - Wprowadzenie nazwy domeny mozemy pominac
+  - W nastepnym kroku podajemy haslo roota
+  - Potem podajemy nazwe uzytkownika (nie roota)
+  - W nastepnym kroku zostajemy zapytani o wykorzystanie przestrzeni dyskowej - wybieramy Manual
+  - Potem wybieramy nasz wirtualny dysk (w moim przypadku SCSI3)
+  - Powinna nam sie stworzyc nowa przestrzen - wybieramy ja
+  - Nastepnie "Create a new partition"
+  - Wiemy ze pojemnosc partycji swap powinna wynosic 1.5x pojemnosci pamieci RAM
+    tak wiec odejmujemy od 34.4 GB, 6 GB dla partycji swap i wpisuje 28.4 GB
+  - Potem wybieram typ - primary
+  - Lokalizacja - Beginning
+  - Reszte zostawiamy tak jak jest i zatwierdzamy
+  - Nastepnie 6 GB wolnego miejsca konfigurujemy w podobny sposob ale zamiast typu primary wybieramy - logical
+    oraz use as: swap area
+  - Po wykonaniu tych czynnosci mozemy zatwierdzic zmiany
+  - Pozniej instalator pyta nas o dodatkowy software, odznaczam tutaj GNOME oraz Debian desktop enviroment 
+    zostawiam tylko standard system utiliteis
+  - Nastepnie potwierdzamy istalacje bootloader'a GRUB
+  
+Gotowe system jest gotowy do pracy! :)
