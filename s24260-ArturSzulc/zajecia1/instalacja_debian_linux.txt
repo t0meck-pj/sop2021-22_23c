@@ -14,7 +14,7 @@ Nastepnie wszedłem w ustawienia:
 - w zakładce sieć - podłączyłem się do mostkowej karty sieciowej aby można było się połączyć przez SSH
 
 Nastepnie uruchomiłem maszyne:
-- w pierwszym oknie- wybrałem zwykły install bez graphical install by zainstalować system niegraficzny
+- w pierwszym oknie- wybrałem zwykły install bez graphical install by zainstalować system bez nakładki graficznej
 - w drugin oknie wybrałem jezyk angielski 
 - nastepnie wybrałem serwer polski do m.in. strefy czasowej
 - nastepnie system kodowania utf_8
