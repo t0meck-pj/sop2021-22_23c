@@ -1,0 +1,32 @@
+
+INSTALACJA - DEBIAN 
+
+Zacząłem od sworzenia wirtualnej maszyny: wybrałem system operacyjny jaki chce zainstalować [debian],
+pamięc ram [8GB], typ pliku z dyskiem twardym [VDI - VitualBox Disk Image], 
+potem z kolei należy wybrać czy rozmiar maszyny na dysku twardym ma być ograniczony czy nie,
+na końcu zostaje wybranie lokalizacji naszej maszyny na dysku. 
+
+Nastepnie wszedłem w ustawienia: 
+- w zakładce system - odznaczyłem "Floppy" oraz "Dysk Twardy" gdyż nie jest póki co wymagany 
+(instalacja wykonuje się z plyty),
+- w zakładce pamięc - w polu `storage devices/kontroler: IDE` przy braku dodałem obraz systemu 
+[wczesniej pobrałem obraz .iso]
+- w zakładce sieć - podłączyłem się do mostkowej karty sieciowej aby można było się połączyć przez SSH
+
+Nastepnie uruchomiłem maszyne:
+- w pierwszym oknie- wybrałem zwykły install bez graphical install by zainstalować system niegraficzny
+- w drugin oknie wybrałem jezyk angielski 
+- nastepnie wybrałem serwer polski do m.in. strefy czasowej
+- nastepnie system kodowania utf_8
+- keymap [american_english]
+- nastepnie wybranie hostname
+- nazwe domeny dałem pusta, nie jest mi potrzebna 
+- wybralem haslo dla root'a
+- nastepnie dodajemy uzytkownika dla systemu, nazwa i haslo
+- potem wybieramy partycje ja wybrałem: manual 
+- nastepnie wybrałem dysk i podzieliłem go na 2 patrycje podstawowa 28,4GB z lokalizacja Beginning oraz logiczna 6GB na której ustawiłem aby była swap area
+- instalacje podstawowego systemu
+- nastepnie wybranie serwera z paczkami wybrałem ten z gdańska
+- potem pokazuje ekran do wybrania dodatkowych programów - rezygnuje z GUI GNOME oraz Debian desktop enviroment. 
+- Nastepnie potwierdzamy istalacje bootloader'a GRUB
+- koniec instalacji, mozna zaczac prace z systemem 
