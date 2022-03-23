@@ -115,5 +115,37 @@ Niepłaczący królik, s25535
  =---------------------------------=
  ===================================
 
+================================================================================
+Właśnie zrobiłem zadania z zajęć nr.2
+
+ To było okropne. Pisanie skryptów przetwarzających teskt bez znajomości sed-a
+to pomyłka. Wielokrotnie musiałem wracać do poprzednich zadań i zmieniać opisy
+albo skrypty przez co mogą być trochę chaotycznie zrobione. Ostatnie zadania
+są w miarę napisane z kolei pierwsze przerabiane, albo przekombinowane.
+
+ Bardzo by mi pomogła informacja żeby najpierw zajrzeć do sed-a, a potem brać
+się za zadania, bo to znaczenie ułatwia sprawę i myślenie jak się zabrać za
+rozwiązywanie zadań; Chociaż umiejętność liczenia indeksu zmiennej się przyda.
+
+ Jestem jak komputer. Jadę z góry na dół z zadaniami. Nie wiedziałem co jest
+na dole, ale w przeciwieństwie do komputera wielokrotnie cofałem się z
+powrotem na górę bez wywołania.
+
+--------------------------------------------------------------------------------
+Podczas tłuamczenia zmiennych:
+
+ZM=$(ls -la)
+ZM=`ls -la`
+
+Myślałem że (`) czyli backtick, to aposrtof ('). Fakt moja wina że nie umiem
+czytać. Zrzucam jej ciężar na okulary i małą czcionkę. Można by zaznaczyć że
+to backtick, a nie apostrof by na początku przerabiania zadań się nie myliło.
+
+--------------------------------------------------------------------------------
+Dobrze. Pożaliłem się. I tak pewnie będzie coś do poprawy bo tego było za
+dużo by wyszło wszytko tak jak ma być. Przynajmniej już wiem coś o if-ach i 
+sed-a się tak nie boję. To nie zmienia faktu że do dobrego opanowania regexów
+nie doszedłem.
+
 
 
