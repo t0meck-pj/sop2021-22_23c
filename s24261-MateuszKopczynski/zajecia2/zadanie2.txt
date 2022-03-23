@@ -1,0 +1,5 @@
+Zmienna X nie wyswietli sie nam w podprocesie bash poniewaz nie jest ona tam dostepna.
+Aby miec do niej dostep powinnismy ta zmienna wyeksportowac poprzez dodanie "export" przed nazwa zmiennej
+
+Roznica pomiedzy " a ' jest taka, ze w apostrofach (') zmienna jest traktowana jako element tekstu i nie wyswietla nam
+tego co sie pod ta zmienna rzeczywiscie kryje. Natomiast w cudzyslowu (") wartosc zmiennje jest prawidlowo wyswietlana
