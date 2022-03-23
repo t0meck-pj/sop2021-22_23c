@@ -1,0 +1,49 @@
+================================================================================
+Zadanie 3:
+
+"Zobacz co przechowują zmienne i opisz jak rozumiesz uzyskany wynik.
+ Do czego on jest i kiedy może się wg Ciebie przydać"
+
+================================================================================
+PATH - Informuje w których katalogach znajdują się pliki wykonywalne, czyli
+ programy gotowe do uruchomienia. Wynik który uzyskuję to ścieżki do katalogów
+ oddzielone dwukropkiem. Potrafię sobie wyobrazić sytuację gdzie używamy tej
+ zmiennej by znaleźć scieżkę do katalogu zawierający konkretyn program.
+
+RANDOM - Podaje nam pseudolosową liczbę. Przydatne w skryptach gdzie potrzebna 
+ by była losowość na przykład przetasowywanie liczb by sprawdzić jak nasz
+ sorter liczb działa, albo gdzy trzeba wybrać kogoś na chybił trafił.
+
+PWD - Zmienna ta przechowuje ścieżkę bezwzględną do katalogu w którym się
+ ocenie znajdujemy. Dobre do skryptu określającego pozycję użytkownika.
+ "Znajdujesz się w $PWD, gdzie zawartość katalogu to... z czego tyle to
+ skrypty itd."
+
+PS1 - To było ciężkie do znalezienia o co tak właściwie chodzi i co to do
+ diabła jest. Nawet w tłumaczu wyskakiwało jako "zachęta". Taaa. Dużo mi to
+ powiedziało  (╯°□°)╯︵┻━┻. Na szuflandi; to jest prompt " sxxxxx@szuflandia: ".
+ Na VBox-owym terminalu to jest prompt: " ubuntu@bss-ubu1804: ".
+ "sxxxxx" to nazwa użytkownika, a "szfulandia" to nazwa hosta. Z tego co 
+ zrozumiałem prompt to ten tekst który pojawia się przed tym co mamy wpisać
+ i ma nas niejako zachęcać do pisania. Jak wyświetlimy sobie zawartość
+ zmiennej PS1 to wykakuje dużo znaczków. Głównie oznaczają w którym miejscu co
+  ma się pojawić i w jakim kolorze. 
+
+--------------------------------------------------------------------------------
+Nie ma sensu przepisywać całej składni. Dobry poradnik jest w internecie.
+https://www.arturpyszczuk.pl/prompt.html
+
+--------------------------------------------------------------------------------
+
+USER - Zawiera naszą nazwę użytkowika. Skrypty mogą wołać nas po imieniu,
+ albo robić dziennik, który użytkownik co zrobił.
+
+HOSTNAME - Nazwa hosta czyli ta nadana komputerowi. Jego głównym celem jest
+ unikalna identyfikacja w sieci. Czyli można śledzić co, który komputer zrobił.
+
+OSTYPE - typ systemu - zawiera informację z jakiego systemu korzystamy.
+ Może być przydatne przy sprawdzaniu zgodności programów/skryptów z danym
+ systemem operacyjnym podczas ich pisania.
+
+
+

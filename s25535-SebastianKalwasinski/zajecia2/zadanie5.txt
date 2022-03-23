@@ -1,0 +1,189 @@
+================================================================================
+Zadnianie 5 - Napisz skrypty
+================================================================================
+Ten plik tekstowy jest opisem skryptów z przerywnikami. Odczytanie ich może
+być problematyczne. Całe nieopisane skrypty znajdują są w oddzielnym katalogu.
+--------------------------------------------------------------------------------
+Myślałem że wyrzucę komputer przez okno próbując robić te zadania, że aż się
+IF-ów nauczyłem bo tak łatwiej mi było to robić. (╯°□°）╯︵┻━┻ .
+
+Skrypt 5a został wykonany jako drugi bo dla mnie był trudniejszy więc opis w
+5a może być uboższy niż w skrypcie 5b
+
+===============================================================================
+Skrypt 5a
+
+"Napisz skrypt, który będzie wypisywał taki tekst także dla imion męskich.
+Pomijamy zdrobnienia i imiona które się dziwnie odmieniają (na przykład Marek).
+Niech skrypt ten przyjmuje jeden argument - imię."
+
+===============================================================================
+Skrypt jest trochę bardziej skomplikowany niż na początku bo jak dałem mu 
+imię napisane z małej litery "ala" to dostawałem "ęla" w związku z czym
+napisałem trochę frankensztajnów, (zmienne: z,a,b) które bez opisu ciężko
+zrozumieć.
+
+--------------------------------------------------------------------------------
+Początek skryptu - Skrypt uruchamiany przez bash-a
+
+#!/bin/bash
+
+--------------------------------------------------------------------------------
+Przypisywanie konkretnych wartości do zmiennych:
+
+x - Iloś znaków w imieniu. Z punktu widzenia zadania zbędne, ale wolę mieć
+    bo kto mi zabroni. Wiem że imie jest poprawnie odczytywane.
+y - Pozycja ostatniego znaku w imieniu, czyli ten, który będziemy podmieniać
+    w przypadku imion żeńskich.
+
+z - Zmienna przechowująca ostatni znak imienia.
+
+a - Zmienna przechowująca imię bez ostatniego znaku imienia.
+
+W - Zmienna przechoująca upiększacz z kolorkami by łatwiej się patrzyło na
+    wynik działania skryptu.
+
+b - Zmienna przechowująca zmieniony na właściwy ostatni znak imienia.
+
+x=${#1}
+y=$((x-1))
+z=${1:y:1}
+a=${1:0:y} 
+W="\e[36m------------------------------------------------\e[0m"
+
+--------------------------------------------------------------------------------
+Konkretna część skryptu wykona się w zależności czy to imie żeńskie lub męskie.
+
+1.Jeżeli ostatni znak imienia to "a" wykonaj zamianę dla żeńskiego imienia.
+2.Jeżeli ostatni znak imienia to "n" dodaj na końcu "a" by się zgadzało
+3.Jeżeli żaden z warunków nie został spełniony wyświetl komunikat że skrypt
+  jest za bardzo ograniczony. (Ale Na potrzeby ćwiczenia starczy).
+
+W przypadku żeńskiego imienia wyświetla składankę dwóch zmiennych.
+Prawie całe imie + Ostatni znak imienia = całość.
+
+echo -e $W
+if [ "$z" == "a" ];then
+	b=${z/a/ę}
+	echo "Imie przed zmianą: "${1}
+	echo "Imie po zmianie: "${a}${b}
+	echo -e "\e[36mWYNIK:\e[0m ${1} ma kota a kot ma ${a}${b}."
+
+elif [ "$z" == "n" ];then
+	echo "Imie przed zmianą: "${1}
+	echo "Imie po zmianie: "${1}a
+	echo -e "\e[36mWYNIK:\e[0m ${1} ma kota a kot ma ${1}a."
+
+else
+	echo -e "To imie \e[31mnie pasuje\e[0m do skryptu"
+fi
+echo -e $W
+
+
+================================================================================
+Skrypt 5b. b jak bardziej opisany. 
+
+"Napisz skrypt, który wczyta jako argument jakiś tekst.
+
+  Skrypt ten wypisze kolejno:
+1. Pierwszy znak z argumentu
+2. Ostatni znak z argumentu
+3. Zamieni w argumencie tekst SOP na tekst poniżej
+   (zastosuj echo z przełącznikiem -e)"
+
+================================================================================
+Początek skryptu, informacja o tym że uruchamiamy go przez bash-a
+
+#!/bin/bash 
+
+---------------------------------------------------------------------------------
+-Zmienna x ma przechowywać długość tekstu/argumentu który podajemy skryptowi.
+-Zmienna y przechowuje pozycję ostatniego znaku tekstu.
+ (Długość całego tekstu odjąć jeden. Odejmujemy 1 ponieważ zapis pozycji zaczyna 
+ się od 0 nie od 1. Jeśli tekst miałby długość 6 to w pozycja ostatniego znaku
+ wynosi 5. Wcześniejsza informacja o prostej artmetyce procentuje.
+
+x=${#1}
+y=$((x-1))
+
+---------------------------------------------------------------------------------
+Wypisujemu dane po kolei używając naszych zmiennych.
+Sposób zapisu pozycji w Stringu to:
+
+${Zmienna przechowująca tekst :
+ Numer pozycji w tym tekscie :
+ Długość tekstu którą chcemy uzyskać licząć od podanej pozycji włącznie.
+
+Np. ${1:0:1} - zmienna $1 : Pozycja 0, czyli pierwszy znak : chcemy jeden znak
+
+Zmienne $1, $2, $3 itd. To zmienne które podajemy skryptowi jako argumenty.
+Są tworzone dla nas automatycznie. Jeżeli podajemy dwa argumenty to będziemy
+mieli dwie takie zmienne z wartościami.
+
+echo "Długość tekstu: "${#1}
+echo "Pierwszy znak tekstu: "${1:0:1}
+echo "Ostatni znak tekstu: "${1:y:1}
+
+---------------------------------------------------------------------------------
+Teraz warunek który sprawdza czy tekst, który dajemy skryptowi to "SOP".
+Jeśli tak to wyświetla "SOP" zielonym kolorze.
+
+if [ "$1" = "SOP" ];then
+echo -e "\e[32mSOP\e[0m"
+fi
+
+
+Składnia if-a:
+
+if [ Warunek ]; then
+"JakieśPolecenie"
+fi
+ 
+(Spacje między warunkiem mają znaczenie! Cudzysłów też! To bardzo ważne inaczej
+skrypt źle wykona if-a albo go nie wykona wcale z czym się długo męczyłem.)
+
+================================================================================
+No i jeszcze trzeba odpowiedzieć na pytanie:
+"Czy jest to możliwe w czysytm bash-u?" (Zmiana imienia).
+No nie wiem muszę się zastanowić czy używanie if-ów przed ich poznaniem na
+zajęciach to oszustwo czy nie. Da się, ale to łopatologia. (=^ェ^=) Happy koteł.
+
+================================================================================
+EDIT: Skrypt 5b Lepsza wersja
+
+Wykonałem ten skrypt jeszcze raz. Jak sprawdzałem czy działa to spacje między
+tekstem powodowały że nie działa poprawnie. Skończyło się na tym że napisałem go
+na nowo tym razem z użyciem sed-a, o którym wiem więcej niż za pierwszym razem.
+
+================================================================================
+#!/bin/bash
+
+x=`echo $* | sed "s/\s//g"`
+y=${#x}
+z=$((y-1))
+
+echo 'Twój tekst: '$* | sed s/SOP/`echo -e "\e[32mSOP\e[0m"`/g
+echo "Ilość wyrazów:" ${#*}
+echo "Pierwszy znak:" ${x:0:1}
+echo "Ostatni znak:" ${x:z:1}
+
+x - Wyjście polecenia echo wyświetlające argumenty przekazywane do skryptu
+    jako cały jeden String przepuszczone przez sed-a w celu usunięcia 
+    znaku białego spacji. Backslash s (\s to zapis spacji w sedzie),
+    a nie podając nic jako zamiennik, sed po prostu usunie naszą spację.
+
+y - Długość tekstu po usunięciu spacji.
+
+z - Pozycja ostatniego znaku naszego stringa. 
+
+
+$* | sed s/SOP/`echo -e "\e[32mSOP\e[0m"`/g  - pokoloruj każdy "SOP" 
+
+${#*} - Takie złożenie. $* to jeden string ze wszytkimi argumentami,
+        a w połączeniu ze znakiem hash liczy ile mam ich łącznie.
+
+${x:0:1} - String x, pozycja pierwsza, chcę jeden znak.
+${x:z:1} - String x, pozycja ostatnia, chcę jeden znak.
+
+
+
