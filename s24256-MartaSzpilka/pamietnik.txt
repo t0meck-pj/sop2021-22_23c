@@ -13,3 +13,7 @@ Pamiętnik SOP 2022
 3. Nie do końca zrozumiałam partycje i przydzielanie pamięci. 
 4. Ilość ustawień do zmiany podczas instalacji.
 5. Dużo informacji do zapamiętania co gdzie i jak trzeba kliknąć i zmienić, bardzo żałuję, że robiłam to na komputerze uczelnianym. Teraz nie jestem pewna czy instalacja na moim koputerze dobrze przebiegła. 
+
+- 19.03.2022
+
+Nie było mnie na zajęciach, ćwiczenia odrobiłam w domu. Niestety jeszcze nie wiem jak tworzyć skrypty, ale na pewno po przejrzeniu wykładów nadrobię dany materiał. 
