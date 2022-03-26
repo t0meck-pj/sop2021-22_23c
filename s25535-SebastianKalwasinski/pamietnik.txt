@@ -26,7 +26,7 @@ jako main OS >:D.
  W zasadzie to pamiętnik powieniem pisać po zrobieniu zadań, ale wszystkie 
 ohy, ehy i ahy zostawię na opis instalacji debiana, którą pamiętam, ale nie
 na tyle dobrze by powiedzieć że umiem. Powoli przejdę się przez instalator
-i przeczytam o tym co tam znajdę. Pamiętam że na Pan prowadzący wykłady
+i przeczytam o tym co tam znajdę. Pamiętam że Pan prowadzący wykłady
 używa linuxa jako swojego domyślego systemu. Dodatkowo raczył się pochwalić
 jakie katalogi warto tam mieć, a jakie to dodatki. Przyda się przy instalacji
 debiana. Najwyżej go zaatakuję by mi pomógł z instalacją jak będzie problem :P.
@@ -58,6 +58,94 @@ Mam trochę w drugą stronę. Nie ignorowałem, a teraz zbieram moje procenty.
 Nowy semestr - nowe możliwości
 
 Zawsze twój s25535
+
+
+
+================================================================================
+2022-03-19
+
+Pamiętnika część druga.
+
+ Tego dnia przerabialiśmy skrypy w bashu. W zasadzie to był wstęp do 
+skryptowania. Poznawaliśmy spospoby zapisywania i zachowania zmiennych,
+jak się zabrać za tworzenie własnych skryptów i "co by się stało gdyby".
+ 
+ Jak podczas większości zajęć w głowie kłębiły się pomysły i wizje do czego
+można by używać narzędzi, które otrzymujemy w zasadzie na każdych zajęciach.
+Nie muszą to być jakieś ambitne pomysły. Ważne że nie ma stagnacji,
+główka pracuje, a na twarzy wykrzywia banan z nadzieją jak na tej wiedzy
+zyskać ile tylko się da.
+
+ Podczas zajęć parę razy padła prośba o udostępnienie notatek/screenów z
+dodatkowo rozszerzonych zagadnień m.in wcześniej wspomnianych gdybań.
+ To nie jest taki zły pomysł by robić print screena z tych:
+"Powtarzam trzeci raz, bo to ważne" 'mrug mrug'. (Czytaj: Na pewno będzie na
+kolokwium). Fakt że staram się zapisywać takie zdarzenia, albo robić zdjęcie,
+ale jestem tylko człowiekiem i niektóre rzeczy mi umykają. Szczególnie że
+zajęcia są z rana, gdzie szare komórki są jeszcze zaleciałe kurzem.
+ Czy to iście na łatwiznę? Jak komuś się nie chce to nawet i tych notatek
+nie zobaczy, bo przecież jakoś to będzie.
+
+ Tą razą (i tu nowość) dostaliśmy zadania na w zasadzie wszytkie zajęcia
+(Pojawią się w przyszłości) w formie strony internetowej. Podoba mi się to.
+To wydaje się bardziej profesjonalne i ustandaryzowane. Nie trzeba przewalać
+teams-ów/komputera w poszukiwaniu zadań. Wystarczy być zalogowanym i mieć link.
+
+ Oprócz zajęć/zadań można by też dodać tam instruktarze w formie filmu i inne
+przydatne matreriały, które jak narazie znajdują się na teamsach.
+
+Nie wieżę że to jest tylko strona dla nas.
+My jesteśmy tylko królikami doświadczalnymi, a jak takie rozwiązanie się
+przyjmie to skorzystają na tym nie tylko następni studenci jak i Pan prowadzący.
+W zasadzie, pewnie jest to główny powód takiego przekazu. Dać link i mieć
+spokój z problemami, gdzie, co, jak. Szkoda czasu na pierdoły :P . 
+Lepiej porobić ciekawsze rzeczy.
+
+Niepłaczący królik, s25535
+
+ ===================================
+ =---------------------------------=
+ =                                 =
+ =            ٩( ^ᴗ^ )۶            =
+ =                                 =
+ =  (\_/)       (\_/)       (\_/)  =
+ = (=:.:=)(\_/)(=:.:=)(\_/)(=;.;=) = 
+ =       (=;.;=)     (=:.:=)       = 
+ =                                 =
+ =---------------------------------=
+ ===================================
+
+================================================================================
+Właśnie zrobiłem zadania z zajęć nr.2
+
+ To było okropne. Pisanie skryptów przetwarzających teskt bez znajomości sed-a
+to pomyłka. Wielokrotnie musiałem wracać do poprzednich zadań i zmieniać opisy
+albo skrypty przez co mogą być trochę chaotycznie zrobione. Ostatnie zadania
+są w miarę napisane z kolei pierwsze przerabiane, albo przekombinowane.
+
+ Bardzo by mi pomogła informacja żeby najpierw zajrzeć do sed-a, a potem brać
+się za zadania, bo to znaczenie ułatwia sprawę i myślenie jak się zabrać za
+rozwiązywanie zadań; Chociaż umiejętność liczenia indeksu zmiennej się przyda.
+
+ Jestem jak komputer. Jadę z góry na dół z zadaniami. Nie wiedziałem co jest
+na dole, ale w przeciwieństwie do komputera wielokrotnie cofałem się z
+powrotem na górę bez wywołania.
+
+--------------------------------------------------------------------------------
+Podczas tłuamczenia zmiennych:
+
+ZM=$(ls -la)
+ZM=`ls -la`
+
+Myślałem że (`) czyli backtick, to aposrtof ('). Fakt moja wina że nie umiem
+czytać. Zrzucam jej ciężar na okulary i małą czcionkę. Można by zaznaczyć że
+to backtick, a nie apostrof by na początku przerabiania zadań się nie myliło.
+
+--------------------------------------------------------------------------------
+Dobrze. Pożaliłem się. I tak pewnie będzie coś do poprawy bo tego było za
+dużo by wyszło wszytko tak jak ma być. Przynajmniej już wiem coś o if-ach i 
+sed-a się tak nie boję. To nie zmienia faktu że do dobrego opanowania regexów
+nie doszedłem.
 
 
 

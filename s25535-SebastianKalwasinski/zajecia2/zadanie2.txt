@@ -1,0 +1,94 @@
+================================================================================
+Zadanie2 - Eksperymenty
+================================================================================
+x=tekst - Tworzymy zmienną i przypisujemy do niej wartość.
+echo $x - Wypisujemy zawartość zmiennej na okno terminala. Znak dolara oznacza
+          że odwołujemy się do wartości zmiennej, którą ta zmienna przechowuje.
+bash    - Uruchamiamy nową powłokę. Teraz mamy drugiego basha uruchomionego/
+          zagnieżdżonego w pierwszym.
+echo $x - Ponownie wywołujemy zmienną by pokazała nam swoją zawartość.
+
+Problem jest taki że nic się nie dzieje. Dlaczego? Bo ta zmienna nie istnieje
+w powłoce basha w której obecnie się znajdujemy. Zmienną x którą utworzyliśmy
+można nazwać zmienną lokalną. Istnieje ona tylko w sesji basha gdzie
+została utworzona. Wychodząc zatem z obecnej sesji lub przechodząc do innej
+ta zmienna nie będzie dla nas dostępna. By mieć do niej dostęp musimy ją
+"wyeksportować" (polecenie: export x) i uczynić ją "zmienną globalną", która
+będzie dostępna dla wszytkich następnych sesji. Jeśli jej już nie chcemy
+to możemy ją nazad ulokalnić (export -n x), lub usunąć (unset x).
+
+================================================================================
+x=Tekst dłuższy - polecenia nie znaleziono
+echo $x         - zmienna x nie istnieje bo pierwsze polecenie się nie wykonało.
+
+Tworząc zmienną zawierającą spacje, liczby, lub znaki specjalne należy pamiętać
+aby odpowiednio używać znaku cudzysłowu, lub apostrofu.
+
+Używamy:
+
+- Cudzysłowu w przypadku gdy chcemy mieć spacje i by bash interpretował
+znaki specjalne, a w przypadku zmiennych by odwoływał się do
+wartości jakie przechowują.
+
+- Apostrofu w przypadku gdy chcemy mieć spacje, ale by bash nie interpretował
+znaków specjalnych, a zmienne były wypisywanie, a nie interpretowane.
+
+Gdy chcemy aby zmienna przchowywała napis w apostrofie, lub cudzysłowiu, możemy
+użyć ich zamiennie. Np.
+
+x='"tekst"'
+x="'teskt'"
+
+Użycie cudzysłowu/apostrofu dwa razy nie zadziała. Cudzysłów w cudzysłowie 
+jest ignorowany, a co za tym idzie nie jest zapisywany do ziennej.
+
+================================================================================
+1. x="Tekst 1"
+   y="tekst:$x"
+   echo "$y"      tekst:Tekst 1
+
+2. y='tekst:$x'
+   echo "$y"      tekst:$x 
+
+3. y=tekst:$x 
+   echo "$y"      tekst:Tekst 1 
+
+Co tu się dzieje?
+
+W przypadku nr.1 używamy cudzysłowu zatem zmienna x jest interpretowana i
+wypisywana jest wartość którą przechowuje.  
+
+W przypadku nr.2 używamy apostrofu zatem zmienna x nie jest interpretowana i
+wypisywany jest dolar i nazwa zmiennej.
+
+W przypadku nr.3 nie używamy ani apostrofu ani cudzysłów, ale i tu duże ALE,
+przypisując wartość do zmiennej nie używamy znaku spacji zatem cudzysłów
+nie jest konieczny.
+
+================================================================================
+A=Ala
+echo $A ma kota, a kot ma ${A}ę 
+
+Ala ma kota a kot ma dolara, jest bogatszy niż ja.
+W życiu dolara w dłoni nie trzymałem.
+
+To zadanie jest narazie pominięte.
+
+================================================================================
+Różnica między $* $@ .
+
+Różnią się gdy dodamy cudzysłów "$*"  i  "$@".
+
+Bez cudzysłowu uzyskujemy od nich te same wartości, ale z cudzysłowem
+"$*" wypisuje nam dokładnie to co podaliśmy skryptowi jako argumenty w postaci
+pojedyńczego stringa. Nie dzieli ich.
+
+Z kolei "$@" Dzieli nasze argumenty na poszczególne stringi chyba że jakiś 
+argument był podany w cudzysłowie, wtedy jest traktowany jako jeden string i
+wypisywany całości.
+
+$* Przechowuje wartość w postaci jednego stringa.
+$@ Przechowuje wartość w postaci tablicy stringów.
+
+
+
