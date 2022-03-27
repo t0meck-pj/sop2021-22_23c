@@ -21,9 +21,9 @@ Szczerze mowiac, jestem mega ciekawy co bedziemy robic na nastepnych zajeciach :
 24-03-2022
 
 Na poprzednich zajeciach zajmowalismy sie omawianiem podstawowej wiedzy, ktora przyda nam sie do pisania wlasnych
-skryptow w bashu. Nauczylismi sie miedzy innymi w jaki sposob napisac skrypt ktoy wypisze nam cos na ekranie, 
+skryptow w bashu. Nauczylismi sie miedzy innymi w jaki sposob napisac skrypt ktory wypisze nam cos na ekranie, 
 przechowa jakies wartosci w zmiennych lub jak eksportowac zmienne do podprocesow. Dowiedzielismy sie tez troche o 
 zmiennych powloki (np. $PWD, $PATH itp) a na koniec zaczelismy omawiac operacje na ciagach znakow i na wyrazeniach
 regularnych (regex) konczac. Te cwiczenia byly naprawde ciekawe, poniewaz uswiadomily mi ze napisanie prostego skryptu
-w bashu nie jest wcale takie trudne jak myslalem. Fakt, ze od razu nie napisze jakiegos kombajna ale nawet takie 
+w bashu nie jest wcale takie trudne jak myslalem. Fakt, ze od razu nie napisze jakiegos kombajnu ale nawet takie 
 proste wypisanie w konsoli "Hello world" powoduje banana na twarzy :)

@@ -3,9 +3,10 @@ Instalacja systemu linux na maszynach wirtualnych
 -------------------------------------------------
 
 - Na poczatek pierwsze co musimy zrobic to pobrac obraz instalacyjny systemu (w tym przypadku Debiana).
-  Tak wiec wchodzimy na oficjalna strone Debiana i zaraz po wejsciu na nia obraz systemu powinien zaczac sie pobierac
-  automatycznie. Jest to oczywiscie najprostrzy sposob pobrania obrazu instalacyjnego, jednkaze na stronie mamy rowniez mozliwosc
-  pobrania obrazu dla systemow 64-bitowych oraz 32-biotwych.  
+  Tak wiec wchodzimy na oficjalna strone Debiana i zaraz po wejsciu na nia klikamy przycisk "Download", ktory powinien przekierowac nas na strone gdzie pobieranie powinno zaczac sie automatycznie. 
+  Jest to oczywiscie najprostrzy sposob pobrania obrazu instalacyjnego, jednkaze na stronie mamy rowniez mozliwosc
+  pobrania obrazu dla architektur 64-bitowych oraz 32-bitowych. Ja wybralem wersje "Maly plik obrazu", ktory mozemy szybko pobrac ale poza nia jest rowniez
+  "Kompletny plik obrazu", ktory zawiera wiecej pakietow i ulatwia instalacje bez polaczenia internetowego, "Debian live" - czyli taki, ktorego nie musimy instalowac (wystarczy naped USB) oraz zostaje nam jeszcze "Debian dla chmury" - czyli do wiekszych rozwiazan np. firmowych. 
 
 - Jezeli udalo nam sie juz pobrac obraz instalacyjny Debiana to teraz mozemy spokojnie przejsc do stworzenia naszej
   maszyny wirtualnej. Wiec wlaczamy program VirtualBox i kilkamy w ikonke "Nowa". Zaraz po tym powinno nam sie
@@ -17,7 +18,7 @@ Instalacja systemu linux na maszynach wirtualnych
   pliku wirtualnego dysku. Tutaj wybieramy domyslna opcje czyli "VDI". W nastepnym kroku wybieramy dynamiczne przydzielanie
   i przechodzimy dalej. Teraz powinno sie nam pojawic okienko z mozliwoscia wybrania lokalizacji oraz rozmiaru dysku
   Osobiscie polecam ustawic rozmiar dysku na 32,00 GB - mysle ze powinno nam wystarczyc.
-  I w taki o to prosty sposob udalo sie nam stworzyc maszyne wirtualna!
+  I w taki oto prosty sposob udalo sie nam stworzyc maszyne wirtualna!
 
 - Nastepna rzecza, ktora musimy zrobic to skonfigurowanie naszej maszyny. A wiec kilkamy zolte kolo zebate aby wejsc
   w ustawienia naszej maszyny. Nastepnie wybieramy pierwsza zakladke "Ogolne" i wchodzimy w zaawansowane - tutaj dla
@@ -26,7 +27,7 @@ Instalacja systemu linux na maszynach wirtualnych
   liste urzadzen do bootowania oraz ich kolejnosc. Tutaj wybieram odznaczam wszystkie urzadzenia poza napedem optycznym.
   Nastepna zakladka do ktorej musimy przejsc jest "Pamiec". Tutaj kilkamy w kotroler IDE oraz jako naped optyczny wybieramy 
   nasz obraz Debiana. Nastepna wazna zakladka jest "Siec" tutaj mozemy wybrac interesujaca nas karte sieciowa. 
-  Jednak domsylna karta NAT powinna tutaj nam spokojnie wystarczyc wiec pomine ten krok i przejde dalej. 
+  Jednak domyslna karta NAT powinna tutaj nam spokojnie wystarczyc wiec pomine ten krok i przejde dalej. 
   Mysle, ze nasza maszyna jest teraz poprawnie skonfigurowana i gotowa do uruchomienia
 
 - Po uruchomieniu maszyny powinno nam sie ukazac okno z wyborem opcji instalacji. Z racji, ze naszym celem jest 
@@ -36,13 +37,13 @@ Instalacja systemu linux na maszynach wirtualnych
   - Potem pojawia sie nam oknko gdzie musimy wybrac nasza lokalizacje - wybieramy other/Europe/Poland
   - W nastepnym oknie wybieramy kodowanie en_US.UTF-8
   - Pozniej w kroku Keymap to use - wybieramy American English
-  - Potem musimy wprowadzic nazwe naszego komputer (hostname) - ja zostawie tak jak jest czyli "debian"
+  - Potem musimy wprowadzic nazwe naszego komputera (hostname) - ja zostawie tak jak jest czyli "debian"
   - Wprowadzenie nazwy domeny mozemy pominac
   - W nastepnym kroku podajemy haslo roota
   - Potem podajemy nazwe uzytkownika (nie roota)
   - W nastepnym kroku zostajemy zapytani o wykorzystanie przestrzeni dyskowej - wybieramy Manual
   - Potem wybieramy nasz wirtualny dysk (w moim przypadku SCSI3)
-  - Powinna nam sie stworzyc nowa przestrzen - wybieramy ja
+  - Powinna nam sie stworzyc nowa pusta tablica partycji - wybieramy ja
   - Nastepnie "Create a new partition"
   - Wiemy ze pojemnosc partycji swap powinna wynosic 1.5x pojemnosci pamieci RAM
     tak wiec odejmujemy od 34.4 GB, 6 GB dla partycji swap i wpisuje 28.4 GB

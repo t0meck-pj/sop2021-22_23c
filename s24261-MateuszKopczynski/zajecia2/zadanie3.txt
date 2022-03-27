@@ -1,13 +1,13 @@
 PATH - zmienna srodowiskowa, ktora okresla katalogi, ktore sa przeszukiwane w celu znalezienia komendy - moze sie
        nam ona przydac jesli chcemy poznac nazwy katalogow lub tez dopisac nowy katalog z ktorego nasz system bedzie
        korzystal w poszukiwaniu wpisanych przez nas komend
-RANDOM - zmienna, ktora generuje nam losowa liczbe - zmienna ta moze byc przydatna podczas tworzenia roznych programow
+RANDOM - zmienna, ktora generuje nam losowa liczbe - zmienna ta moze byc przydatna podczas tworzenia roznych skryptow
          w ktorych to bedziemy potrzebowac na szybko wygenerowac jakas liczbe
 PWD - zmienna, ktora wyswietla nam miejsce w ktorym sie aktualnie znajdujemy a dokladniej to sciezke do katalogu w
-      ktorym aktualnie jestesmy - zmienna ta moze sie przydac rowniez przy tworzeniu jakis programow, ktore moglyby
+      ktorym aktualnie jestesmy - zmienna ta moze sie przydac rowniez przy tworzeniu jakis skryptow, ktore moglyby
       np. zapisywac jakies pliki w katalogu w ktroym sie aktualnie znajdujemy
 PS1 - zmienna srodowiskowa, ktora zawiera sekwencje znana jako "znak zachety". Zawartosc tej zmiennej moze sie
-      sie roznic nieco miedzy dystrybucjami. Znak zachety to znak lub sekwencja znakow wskazujaca gotowosc komputera
+      roznic nieco miedzy dystrybucjami. Znak zachety to znak lub sekwencja znakow wskazujaca gotowosc komputera
       do przyjmowania polecen. Taka sekwencja zwykle zawiera inforjmacje takie jak:
       - nazwa biezacego katalogu
       - sciezka dostepu do biezacego katalogu
