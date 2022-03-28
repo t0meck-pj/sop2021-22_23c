@@ -1,4 +1,22 @@
 ------------------------------------------------------------------------------------------------------------
+26-03-2022
+
+Drogi pamietniku,
+
+w zeszly weekend odbyly sie kolejne zajecia SOP. Tym razem mielismy okazje poznac, co to sa skrypty. 
+Na zajeciach prowadzacy pokazal nam jak dzialaja skrypty oraz w jaki sposob je uruchomic. Dowiedzilismy sie, jak uzywac
+zmiennych oraz w jaki sposob je przekazac do kolejnego procesu bash'a, aby tam tez mozna bylo je wykorzystac.
+Podstawa jest to, aby utworzyc plik .sh (dla Unix/MacOS), a dla windows powershell .ps1.
+Kolejna wazna rzecza jest SHEBANG. Pierwsza linijka w skrypcie, ktora wskazuje jaki interpreter uzyc do jego uruchomienia.
+
+Po spelnieniu tych dwoch warunkow, mozna pisac skrypty. Wystarczy do tego najzwyklejszy notatnik. 
+Po dawce teoretycznej, przeszlismy do zadan, ktore dokonczylem w domu, wraz z zadaniem domowym. 
+Mozna je znalezc w pliku "zadania.txt"
+
+Do nastepnego,
+JW. 
+
+------------------------------------------------------------------------------------------------------------
 17-03-2022
 
 Drogi pamietniku,

@@ -1,42 +1,133 @@
 Na pierwszych zajęciach z SOP, uczyliśmy sie, jak skonfiruować ręcznie maszynę wirtualna z Linuxem Debian.
 
 Pomijając ściągniecie obrazu Debiana, trzeba najpierw stworzyć nowa maszynę wirtualna. Wybieramy w VM opcje 
-„Nowy” i wybieramy odpowiednie, interesujące nas opcje, np. Pojemność RAM do użycia, pojemność wirtualnego 
-dysku twardego. Po dodaniu maszyny, musimy jeszcze wejść w ustawienia VM i tam pozmieniać niektóre rzeczy.
+„Nowy” i wybieramy odpowiednie, interesujące nas opcje, np.
+-Pojemność RAM do użycia - 2048mb jest wystarczajace na nasze uzytkowanie
+-utworzenie wirtualnego dysku twardego, a tu mamy 3 opcje do wyboru
+	-VDI-VirtualBox Disk Image - standardowy format dysku od Oracle. Majac juz jakis obraz dysku z 
+         innej maszyny, mozna go przerobic na VDI, jednak w druga strone mozna napotkac trudnosci
+	-VHD-Virtual Hard Disk-format dysku od Microsofta, wspierany rowniez przez VM. Ten typ dysku 
+         moze byc rowniez zamontowany bezposrednio do Windowsa, bez zadnych dodatkowych programow.
+	-VMDK-Virtual Machine Disk-format od firmy VMware. Charakteryzuje sie wydajnym uzyciem 
+         pamieci. Po wybraniu rodzaju dysku wirtualnego, musimy jeszcze wybrac typ przydzielnia 
+miejsca na nim. Do wyboru jest opcja dynamiczna i stala. Stala oznacza, ze jesli przeznaczymy z 
+hostujacego dysku 10gb pamieci, to tyle od poczatku bedzie zajete. Tworzenie i usuwanie pliokw nie 
+bedzie mialo wplywu na ta pojemnosc. Za to opcja dynamiczna, pozwala na ustalenie maksymalnej 
+pojemnosci dysku wirtualnego, ale w rzeczywistosci, tyle ile zabiera VM, tyle jest zabierane z 
+hostujacego dysku. Dysk staly jest szybszy niz dynamiczny, za to dynamiczny nie zabiera hostujacej 
+pamieci i pozwala na latwe przenoszenie go na inna maszyne.
+W nastepnym kroku wybieramy pojemnosc dysku wirtualnego. VM sugeruje 8GB, ale my dodalismy jeszcze 2GB 
+do tego.
+
+Po dodaniu maszyny, musimy jeszcze wejść w ustawienia VM i tam pozmieniać niektóre rzeczy.
 
 Prowadzący zasugerował nam ustawienia, które mamy wprowadzić. Miedzy innymi w sekcji „System” wylaczyc 
-bootowanie z Floppy i Dysku twardego (maszyna szuka z tych miejsc obrazu/pliku z systemem i uruchamia go z 
-niego. Jako, ze my mamy obraz plyty tylko, nie sa one potrzebne). Zostawiamy sam napęd (czyli obraz płyty 
-systemu). Do tego można dostosować RAM, ilość procesorów użytych i opcjonalnie włączenie rozszerzenia PAE/NX. 
-W sekcji „pamięć” trzeba dodać do napędu wirtualnego, nasza wirtualna płytę.
+bootowanie z Floppy i Dysku twardego, aby skorzystac z z opcji klawisza F12 przy pierwszym 
+uruchamianiu Linuxa i zobaczyc jak wyglada ekran boot menu (maszyna szuka z tych miejsc obrazu/pliku z 
+systemem i uruchamia go z niego). Zostawiamy sam napęd (czyli obraz płyty systemu). Do tego można 
+dostosować RAM, ilość procesorów użytych i opcjonalnie włączenie rozszerzenia PAE/NX. W sekcji 
+„pamięć” trzeba dodać do napędu wirtualnego, nasza wirtualna płytę.
 
 Po tej pierwszej konfiguracji samej maszyny, możemy przejść do konfiguracji samego Linuxa. Właczamy maszynę. 
 Jak jesteśmy jeszcze przy logo VM, można wcisnąć F12 i wybrać, skąd VM ma pobrać obraz. Przechodzimy do 
 ręcznej instalacji Debiana.
 
 
--Najpierw wybieramy odpowiednie języki i regiony Później konfigurujemy siec: Najpierw wybieramy hostname - 
-nazwa systemu, jaka będzie widzieć sieć. Domene omijamy.
+-Najpierw wybieramy odpowiednie języki i regiony. Wybieramy angielski (jezyk akurat zawsze wybieram 
+angielski, jako, ze cale IT jest po angielsku, to warto trzymac sie tego standardu. Latwiej cos 
+znalezc w razie problemu. Poza tym, "spolszczenie" nie zawsze moze byc poprawne, co moze prowadzic do 
+bledow (nie wiem czy to odpowiada na pytanie Pana, "dlaczego" ten jezyk, ale to jest moje 
+uzasadnienie, dlaczego ja zawsze tak wybieram.). Na kolejnym ekranie do wyboru jest region. Polski tam 
+nie ma, wiec trzeba wybrac opcje "other->Europe->Poland". Region pozwala ustawic odpowiednia strefe 
+czasowa oraz "system locale". Jest to zbior zmiennych definujacych jezyk,kraj,czas,kodowanie znakow, 
+numeracje, walute i inne rzeczy zwiazane z podanym regione, ktore beda wgrane do powloki. Niestety po 
+wybraniu Polski, instalator informuje nas, ze dla tego regionu nie ma zadnych ustawien lokalnych, wiec 
+trzeba wybrac inne, z listy. Wybieramy UK. Klawiature rowniez UK. Polskie znaki moga jedynie sie 
+przydac przy pisaniu tekstu. Do konfiguracji i tak ich nie uzywamy.  
+
+-Później konfigurujemy siec: 
+Najpierw wybieramy hostname - nazwa systemu, jaka będzie widzieć sieć. Domene omijamy.
 
 -Teraz trzeba nadać hasło dla root’a, a potem je jeszcze powtorzyc.
--Następnie nazwać user’a i ustawić mu hasło. - Wieza123
+-Następnie nazwać user’a i ustawić mu hasło.
 
--Następnie trzeba ustalic partycyje. Wybieramy opcje Guided - use entire disk. Dostepna jest rowniez opcja z 
-LVM (logical Volume Manager), ktora sluzy na tworzenu dysku wirtualnego z roznych urzadzen pamieci.
+-Następnie trzeba ustalic partycyje. Wybieramy opcje Guided - use entire disk. Dostepna jest rowniez 
+opcja z LVM (logical Volume Manager), ktora sluzy na tworzenu dysku wirtualnego z roznych urzadzen 
+pamieci. Trzecia opcja jest "encrypted LVM". Ta opcja, tworzy partycje /boot (dla bootloader'a), 
+partycje firmware (zawierajaca podstawowe procedury obslugi) oraz zaszyfrowana partycje LVM. W niej 
+znajduje sie /root, /swap i inne dodatkowe partycje. Wszystki zaszyfrowane.Czwarta i ostatnia opcja 
+jest "Manual": 
+- Klikajac w nia, najpierw trzeba wybrac nasz dysk. Przechodzimy dalej i potwierdzamy 
+komunikat. 
+-Wybieramy nasz dysk ponownie (oznaczony napisem FREE SPACE) 
+-Create new partition 
+-Podajemy wielkosc nowej partycji - bedzie to /boot, wiec 1GB jest wystarczajacy 
+-Wybieramy typ. Do wyboru Primary i Logical. Primary zawiera system operacyjny i sluzy do boot'owania, 
+a Logical do przechowywania danych. 
+-Wybieramy Primary 
+-Instalator pyta nas, gdzie w pamieci ma sie ona znajdowac. Na poczatku, czy na koncu. Jako, ze jest to 
+partycja uruchamiajaca system, musi byc na poczatku. 
+-nastepnie przechodzimy do okna ustawien partycji. Tutaj ustawiamy "mount point" - jest to folder, do 
+ktorego jest przypisywana cala hierarchia plikow systemu. W tym przypadku, wybieramy /boot. 
+-Teraz trzeba nadac nazwe tej partycji w opcji "Label". Wpisujemy boot. 
+-Teraz mozemy klikac zakonczenie konfiguracji partycji. 
+-W nowym oknie widzimy nasza swtorzona partycje + pozostala, wolna czesc dysku. 
+-W tym momencie mozemy sie zajac partycjami logicznymi, przy pomocy LVM. Najpierw musimy go 
+skonfigurowac. 
+-Klikamy tak i wybieramy opcje utworzenia grupy. 
+-nadajemy nazwe i potem zaznaczamy nasza wolna czesc dysku. 
+-Teraz bedziemy tworzyc kolejne partycje. Przy kazdej proces jest prawie ten sam, czyli klikamy opcje 
+utworzenia nowej partycji, pozniej musimy dodac mount point, nazwac ja w opcji Label. 
+UWAGA: zaczynamy od partycji SWAP i pojemnosc nadajemy jej wg ilosci RAM+500mb. W ten 
+sposob dodajemy wszystkie wymagane partycje i ich rozmiar (wedle wymogow swoich/firmy/instytucji). 
+Partycje do stworzenia to: home, root, tmp, var, var-log, var-mail (i swap ktory juz mamy). Var jest 
+podzielony na log, mail i zwykyl var, zeby oddzielic logi i maile od calej partycji (powod byl podany 
+wyzej w tekscie). 
+-Po utworzeniu partycji, trzeba je skonfigurowac. Zaczynamy od SWAP, gdzie wybieramy 
+opcje "use as" SWAP AREA. Przy kazdej innej partycji wybieramy use as "Ext4..." mount point 
+odpowiadajacy nazwie partycji oraz Label, jako nazwe partycji. UWAGA: dla var/log i var/mail musimy 
+podac mount point recznie i po prostu wpisac tam odpowiednio var/log, var/mail. Po ukonczonej 
+konfiguracji, zjezdzamy na sam dol menu i klikamy Finish partintioning. , potwierdzamy.
 
+Opcja wyboru Guided:
 -Wybieramy dysk do podziału (mamy tylko jeden do wyboru), a następnie typ podziału dysku.
 
--Możemy wybrać, aby wszystkie pliki były w jednym miejscu i osobno będzie swap. Swap to swojego rodzaju 
-"backup" dla zuzywanej pamieci RAM. Gdy pamiec RAM zacznie byc przeciazana, czesc aplikacji moze byc 
-uruchomiona na dysku swap, ktory odciazy RAM. Można dodatkowo wydzielić home (oddziela pliki systemowe od 
-plikow uzytkownika i konfiguracyjnych), tmp(miejsce na tymczasowe pechowywanie plikow przez system, aby 
-zmniejszych obciazenie innych dyskow), var(dla plikow ze zmiennym rozmiarem), można wydzielić sam home. 
-Wybrałem pierwsza opcje, czyli sam swap. Przechodzimy dalej.
+-Możemy wybrać, aby wszystkie pliki były w jednym miejscu i osobno będzie swap. Swap to swojego 
+rodzaju "backup" dla zuzywanej pamieci RAM. Gdy pamiec RAM zacznie byc przeciazana, czesc aplikacji 
+moze byc uruchomiona na dysku swap, ktory odciazy RAM. Można dodatkowo wydzielić home (oddziela pliki 
+systemowe od plikow uzytkownika i konfiguracyjnych), tmp(miejsce na tymczasowe przechowywanie plikow 
+przez system, aby zmniejszych obciazenie innych dyskow), var(dla plikow z roznym przeznaczeniem. 
+Niektore z nich moga byc udostepniane na innej partycyji, ale niektore nie. Gdyby nie bylo oddzielnej 
+partycji dla /var, tylko bylaby polaczona z partycja /usr, ktora w niektorych przypadkach moze byc 
+przeznaczona tylko do odczytu. Zablokowalibysmy niektore foldery, ktore sa uzywane przy roznych 
+operacjach, albo bootowaniu systemu. Na /var mozna rowniez wydzielic osobny folder na mail'e, wiec 
+jesli zapelnimy pamiec mailami, nie bedzie to mialo wplywu na wydajnosc systemu) lub można wydzielić 
+sam home. Wybrałem pierwsza opcje, czyli sam swap. Przechodzimy dalej.
 
-Po wstępnej instalacji, instalator poprosi nas o ustawienie mirror archive (serwer, ktory zawiera wszystkie 
-komponenty linuxa i inne powiazane programy). Wybieramy polskie + ftp.task.gda.pl. Ustawienia proxy omijamy i 
-przechodzimy dalej.
+Po wstępnej instalacji, instalator poprosi nas o ustawienie mirror archive (serwer, ktory zawiera 
+wszystkie pakiety linuxa i inne powiazane programy). Wybieramy polskie + ftp.task.gda.pl - jako, ze 
+jest najblizej mnie, to bedzie to skutkowalo dobra responsywnoscia w przypadku pobierania programow 
+Linuxowych. Ustawienia proxy omijamy i przechodzimy dalej.
 
-Zacznie sie instalacja software’u. Będzie można w międzyczasie wybrać, które z podanych programów chcemy 
-zainstalować. My akurat wybieramy tylko najbardziej podstawowa opcje (czyli rezygnujemy z GUI GNOME), 
-„standard system utilities”. Po tym, instalacja się dokończy i otrzymamy czysty linux.
+Zacznie sie instalacja software’u. Będzie można w międzyczasie wybrać, które z podanych programów 
+chcemy zainstalować. My akurat wybieramy tylko najbardziej podstawowa opcje (czyli rezygnujemy z GUI 
+GNOME), „standard system utilities”.
+
+Teraz odpowiadajac na dodatkowe pytania dotyczace bootloader. 
+1. Co to jest bootloader? 
+Jest to program rozpoczynajacy proces uruchamiania systemu operacyjnego. 
+2. Czy jest potrzebny? 
+Jest potrzebny, ale w skrajnym przypadku, mozna by go ominac. Kiedys uruchamialo sie recznie komputer. 
+Bootloader zwykle jest obecny przy systemach operacyjnych. Przy mniejszych urzadzeniach domowych, 
+raczej nie wystepuje. 
+3. Co sie stanie jesli sie go nie zainstaluje? 
+System operacyjny nie uruchomi sie sam. 
+4. Jaki bootloader ma byc zainstalowany? GRUB. 
+5. Czy sa alternatywy? 
+Sa, ale najpierw instalowany jest GRUB. 
+6. Gdzie mozna zainstalowac bootloader? (mbr i br) 
+Bootloader instaluje sie w mbr, czyli Master Boot Record. Jest to miejsce w pamieci, gdzie znajduje sie 
+sam program rozruchowy + tablica partycji, czyli informacja jak dzielone sa partycje. MBR to czesc Boot Record. 
+6. Gdzie nalezy zainstalowac bootloader w tej konfiguracji? 
+W naszej konfiguracji wybieramy po prostu nasz dysk. Alternatywna opcja jest jakies urzadzenie zewnetrzne, 
+ktore mozemy wskazac do instalcji bootloadera.
