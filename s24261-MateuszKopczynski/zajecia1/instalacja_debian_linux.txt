@@ -15,8 +15,18 @@ Instalacja systemu linux na maszynach wirtualnych
   maszyna chodzila plynnie i sprawnie. Nastepnym krokiem jest wybranie dynamicznie alokowanego dysku twardego VDI. 
   Innymi opcjami sa rowniez nie dodawanie dysku w ogole - jednak bez tego nasz system nie mialby prawa funkcjonowac 
   oraz dodanie istniejacego juz wirtualnego dysku. W nastepnym kroku powinno sie nam pojawic okienko z wyborem typu
-  pliku wirtualnego dysku. Tutaj wybieramy domyslna opcje czyli "VDI". W nastepnym kroku wybieramy dynamiczne przydzielanie
-  i przechodzimy dalej. Teraz powinno sie nam pojawic okienko z mozliwoscia wybrania lokalizacji oraz rozmiaru dysku
+  pliku wirtualnego dysku. Tutaj wybieramy domyslna opcje czyli "VDI". VDI wybieramy dlatego ze jest to natywny ulubiony
+  format dysku dla oprogramowania VirtualBox. Poza VDI mamy rowniez do wyboru VHD (czyli format dysku rozwijany przez Microsoft,
+  natywny dla oprogramowania wirtualizacyjnego VirtualPC oraz Hyper-V) a takze VMDK (czyli rodzaj dysku charakterystyczny dla oprogramowania
+  wirtualizacyjnego VMWare).
+  W nastepnym kroku pojawiaja sie nam dwie opcje do wyboru a mianowicie czy chcemy miec staly rozmiar dysku czy moze
+  dynamicznie przydzielany. W pierwszej opcji (staly) jesli wybierzesz rozmiar dysku np 10 GB to od razu stworzy nam sie 
+  plik o takiej wielkosci dla wirtualizatora, nawet jesli maszyna ma tylko 500 MB danych.
+  Natomiast w dynamicznym przydzielaniu na poczatku tworzony jest niewielki plik wielkoscia przyblizony do faktycnzej ilosci danych w maszynie wirtualnej.
+  Automatycznie jego rozmiar jest zwiekszany w miare przybywania danych az do zadeklarowanej wczesniej granicy (czyli np. 10 GB)
+  Z racji ze nasza maszyna bedzie sluzyla do celow testowych to wybieramy przydzielanie dynamiczne, jednak jesli chcemy na codzien korzystac z tej maszyny
+  to polecalbym wybrac opcje "staly", poniewaz dysk dynamiczny jest minimalnie wolniejszy przez wykonywanie dodatkowych operacji zwiekszania pliku dysku. 
+  Teraz powinno sie nam pojawic okienko z mozliwoscia wybrania lokalizacji oraz rozmiaru dysku.
   Osobiscie polecam ustawic rozmiar dysku na 32,00 GB - mysle ze powinno nam wystarczyc.
   I w taki oto prosty sposob udalo sie nam stworzyc maszyne wirtualna!
 
@@ -25,6 +35,8 @@ Instalacja systemu linux na maszynach wirtualnych
   wygody mozemy sobie ustawic "wspoldzielony schowek", ktory ulatwi nam przerzucanie plikow miedzy naszym systemem
   a maszyna wirtualna. Nastepnie przechodzimy do drugiej zakladki jaka jest "System". Tutaj mozemy sobie ustawic
   liste urzadzen do bootowania oraz ich kolejnosc. Tutaj wybieram odznaczam wszystkie urzadzenia poza napedem optycznym.
+  Wybralem tak aby skorzystac z opcji klawisza F12 przy uruchamianiu maszyny w celu zajrzenia do boot menu. Ustawienie samego napedu 
+  spowoduje ze powinno zaladowac nam obraz plyty systemu.
   Nastepna zakladka do ktorej musimy przejsc jest "Pamiec". Tutaj kilkamy w kotroler IDE oraz jako naped optyczny wybieramy 
   nasz obraz Debiana. Nastepna wazna zakladka jest "Siec" tutaj mozemy wybrac interesujaca nas karte sieciowa. 
   Jednak domyslna karta NAT powinna tutaj nam spokojnie wystarczyc wiec pomine ten krok i przejde dalej. 
@@ -33,28 +45,51 @@ Instalacja systemu linux na maszynach wirtualnych
 - Po uruchomieniu maszyny powinno nam sie ukazac okno z wyborem opcji instalacji. Z racji, ze naszym celem jest 
   instalacja bez interfejsu graficznego to wybieramy po prostu "install". 
 
-  - Nastepnie powinno nam sie pojawic okno z wyborem jezyka wyswietlanego w systeimie - wybieramy domyslny English
+  - Nastepnie powinno nam sie pojawic okno z wyborem jezyka wyswietlanego w systeimie - wybieramy domyslny English, poniewaz
+    wiekszosc rzeczy w interniecie na temat Linuxa jest w tym jezyku np. dokumentacje, fora, grupy gdzie ludzie wymieniaja sie doswiadczeniami.
+    Wybierajac j. polski ograniczamy sobie "pole widzenia" i wersja w j. polskim nie zawsze musi byc poprawna, przez co nie zawsze dostaniemy interesujace nas wyniki wyszukiwania.
   - Potem pojawia sie nam oknko gdzie musimy wybrac nasza lokalizacje - wybieramy other/Europe/Poland
   - W nastepnym oknie wybieramy kodowanie en_US.UTF-8
   - Pozniej w kroku Keymap to use - wybieramy American English
   - Potem musimy wprowadzic nazwe naszego komputera (hostname) - ja zostawie tak jak jest czyli "debian"
   - Wprowadzenie nazwy domeny mozemy pominac
-  - W nastepnym kroku podajemy haslo roota
-  - Potem podajemy nazwe uzytkownika (nie roota)
-  - W nastepnym kroku zostajemy zapytani o wykorzystanie przestrzeni dyskowej - wybieramy Manual
+  - W nastepnym kroku podajemy haslo roota, zaraz potem poprawnie je wprowadzamy
+  - Potem podajemy nazwe uzytkownika (nie roota) oraz haslo
+  - W nastepnym kroku zostajemy zapytani o wykorzystanie przestrzeni dyskowej - wybieramy Manual. (Poza Manual dostepne opcje to:
+      LVM sluzaca do tworzenia dysku wirtualnego z roznych urzadzen w pamieci. 
+      Encrypted LVM, ktora tworzy zaszyfrowana partycje LVM (znajduja sie tu m.in. /root oraz /swap)  
   - Potem wybieramy nasz wirtualny dysk (w moim przypadku SCSI3)
   - Powinna nam sie stworzyc nowa pusta tablica partycji - wybieramy ja
   - Nastepnie "Create a new partition"
-  - Wiemy ze pojemnosc partycji swap powinna wynosic 1.5x pojemnosci pamieci RAM
+  - Wiemy ze pojemnosc partycji swap powinna wynosic 1.5x pojemnosci pamieci RAM (jest to stara zasada, w ktorej pamieci RAM bylo mniej a jadra systemowe nie byly tak wydajne i dobre jak te dzisiejsze.
+    Wielkosc partycji swap powinna w duzej mierze zalezec od obciazenia przez ktore nasz system przejdzie podczas uzytkowania.)
     tak wiec odejmujemy od 34.4 GB, 6 GB dla partycji swap i wpisuje 28.4 GB
-  - Potem wybieram typ - primary
+  - Potem wybieram typ - primary, ktory jest partycja rozruchowa i zawiera system operacyjny komputera. (Poaz tym typem mamy rowniez Logical, ktory to nie jest bootowalny i sluzy do przechowywaia danych. Kazdy dysk moze miec do czterech partycji podstawowych lub trzy partycje podstawowe i partycje rozszerzona. Partycje podstawowe maja numery od 1 do 4 natomiast logiczne od 5 w gore.) 
   - Lokalizacja - Beginning
-  - Reszte zostawiamy tak jak jest i zatwierdzamy
-  - Nastepnie 6 GB wolnego miejsca konfigurujemy w podobny sposob ale zamiast typu primary wybieramy - logical
+  - Wybieramy system plikow z podanych:
+      Ext4 - obecnie najpopularniejszy system plikow Linux, nastepca Ext3
+      Btrfs - zaprojektowany w celu usuniecia przeszkod napotykanych w systemach pamieci masowej (odpornosc na awarie)
+      JFS - jest to 64-bitowy system z kronikowaniem
+      XFS - 64-bitowy system z przeznaczeniem do uzycia go w systemie operacyjnym IRIX
+      FAT16 - jest to odmiana plikow FAT, ktora posluguje sie 16-bitowym adresowaniem przy dostepie do plikow
+      FAT32 - odmiana plikow FAT, nastepca FAT16
+      swap area - sluzy do tymczasowego przechowywania danych w sytuacji gdy ich ilosc przekracza zasoby pamieci RAM 
+      physical volume for encryption, RAID, LVM - przeznaczenie partycji na wczesniej wymienione
+      do not use the partition - nie uzywamy partycji 
+
+      Ja wybieram Ext4
+  - Potem wybieramy mount point czyli katalog tworzony jako czesc glownego systemu plikow - w moim przypadku /home
+  - Bootable flag zostawiamy na off, poniewaz jest to pierwsza partycja wiec system i tak domyslnie wybierze ja - flaga ta informuje glowny rekord rozruchowy, ktora partycje uruchomic    
+  - Zatwierdzamy zmiany  
+  - Nastepnie 6 GB wolnego miejsca konfigurujemy w podobny sposob ale zamiast typu primary wybieramy - logical (nie ma to wiekszego znaczenia ale logiczna moze byc troszke szybsza)
     oraz use as: swap area
   - Po wykonaniu tych czynnosci mozemy zatwierdzic zmiany
   - Pozniej instalator pyta nas o dodatkowy software, odznaczam tutaj GNOME oraz Debian desktop enviroment 
     zostawiam tylko standard system utiliteis
-  - Nastepnie potwierdzamy istalacje bootloader'a GRUB
+  - Nastepnie potwierdzamy istalacje bootloader'a GRUB, ktory jest programem rozruchowym, sluzacym do uruchomienia systemu operacyjnego
+    Bez niego nie jestesmy w stanie zaladowac systemu. Instalowany jest on w MBR (jest to miejsce w pamieci) MBR to czesc Boot Record'u.
+    Dla GRUB-a jest kilka alternatyw - udalo mi sie znalezc kilka np. rEFInd, GRUB4DOS, WINGRUB 
+
+
   
 Gotowe system jest gotowy do pracy! :)
