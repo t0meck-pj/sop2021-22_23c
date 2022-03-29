@@ -1,32 +1,71 @@
+INSTALACJA - DEBIAN
 
-INSTALACJA - DEBIAN 
+Zacząłem od stworzenia wirtualnej maszyny: 
+- wybrałem system operacyjny jaki chce zainstalować [debian], 
+- pamięć ram,
+- typ pliku z dyskiem twardym, spośród VDI (Virtual Disk Image), VHD (Virtual Hard Disk), 
+VMDK (Virtual Machine Disk) wybrałem VDI ponieważ nie będę zmieniał programu do wirtualizacji a ten format jest 
+najlepszy dla VirtualBox’a.  
+- potem z kolei należy wybrać czy stworzony plik wirtualnego dysku ma być dynamicznie przydzielany czy utworzony ze 
+stałym rozmiarem to znaczy że jeśli wybierzemy dynamicznie przydzielany to będzie on rósł do pewnego momentu jaki 
+ustali użytkownik (bardziej obciąża komputer), a gdy stały rozmiar to utworzy się od razu z maksymalna wielkością 
+jaka poda użytkownik.
+- na końcu zostaje wybranie lokalizacji naszego pliku dysku wirtualnego i jego rozmiar.
 
-Zacząłem od sworzenia wirtualnej maszyny: wybrałem system operacyjny jaki chce zainstalować [debian],
-pamięc ram [8GB], typ pliku z dyskiem twardym [VDI - VitualBox Disk Image], 
-potem z kolei należy wybrać czy rozmiar maszyny na dysku twardym ma być ograniczony czy nie,
-na końcu zostaje wybranie lokalizacji naszej maszyny na dysku. 
-
-Nastepnie wszedłem w ustawienia: 
+Następnie wszedłem w ustawienia:
 - w zakładce system - odznaczyłem "Floppy" oraz "Dysk Twardy" gdyż nie jest póki co wymagany 
-(instalacja wykonuje się z plyty),
-- w zakładce pamięc - w polu `storage devices/kontroler: IDE` przy braku dodałem obraz systemu 
-[wczesniej pobrałem obraz .iso]
-- w zakładce sieć - podłączyłem się do mostkowej karty sieciowej aby można było się połączyć przez SSH
+(instalacja wykonuje się z płyty),
+- w zakładce pamięć - w polu `storage devices/kontroler: IDE` przy braku dodałem obraz systemu 
+[wcześniej pobrałem obraz .iso]
+- w zakładce sieć - podłączyłem się do mostkowanej karty sieciowej aby można było się połączyć przez SSH
 
-Nastepnie uruchomiłem maszyne:
-- w pierwszym oknie- wybrałem zwykły install bez graphical install by zainstalować system bez nakładki graficznej
-- w drugin oknie wybrałem jezyk angielski 
-- nastepnie wybrałem serwer polski do m.in. strefy czasowej
-- nastepnie system kodowania utf_8
+Następnie uruchomiłem maszynę:
+- w pierwszym oknie, mamy opcje wybrania czy chcemy zainstalować system z nakładka graficzna GUI czy bez 
+(system tekstowy), jest również opcja zaawansowane opcje w których możemy wybrać m.in. graficzny/lub nie rescue mode 
+który służy do diagnostyki błędów/problemów w systemie operacyjnym, jeśli np. coś poszło nie tak podczas instalacji. 
+Jest również opcja instalowania eksperckiego który daje nam pełna kontrole nad instalatorem. 
+- w drugim oknie wybrałem język angielski który będzie moim podstawowym jezykiem w systemie oraz podczas instalacji
+- następnie wybrałem serwer polski do m.in. strefy czasowej
+- następnie system kodowania utf_8
 - keymap [american_english]
-- nastepnie wybranie hostname
-- nazwe domeny dałem pusta, nie jest mi potrzebna 
-- wybralem haslo dla root'a
-- nastepnie dodajemy uzytkownika dla systemu, nazwa i haslo
-- potem wybieramy partycje ja wybrałem: manual 
-- nastepnie wybrałem dysk i podzieliłem go na 2 patrycje podstawowa 28,4GB z lokalizacja Beginning oraz logiczna 6GB na której ustawiłem aby była swap area
-- instalacje podstawowego systemu
-- nastepnie wybranie serwera z paczkami wybrałem ten z gdańska
-- potem pokazuje ekran do wybrania dodatkowych programów - rezygnuje z GUI GNOME oraz Debian desktop enviroment. 
-- Nastepnie potwierdzamy istalacje bootloader'a GRUB
-- koniec instalacji, mozna zaczac prace z systemem 
+- następnie wybranie nazwy hosta
+- nazwę domeny dałem pusta, nie jest mi potrzebna
+- wybrałem hasło dla root'a
+- następnie dodajemy użytkownika dla systemu, nazwa i hasło
+- wybieramy rodzaj partycjonowania, do wyboru mamy: użycie całego dysku, sprawdzi się to gdy używamy jednego systemu 
+operacyjnego na jednym dysku, sprawdzi się to również gdy mamy dwa dyski pod dwa systemy operacyjne, jest również 
+opcja wybrania całego dysku oraz ustawienie LVM lub LVM szyfrowanego, LVM [Logical Volume Manage] zapewnia warstwę 
+abstrakcji między systemem operacyjnym a używanymi przez niego dyskami / partycjami. Partycje można wyodrębnić tak, 
+aby zawierały wiele dysków i partycji w jednym urządzeniu. System operacyjny nie rozróżnia różnicy bo LVM pokaże 
+tylko te dyski i patrycje które skonfigurowaliśmy, kolejna opcja jest  będziemy manualnie partycjonować nasz dysk wirtualny,
+- następnie wybrałem dysk i podzieliłem go na 2 partycje podstawowa 28,4GB z lokalizacja Beginning oraz logiczna 6GB na 
+której ustawiłem aby była swap area, dlatego ze kiedy ram jest już przepełniony a chcemy otworzyć jakiś nowy proces, 
+przeniesie nam dane z ramu do swap area i pozwoli na otworzenie nowego bez usuwania dotychczasowych programów. 
+Jeśli chodzi o system plikow to sa: 
+	- ext4: najnowsza wersja rozszerzonego systemu plików, charaktetyzuje się wieksza pojemnością, jak również 
+	prealokacja oraz ma kompatybilność wsteczna można zamontować ext3 czy ext2
+	- ext3 i ext2 sa poprzedniczkami ext4 
+	- btrfs – umozliwia np. kopiowanie przy zapisie, umożliwia dodawanie/usuwanie urzadzen blokowych w locie, 
+	możliwość zmiany partycji online.
+	- XFS warto dodać że maksymalny rozmiar woluminu jest ograniczony do 16 milionów terabajtów.
+	- fat16 - odmiana systemu plików FAT, która posługuje się 16-bitowym adresowaniem przy dostępie do plików. 
+	Stworzony do obsługi pierwszych dysków twardych, gdyż jego poprzednik FAT12 był niewystarczający.
+	- fat32 - odmiana systemu plików FAT, po raz pierwszy zastosowany w systemie operacyjnym Windows 95 OSR2, 
+	jego poprzednikiem jest FAT16.
+	- możemy również użyć go jako fizyczny wolumin dla szyfrowania, dla RAID’u oraz dla LVM’a
+	- bootable Flag jest używane do skazania która partycja ma się uruchomić jako pierwsza – zostawiłem 
+	wyłączona ponieważ moja partycja podstawowa i tak jest jako pierwsza bootowana.
+- instalacja podstawowego systemu
+- następnie wybranie serwera z paczkami dla naszego systemu spośród wszystkich wybralem ten który jest najbliżej 
+mojego położenia ftp.task.gda.pl ale również można wybrać podstawowy dla debiana czyli deb.debian.org 
+- następnie dostajemy okienko służące do dostrojenia naszego systemu operacyjnego dla naszych opcji, do wyboru mamy
+różne nakładki graficzne na system oraz wybór czy nasz system ma działać jako web serwer czy ssh serwer. Z powodu 
+ze mój system ma być systemem tekstowym zostawiam tylko `standard system utilities`.
+
+- Następnie potwierdzamy instalacje bootloader'a GRUB. Bootloader to specialny system opercyjny który ładuje się do 
+pamięci roboczej komputera po jego uruchomieniu. Bootloader uruchamia nam system operacyjny, bez niego ciężko będzie
+go odpalić. Gdy go nie zainstalujemy nasz system nie będzie mógł się odpalić. Jeśli chodzi o alternatywy dla GRUBa 
+to mamy BURG, GAG, LILO, Syslinux.
+
+- koniec instalacji, można zacząć prace z systemem
+
