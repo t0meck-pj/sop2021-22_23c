@@ -88,7 +88,7 @@ Instalacja systemu linux na maszynach wirtualnych
     zostawiam tylko standard system utiliteis
   - Nastepnie potwierdzamy istalacje bootloader'a GRUB, ktory jest programem rozruchowym, sluzacym do uruchomienia systemu operacyjnego
     Bez niego nie jestesmy w stanie zaladowac systemu. Instalowany jest on w MBR, czyli Master Boot Record lub BR czyli Boot Record.
-    Dla GRUB-a jest kilka alternatyw - udalo mi sie znalezc kilka np. rEFInd, GRUB4DOS, WINGRUB (prowadzacy wspomial rowniez o LILO)
+    Dla GRUB-a jest kilka alternatyw - udalo mi sie znalezc kilka np. rEFInd, GRUB4DOS, WINGRUB (prowadzacy wspomnial rowniez o LILO)
 
 
   
