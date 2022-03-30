@@ -1,4 +1,4 @@
-## Pamietnik zjazd - 1
+## Pamietnik zjazd - 1 - 2022.03.17
 
 ### Opis zajęć
 Instalowalismy debiana. Powoli i pokolei bylo tlumaczone co i jak trzeba kliknac. Jaka opcja co daje.
