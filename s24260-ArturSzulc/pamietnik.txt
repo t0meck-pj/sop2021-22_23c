@@ -11,3 +11,11 @@ same a nie na obu rozłożone.
 Zrozumiałem, że dla spokoju ducha lepiej zainstalować system raz i porządnie niż bezmyślnie przeklikiwać kolejne 
 okna instalatora. 
 Wiem, że jeszcze daleka droga przede mną jeśli chodzi o instalacje systemów operacyjnych.
+
+2022-03-29
+
+Na ostatnich zajeciach poznaliśmy jak tworzy sie skrypty w bashu, pierwszym zadaniem było wyświeltenie czegos na ekranie z pliku, 
+trzeba pamietac o shebangu (#!/bin/bash), oraz o zostawieniu wolnej linii na końcu pliku. Dowiedzieliśmy się cennych informacji o zmiennych systemowych
+m.in. $PWD która zawiera ścieżke katalogu w którym aktualnie się znajdujemy. Rozmawialiśmy o tym w jaki sposób działa (dziedziczenie) w bashu, czyli 
+jeśli zainicjujemy zmienna i otworzymy nowego basha to możemy się odwołać do zmiennej zainicjowanej we wcześniejszym bashu. Nigdy nie miałęm styczności z 
+programowaniem skryptowym w bashu, zauważyłem duze podobieństwo jeśli chodzi o programowanie w innych technologiach. 
