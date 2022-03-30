@@ -1,0 +1,128 @@
+Zadanie 1.
+
+#!/bin/bash
+echo -e "Witamy w terminalu"
+
+-----------------------------
+Zadanie 2.
+
+Sekwencja 
+X=test
+echo $X
+bash
+echo $X
+
+Przypisalem wartosc "tekst" do zmiennej X. Przy pierwszym wywolaniu echo, pojawilo sie w
+konsoli wywolane "teskt". Potem wpisujac "bash" otworzylem nowy proces bash'a i tam
+ponownie sprobowalem wpisac echo $X. Zmienna jest jednak pusta, poniewaz nie zostala
+ona wyexportowana z poprzedniego procesu basha. X jest tekstem tylko w pierwszej 
+powloce. W drugiej zmienna X nie posiada zadnej wartosci.
+
+Sekwencja
+x=Tekst dluzszy
+echo $X
+
+Jest to bledne przypisanie wartosci do zmiennej. Gdy chcemy przypisac jakas wartosc,
+ktora posiada kilka slow, powinnismy uzyc " lub '
+" - uzywamy w przypadku, gdy chcemy aby powloka odczytywala i interpretowala znaki 
+specjalne, a zmienne wypisywala jako ich wartosci
+' - uzywamy gdy chcemy, aby cala zmienna byla tylko ciagiem znakow
+
+To tez obrazuje wlasnie kolejna sekwencja z X i Y. Dodatkowo jako przyklad jest przypisanie
+do zmiennej wartosci tekst:$X bez " lub '. Ostatnia opcja, to ciag znakow, wiec powloka traktuje
+to jako calosc.  Dwukropek pozwala oddzielic wartosci od siebie. Mozna dzieki temu
+przypisac do zmiennej kilka wartosci.
+
+-----------------------------
+Zadanie 3.
+
+PATH - wyswietla sciezki do folderow zawierajacych programy/funkcje/komendy, ktorych uzywa bash
+	    - doczytalem o tej funkcji-mozemy tam dodawac swoje skrypty i bedzie mozna je 
+		wywolac, nie muszac podawac ich lokalizacji. Mozna rowniez przypisac do PATH swoj 
+                dodatkowy folder, gsdzie przetrzymujemy swoje skrypty.
+RANDOM - wyswietla losowa liczbe
+		- z tego co doczytalem- podstawowy zakres, to 0-32768, ale mozna ograniczyc zakres
+		losowania przy pomocy %modulo, np. echo $(($RANDOM%5))
+		-przy tworzeniu skryptow, czasem moze sie przydac losowa liczba. Nie trzeba pisac 
+		specjalnego programu, tylko mozna uzyc tej zmiennej
+PWD - przechowuje sciezke w ktorej akutalnie sie znajduje w terminalu
+		-jesli bede chcial sie odwolac w skrypcie do aktualnego katalogu roboczego, nie
+		musze modyfikowac skryptu za kazdym razem, tylko wystarczy wejsc do danego katalogu
+		i tak jedynie wlaczyc skrypt
+PS1 - nie wiem
+		-po doczytaniu- odpowiada za znak zachety, dla usr domyslnie $, a dla root "-". Mozna
+		ten znak zmodyfikowac 
+		- mozna zmodyfikowac znak zaczety na inny format. Zamiast user@host, mozna 
+		uzyc sobie np. aktualnej daty i user'a.
+USER - zmienna wyswietlajaca nazwe user'a
+HOSTNAME - zmienna przechowywujaca nazwe host'a .
+OSTYPE - zmienna przechowywujaca rodzaj systemu operacyjnego
+
+Ostatnie 3 zmienne moga sie przydac juz przy samej konfiguracji sieci w firmie. Piszac skrypty
+mozna je tworzyc bardziej uniwersalne, uzywajac tych zmiennych, zamiast zmieniac je przy kazdym
+uzyciu dla innego usera, na innym host'cie lub innym OS.
+
+---------------------------------
+Zadanie 4. 
+
+Wywolanie samej komendy echo $ZM (gdzie ZM to np. ls -l), nie wyswietli sie w tej samej formie 
+jak bysmy wpisali samo (ls -l). Bierze sie to z tego, ze echo wywoluje tylko to co sie znajduje 
+w zmiennej nie uzywajac zadnego formatowania.
+
+Aby zmienna $ZM, wyswietlala ta sama forme co ls -l, wystarczy wpisac w konsoli sama zmienna 
+z $, czyli $ZM.
+
+----------------------------------------
+Zadanie 5.
+
+5a.1)
+#!/bin/bash
+A=Ala
+echo "$A ma kota, kot ma ${A%a}e"
+
+5a.2) 
+#!/bin/bash
+if [  "${1: -1}"  =  "a" ]; then
+echo "$1 ma kota, kot ma ${1/%a/e} "
+else 
+echo "$1 ma kota, kot ma $1a"
+fi
+
+Do innych imion meskich tez bym mozna probowac w bashu, ale trzeba podac wiecej warunkow.
+Nie do wszystkich imion wystarczy dopisac "a" na koncu, zeby zdanie bylo poprawne. Takze,
+odpowiadajac na pytanie, w podanym przykladzie jest to mozliwe, ale aby dostosowac to do
+wszystkich imion, moze to byc bardziej pracochlonne. SED jest bardziej zaawansowanym
+narzedziem, wiec moze tam istnialyby funkcje, ktore pozwola rozwiazanie tego problemu.
+
+5.b)
+
+1.
+#!/bin/bash
+echo ${1:0:1}
+
+2.
+#!/bin/bash
+echo ${1: -1}
+
+3. Nie jestem pewien do konca, czy o to chodzilo, biorac pod uwage "trudnosc" poprzednich 
+zadan. Ale tez nie do konca wiem, jak inaczej zrozumiec to polecenie.  
+#!/bin/bash
+echo -e "\e[32m$1\e[0m"
+
+--------------------------------------
+Zadania 6.
+
+#!/bin/bash
+A=Ala
+echo  -e "$A ma kota, kot ma $A" | sed 's/a$/e/g'
+
+---------------------------------------
+Zadanie 7.
+
+Wywolanie skryptu  (bedac w folderze ze skryptem) to: 
+./skrypt.sh "$(<tekst.txt)"
+
+#!/bin/bash
+"tekst.txt"=$1
+echo "$1" | sed -e "s/JAKUB/\x1b[31mJAKUB\x1b[0m/g"
+
