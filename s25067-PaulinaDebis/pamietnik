@@ -1,0 +1,41 @@
+Semestr 2 / Zjazd 1 / 5-6.03
+
+Na tych zajeciach przechodzilismy krok po kroku przez instalacje programu Debian.
+Nie będę ukrywać, dla mnie to dość skomplikowane, ale jako pracę domową mamy opisać krok po kroku proces instalacji
+co myślę, że jest baaardzo trudnym zdaniem, ale jeżeli zrobi się to dokładnie i ze rozumieniem to bede o krok bliżej do 
+zostania informatykiem :)
+
+
+Semestr 2 / Zjazd 2 / 19-20.03
+
+Dzisiaj uczylismy sie podstaw skryptowania w bashu. Calkiem fajne to bylo, duzo logicznych rzeczy, nie prostych ale do zrozumienia.
+
+Wstawiam ponizej moje notatki z zajec, niech beda w jednym miejscu:
+
+Skryptowanie w bashu czesc 1.
+pierwsza linijka jest super specjalna, shebang
+
+trzeba dodac bit wykonywalnosci poprzez komende ls -lha zeby zadzialalo (musi byc -x) ale mozna to obejsc robiac to przez powloke
+tworzymy podproces basha w ktorym ten skrypt sie wykonuje
+
+ZM- zmienna
+echo $ZM- dolar pozwala nam odwolac sie do wartosci zmiennej
+./ przed kroliczek oznacza po prostu sciezke wzgledna, uruchamianie skryptu
+
+"source" = "."
+ogarnac co oznacza komenda source ss64.com/bash/source.html
+
+echo $$ - PID bierzacego procesu basha
+
+wlaczanie basha - bash
+wylaczanie basha - exit
+export ZM (bez dolara)
+unsent - usuniecie zmiennej
+export -n - usuniecie exportu zmiennej ale nie usuniecie samej zmiennej
+
+' ' zczytywany jest jako zwykly ciag znakow
+w " " ogarnia dzialania $ itp.
+
+wyjscie 0 true, 1 false
+
+ 
