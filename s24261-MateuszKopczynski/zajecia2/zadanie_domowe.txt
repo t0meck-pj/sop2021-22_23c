@@ -1,0 +1,3 @@
+Mateusz pisze jakis testowy tekst aby sprawdzic czy imie Mateusz wystepuje w tym tekscie. 
+Mateusz jeszcze tego nie wie ale imie Mateusz znajduje sie w tym tekscie. Mateusz pewnie sie zdziwi :)
+

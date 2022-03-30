@@ -1,0 +1,44 @@
+================================================================================
+Zadanie 6.
+================================================================================
+A=Ala
+echo $A ma kota a kot ma $A | sed s/a$/ę/ 
+
+- s/ - Zastąp wyrażenie/znak.(Substitude)
+- a -  Który zgadza się ze znakiem "a"
+- $  - Który znajduje się na końcu stringa. (Jego ostatni znak)
+- /ę - Zamień go na "ę"
+- /g - Globalnie. Szukanie dotyczy całego stringa. Sed zmieni tylko ostatnie
+       dopasowanie jakie znalazł w całym tekscie jaki otrzymał.
+       Zatem pierwsza Ala zostanie niezmieniona.
+
+Składnia sed-a:  ZróbCoś / ZTym / Na to / NaPodanychWarunkach
+
+
+Innye przykłady:
+--------------------------------------------------------------------------------
+echo Bójny las | sed s/ó/u/  = "Bujny las"
+
+--------------------------------------------------------------------------------
+echo Bójny las rozjechał bóldożer | sed s/ó/u/
+
+= "Bujny las rozjechał bóldożer"
+
+Tylko pierwsze dopasowanie się liczy. Nadal jest błąd Naprawmy to.
+
+--------------------------------------------------------------------------------
+echo Bójny las rozjechał bóldożer | sed s/ó/u/g
+
+= "Bujny las rozjechał buldożer"
+
+Dodając global serch sprawiamy że każde "ó" zmieni się na "u"
+
+--------------------------------------------------------------------------------
+echo Bójny las rozjechał buldożer | sed s/buldożer/rower/
+
+= "Bujny las rozjechał rower"
+
+================================================================================
+
+
+
