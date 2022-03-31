@@ -1,14 +1,28 @@
 Zadanie: instalacja debiana
 
-Pierwszy krok to odpowiednie skonfigurowanie VM VirtualBoxa, czyli stworzenie maszyny, dysku wirtualnego, dobranie odpowiedniego typu dysku (u mnie jest to VDI, poniewaz nie planuje uzywac innego oproramowania do wirtualizacji) oraz jego wielkosc (u mnie jest to 20 GB). Nalezalo wczesniej pobrac plik z obrazem instalacji systemu a nastepnie podpiac go w odpowienim miejscu. Plik podpinamy w ustawieniach naszego systemu w VM (settings > storage > controler: IDE > optical drive > plik_z_systemem.iso). W ten sposob mozemy niejako zasymulowac wlozenie plytki z systemem do napedu.
+Pierwszy krok to odpowiednie skonfigurowanie VM VirtualBoxa, czyli stworzenie maszyny, dysku wirtualnego, dobranie odpowiedniego typu dysku (u mnie jest to VDI, poniewaz nie planuje uzywac innego oproramowania do wirtualizacji) oraz jego wielkosc (wybieramy czy chcemy żeby dysk zostal utworzony ze stalym rozmiarem, czy chcemy zeby rozmiar zwiekszal sie dynamicznie az do osiagniecia ustalonej wczesniej wartosci).
 
-Nastepnie uruchamiamy maszyne i wybieramy opcje install (pozwoli to na glebsze skonfigurowanie systemu). Na poczatku wybieramy jezyk w jakim chcemy obslugiwac nasz system (angielski w moim przypadku, poniewaz w razie problemow latweiej znalezc odpowiedz w internecie) a nastepnie region w ktorym sie znajdujemy (np. other > Europe > Poland). Dalej wpisujemy nazwe hosta, haslo dla roota oraz tworzymy nowego uzytkownika.
+Spośród dostępnych opcji typu dysku mamy do wyboru:
+- VDI (VirtualBox Disk Image) - format VirtualBoxa, dziala z nim najlepiej
+- VHD (Virtual Hard Disk) - obraz dysku twardego w formacie Microsoftu
+- VMDK (Virtual Machine Disk) - format uzywany przez VMware
 
-Kolejny krok to stworzenie partycji i przydzial miejsca na dysku. Na poczatku tworzymy partycje podstawowa "primary" (mozna ich miec maks. 4 lub 3 partycje podstawowe i jedną partycję rozszerzoną z wieloma partycjami logicznymi). Przydzielamy jej odpowiednia ilosc miejsca oraz wybieramy interesujace nas funkcje. Reszte wolnego miejsca na dysku mozemy przydzielic nowej partycji logicznej. Tworzymy ja podobnie jak podstawowa tylko wybieramy opcje "logical".
+Nalezalo wczesniej pobrac plik z obrazem instalacji systemu a nastepnie podpiac go w odpowienim miejscu. Plik podpinamy w ustawieniach naszego systemu w VM (settings > storage > controler: IDE > optical drive > plik_z_systemem.iso). W ten sposob mozemy niejako zasymulowac wlozenie plytki z systemem do napedu.
+
+Nastepnie uruchamiamy maszyne i mamy 2 opcje instalacji: graphical install (instalator graficzny) oraz install (ta opcja pozwoli na glebsze skonfigurowanie systemu). Na poczatku wybieramy jezyk w jakim chcemy obslugiwac nasz system (angielski w moim przypadku, poniewaz w razie problemow latweiej znalezc odpowiedz w internecie) a nastepnie region w ktorym sie znajdujemy (np. other > Europe > Poland). Dalej wpisujemy nazwe hosta, haslo dla roota oraz tworzymy nowego uzytkownika.
+
+Kolejny krok to stworzenie partycji i przydzial miejsca na dysku.
+
+Pojawiają się takie opcje partycjonowania dysku:
+	- Guided - use entire disk; caly dysk zostanie przeformatowany i zostana na nim automatycznie utworzone partycje
+	- Guided - use entire disk and set up LVM; tworzą się partycje zarzadzane przez LVM - na dzialajacym systemie mozna przesówac partycje, zmieniać ich rozmiar itp.
+	- Guided - use entire disk and set up encryptedLVM; to samo co wyzej, tylko partycje sa szyfrowane
+	- Manual - reczne ustawienie partycji
+ 
+Wybieramy opcję manual, pozwoli to na ręczny wybrór rozmiaru partycji oraz systemu plików (Ext4 to opcja natywna dla Linuxa). Za pomocą tej opcji możemy utworzyc 4 partycje podstawowe i nieograniczona ilosc partycji logicznych.
 
 Dalej wybieramy region oraz serwer z ktorego bedziemy pobierac aktualizacje/programy. Wybor odpowiedniego serwera pozwoli na szybsze pobieranie plikow.
 
-Na koncu pozostaja nam dodatkowe opcje do zainstalowania np. serwer SSH oraz mozliwosc instalacji GRUBA (taki jakby program posredniczacy miedzy UEFI a systemem, za jego 
-pomoca mozemy m.in. wybrac wersje kernela). Sam GRUB służy do uruchamiania systemów operacyjnych, jest najpopularniejszym bootloaderem (oprogramowaniem uruchamianym podczas startu komputera, służącym do załadowania systemu operacyjnego do pamięci operacyjnej) na dystrybucjach linuxa. Nie, GRUB nie jest potrzebny, potrzebny jest za to wspomniany wczesniej bootloader. Alternatywami dla GRUBA moga byc m. in. LILO, BURG, Syslinux.
+Na koncu pozostają nam dodatkowe opcje do zainstalowania (służy do tego tasksel) np. serwer SSH, abyśmy mogli zdalnie połączyć się z komputerem oraz mozliwosc instalacji GRUBA (taki jakby program posredniczacy miedzy UEFI a systemem, za jego pomoca mozemy m.in. wybrac wersje kernela). Sam GRUB służy do uruchamiania systemów operacyjnych, jest najpopularniejszym bootloaderem (oprogramowaniem uruchamianym podczas startu komputera, służącym do załadowania systemu operacyjnego do pamięci operacyjnej) na dystrybucjach linuxa. Nie, GRUB nie jest potrzebny, potrzebny jest za to wspomniany wczesniej bootloader. Alternatywami dla GRUBA moga byc m. in. LILO, BURG, Syslinux.
 
 
