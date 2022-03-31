@@ -1,0 +1,13 @@
+Tworzymy plik o rozszerzeniu sh (np. zadanie1.sh)
+- nadajemy uzytkownikowi uprawnienia do wykonywania (chmod u+x zadanie1.sh)
+- w pliku wpisujemy:
+
+#!/bin/bash 
+echo -e "Witamy w terminalu"
+
+- uruchamiamy: ./zadanie1.sh 
+
+"./" - nie uruchamia sam w sobie tylko tworzy podproces basha w ktorym ten skrypt zostanie uruchomiony
+source ./skrypt.sh (albo ". skrypt.sh") - nie uruchamia sie w ten sposob skryptu, tylko do konfiguracji basha!
+
+"#!/bin/bash" - shebang, nie potrzebny teoretycznie, ale za to powershell (albo inny interpreter) załapie ze to skrypt z innej powłoki
