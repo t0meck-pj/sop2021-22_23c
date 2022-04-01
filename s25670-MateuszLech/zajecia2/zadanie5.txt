@@ -1,0 +1,15 @@
+Zadanie 5a - skrypt pszetżkole
+
+#!/bin/bash
+if [ ${1: -1} == "a" ]; then                    # sprawdzamy warunek czy ostatnia litera imienia to "a"
+  echo $1 ma kota, kot ma ${1:0:$((${#1}-1))}e  # dla imion zenskich podmienia ostatnia litere na "e"
+else
+  echo $1 ma kota, kot ma ${1}a      # dla imion meskich dodaje litere "a"
+fi
+
+Zadanie 5b
+
+#!/bin/bash
+echo ${1:0:1}							         # wywolanie pierwszego znaku
+echo ${1: -1}							         # wywolanie ostatniego znaku
+echo -e ${1/SOP/\\e[32mSOP\\e[0m}	 # jezeli w zmiennej pojawi sie SOP to zostanie pokolorowane na zielono
