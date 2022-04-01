@@ -1,0 +1,2 @@
+A=Ala										                       
+echo $A ma kota, kot ma $A | sed s/a$/ę/g      #kozystamy z programu sed ("s" oznacza zastepowanie znaku, "a$" ostatniego znaku stringa na "ę", "g" globalnie)
