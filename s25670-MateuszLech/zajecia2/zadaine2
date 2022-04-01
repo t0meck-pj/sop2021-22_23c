@@ -5,20 +5,20 @@ echo $X  - wypisujemy wartosc zmiennej; zmienna jest srodowiskowa, dlatego jest 
 
 #####################################			
 				
-X=Tekst dluzszy		- przypisujemy wartosc do zmiennej
-echo $X				    - wypisujemy wartosc zmiennej na ekranie
+X=Tekst dłuższy		- przypisujemy wartosc do zmiennej
+echo $X		        - wypisujemy wartosc zmiennej na ekranie
 	
 Do zmiennej zostanie zapisane tylko slowo "Tekst"
 Zeby zadzialalo musimy uzyc "" lub ''
 	
 #####################################
 	
-X="Tekst 1"			- przypisujemy wartosc do zmiennej X
-Y="tekst:$X"		- przypisujemy wartosc do zmiennej Y
-echo "$Y"			  - wypisujemy wartosc zmiennej Y (wypisane zostanie: "tekst:Tekst 1")
+X="Tekst 1"	- przypisujemy wartosc do zmiennej X
+Y="tekst:$X"	- przypisujemy wartosc do zmiennej Y
+echo "$Y"       - wypisujemy wartosc zmiennej Y (wypisane zostanie: "tekst:Tekst 1")
 	
 Y='tekst:$X'
-echo "$Y"			  - w tym przypadku wypisane zostanie "tekst:$X", poniewaz uzycie ' powoduje, ze tekst w srodku nie jest rozwijany
+echo "$Y"       - w tym przypadku wypisane zostanie "tekst:$X", poniewaz uzycie ' powoduje, ze tekst w srodku nie jest rozwijany
 	
 Y=tekst:$X
-echo "$Y"			  - wyswietlony napis bedzie taki sam jak przy uzyciu ""$
+echo "$Y"       - wyswietlony napis bedzie taki sam jak przy uzyciu ""$
