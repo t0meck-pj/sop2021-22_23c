@@ -12,10 +12,15 @@ PATH - Informuje w których katalogach znajdują się pliki wykonywalne, czyli
 
 RANDOM - Podaje nam pseudolosową liczbę. Przydatne w skryptach gdzie potrzebna 
  by była losowość na przykład przetasowywanie liczb by sprawdzić jak nasz
- sorter liczb działa, albo gdzy trzeba wybrać kogoś na chybił trafił.
+ sorter liczb działa, albo gdy trzeba wybrać kogoś na chybił trafił.
+ Używanie zmiennej RANDOM jest dobre gdy potrzebujemy na szybko wygenerować
+ losową liczbę, natomiast do genrowania haseł i innych spraw związanych z
+ bezpieczeństwem nie jest to najlepsze narzędzie. Chociażby dlatego że
+ liczby generowane przez RANDOM znajdują się w przedziale 0 - 32767.
+ Trochę ich mało jak na generator haseł.
 
 PWD - Zmienna ta przechowuje ścieżkę bezwzględną do katalogu w którym się
- ocenie znajdujemy. Dobre do skryptu określającego pozycję użytkownika.
+ obecnie znajdujemy. Dobre do skryptu określającego pozycję użytkownika.
  "Znajdujesz się w $PWD, gdzie zawartość katalogu to... z czego tyle to
  skrypty itd."
 

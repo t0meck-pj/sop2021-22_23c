@@ -39,6 +39,18 @@ echo Bójny las rozjechał buldożer | sed s/buldożer/rower/
 = "Bujny las rozjechał rower"
 
 ================================================================================
+Istnieje też prostszy mniej zasobożerny sposób na wykonanie podmianek bez użycia
+sed-a.
+
+zmienna=Bójny Bóldożer.
+
+echo ${zmienna//ó/u}
+
+Podajemy zmienną do wyświetlenia, ale z zastrzeżeniem że wszytkie litery "ó"
+w niej zawarte mają być wyświetlone jako "u". 
+
+/ - Pojedyńczy slash to pierwsze odpasowanie.
+// - Podwójny slash to każde dopasowanie. (/g z sed-a).
 
 
 
