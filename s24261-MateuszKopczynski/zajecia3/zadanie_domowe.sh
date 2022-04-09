@@ -1,6 +1,6 @@
 #!/bin/bash
 
-email="^[A-Za-z0-9.-]+@[A-Za-z0-9]+\.[A-Za-z]{2,4}$"
+email="^[A-Za-z0-9.\-+!#$%&'*+\-\/=?^_{|}~]+@[A-Za-z0-9]+\.[A-Za-z]{2,4}$"
 postcode="\b[0-9]{2}-[0-9]{3}\b"
 name="^[AĄBCĆDEĘFGHIJKLŁMNŃOUPRSŚTUWYZŹŻ][a-z][AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]{0,10}$"
 
