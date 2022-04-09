@@ -27,3 +27,14 @@ zmiennych powloki (np. $PWD, $PATH itp) a na koniec zaczelismy omawiac operacje 
 regularnych (regex) konczac. Te cwiczenia byly naprawde ciekawe, poniewaz uswiadomily mi ze napisanie prostego skryptu
 w bashu nie jest wcale takie trudne jak myslalem. Fakt, ze od razu nie napisze jakiegos kombajnu ale nawet takie 
 proste wypisanie w konsoli "Hello world" powoduje banana na twarzy :)
+
+
+----------------------------------------------
+09-04-2022
+
+Na ostatnich zajeciach zajmowalismy sie tworzeniem skryptow z wykorzystaniem instrukcji warunkowych if, petli oraz 
+pokrotce udalo nam sie omowic jak dzialaja tablice oraz funkcje. Jesli chodzi o zadanie domowe to niewatpliwie bylo
+ono najbardziej wymagajace ze wszystkich dotychczasowych ale dzieki niemu udalo mi sie wiele dowiedziec na temat
+wyrazen regularnych :) Szczerze powiedziawszy nie wiedzialem, ze w bashu mamy tyle mozliwosci jesli chodzi o 
+pisanie skryptow, choc nie watpie ze jest to dopiero wierzcholek gory lodowej. 
+
