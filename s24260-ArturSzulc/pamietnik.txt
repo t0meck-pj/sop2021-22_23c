@@ -19,3 +19,9 @@ trzeba pamietac o shebangu (#!/bin/bash), oraz o zostawieniu wolnej linii na ko�
 m.in. $PWD która zawiera ścieżke katalogu w którym aktualnie się znajdujemy. Rozmawialiśmy o tym w jaki sposób działa (dziedziczenie) w bashu, czyli 
 jeśli zainicjujemy zmienna i otworzymy nowego basha to możemy się odwołać do zmiennej zainicjowanej we wcześniejszym bashu. Nigdy nie miałęm styczności z 
 programowaniem skryptowym w bashu, zauważyłem duze podobieństwo jeśli chodzi o programowanie w innych technologiach. 
+
+2022-04-11
+
+Kochany Pamietniczku na ostatnich zajeciach zagłebilismy sie w temacie skladni basha, a mianowicie w jaki sposób działają if'y, pętle, konstrukcja warunkowa switch,
+zauważyłem że czasem lepiej jest użyć switch niż tworzyć kilkanaście zagłębień else if, moim zdaniem poprawia to czytelność kodu. Nauczylismy się także w jaki posób 
+tworzy się [definiuje] funkcje i do czego one służą. Najtrudniejsze jednak przede mną zadanie domowe wiem że jeszcze troche przede mną jeśli chodzi o regexa :/ 

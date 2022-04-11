@@ -12,7 +12,7 @@ wybrałem VDI ponieważ nie będę zmieniał programu do wirtualizacji a ten for
 stałym rozmiarem to znaczy że jeśli wybierzemy dynamicznie przydzielany to będzie on rósł do pewnego momentu jaki 
 ustali użytkownik (bardziej obciąża komputer), a gdy stały rozmiar to utworzy się od razu z maksymalna wielkością 
 jaka poda użytkownik Ja ustawiłem stały rozmiar gdyz pozwoli mi to na szybszy zapis danych.
-- na końcu zostaje wybranie lokalizacji naszego pliku dysku wirtualnego i jego rozmiar.
+- na końcu zostaje wybranie lokalizacji naszego pliku dysku wirtualnego i jego rozmiar [wybrałem 30 GB gdyż jest to moim zdaniem zupełnie wystarczająca pojemnosc].
 
 Następnie wszedłem w ustawienia:
 - w zakładce system - odznaczyłem "Floppy" oraz "Dysk Twardy" gdyż nie jest póki co wymagany 
@@ -43,10 +43,15 @@ opcja wybrania całego dysku oraz ustawienie LVM lub LVM szyfrowanego, LVM [Logi
 abstrakcji między systemem operacyjnym a używanymi przez niego dyskami / partycjami. Partycje można wyodrębnić tak, 
 aby zawierały wiele dysków i partycji w jednym urządzeniu. System operacyjny nie widzi różnicy bo LVM pokaże 
 tylko te dyski i patrycje które skonfigurowaliśmy, kolejna opcja jest  będziemy manualnie partycjonować nasz dysk wirtualny,
-- następnie wybrałem dysk i podzieliłem go na 2 partycje podstawowa 22,4GB z lokalizacja Beginning oraz logiczna 12GB na 
+- następnie wybrałem dysk u mnie i podzieliłem go na 2 partycje podstawowa 22,4GB z lokalizacja Beginning oraz logiczna 12GB na 
 której ustawiłem aby była swap area, dlatego ze kiedy ram jest już przepełniony a chcemy otworzyć jakiś nowy proces, 
 przeniesie nam dane z ramu do swap area i pozwoli na otworzenie nowego bez usuwania dotychczasowych programów, w teorii wielkość swap area zalezy od ilosci przypisanego ramu,
-niektórzy pisza ze powinno być to 1.5x RAM a niektóry żę 2x RAM ja wybrałem opcje z 1.5x RAM. 
+niektórzy pisza ze powinno być to 1.5x RAM a niektóry żę 2x RAM ja wybrałem opcje z 1.5x RAM.
+Sam proces tworzenia partycji: wybranie wolnego miejsca na dysku -> stworz nowa partycje -> wybranie rozmiaru [osobiscie kierowałem się tym co wyżej czyli ile bedzie miał rozmiar swap area reszta na system 
+jesli chodzi o rozmiar to https://www.debian.org/releases/stretch/i386/ch02s05.html.en <- minimalne wartosci  https://linuxhint.com/boot-partition-size-debian/ <- rekomendowane dla debian 11] -> wybranie lokacji [jest to ważny krok
+jeśli chodzi o wydajność pracy, zaleca się aby SWAP było na pierwszym miejscu (czesto dlatego ze mamy zbyt mało RAMu zamontowane, dlatego ze dyski HDD zmieniaja swoj transfer z zaleznosci od miejsca im dalej tym mniejszy) 
+https://morfikov.github.io/post/jak-optymalnie-podzielic-dysk-hdd-ssd-na-partycje-pod-linux/#pozycja-partycji-na-dysku-hdd] -> punkt montowania czyli katalok któremu przyporządkowana zostaje konkretna partycja z systemu plików 
+[SWAP nie jest montowany w żadnym katalogu] ja wybrałem rootowski punkt montowania dla systemu czyli "/".
 Jeśli chodzi o różnice pomiedzy logiczna a podstawowowa partycja to partycja podstawowa trzyma w sobie system operacyjny i dane uzytkownika. Tylko ten typ partycji jest widziany przez BIOS (pośredniczy pomiedzy systemem a sprzetem 
 komputerowym), co oznacza ze tylko z tej partycji mozemy odpalic system operacyjny. Jeśli chodzi o logiczna partycje to jest to logiczna segmentacja pamięci komputera i innych zasobów, 
 która umożliwia mu uruchamianie własnej kopii systemu operacyjnego i powiązanych aplikacji. Liczba partycji logicznych na dysku MBR jest nieograniczona, nie tyczy się to partycji podstawowych której liczba jest ograniczona do 3 lub 4.. 
@@ -64,6 +69,9 @@ Jeśli chodzi o system plikow to sa:
 	- możemy również użyć go jako fizyczny wolumin dla szyfrowania, dla RAID’u oraz dla LVM’a
 	- bootable Flag jest używane do skazania która partycja ma się uruchomić jako pierwsza – zostawiłem 
 	wyłączona ponieważ moja partycja podstawowa i tak jest jako pierwsza bootowana.
+Ja wybrałem ext4 z tego powodu że ma wieksza pojemnosc oraz wysoka wydajnosc.
+Jeśli chodzi o to jakie foldery powinny zostać wydzielone do osobnych partycji to: [swap, /boot, /, home], powinno sie wydziela te partycje aby usprawić sobie prace jako np [administrator systemu], oraz jeśli chcemy aby nasz system był 
+jak namniej kolizyjny [podatny na błędy] oraz bezpieczniejszy. https://www.daniloaz.com/en/the-importance-of-properly-partitioning-a-disk-in-linux/
 Journaling - dane nie są od razu zapisywane na dysk, tylko zapisywane w dzienniku/kronice. 
 Dzięki temu zmniejsza się prawdopodobieństwo utraty danych: jeśli utrata zasilania nastąpiła w trakcie zapisu – zapis zostanie dokończony po przywróceniu zasilania, 
 jeśli przed – stracimy tylko ostatnio naniesione poprawki, a oryginalny plik pozostanie nietknięty.
@@ -73,6 +81,10 @@ mojego położenia ftp.task.gda.pl ale również można wybrać podstawowy dla d
 - następnie dostajemy okienko służące do dostrojenia naszego systemu operacyjnego dla naszych opcji, do wyboru mamy
 różne nakładki graficzne na system oraz wybór czy nasz system ma działać jako web serwer czy ssh serwer. 
 Jeśli chodzi o nadkładki graficzne : 
+	- GNOME został stworzony z mysla aby był jak najbardziej możliwy do dostosowania dla swoich potrzeb, problem w tym że nie jest on najlżejszy jeśli chodzi o wielkość i nie zaleca się go dla słabszych komputerów które maja 
+	mniej niz 4 GB ramu 
+	- GNOME classic jest dobrym wyborem dla tracyjonalistów. Do uruchamiania aplikacji możesz użyć menu Aplikacje na górnym pasku. Przegląd działań jest dostępny po wybraniu z menu elementu Przegląd działań. 
+	- KDE jest bardzo dobry do dostosowania dla własnych potrzeb oraz lekki nie waży tak duzo, umożliwia łatwe połączenie z telefonem dzieki KDE connect
 	- MATE jest dobry dla komputerów niższego poziomu, poczatkujacych. 
 	- XFCE jest przeznaczony dla początkujących, którzy chcą stabilnego DE, który nie jest skomplikowany w utrzymaniu. Personalizacja jest możliwa dzięki pomocnym dialogom, ale XFCE zawsze koncentrował się na prostocie.
 	- Cinnamon był pomysłem który polegał na stworzeniu prostego środowiska graficznego, które będzie wyglądało nowocześnie, będzie działało gładko i nie pozostawi nowych użytkowników zdezorientowanych i sfrustrowanych.
