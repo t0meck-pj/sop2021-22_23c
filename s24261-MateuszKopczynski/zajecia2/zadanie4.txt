@@ -1,0 +1,9 @@
+X=$(ls -l) - przypisalem komende do zmiennej
+echo $X - uzylem aby wypisac wynik
+
+Roznica pomiedzy zwyklym wykonaniem komendy a wypisaniem zawartosci zmiennej jest taka ze polecenie echo wyswietla
+nam linie tekstu (w tym przypadku ta linia jest wynik poleceniea ls -l). Natomiast polecenie ls -l wyswietla nam wynik
+w bardziej przejrzysty sposob. Jednak znalazlem sposob aby wyswietlic zawartosc zmiennej w takim sam sposob jak robi 
+to polecenie ls -l tyle ze bez kolorkow. (W PR dowiedzialem sie od prowadzacego ze komende ls -l mozna rowniez przedstawic w wersji bez kolorow dodajac do komendy parametr --color=none) 
+
+Uzylem: echo "${X}"

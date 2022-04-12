@@ -1,0 +1,35 @@
+================================================================================
+Zadanie 1:
+
+"Napisz skrypt wyświetlający na terminalu tekst "Witamy w terminalu".
+ Skorzystaj z komendy echo oraz informacji podanych powyżej.
+ Pamiętaj o atrybutach i o tym jak się wywołuje programy."
+
+================================================================================
+Zadanie polega na napisaniu krótkiego skryptu:
+
+--------------------------------------------------------------------------------
+#!bin/bash
+echo "Witaj w terminalu"
+
+--------------------------------------------------------------------------------
+Hash i wykrzyknik to "Shebang". Oznacza on że po nim zostanie podana ścieżka
+do interpretera, który ma wykonać skrypt. Jeśli ścieżka nie zostanie podana
+to skrypt wykona się w podprocesie powłoki. To znaczy że bash uruchmi skrypt w
+bashu, a inna dowolna powłoka za pomocą samej siebie. Jeśli chcielibyśmy
+by skrypt został wykonany przez inny interpreter to należy podać do niego
+ścieżkę. Np. #!/bin/interpretery/jakis_katalog/php 
+
+Skrypt wywołuję za pomocą kropki + slash + nazwa skryptu. Kropka to bieżący
+katalog. Można też użyć ścieżki absolutnej:
+
+/home/usr/Skrypty/skypt.sh
+
+W tym przypadku polecenia echo nie potrzebuję argumentu -e ponieważ nie używam
+znaku ucieczki backslash " \ ".
+Na końcu swojego skryptu należy zostawić jedną linię pustą. Starsze narzędzia
+mogą działać nieprawidłowo jeśli skrypt nie jest zakończony nowym pustym
+wierszem. Ostatni wiersz jest przez nie ignorowany. 
+
+
+
