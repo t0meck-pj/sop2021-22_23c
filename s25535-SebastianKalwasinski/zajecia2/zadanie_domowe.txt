@@ -44,6 +44,8 @@ s/Sebastian/`echo -e "\e[32mSebastian\e[0m"`/
 --------------------------------------------------------------------------------
 Wierszyk o Sebastiane skopiowałem z internetu byłe by tylko jakiś długi 
 teskt był do przerzucenia przez skrypt.
+(  Źródło : https://zapytaj.onet.pl/Category/001,003/2,14710478,
+Uloz_wierszyk_rymujacy_sie_o_Sebastianie_jest_madry_i_spokojny.html  )
 
 
 

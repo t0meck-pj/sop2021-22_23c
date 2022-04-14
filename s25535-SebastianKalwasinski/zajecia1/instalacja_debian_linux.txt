@@ -173,8 +173,19 @@ Win 10, VirtualBox + Debian z neta: https://www.debian.org/download
 2.Oddzielna partycja może być powiększona o dodatkowe miejsce gdy tego
   okaże się być za mało.
 
- Jeszcze można mieć oddzielenie /var i /tmp, ale zakładam że to działa na 
- podobnej zasadzie. Odizolować by nie stracić/mieć większą kontrolę.
+ Jeszcze można mieć oddzielenie m.in. /var i /tmp. Oddziele partycje tworzymy
+ z powodów: 
+ 
+ - Wydajnościowych - by oddzielić dane częściej używane od rzadziej używanych.
+ 
+ - Bezpieczeństwa - by np. konkretna lokalizacja posiadała dodatkowy moduł
+   szyfrowania fizycznego.
+
+ - Systemowych - by nie doszło do sytuacji gdzie nawet system operacyjny nie
+   będzie się mógł uruchomić z powodu braku miejsca wymaganego na pliki tworzone
+   podczas rozruchu, bo cała jedna jedyna partycja jest zawalona po kurek.
+   Lepiej zostawić trochę wolnego miejsca na oddzielnej partycji przeznaczonej
+   tylko na potrzeby działania systemu.
 
  Ja wybrałem manual partitioning więc tych możliwości u mnie nie było
  bo o wszytkim sam decyduję
@@ -201,7 +212,7 @@ Win 10, VirtualBox + Debian z neta: https://www.debian.org/download
  Confugire the Logical Volume Manager (LVM) - Konfiguracja LVM.
 
 --------------------------------------------------------------------------------
- Confugure encrypted volumes - Mogę stworzyć szyfrowane woluminy.
+ Confugure encrypted volumes - Mogę stworzyć szyfrowane wolumeny.
 
  Wolumin - "wydzielony obszar pamięci masowej służący do
  przechowywania informacji." Czyli po polsku, część partycji mogę sobie
@@ -284,8 +295,8 @@ Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
     pierwsze.
  / home - katalog domowy.
  / tmp - kataloog na pliki tymczasowe.
- / var - katalog zawierający zmienne.
- / usr - katalog na dane użytkownika.
+ / var - katalog zawierający zmienne nie pasujące nigdzie indziej.
+ / usr - katalog na dane użytkownika i przeznaczone dla niego pliki.
  / srv - katalog na rzeczy związane z serverami.
 
  Wybieram katalog root-a.
@@ -296,7 +307,7 @@ Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
 4. Label - Możemy naszej partycji nadać etykietę dla systemu plików, którego
    używamy. Nic nie wpisuję. Nie potrzebuję tego na ten czas.
 
-5. Reserver blocks - Ilość/część partycji jaką przeznaczmy tylko dla roota.
+5. Reserved blocks - Ilość/część partycji jaką przeznaczmy tylko dla roota.
 
 6. Typical usage - możemy określić w jaki sposób nasz system plików będzie
   zapisywał dane.
@@ -304,8 +315,10 @@ Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
 7. Bootable flag : off - Możemy nadać flagę bootowania, która informuje
  główny rekord rozruchowy. (Pierwszy sektor na dysku twardym, który
  rozpoczyna proces uruchamiania komputera.) którą partycję uruchomić.
- Jest to opcja gdy chcemy wkazać, którą partycję chcemy uruchomić jako pierszą.
- Nie musimy jej ustawiac.
+ Jest to opcja gdy chcemy wkazać, z której bootloader ma być uruchomiony.
+ Z reguły instalator sam ustawi flagę jeśli my tego nie zrobimy, ale dobrze
+ byłoby to samemeu zrobić. Należy pamiętać zę tylko jedna partycja może mieć
+ ją ustawioną.
 
 == 2 == ------------------------------------------------------------------------
  Zostało 2,6 GB wolnego miejsca.
@@ -384,7 +397,15 @@ Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
  opcje urchamiania na dysk twardy lub za każdym razem męczyć F12 i samemu
  wybierać z czego ma się odpalać.
 
-== 4 == -----------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ Dodatkowe informacje.
+ Instalacja GRUB-a na Master Boot Record (MBR), a Boot record.
+ Jeżeli GRUB będzie jedynym programem rozruchowym, to instalujemy go na MBR,
+ jako że to tam komputer szuka bootloadera. Gdy na MBR znajduje się już inny
+ bootloader to możemy zainstalować GRUB-a na Boot Recordzie i kazać pierwszemu
+ programowi znajdująccemu się na MBR uruchomić/przekierować na GRUB-a.
+
+== 4 == ------------------------------------------------------------------------
 
  Wybieram Debian GNU/Linux.
  System się uruchamia i prosi o dane logowania.

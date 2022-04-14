@@ -20,6 +20,15 @@ echo $((2+2)) -  Podwójny nawias by najpierw policzyło, a dopiero potem
 
 Liczneie jak w podstawówce. W przypadku echo $(2+2) wywala że nie ma takiego
 polecenia. Tak też działa: echo $[(2+2)] .
+
+Gdy chcemy uzyskać większą dokładność obliczeń możemy skorzystać z polecenia bc
+(Basic Calculator), które umożliwia między innymi uzykanie większej dokładności
+obliczeń. Np:
+
+echo "scale=2 ; 5/2" | bc
+
+Dzielimy pięć przez dwa informując kalkulator że chcemy uzyskać wynik z 
+dokładnością do dwóch miejsc po przecinku (scale=2).
  
 
 
