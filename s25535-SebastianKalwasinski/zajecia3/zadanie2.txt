@@ -1,0 +1,89 @@
+================================================================================
+Zadania 1: Klepanie pętli.
+================================================================================
+Skrypt: C2-1
+
+Zadanie polega na wypisaniu cyfr od 10 do 0 (nie od 1 do 10!) z tym że
+wypisane mają zostać co drugie cyfry, w tym przypadku parzyste.
+
+--------------------------------------------------------------------------------
+Składnia użyta do wykonania zadania:
+
+for itrator in {od..co ile..do}; do
+#kod do wykonania
+
+done
+
+--------------------------------------------------------------------------------
+Z ważnych szczegółów to:
+ - Bez spacji w instrukcjach pętli.
+ - Ilości/liczby oddzielone dwiema kropkami
+
+--------------------------------------------------------------------------------
+Dodałem jeszcze kolorowania wyświetlanego iteratora bo czemu nie. Lubię kolorki.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C2-2
+
+Skrypt ma za zadanie wypisać wszystkie argumenty, które zostały do niego
+przekazane.
+
+--------------------------------------------------------------------------------
+Z racji tego że najlepiej nadaje się do tego pętla "for element in", nie ma
+większego sensu męczyć się próbując wymyślać coś innego.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C2-3
+
+Skrypt ma wypisywać listę plików i katalogów z czego pliki mają być przywitane.
+
+--------------------------------------------------------------------------------
+Do zadania użyłem polecenia find bo to pierwsze co mi przyszło do głowy i jak
+się okazało niezbyt rozbudowane.
+
+--------------------------------------------------------------------------------
+Wyniki działania find-a są przepuszczane przez sed-a by mieć ładną nazwę bez
+kropki z ukośnikiem. Oddzielene szukanie dla plików i dla katalogów z czego
+katalogi mają dodatkowo argument ! -path . by find nie wyświetlał ścieżki do
+do katalogu root-a (pojedyńczej kropki).
+
+Pętla for iteruje po wynikach działania polecenia find.
+
+--------------------------------------------------------------------------------
+Ważne:
+- By pętla działała poprawnie nie można zamknąć zmiennej w cudzysłowiu.
+  W przeciwnym razie pętla potraktuje ją jako jeden argument zamiast
+  porozdzielać i skończy się na jednej iteracji.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C2-4
+
+Skrypt ma wyszukać pliki z rozszerzeniem .c i wykonać dla nich polecenie cc 
+z argumentem -o . To polecenie skompiluje plik i utworzy wykonywalny plik
+wyjściowy o określionej nazwie.
+
+--------------------------------------------------------------------------------
+Sposób wykonania podobny do poprzednich. find który ma wyszukać pliki kończące 
+się na .c połączony z sed-em, który obcina co trzeba.
+
+Polecenie do wykonania zamknięte w pętli by wykonało się dla każdego pliku.
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C2-5
+
+Narazie bida. Wymyśliłem że mogę każdy znak przechwycić do talbicy, tylko że
+narazie mi to nie wychodzi, a to rozwiązanie jest zapewne bardzo zasobożerne.
+
+while read -n1 znak ; do
+echo $znak
+done < $pliki
+
+Ta pętla wyświetla wszystkie znaki po kolei. Nie wiem czy da się zrobić tak
+by wyświetlała odwrotnie. AWK jeszcze nie umiem, a pewnie coś ciekawego ma.
+Narazie to zostawiam.
+
+
+
