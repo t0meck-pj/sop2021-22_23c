@@ -1,0 +1,6 @@
+Jesli zapiszemy do zmiennej wynik z komendy ls -l to przy pomocy zwyklego echo wynik wyswietli sie w jednej linii.
+Aby zrobic tak aby wynik wyswietlał sie tak samo przy wywołaniu komendy nalezy zapisac wynik: echo "$X".
+Dlaczego tak sie dzieje: bez cudzysłowiów bash dokonuje podziełu słów na wyjściu, dzielac je na oddzielne 
+pola w oparciu o ustawienia wewnetrzengo separatora pól ($IFS). 
+
+https://www.linuxquestions.org/questions/programming-9/shell-script-to-print-ls-l-775824/ 
