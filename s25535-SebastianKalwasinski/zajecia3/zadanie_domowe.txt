@@ -1,0 +1,63 @@
+================================================================================
+Zadanie domowe: Droga krzyżowa regexów
+================================================================================
+Składnia, którą użyłem:
+
+ ^ - Początek mojego słowa
+ $ - koniec mojego słowa
+[] - W nawiasie kwadratowym znajduje się zakres dopuszczalnych znaków, lub
+     poprostu wypisana po kolei znaki na które pozwalamy, przy czym każdy znak
+     specjalny należy potraktować backslashem, by nie były interpretowane.
+ * - Dopasuj zero lub więcej znaków z zakresu, który podałeś przed gwiazdką.
+{} - Dopasuj daną ilość znaków z zakresu np. {5} oznacza pięć znaków, nie 
+     więcej nie mniej.
+
+Przykład:  ^[a-z]*@[0-3]{5}$
+
+Początek | Małe litery z zakresu od a do z | Dowolna ich ilość | znak małpy |
+Cyfry z zakresu od 0 do 3 | Ma być ich dokłanie pięc | koniec mojego wyrazu
+
+================================================================================
+Skrypt: Czd-1
+
+Zadabnie polega na przygotowaniu regexa sprawdzającego czy tekst jest poprawnie
+napisanym polskim imieniem. W tym zadaniu chodzi o to by regex sprawdzał czy
+wyraz zaczyna się dużą literą, nie zawiera liczb i toleruje polskie znaki
+diakretyczne. Zatem wyrazy, które spełnią te warunki, również zostaną uznane
+przez regex, chociaż imieniem nie są. Do tego trzeba by mieć listę dopasowań
+do wszytkich imion. Dopasowanie polegało by na np. dopasowywanu końca imion.
+
+np. ^[A-Zaz]*sia$ 
+
+Ten regex wyłapywał by imiona kończące się na sia. Ale to już chyba wykracza
+poza zakres sensu zadania, nie mówiąc o tym że taki regex byłby trochę
+długi.
+
+================================================================================
+Skrypt: Czd-2
+
+Przygotuj regexa sprawdzającego czy podany tekst jest kodem pocztowym.
+
+Polski kod pocztowy to: dwie liczby, myślnik, trzy liczby. Wystarczy zrobić
+regexa by takie coś wyłapywał.
+
+^[0-9]{2}-[0-9]{3}$
+
+Ciężko o coś lepszego bez nadmiernego komplikowania.
+
+================================================================================
+Skrypt: Czd-3
+
+Przygotuj regex sprawdzającego e-mail.
+
+Jednym ze sposobów na ten regex wynika z natury emaila, który zawsze zawiera
+małpę. Wystaczy zatem sprawdzić czy małpa jest otoczona znakami.
+Z lewej dowolnymi znakami bez polskich znaków diakretycznych, a z prawej samymi
+literami i kropkami. Nie kojarzę maila który by miał z prawej strony małpy,
+cyfry, lub jakieś inne znaki poza kropką i małymi literami. Jeśli tak to zawsze
+można je dodać w zakres znaków.
+
+np. emaiq3rwef-las@wp.pl
+
+
+

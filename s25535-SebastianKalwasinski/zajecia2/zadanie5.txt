@@ -31,7 +31,7 @@ Początek skryptu - Skrypt uruchamiany przez bash-a
 --------------------------------------------------------------------------------
 Przypisywanie konkretnych wartości do zmiennych:
 
-x - Iloś znaków w imieniu. Z punktu widzenia zadania zbędne, ale wolę mieć
+x - Ilość znaków w imieniu. Z punktu widzenia zadania zbędne, ale wolę mieć
     bo kto mi zabroni. Wiem że imie jest poprawnie odczytywane.
 y - Pozycja ostatniego znaku w imieniu, czyli ten, który będziemy podmieniać
     w przypadku imion żeńskich.
