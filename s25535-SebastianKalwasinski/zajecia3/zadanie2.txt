@@ -53,7 +53,7 @@ Pętla for iteruje po wynikach działania polecenia find.
 
 --------------------------------------------------------------------------------
 Ważne:
-- By pętla działała poprawnie nie można zamknąć zmiennej w cudzysłowiu.
+- By pętla działała w cudzysłowie należy dodatkowo ustawić wartośc dla IFS .
   W przeciwnym razie pętla potraktuje ją jako jeden argument zamiast
   porozdzielać i skończy się na jednej iteracji.
 
