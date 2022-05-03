@@ -1,0 +1,8 @@
+===START===
+aąbcćdeęfghijklłmnńoóprsśtuvwxyzżź
+AĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUVWXYZŻŹ
+`1234567890-=
+~!@#$%^&*()_+
+{}[]\|;':",.<>/?
+SPACJA=>   <=SPACJA
+===KONIEC===
