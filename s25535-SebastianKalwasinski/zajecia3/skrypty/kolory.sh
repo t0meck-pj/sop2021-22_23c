@@ -1,6 +1,6 @@
 #/!bin/bash
 
-#Kolory do sourcowania
+#Kolory do sourcewania
 #Kompaktowo też można pisać( echo -e "\e[1;33;4;44m  )
 
 echo $(echo -e "\e[32;1;4;5mKOLOREŁY DZIAŁAJO\e[0m")

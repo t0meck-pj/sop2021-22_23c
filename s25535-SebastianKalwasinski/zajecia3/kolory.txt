@@ -1,6 +1,6 @@
 ================================================================================
 W ramach ćwiczeń i zachęcony sugestią prowadzącego utworzyłem skrypt 
-przeznaczony do soucowania zawierający podstawowe kody kolorów zamknięte w
+przeznaczony do souceowania zawierający podstawowe kody kolorów zamknięte w
 zmiennych nazwanych po nazwie koloru. 
 
 Nie jest to idealne rozwiązanie i myśląc nad tym dłużej można by to ulepszyć,
@@ -21,9 +21,9 @@ Co jest nie ok w skrypcie?
  (Backshlash łatwiej mi się pisze niż klamry ${red}).
 -Trzeba wyzerować na końcu. 
 
-Czy można to poprawić? Skoro każde polecenie może przyjmować może przyjmować
+Czy można to poprawić? Skoro każde polecenie może przyjmować
 dodatkowo różne parametry np: ls -la gdzie ls to polecenie, a -la to dodatkowe
-parametry to ten skrypt też tak przerobić.
+parametry to ten skrypt też tak można przerobić.
 
 np: K -red "Mójnapis"
 
