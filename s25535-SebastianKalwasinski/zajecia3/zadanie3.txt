@@ -38,12 +38,24 @@ skryptów. $1 = pierwszy argument, $2 = drugi argument.
 ================================================================================
 Skrypt: C3-2 
 
-Nie rozumiem zabardzo działania return w bashu. Wiem że może on tylko zwracać
-liczby modulo z 256. Zatem tym ograniczeniem jest natura return, który jest
-przez basha używany do zwracania kodu błędu w postaci numeru, który nie
-przekroczy 256. Zatem ciąg fibonacciego doszedłby do 233 i zacząłby jechać 
-od nowa (powiedzmy że od nowa). Problem w tym że nie potrafię teraz tego napisać
-bo nie mam dostatecznej wiedzy na temat składni.
+Skrypt napisany/zgapiony w bólach.
+Po x czasu myślenia jak napisać rekurencyjnie ciąg Fibonacciego postanowiłem 
+zajrzeć do stacoverflow po jakieś mądrości. Polecenie zadania nie mówi: 
+"napisz funkcję" tylko "przygotuj funkcję" ( ￣ω￣) .
 
+Nie zmienia to faktu że przerobienie jej by zwracała mi wartość za pomocą
+return nie było takie proste. To co się dało pozamykałem do lokalnych zmiennych
+dzięki czemu bardzo nieczytelny wzór na liczenie ciągu Fibonacciego stał się
+trochę mniej nieczytelny i byłem w stanie wyciągnąć z niego wartość, którą
+return mógłby zwrócić.
 
+Koniec końców mam skrypt, który wyświetla wartość konkretnego elementu ciągu
+Fibonacciego za pomocą echo i return dzięki czemu można bez problemu
+wywnioskować odpowiedź na pytanie:
+"Czy są jakieś ograniczenia". Tak są... I dają się we znaki.
+
+return zwraca wartość z funkcji w skrypcie, NIE wychodzi z programu jak w
+C++. Dodatkowo może zwracać TYLKO liczby z zakresu 0-255. Jak wartość liczby,
+którą funkcja próbuje zwrócić, przekroczy 255 to return zaczyna jechać od 0.
+Czyli jak echo wyświetli 377 to return pokaże 121 (377-256 = 121).
 
