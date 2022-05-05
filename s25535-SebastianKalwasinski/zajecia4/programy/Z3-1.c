@@ -6,30 +6,31 @@ typedef int (*f)(int, int);
 int sum(int a, int b);
 int min(int a, int b);
 int max(int a, int b);
+int forAll(int* liczby, int elementCount, f wybranaFunkcja);
 
 int main() {
 	
-	int functionld, elementCount, i, j, v;
+	int functionId, elementCount, wynik, i, j, v;
 	int* liczby;
 
 	f wybor[3];
 	f suma = sum;
 	f miniumum = min;
-	f makimum = max;
+	f maksimum = max;
 	
 	wybor[0] = miniumum;
-	wybor[1] = makimum;
+	wybor[1] = maksimum;
 	wybor[2] = suma;
 
 	printf("\n");
 	printf("Wybierz rodzaj dzialania:\n1 = minimum\n2 = maksimum\n3 = suma\n");
-	scanf("%d", &functionld);
+	scanf("%d", &functionId);
 
-	if(functionld > 4 || functionld < 0 ) {
+	if(functionId > 4 || functionId < 0 ) {
 		printf("Nie ma takiej funkcji");
 		return 1;
 	}
-	printf("Wybrales = %d\n", functionld);
+	printf("Wybrales = %d\n", functionId);
 
 	
 	printf("Ile liczb podasz?\n");
@@ -49,9 +50,12 @@ int main() {
 	
 	v = liczby[0];
 	for(j = 1; j < elementCount; j++){
-		v = wybor[functionld - 1](v, liczby[j]);
+		v = wybor[functionId - 1](v, liczby[j]);
 	}
 	printf("V = %d\n",v);
+	
+	wynik = forAll(liczby, elementCount, wybor[functionId -1]);
+	printf("Wynik = %d\n", wynik);
 
 	free(liczby);
 	printf("\n");
@@ -71,4 +75,16 @@ int min(int a, int b){
 int max(int a, int b){
 	if(a > b) {return a;}
 	return b;
+}
+
+int forAll(int* liczby, int elementCount, f wybranaFunkcja){
+
+	int v, j;
+	v = liczby[0];
+	
+	for(j = 1; j < elementCount; j++){
+		v = wybranaFunkcja(v, liczby[j]);
+	}
+	
+	return v;
 }
