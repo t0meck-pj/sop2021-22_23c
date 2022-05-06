@@ -1,0 +1,82 @@
+================================================================================
+Opisy zadań, które nie łapią się do schematów.
+================================================================================
+Z3-1.c
+
+Głównym punktem zainteresowania tego zadania jest zdefiniowanie własnej zmiennej
+(nie chodzi o struct), dzięki której będziemy w łatwy sposób zamknąc funkcje w
+tablicy. 
+
+W tablicy umieszczamy wskaźnik na funkcję, a nie funkcję ponieważ próba 
+umieszczenia funkcji tablicy skończy się na tym że kompilator będzie od nas
+wymagał podania argumentów do funkcji, którą próbujemy umieścić w tablicy.
+To z kolei skończy się na tym że w tablicy będziemy mieli wynik działania 
+naszej funkcji, a nie nią samą.
+
+Dlatego też intnieje możliwość zadeklarowania wskaźnika na funkcję by takie
+myki z funkcjami umożliwić. Zasada jest podobna jak podczas deklaracji
+funkcji.
+
+deklaracja funkcji:
+typZwaracany nazwaFunkcji(typyZiennych oraz ich nazwy [argumentów])
+
+deklaracja wskaźnika na funkcje:
+typedef typZwracany (*nazwaTypu)(typyZmiennych, oraz ich nazwy)
+
+typedef to słowo klucz. Wystarczy na polski przetłumaczyć by wiedzieć co robi.
+Nazwa naszej funkcji jest dodatkowo zamknięta w nawiasach, a przed jej nazwą
+dodajemy gwiazdkę, co jest cechą charakrerystyczną dla wskaźników.
+
+Jak z takiego wskaźnika skorzystać.
+
+Ponieważ zdefiniowaliśmy typ (typy to m.in: int, char, double itd.) to
+właśnie on pojawi się jako pierwszy przy deklaracji naszego wskaźnika na funkcję.
+
+nazwaTypu nazwaWskaźnika funkcjaNaktórąWskaźnikWskazuje 
+np jak w zadaniu: f maksimum = maks
+
+f =        zdefiniowany przez nas typ.
+maksimum = nazwa wkaźnika na funkcję.
+maks =     funkcja na, którą wskaźnik wskazuje.
+
+Należy pamiętać że gdy będziemy chcieli skorzystać z funkcji za pomocą wskaźnika
+to należy podać argumety, ale to się dzieje tak samo jak z wywoływaniem funkcji.
+nazwa(argumenty);
+
+Dopiero taki wskaźnik możemy bez problemu umieścić w tablicy.
+
+Reszta kodu to formalność
+
+================================================================================
+ZD-3.c
+
+Zadanie polega na wypisaniu liczb z ciągu Fibonacciego.
+Zasada działania tego ciągu: liczba obecna jest sumą dwóch poprzednich.
+Zatem by uzyskać metodą rekurencyjną taki efekt należy, ustalić stałe dwie
+piersze liczby 0 oraz 1, których osiągnięcie jest warunkiem zakończenia 
+ciągu rekurencyjnych wywołań funkcji. 
+
+Np. Chcę otrzymać liczbę z ciągu Fibonacciego, która występuje jako piąta.
+Należy zatem wywołać funkcję podając jej naszą piątkę za argument.
+
+Ponieważ 5 to nie są nasze warunkowe 0, lub 1, funkcja wykonuje sumę wyników
+samej siebie, ale z poprzednich dwóch pozycji.
+
+fib o pozycji 5 = fib o pozycji 3 i fib o pozycji 4;
+fib(5) = fib(5-2) + fib(5-1);
+return fib(pozycja - 2) + fib(pozycja - 1) 
+
+Dodawanie jest przemienne więc nie ma znaczenia która jest dodawana do której
+Rekurencja zostaje przerwana gdy warunek by pozycja była więszka niż 0, lub 1
+nie zostanie spełniony.
+
+Wersja iteracyjna działa na tej samej zasadzie tylko zamiast funkcji,
+korzystamy z pętli, która wykonuje się określoną ilość razy
+
+Funcja rekurencyjna jest zamknięta w pętli tylko po to by widzieć
+wszystkie kolejne liczby aż do tej, którą chcemy. Możemy tą funkcję wywołać
+podając jej bezpośrednio pozycję liczby, którą chcemy, ale w ten sposób 
+otrzymamy tylko tą jedną, bez jej poprzedniczek.
+
+
+
