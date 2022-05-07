@@ -142,3 +142,6 @@ strcpy(tablica1, tablica2)
 
 = 3 =
 By bool działał potrzeba biblioteki <stdbool.h>
+
+
+
