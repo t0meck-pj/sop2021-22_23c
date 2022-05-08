@@ -234,7 +234,8 @@ struct node* addNodeAtPosition(struct node *head, struct node* tail, int positio
 	struct node *newNode = createNode(number);
 
 	if(position == 0){
-		head = addAtBeginning(head, tail, number);									}
+		head = addAtBeginning(head, tail, number);
+	}
 	else{						
 		while(position != 1){
 			ptr = ptr->next;
