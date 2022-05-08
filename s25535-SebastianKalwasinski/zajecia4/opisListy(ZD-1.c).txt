@@ -6,7 +6,7 @@ ciągiem, jeden za drugim, ale są porozrzucane po różnych adresach, a nie zar
 po sobie. Głównymi zaletami takiego rozwiązania są m.in.
 
 -Nie trzeba z góry zakładać ile elementów ma przechowywać. Jak trzeba można dodać
- a jak nie to odjąć jakiś element tym samym zwalniając na bierząco miejsce w 
+ a jak nie to odjąć jakiś element tym samym zwalniając na bieżąco miejsce w 
  pamięci, by nie musiało się kurzyć.
 
 -Jak chcemy dodać jakiś element pomiędzy dwa inne, to śmiało możemy, na co
@@ -94,7 +94,7 @@ nasza jedyna droga dostępu do listy.
 Nie ma co ukrywać że zasady działania listy są zgapione z internetu,
 ale zrozumienie jak to działa i złożenie w jeden program to już trochę udziału
 w tym miałem, co nie jest takie proste jak w ciągu tygodnia lepiej się
-nauczyłem korzystać z C niż C++, przez parę miesięcy.
+nauczyłem korzystać z C, niż C++ przez parę miesięcy.
 
 
 
