@@ -2,28 +2,42 @@
 #include <stdlib.h>
 
 int main(int argc, char** argv) {
-    int size, number, i = 0;
-    int* ptr;
-    FILE* file;
+  int size, number, i = 0;
+  char filename[255];
+  int* tab;
+  FILE* file;
 
-    file = fopen(argv[1], "r");
-
-    if (fscanf(file, "%d", &size)) {};
-
-    ptr = (int*) malloc(size * sizeof(int));
+  if (argc > 2) {
+    printf("Podales za duzo argumentow \n");
+    return 1;
+  }
   
-    for (i = 1; i <= size; i++) {
-      if (fscanf(file, "%d", &number)) {};
-      ptr[i] = number;
-    }
+  if (argc == 2) {
+    file = fopen(argv[1], "r");
+  }
+  else {
+    printf("Podaj nazwe pliku: ");
+    if (scanf("%s", filename)) {};
 
-    for (i = size; i > 0; i--) {
-      printf("%d \n", ptr[i]);
-    }
-    printf("%d \n", size);
+    file = fopen(filename, "r");
+  }
 
-    fclose(file);
-    free(ptr);
+  if (fscanf(file, "%d", &size)) {};
 
-    return 0;
+  tab = (int*) malloc(size * sizeof(int));
+
+  for (i = 1; i <= size; i++) {
+    if (fscanf(file, "%d", &number)) {};
+    tab[i] = number;
+  }
+
+  for (i = size; i > 0; i--) {
+    printf("%d \n", tab[i]);
+  }
+  printf("%d \n", size);
+
+  fclose(file);
+  free(tab);
+
+  return 0;
 }
