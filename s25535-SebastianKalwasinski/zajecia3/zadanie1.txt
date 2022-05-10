@@ -1,0 +1,138 @@
+================================================================================
+Zadania 1: Męczenie if-ów.
+================================================================================
+Skrypt: C1-1
+
+Zadanie polega na napisaniu warunków zależnych od sytuacji. Polecenie zadania
+jest niepełne ponieważ nie określa co skrypt ma zrobić gdy podamy tylko jeden
+argument, chyba że nie ma robić nic, ale to też warto by było zaznaczyć.
+
+--------------------------------------------------------------------------------
+Składnia użyta do wykonania zadania:
+
+if [[ warunek ]]; then
+#kod do wykonania
+
+elif [ warunek ]]; then
+#kod do wykonania
+
+fi
+
+--------------------------------------------------------------------------------
+Z ważnych szczegółów to:
+- Spacje pomiędzy nawiasami i przed then.
+- Podwójny nawias nie pojedyńczy.
+- Ostatni wiersz skryptu ma być pusty.
+- To nie jest elseif tylko elif.
+- Koniec to odwrócony początek: if -> fi.
+
+--------------------------------------------------------------------------------
+To co było dla mnie brzydkie i nie mówiło na pierwszy rzut oka co robi zostało
+zapisane w zmienne. Kolorki dodane dla ładności bo czemu nie.
+
+Zapisanie koloru do zmiennej polega na zamknięciu polecenia echo -e wraz z
+tekstem który ma wyświetlić w backtickach (konieczenie -e i backticki bo echo
+nie zinterpretuje tego co mu podajemy. Podajemy mu znak ucieczki z kodem
+koloru, który musi zostać zinterpretowany by nie wyświetlił się jako tekst.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C1-2
+
+Skrypt sprawdza czy instnieje plik o z góry określonej nazwie. Jeśli nie
+istnieje to przechodzi do sprawdzenia czy nazwa pliku do uruchomienia została
+podana w jego nazwie. Jeśli argument nie został podany, lub ten plik również
+nie instenieje to skrypt wykonuje elsa czyli gdy żaden warunek nie został
+spełniony.
+
+--------------------------------------------------------------------------------
+Składnia taka sama tylko że dodatkowo został użyty else, który się wykonuje
+gdy żaden z wcześniej określonych warunków nie został spełniony.
+W przypadku else nie dodajemy średnika + then.
+
+else
+#kod do wykonania
+fi
+
+--------------------------------------------------------------------------------
+- Do wykonania pliku można użyć echo -e + linia która ma zostać wykonana zawarta
+  w backtickach.
+- Do napisania warunku czy podany kalog/plik istnieje w bieżącym katalogu można
+  uzyć argumentu -e (exist) i wpisać nazwę pliku. 
+- argument=$1 , ponieważ odrazu widzę co tak naprawdę znajduje się w warunku.
+- plik="jakaśNazwa" , przydatne w testowaniu skryptu. Nie trzeba wsztystkiego
+  zmieniać, wystarczy zmienić zawartośc zmiennej.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C1-3
+
+Skrypt ma za zadanie sprawdzić czy plik w którym się znajduje ma rozszerzenie sh
+Jeśli nie to ma je dopisać.
+
+--------------------------------------------------------------------------------
+Ze składni warto wspomnieć że aby zapisać wynik działania poleceń echo + sed
+należy całość zamknąć w nawiasach poprzedzonych dolarem $( ... ). Jest to nowsza
+i wydajniejsza wersja backticków ` ... `
+
+--------------------------------------------------------------------------------
+Nazwa/rozszerzenie zostały wyciągnięte trzema sposobami.
+Za pomocą pozycji, za pomocą wbudowanej funkcji basha i Regexów + sed.
+Dla każdej z osobna jest postawiony warunek.
+Wersja z sed-em jest najktórtsza i najbardzej niezrozumiała na pierwszy rzut
+oka. Argument -r w sedzie pozwala na używanie rozszerzonych wyrażeń regularnych.
+
+sed -r s/ Wyrażenie regularne / nic, by sed kasował /g 
+
+Znaki ucieczki z regexów muszą być również "ucieknięte" ;o podczas wstawiania
+ich do sed-a co tworzy ciąg znaków jakby kot po klawiatrze chodził. np.
+
+ \\. 
+
+Znak kropki w Regexach oznacza dowolny jeden znak. Zatem by użyć kropki jako 
+znaku kropki bez specjalnego znaczenia należy potraktować go backshlashem
+czyli naszym znakiem ucieczki. Żeby nie było za łatwto to w sedzie trzeba
+naszego regexa również potraktować backslashem by traktował to jako wyrażenie
+regularne. 
+
+--------------------------------------------------------------------------------
+- Uzywając sed-a najlepiej wpisać swoje wyrażenie na regex.com, potem
+  w terminalu wpisać jako częśc polecenia i dopiero wtedy wpisać w sed-a bo
+  można się łatwo pomylić.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C1-4
+
+Zadanie skryptu polega na przeszukaniu bierzącego katalogu w poszukiwaniu plików
+Jeśli jest więcej niż 5 to ma nam dać znać.
+
+--------------------------------------------------------------------------------
+Składnia find-a z wc w tym zadaniu to:
+
+find . -maxdepth 1 -type f | wc -l
+
+Kropka oznacza bierzący katalog, -maxdepth to głębokość szukania. Ustawione na 
+jeden mówi że interesuje nas tylko bierzący katalog. type -f oznacza że szukamy
+plików (-d dla katalogów), potem potok do word countera który ma za zadanie 
+zliczać ilość wierszy (argument -l), które otrzymuje of find-a.
+
+Wypisywanie gre-em polega na wypisaniu zawartości bierzącego katalogu za
+pomocą polecenia ls z argumentem -p , który dopisuje do katalogów slash-a.
+Potem grep łapie wynik działania ls i zlicza wszystkie wystąpienia, które nie
+pasują do wzorca wyszukiwania (nasz slash).
+
+-v odwracania działania grep-a
+-c podaj liczbę dopasowań 
+
+ls -p | grep -vc /
+
+--------------------------------------------------------------------------------
+Potem są postawione warunki, ale tym razem zamiast użyć znaku nierówności 
+wpisałem -gt (greater than), bo mogę i wiem że można.
+
+--------------------------------------------------------------------------------
+================================================================================
+
+
+

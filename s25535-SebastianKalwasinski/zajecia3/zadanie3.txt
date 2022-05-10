@@ -1,0 +1,49 @@
+================================================================================
+Zdadania 3: Katowanie funkcji 
+================================================================================
+By uruchmomić funkcję należy ją najpierw załadować np. source ./C3-1.sh 
+Po tym jest dostępna w naszej sesji bahs-a i możemy ją wywoływać.
+Funkcje wywołujemy po imieniu i przekazujemy do niej argumenty jeśli trzeba.
+
+================================================================================
+Skrypt: C3-1
+
+Skomponuj funkcję, która jako argumenty przyjmnie kolor ($kolor, lub kod koloru)
+i tekst do wyświetlenia. 
+
+--------------------------------------------------------------------------------
+Składnia funcji:
+
+function nazwa_funkcji {
+#kod do wykonania
+}
+
+lub
+
+function nazwa_funkcji { #kod do wykonania; }
+
+UWAGA na średnik po końcu podawania poleceń.
+
+lub
+
+nazwa_funkcji() {
+#kod do wykonania
+}
+
+--------------------------------------------------------------------------------
+Funcja przyjmuje kolor i tekst w postaci argumentów tak samo jak w przypadku
+skryptów. $1 = pierwszy argument, $2 = drugi argument.
+
+--------------------------------------------------------------------------------
+================================================================================
+Skrypt: C3-2 
+
+Nie rozumiem zabardzo działania return w bashu. Wiem że może on tylko zwracać
+liczby modulo z 256. Zatem tym ograniczeniem jest natura return, który jest
+przez basha używany do zwracania kodu błędu w postaci numeru, który nie
+przekroczy 256. Zatem ciąg fibonacciego doszedłby do 233 i zacząłby jechać 
+od nowa (powiedzmy że od nowa). Problem w tym że nie potrafię teraz tego napisać
+bo nie mam dostatecznej wiedzy na temat składni.
+
+
+

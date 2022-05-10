@@ -1,0 +1,8 @@
+2.1 W pierszej kolejności dodaliśmy zmienna x o wartości tekst
+potem wyswietlilismy ja w aktualnym bashu
+nastepnie stworzylismy nowego basha i niestety nie ma takiej zmiennej w aktualnym bashu. Stało sie tak poniewaz nowy bash nie ma dostepu do tej zmiennej. 
+
+2.2 Nie mozna dodac zmiennej ktora ma zawartosc ze spacja bez zapisania jej w "tekst przykladowy" cudzyslowie lub apostrofie.
+2.3 jesli chodzi o znak cudzyslowie to pozwala ono na dostanie sie do zawartosci zmiennej, jesli chodzi o apostrof to nie mozna przekazac zmiennej do srodka, jesli chodzi o ostatni fragment to wyswietli sie normalnie tak samo jak w apostrofie
+2.3.1 tekst wyswietli sie prawie poprawnie zostaje tylko koncowka alae dlatego ze doszło do kontatenacji. 
+
