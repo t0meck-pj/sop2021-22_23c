@@ -12,4 +12,4 @@ Zadanie 5b
 #!/bin/bash
 echo ${1:0:1}							         # wywolanie pierwszego znaku
 echo ${1: -1}							         # wywolanie ostatniego znaku
-echo -e ${1/SOP/\\e[32mSOP\\e[0m}	 # jezeli w zmiennej pojawi sie SOP to zostanie pokolorowane na zielono
+echo -e "${1/SOP/\\e[32mSOP\\e[0m}"	 # jezeli w zmiennej pojawi sie SOP to zostanie pokolorowane na zielono
