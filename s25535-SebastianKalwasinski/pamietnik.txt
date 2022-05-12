@@ -147,5 +147,47 @@ dużo by wyszło wszytko tak jak ma być. Przynajmniej już wiem coś o if-ach i
 sed-a się tak nie boję. To nie zmienia faktu że do dobrego opanowania regexów
 nie doszedłem.
 
+================================================================================
+22-04-02
+
+Pamiętnika część trzecia.
+
+ Ćwiczenia były nagrane. To dobrze bo pamiętałem tylko połowę z tego co było,
+więc takie nagranie z pewnością robi robotę. 
+
+ W zależności od tego z jakiej perspektywy patrzymy to mamy dużo zadań do
+wykonania, albo mało. Z perspektywy tego przedmiotu to mało. Ćwiczyć można
+więcej i dłużej. Problem w tym że na niektórymi zadaniami trzeba siedzieć
+z dobre pół godzyny by zrozumieć jak to działa, no chyba że kopiuj + wklej to 
+wtedy 30 sekund, tylko że zrozumienia nie ma.
+ Niektórych zadań nie zrobiłem i narazie nie mam nerwów robić.
+Z perspekrywy studenta, który ma mieć trzy kolokwia, wejściówkę, prezentację
+ustną i nadganiać matematykę by zdać to nie mam czasu by tyle siedzeć nad
+jednym przedmiotem. O życiu prywatnym nie wspominając. (╥_╥).
+
+ Najbardziej czasożerny był regex i zadania których nie zrobiłem. Nie zrobiłem
+bo jeszcze nie umiem, może w pracy doczytam czego mi brakuje, zresztą nie
+pierwszy raz. Jak nie to mam jeszcze Pana T., którego i tak już męczyłem.
+
+ Jak dla mnie instrukcja do regexa jest nieczytelna. Nie wiem tylko czy to przez
+to że regex jest trudny do zrozumienia jak na pierwszy raz czy raczej
+objaśnianie tych znaków do mnie nie przemawia. Nie mówię że są źle napisane,
+bo sam pewnie bym nie umiał, ale przykłady mogłyby pomóc.
+Z drugiej strony czy celowo ich nie ma by nie dawać wszytkiego na tależu.
+
+ Niby są linki, ale wejście na jakikolwiek z nich po raz pierwszy wręcz
+onieśmiela. regex.com jest chyba najbardziej przyjazny jeżeli chodzi o
+pierwsze wrażenie. Wchodzę wpisuję i patrzę co się dzieje.
+Z kolei www.regular-expressions.info przytłacza dużą ilością tekstu małym
+drukiem i to jeszcze po angielsku. Fakt że znamy angielski, ale mimo wszytko
+ łatwiej się czyta w języku ojczystym szczególnie jeżeli są to tematy nowe i
+potrzebują czasu do zrozumienia.
+
+Martwię się jeszcze o kolokwium. Jak będze zbyt szczegółowe - to będzie
+egzamin którego z całego serduszka chcę ominąć bo to dobre dla serduszka
+nie mieć egzaminów.
+
+Ale regexa już coś umiem (^ω^), s25535.
+
 
 

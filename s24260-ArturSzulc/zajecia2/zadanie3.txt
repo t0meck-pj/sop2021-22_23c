@@ -1,0 +1,19 @@
+PATH - zmienna srodowisko ktora okresla katalogi ktore sa przeszukiwane w celu znalezienia komendy. 
+Przyda się do zoptymalizowania pracy użytkownika jeśli dodamy sobie sciezke do katalogu z programem do tej zmiennej,
+nie trzeba bedzie dodawać scieżki jeśli chcemy wykonać jakiś program/polecenie/skrypt.
+
+RANDOM - zwraca radomowa liczbe. Np. do tworzenia randomowych ciagow liczbowych np przy generowaniu hasel 
+[pod warunkiem ze beda sie zawierac rowniez litery]
+
+PWD - zmienna srodowiskowa zwraca sciezke aktualnie otwartego katalogu. Pozwala do przyspieszenia pracy dla 
+uzytkownika, moze pomoc w odnalezieniu swojej pozycji w systemie.
+
+PS1 - zmienna srodowiskowa ktora zawiera sekwencje ktora jest nazywana jako znak zachety. Dzieki tej zmiennej 
+mozemy np dostawic do "tego co jest po prawej stronie od czesci sluzacej do wpisywania znakow" np godzine albo 
+zmienic kolor dodać godzine
+
+USER - zwraca nazwe aktualnie zalogowanego uzytkownika. Moze pozwolic sprawdzic nazwe uzytkownika, gdy zapomnielismy
+
+HOSTNAME - zwraca nazwe hosta. 
+
+OSTYPE - zwraca nazwe/typ systemu operacyjnego. 

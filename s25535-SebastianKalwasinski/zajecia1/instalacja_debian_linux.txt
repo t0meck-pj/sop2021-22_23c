@@ -317,8 +317,8 @@ Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
  rozpoczyna proces uruchamiania komputera.) którą partycję uruchomić.
  Jest to opcja gdy chcemy wkazać, z której bootloader ma być uruchomiony.
  Z reguły instalator sam ustawi flagę jeśli my tego nie zrobimy, ale dobrze
- byłoby to samemeu zrobić. Należy pamiętać zę tylko jedna partycja może mieć
- ją ustawioną.
+ byłoby to samemeu zrobić. Należy pamiętać zę tylko jedna partycja podstawowa
+ może mieć ją ustawioną.
 
 == 2 == ------------------------------------------------------------------------
  Zostało 2,6 GB wolnego miejsca.
@@ -403,7 +403,7 @@ Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
  Jeżeli GRUB będzie jedynym programem rozruchowym, to instalujemy go na MBR,
  jako że to tam komputer szuka bootloadera. Gdy na MBR znajduje się już inny
  bootloader to możemy zainstalować GRUB-a na Boot Recordzie i kazać pierwszemu
- programowi znajdująccemu się na MBR uruchomić/przekierować na GRUB-a.
+ programowi znajdująccemu się w MBR uruchomić/przekierować na GRUB-a.
 
 == 4 == ------------------------------------------------------------------------
 
