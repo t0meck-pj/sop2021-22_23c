@@ -1,0 +1,102 @@
+INSTALACJA - DEBIAN
+
+Zacząłem od stworzenia wirtualnej maszyny: 
+- wybrałem system operacyjny jaki chce zainstalować [debian], 
+- pamięć ram (ja wybrałem 8GB gdyż na komputerze mam zamontowane 16GB ramu, a nie nalezy przekraczać połowy pamieci RAM),
+- typ pliku z dyskiem twardym, spośród 
+	VDI (Virtual Disk Image) - jest to natywny, ulubiony format dysku dla oprogramowania VirtualBox.
+	VHD (Virtual Hard Disk) - format dysku rozwijany przez Microsoft, natywny dla oprogramowania wirtualizacyjnego VirtualPC, Hyper-V.
+	VMDK (Virtual Machine Disk) - ten rodzaj dysku charakterystyczny jest dla oprogramowania wirtualizacyjnego VMWare. 
+wybrałem VDI ponieważ nie będę zmieniał programu do wirtualizacji a ten format jest najlepszy dla VirtualBox’a.  
+- potem z kolei należy wybrać czy stworzony plik wirtualnego dysku ma być dynamicznie przydzielany czy utworzony ze 
+stałym rozmiarem to znaczy że jeśli wybierzemy dynamicznie przydzielany to będzie on rósł do pewnego momentu jaki 
+ustali użytkownik (bardziej obciąża komputer), a gdy stały rozmiar to utworzy się od razu z maksymalna wielkością 
+jaka poda użytkownik Ja ustawiłem stały rozmiar gdyz pozwoli mi to na szybszy zapis danych.
+- na końcu zostaje wybranie lokalizacji naszego pliku dysku wirtualnego i jego rozmiar [wybrałem 30 GB gdyż jest to moim zdaniem zupełnie wystarczająca pojemnosc].
+
+Następnie wszedłem w ustawienia:
+- w zakładce system - odznaczyłem "Floppy" oraz "Dysk Twardy" gdyż nie jest póki co wymagany 
+(instalacja wykonuje się z płyty),
+- w zakładce pamięć - w polu `storage devices/kontroler: IDE` przy braku dodałem obraz systemu 
+[wcześniej pobrałem obraz .iso]
+- w zakładce sieć - podłączyłem się do mostkowanej karty sieciowej aby można było się połączyć przez SSH
+
+Następnie uruchomiłem maszynę:
+- w pierwszym oknie, mamy opcje wybrania czy chcemy zainstalować system z nakładka graficzna GUI czy bez 
+(instalacja tekstowa), jest również opcja zaawansowane opcje w których możemy wybrać m.in. graficzny/lub nie rescue mode 
+który służy do diagnostyki błędów/problemów w systemie operacyjnym, jeśli np. coś poszło nie tak podczas instalacji. 
+Jest również opcja instalowania eksperckiego który daje nam pełna kontrole nad instalatorem. 
+Różnica pomiedzy instalatorem graficznym a tekstowym jest taka że graficzna wspiera wiecej jezyków, ale za to wymaga wiecej pamieci to wystartowania.
+Różnica pomiedzy instalatorem zwykłym a graficznym jest zauważalna gołym okiem, inny interfejs, wiecej np. lokalizacji dla systemu kodowania utf-8, czy wiekszy wybór komponentów 
+do zainstalowania na systemie. Mamy również możliwość zapisu logów do debugowania [informacji które pomagaja diagnozować błędy]. 
+- w drugim oknie wybrałem język angielski który będzie moim podstawowym jezykiem w systemie oraz podczas instalacji. Wybrałem go gdyż łątwiej znaleść rozwiązanie błędu który jest zapisany po angielsku.
+- następnie wybrałem serwer polski do m.in. strefy czasowej
+- następnie system kodowania utf_8, wybrałem go ponieważ wspiera tabele ASCII (numeryczne odzwierciedlenie klawiszy takich jak np @)
+- keymap [american_english] skoro wybrałem jezyk angielski to wartobyłoby miec keymap również dla tego jezyka.
+- następnie wybranie nazwy hosta
+- nazwę domeny dałem pusta, nie jest mi potrzebna
+- wybrałem hasło dla root'a
+- następnie dodajemy użytkownika dla systemu, nazwa i hasło
+- wybieramy rodzaj partycjonowania, do wyboru mamy: użycie całego dysku, sprawdzi się to gdy używamy jednego systemu 
+operacyjnego na jednym dysku, sprawdzi się to również gdy mamy dwa dyski pod dwa systemy operacyjne, jest również 
+opcja wybrania całego dysku oraz ustawienie LVM lub LVM szyfrowanego, LVM [Logical Volume Manage] zapewnia warstwę 
+abstrakcji między systemem operacyjnym a używanymi przez niego dyskami / partycjami. Partycje można wyodrębnić tak, 
+aby zawierały wiele dysków i partycji w jednym urządzeniu. System operacyjny nie widzi różnicy bo LVM pokaże 
+tylko te dyski i patrycje które skonfigurowaliśmy, kolejna opcja jest  będziemy manualnie partycjonować nasz dysk wirtualny,
+- następnie wybrałem dysk u mnie i podzieliłem go na 2 partycje podstawowa 22,4GB z lokalizacja Beginning oraz logiczna 12GB na 
+której ustawiłem aby była swap area, dlatego ze kiedy ram jest już przepełniony a chcemy otworzyć jakiś nowy proces, 
+przeniesie nam dane z ramu do swap area i pozwoli na otworzenie nowego bez usuwania dotychczasowych programów, w teorii wielkość swap area zalezy od ilosci przypisanego ramu,
+niektórzy pisza ze powinno być to 1.5x RAM a niektóry żę 2x RAM ja wybrałem opcje z 1.5x RAM.
+Sam proces tworzenia partycji: wybranie wolnego miejsca na dysku -> stworz nowa partycje -> wybranie rozmiaru [osobiscie kierowałem się tym co wyżej czyli ile bedzie miał rozmiar swap area reszta na system 
+jesli chodzi o rozmiar to https://www.debian.org/releases/stretch/i386/ch02s05.html.en <- minimalne wartosci  https://linuxhint.com/boot-partition-size-debian/ <- rekomendowane dla debian 11] -> wybranie lokacji [jest to ważny krok
+jeśli chodzi o wydajność pracy, zaleca się aby SWAP było na pierwszym miejscu (czesto dlatego ze mamy zbyt mało RAMu zamontowane, dlatego ze dyski HDD zmieniaja swoj transfer z zaleznosci od miejsca im dalej tym mniejszy) 
+https://morfikov.github.io/post/jak-optymalnie-podzielic-dysk-hdd-ssd-na-partycje-pod-linux/#pozycja-partycji-na-dysku-hdd] -> punkt montowania czyli katalok któremu przyporządkowana zostaje konkretna partycja z systemu plików 
+[SWAP nie jest montowany w żadnym katalogu] ja wybrałem rootowski punkt montowania dla systemu czyli "/".
+Jeśli chodzi o różnice pomiedzy logiczna a podstawowowa partycja to partycja podstawowa trzyma w sobie system operacyjny i dane uzytkownika. Tylko ten typ partycji jest widziany przez BIOS (pośredniczy pomiedzy systemem a sprzetem 
+komputerowym), co oznacza ze tylko z tej partycji mozemy odpalic system operacyjny. Jeśli chodzi o logiczna partycje to jest to logiczna segmentacja pamięci komputera i innych zasobów, 
+która umożliwia mu uruchamianie własnej kopii systemu operacyjnego i powiązanych aplikacji. Liczba partycji logicznych na dysku MBR jest nieograniczona, nie tyczy się to partycji podstawowych której liczba jest ograniczona do 3 lub 4.. 
+Jeśli chodzi o system plikow to sa: 
+	- ext4: najnowsza wersja rozszerzonego systemu plików, charaktetyzuje się wieksza pojemnością, jak również 
+	prealokacja oraz ma kompatybilność wsteczna można zamontować ext3 czy ext2
+	- ext3 i ext2 sa poprzedniczkami ext4 
+	- btrfs – umozliwia np. kopiowanie przy zapisie, umożliwia dodawanie/usuwanie urzadzen blokowych w locie, 
+	możliwość zmiany partycji online.
+	- XFS warto dodać że maksymalny rozmiar woluminu jest ograniczony do 16 milionów terabajtów.
+	- fat16 - odmiana systemu plików FAT, która posługuje się 16-bitowym adresowaniem przy dostępie do plików. 
+	Stworzony do obsługi pierwszych dysków twardych, gdyż jego poprzednik FAT12 był niewystarczający.
+	- fat32 - odmiana systemu plików FAT, po raz pierwszy zastosowany w systemie operacyjnym Windows 95 OSR2, 
+	jego poprzednikiem jest FAT16.
+	- możemy również użyć go jako fizyczny wolumin dla szyfrowania, dla RAID’u oraz dla LVM’a
+	- bootable Flag jest używane do skazania która partycja ma się uruchomić jako pierwsza – zostawiłem 
+	wyłączona ponieważ moja partycja podstawowa i tak jest jako pierwsza bootowana.
+Ja wybrałem ext4 z tego powodu że ma wieksza pojemnosc oraz wysoka wydajnosc.
+Jeśli chodzi o to jakie foldery powinny zostać wydzielone do osobnych partycji to: [swap, /boot, /, home], powinno sie wydziela te partycje aby usprawić sobie prace jako np [administrator systemu], oraz jeśli chcemy aby nasz system był 
+jak namniej kolizyjny [podatny na błędy] oraz bezpieczniejszy. https://www.daniloaz.com/en/the-importance-of-properly-partitioning-a-disk-in-linux/
+Journaling - dane nie są od razu zapisywane na dysk, tylko zapisywane w dzienniku/kronice. 
+Dzięki temu zmniejsza się prawdopodobieństwo utraty danych: jeśli utrata zasilania nastąpiła w trakcie zapisu – zapis zostanie dokończony po przywróceniu zasilania, 
+jeśli przed – stracimy tylko ostatnio naniesione poprawki, a oryginalny plik pozostanie nietknięty.
+- instalacja podstawowego systemu
+- następnie wybranie serwera z paczkami dla naszego systemu spośród wszystkich wybralem ten który jest najbliżej 
+mojego położenia ftp.task.gda.pl ale również można wybrać podstawowy dla debiana czyli deb.debian.org 
+- następnie dostajemy okienko służące do dostrojenia naszego systemu operacyjnego dla naszych opcji, do wyboru mamy
+różne nakładki graficzne na system oraz wybór czy nasz system ma działać jako web serwer czy ssh serwer. 
+Jeśli chodzi o nadkładki graficzne : 
+	- GNOME został stworzony z mysla aby był jak najbardziej możliwy do dostosowania dla swoich potrzeb, problem w tym że nie jest on najlżejszy jeśli chodzi o wielkość i nie zaleca się go dla słabszych komputerów które maja 
+	mniej niz 4 GB ramu 
+	- GNOME classic jest dobrym wyborem dla tracyjonalistów. Do uruchamiania aplikacji możesz użyć menu Aplikacje na górnym pasku. Przegląd działań jest dostępny po wybraniu z menu elementu Przegląd działań. 
+	- KDE jest bardzo dobry do dostosowania dla własnych potrzeb oraz lekki nie waży tak duzo, umożliwia łatwe połączenie z telefonem dzieki KDE connect
+	- MATE jest dobry dla komputerów niższego poziomu, poczatkujacych. 
+	- XFCE jest przeznaczony dla początkujących, którzy chcą stabilnego DE, który nie jest skomplikowany w utrzymaniu. Personalizacja jest możliwa dzięki pomocnym dialogom, ale XFCE zawsze koncentrował się na prostocie.
+	- Cinnamon był pomysłem który polegał na stworzeniu prostego środowiska graficznego, które będzie wyglądało nowocześnie, będzie działało gładko i nie pozostawi nowych użytkowników zdezorientowanych i sfrustrowanych.
+Z powodu ze mój system ma być systemem tekstowym zostawiam tylko `standard system utilities`
+Standard System Utitlities tworzy podstawowe środowisko użytkownika, zapewniając stosunkowo mały wybór usług i narzędzi dostępnych w wierszu poleceń.
+Czy da się bez niego zainstalowac system: tak, ale bedzie nam cieżej na nim pracować. 
+- Następnie potwierdzamy instalacje bootloader'a GRUB. Bootloader to specialny system opercyjny który ładuje się do 
+pamięci roboczej komputera po jego uruchomieniu. Bootloader uruchamia nam system operacyjny, bez niego ciężko będzie
+go odpalić. Gdy go nie zainstalujemy nasz system nie będzie mógł się odpalić. Jeśli chodzi o alternatywy dla GRUBa 
+to mamy BURG, GAG, LILO, Syslinux. 
+Bootloadera instaluje się w MBR. Jeśli chodzi o to co się wybiera to nie znalazłem informacji o (BR) wyskakuja informacje tylko dla (MBR - głowny rekord rozruchu), BR z nazwy moze wskazywac na po 
+prostu rekord rozruchu.. 
+
+- koniec instalacji, można zacząć prace z systemem
+

@@ -1,0 +1,51 @@
+================================================================================
+Zadanie domowe:
+
+"Przygotuj skrypt, który odczyta plik (jego nazwa ma być argumentem skryptu) i
+ wypisze go na terminalu tak, aby wszystkie wystąpienia Twojego imienia były
+ podświetlone na czerwono."
+
+================================================================================
+Początek skryptu. Informacja o użyciu bash-a
+
+#!/bin/bash
+
+--------------------------------------------------------------------------------
+Przypisanie do zmiennej plik ścieżki względnej do naszego pliku z tekstem.
+Zarówno skrypt jak i plik muszą być w tym samym katalogu by scieżka się
+zgadzała, inaczej skrypt nie zadziała.
+
+plik=./plik.txt
+
+--------------------------------------------------------------------------------
+cat wyświetla zawartość pliku i przekazuje go do sed-a jako wejście.
+
+cat $plik | sed 
+
+--------------------------------------------------------------------------------
+Zanjdź ciąg znaków Sebastian i zamień go na polecenie echo -e z argumentem 
+Sebastian, pokolorowanym na czerwono.
+
+Zapis jest zgodny ze składnią sed-a:
+
+Zmień / ZmieńTo / NaTo /
+
+w Tym przypadku zamieniamy napis na polecenie. By polecenie się wykonało
+musi być ono zawarte pomiędzy backtickami ( ` ).
+
+Wszystko, co wpisujemy między backticami jest wykonywane przez powłokę (w tym
+przypadku bash-a). Dopiero wyjście polecenia, które wpisujemy zostanie użyte.
+Zatem sed nie widzi polecenia echo tylko wynik jego działania czyli czerwony
+napis Sebastian.  
+
+s/   To    /             Na To              /
+s/Sebastian/`echo -e "\e[32mSebastian\e[0m"`/
+
+--------------------------------------------------------------------------------
+Wierszyk o Sebastiane skopiowałem z internetu byłe by tylko jakiś długi 
+teskt był do przerzucenia przez skrypt.
+(  Źródło : https://zapytaj.onet.pl/Category/001,003/2,14710478,
+Uloz_wierszyk_rymujacy_sie_o_Sebastianie_jest_madry_i_spokojny.html  )
+
+
+

@@ -1,0 +1,415 @@
+================================================================================
+Zajecia 1: Instalacja systemu linux na maszynach wirtualnych.
+================================================================================
+Win 10, VirtualBox + Debian z neta: https://www.debian.org/download
+
+== I ===========================================================================
+
+1."Nowa" -> Name Debian, Typ Linux, Wersja 64 bit.
+
+2. 2048 MB pamięci, mam 16 GB to mnie stać.
+
+3."Stwórz wirtualny dysk twardy."
+
+4. Prealokacja pamięci: Zaznaczając stały rozmiar, dajemy miejsce na dysku 
+   odrazu. Dynamicznie przydzielany oznacza że pamięć będzie przydzielana w
+   miarę zapotrzebowań maszyny wirtualnej aż osiągnie stały rozmiar.  
+
+5. Wybieram 8GB miejsca na dysku twardym. Więcej nie potrzeba bo to tylko
+   nauka instalacji Debiana, a nie komputer czy serwer w firmie.
+
+6. Ustawienia -> System -> Zaznaczyć tylko napęd optyczny by narpierw z płytki
+   instalator mi odpaliło. W przeciwnym razie będę musiał spamować F12 by samemu
+   wybrać napęd optyczny. Inaczej  wywali Fatal error że nie ma czego uruchomić.
+
+8. Uruchom -> Dysk startowy Debiana, który mam z neta.
+
+9. Monitor 1440p mnie zabije. Rozmiar okienka instalacyjnego jest dla mrówek.
+   Internety -> "VirtualBox how to make it bigger". -> Plik
+   -> Globalne ustawienia -> Ekran -> 2560x1440 , Współczynnik skali 200%.
+   Brzydziej, ale większe, że da się przeczytać bez wytrzeszczania oczu.
+
+10.Graphical install - instalacja z interfejsem graficznym.
+   
+   Install - instalacja bez interfejsu graficznego, używana domyślnie chyba 
+   że wybierzemy inaczej.
+
+   Advanced options - opcje zaawansowane w tym:
+ 
+ - tryb experta - daje pełną kontrolę nad procesem instalacji. Przydate gdy
+   zwykły tryb nie będzie dostatecznie konfigurowalny.
+ - rescue mode - tryb ratunkowy, który zapenia dostępność dysków i urządzeń
+   sieciowych podczas naprawy systemu. Wykorzystuje do tego funkcje wykrywania   
+   sprzętu z instalatora. Ma to na celu ułatwić naprawę systemu.
+ - Automated install - W zasadzie to system sam się instaluje.
+   Niezbyt konfigurowalna opcja instalacji.
+  
+   Accesabile dark contrast installer menu - zmienia kolorki na czarno-białe. 
+  
+   Help - dużo tekstu do czytania jakby ktoś się zgubił.
+  
+   Install with speech synthesis - Istalacja głosowa jakby komuś bez patrzenia
+   chciało się instalować.
+
+=== II =========================================================================
+
+1. Install
+
+2. Język angielski jako uniwersalny język internetu, wujka Google, cioci Wiki
+   i kuzyna Stack Overflow.
+
+3. Mieszkam w Polskie więc wybieram Inne -> Europa -> Polska.
+
+4. Locale settings chcę mieć angielskie więc en_US.UTF-8.
+   Chyba że po Chińsku bym wolał to nic nie stoi na przeszkodzie wybrać
+   Honk Kong.
+
+5. Pomimo wybranego języka angielskiego to układ klawiatury i tak chcę mieć
+   Poski i taki wybieram.
+
+6. Prosi o nazwę hosta dla tego systemu. Czyli poprostu jak ma się nazywać
+   i jak będzie widoczna w sieci domowej. Niech zostanie "debian".
+
+7. Typ domeny. Nie mam własnej domeny i narazie jej nie potrzebuję więc
+   zostawiam puste. Domena to ta ładna nazwa stron intenetowych 
+   (np. www.youtube.com ) zamiast brzydkiego numeru IP złożonego z cyferek.
+
+8. Ustalamy hało dla roota czyli trybu boga i potwierdzamy.
+
+9. Teraz tworzymy konto użytkownika bo przecież nie będziemy ciągle z roota
+   korzystać. Przez chwilę nieuwagi mając dostęp do wszytich możliwości
+   możemy sobie kłopotów narobić. np skasować dosłownie wszytko.
+   Użytkownik z założenia nie ma takiej władzy. Systemu nie skasuje jak
+   nie ma uprawnień.
+
+10.Dajemu kontu użytkownika nazwę i hasło.
+
+=== III ========================================================================
+
+ == 1 == -----------------------------------------------------------------------
+ LVM - Umożliwa zarządzanie pamięcią np. połączenie partycji znajdujących
+ się na różnych urządzeniach w jeden dysk wirtualny. Jego rozmiar można
+ zmieniać w zależności od potrzeb, nawet podczas działania systemu.
+   
+ encrypted LVM - partycja jest szyfrowana a klucz jest przechowywamy
+ w pamięci RAM. W przypadku wyboru tej opcji partycję wymiany również należy
+ szyfrować by zapobieć kradzieży klucza.
+   
+ Wybieram manual iż gdyż:
+
+   Opcja z LVM - "Daje to dodatkowe możliwości praktycznie zerowym kosztem."
+ - Wierzę w ciemno. Zysk za nic to lepsze niż niejedna promocja, ale 
+   rzadko kiedy korzystam z promocji bo zwykle nie potrzebuję tego
+   co jest w ofercie.
+
+ - Opcja guided z kolei dzieli partycje nie tak jak chcę więc też odpada.
+
+ == 2 == -----------------------------------------------------------------------
+ Uwaga. Sporo kopiuj-wklej. Przecież definicji sobie nie wymyślę. Natomiast
+ co nieco mogę powiedzieć o tym co wyczytałem.
+
+--------------------------------------------------------------------------------
+ SCSI - "zestaw standardów fizycznego łączenia i przesyłania danych między
+ komputerami i urządzeniami peryferyjnymi. Standardy SCSI definiują polecenia,
+ protokoły, interfejsy elektryczne, optyczne i logiczne.
+ Początkowy interfejs Parallel SCSI był najczęściej używany do dysków twardych i
+ napędów taśmowych, ale może łączyć wiele innych urządzeń, w tym skanery i
+ napędy CD, chociaż nie wszystkie kontrolery mogą obsługiwać
+ wszystkie urządzenia." 
+
+ Najważniejsze z tego dla mnie jest to że jest to taki standardowy sposób
+ łączenia komponentów komputera se zobą w całość. Jak sobie wpiszemy w grafikę
+ SCSI to wyskakują kable, złącza, i wtyki do kalbi,(bardzo szerokie/dłguie)
+ czyli to wszystko co używa standardu SCSI.
+
+ Moje pytanie było: "dlaczego mam napisane 'SCSI3 (0,0,0) (sda)' przy tworzeniu 
+ partycji." Na to pytanie odpowiada druga część definicji która mówi że standard
+ SCSI był najczęściej używany właśnie do dysków twardych, a teraz do 
+ wielu więcej elementów. Zatem tworzymy partycję ze stadardem SCSI3
+ (SCSI3 to poprostu udoskonalona wersja SCSI).
+
+-------------------------------------------------------------------------------- 
+ (0,0,0) -  Kontroler 0, Dysk 0, Partycja 0.
+
+"Kontroler dysku to obwód kontrolera, który umożliwia procesorowi komunikację
+ z dyskiem twardym." Jak wpiszemy kontroler dysku to wystakuje zdjęcie tej
+ płytki drukowanej co znajduje się w dysku twardym pod talerzem i to 
+ do niego wpinamy kable. To jest właśnie kontroller.
+
+ Będziemy tworzyć pierwszą partycję na pierwszym dysku z użyciem pierwszego
+ kontrolera dysku. 
+ Komputer liczy od 0 nie od 1 więc wszytko jest na 0 nie na 1.
+
+--------------------------------------------------------------------------------
+ (sda) - Pierwszy dysk twardy wykryty przez system Linux ma etykietę sda.
+         Drugi to byłby sdb, a trzeci to sdc itd.
+
+ 8.6 GB- Całkowity rozmiar obecnego dysku.
+
+ ATA - "pierwotnie AT Attachment, znany również jako ATA lub IDE.
+ Standardowy interfejs przeznaczony dla komputerów.
+ Połączenie jest używane do urządzeń pamięci masowej, takich jak dyski twarde,
+ stacje dyskietek i napędy dysków optyczny ch w komputerach."
+
+ A po ludzku. Kable którymi podłączamy dyski do płyty głównej komputera
+ używają właśnie interfesu, ATA który obecnie nazywamy SATA. (Serial ATA).
+ To te niezbyt wielkie wtyczki które ciężko się czasem wypina i powodują 
+ panikę że sobie płytę główną uszkodzimy.
+
+
+ VBOX HARDISK - nazwa dysku.
+
+ == 3 == -----------------------------------------------------------------------
+ W przypadku guided partitioning mamy do wyboru by wszystko było na jedej
+ partycji lub by /home było na  oddzielnej.
+
+ W kwestii dlaczego proponuje by katalog /home był na innej partycji:
+ 
+1.W katalogu home mamy większość ustawień, konfiguracji i pobranych plików.
+  Co za tym idzie. Gdy nam się obecna wersja systemu nie poboba to możemy
+  zainstalować sobie inną, np. nowszą wersję, bez utraty naszych ustawień, czy
+  plików które są na osobnej partycji w katalogu home.
+
+2.Oddzielna partycja może być powiększona o dodatkowe miejsce gdy tego
+  okaże się być za mało.
+
+ Jeszcze można mieć oddzielenie m.in. /var i /tmp. Oddziele partycje tworzymy
+ z powodów: 
+ 
+ - Wydajnościowych - by oddzielić dane częściej używane od rzadziej używanych.
+ 
+ - Bezpieczeństwa - by np. konkretna lokalizacja posiadała dodatkowy moduł
+   szyfrowania fizycznego.
+
+ - Systemowych - by nie doszło do sytuacji gdzie nawet system operacyjny nie
+   będzie się mógł uruchomić z powodu braku miejsca wymaganego na pliki tworzone
+   podczas rozruchu, bo cała jedna jedyna partycja jest zawalona po kurek.
+   Lepiej zostawić trochę wolnego miejsca na oddzielnej partycji przeznaczonej
+   tylko na potrzeby działania systemu.
+
+ Ja wybrałem manual partitioning więc tych możliwości u mnie nie było
+ bo o wszytkim sam decyduję
+
+== 4 == ------------------------------------------------------------------------
+ Teraz pojawia się ekran do zmiany konfiguracji partycji
+
+--------------------------------------------------------------------------------
+ Guided partitioning - dalej prowadzenie za rączkę.
+
+--------------------------------------------------------------------------------
+ Configure software RAID
+
+ RAID - (jak to psikadło na komary) - "(Nadmiarowa macierz niezależnych dysków)
+ sposób przechowywania tych samych danych w różnych miejscach na wielu dyskach
+ twardych lub dyskach półprzewodnikowych (SSD) w celu ochrony danych w przypadku
+ awarii dysku."
+
+ Po polsku oznacza to dla mnie tyle że jak boję się że mi się jeden dysk spali
+ to mogę mieć drugi z dokładnie z tą samą zawartością. Przydatne przy budowaniu
+ baz danych/serwerów.
+
+--------------------------------------------------------------------------------
+ Confugire the Logical Volume Manager (LVM) - Konfiguracja LVM.
+
+--------------------------------------------------------------------------------
+ Confugure encrypted volumes - Mogę stworzyć szyfrowane wolumeny.
+
+ Wolumin - "wydzielony obszar pamięci masowej służący do
+ przechowywania informacji." Czyli po polsku, część partycji mogę sobie
+ zaszyfrować gdybym chciał.
+
+--------------------------------------------------------------------------------
+ iSCSI - "Internet Small Computer Systems Interface, standard sieci pamięci
+  masowej oparty na protokole internetowym (IP) do łączenia urządzeń
+  do przechowywania danych."
+
+ Configure iSCSI volumes - Konfiguracja iSCSI, prosi mnie o IP którego nie 
+ mam więc za dużo nie zrobię. No i urządzeń do łączenia ze sobą też nie mam.
+
+=== IV =========================================================================
+Wybieram mój dysk -> create new partition -> 6 GB -> primary (podstawowa)
+
+== 1 == ------------------------------------------------------------------------
+ Dużo definicji z internetu. Przeczytane, ale prawdę mówiąc to narazie tylko
+ głowa od tego boli, bo na chwilę obecną chyba nie potrzebuję dokładnie znać
+ systemów plików. Niemniej jednak z ciekawości przewaliłem internet by 
+ mniej więcej wiedzieć co to w ogóle są za skrótowce.
+--------------------------------------------------------------------------------
+
+ System plików – "metoda przechowywania plików, zarządzania plikami,
+ informacjami o tych plikach, tak by dostęp do plików i danych w nich
+ zgromadzonych był łatwy dla użytkownika systemu."
+
+1. Use as: ---------------------------------------------------------------------
+
+ - Ext4 - "Czwarta wersja rozszerzonego systemu plików, następca ext3.
+  Obecnie jeden z najpopularniejszych systemów plików dla Linuksa."
+
+ - Btrfs - "nowoczesny system plików opracowany przez wiele firm i
+  obecnie obsługiwany przez wybrane modele Synology NAS.
+  Btrfs został zaprojektowany w celu usunięcia przeszkód często napotykanych w
+  systemach pamięci masowej dla przedsiębiorstw, takich jak odporność na awarie,
+  zarządzanie i ochrona danych. 
+
+ - JFS - "(Journaled File System) to 64-bitowy system plików z kronikowaniem
+  stworzony przez IBM. Istnieją wersje dla systemów operacyjnych AIX, OS/2,
+  eComStation, ArcaOS i Linux. Ten ostatni jest dostępny jako wolne
+  oprogramowanie na warunkach Powszechnej Licencji Publicznej GNU."
+
+ - XFS - "64-bitowy system plików z przeznaczeniem do użycia go w
+  systemie operacyjnym IRIX (wersja UNIX-a firmy SGI).
+  Aktualnie jest dostępna również jego implementacja"
+  dla systemu Linux rozwijana przez SGI jako projekt na licencji
+  wolnego oprogramowania."
+
+ - FAT 16 - "odmiana systemu plików FAT, która posługuje się 16-bitowym
+  adresowaniem przy dostępie do plików. Stworzony do obsługi pierwszych
+  dysków twardych."
+
+ - FAT 32 - Następca FAT 16," pomimo nazwy sugerującej 32 bity,
+  wykorzystuje tylko 28 z nich."
+
+ - swap - "Obszar wymiany to po prostu fałszywa pamięć RAM, która znajduje
+ się na dysku twardym. Jest znacznie wolniejszy niż rzeczywista pamięć RAM,
+ ale w wielu przypadkach jest niezbędny do normalnego działania komputera."
+
+ - physical volume for encryption, RAID, LVM. - Czyli przeznaczamy miejsce 
+ tej partycji na wcześniej wymienione.
+
+ - do not use the partition - nie używamy partycji.(przynajmniej narazie).
+
+--------------------------------------------------------------------------------
+ Wybieram Ext4 tak jak mi wcześniej sugerował guided partitioning.
+
+2. Mount point: ----------------------------------------------------------------
+
+ Mount point - "Punkt montowania to po prostu katalog, jak każdy inny, tworzony
+ jako część głównego systemu plików. Na przykład domowy system plików
+ jest montowany w katalogu /home."
+
+ Czyli dla naszej partycji możemy wybrać jaki katalog ma się tam znaleźć
+ Po kolei:
+
+ / - root - katalog najwyższego poziomu zawierający wszystkie inne katalogi.
+ / boot - katalog zawierający oprogramowanie, które uruchamia się jako
+    pierwsze.
+ / home - katalog domowy.
+ / tmp - kataloog na pliki tymczasowe.
+ / var - katalog zawierający zmienne nie pasujące nigdzie indziej.
+ / usr - katalog na dane użytkownika i przeznaczone dla niego pliki.
+ / srv - katalog na rzeczy związane z serverami.
+
+ Wybieram katalog root-a.
+
+3. Mount opions, zostawiam na defaults. Gdy jednak chcemy dokonać zmian
+ w sposobie zachowania naszej partycji to możemy.
+
+4. Label - Możemy naszej partycji nadać etykietę dla systemu plików, którego
+   używamy. Nic nie wpisuję. Nie potrzebuję tego na ten czas.
+
+5. Reserved blocks - Ilość/część partycji jaką przeznaczmy tylko dla roota.
+
+6. Typical usage - możemy określić w jaki sposób nasz system plików będzie
+  zapisywał dane.
+
+7. Bootable flag : off - Możemy nadać flagę bootowania, która informuje
+ główny rekord rozruchowy. (Pierwszy sektor na dysku twardym, który
+ rozpoczyna proces uruchamiania komputera.) którą partycję uruchomić.
+ Jest to opcja gdy chcemy wkazać, z której bootloader ma być uruchomiony.
+ Z reguły instalator sam ustawi flagę jeśli my tego nie zrobimy, ale dobrze
+ byłoby to samemeu zrobić. Należy pamiętać zę tylko jedna partycja podstawowa
+ może mieć ją ustawioną.
+
+== 2 == ------------------------------------------------------------------------
+ Zostało 2,6 GB wolnego miejsca.
+ Tworzę drugą partycję tym razem logiczną. Zamiast sytemu plików Ext4 wybieram
+ by była to moja partycja wymiany "swap area."
+
+ swap - "Systemowa partycja występująca w systemach typu UNIX.
+ Służy do tymczasowego przechowywania danych w sytuacji, gdy ich ilość
+ przekracza zasoby wolnej pamięci RAM."
+
+ Finish partitioning and write changes to disk.
+
+--------------------------------------------------------------------------------
+ W ramach podsumowania: Mam dwie partycje jedną podstawową z systemem plików
+ Ext4 zawierającą katalog root-a, a druga to logiczna służąca jako swap, 
+ nasza pamięć wymiany, gdyby RAM-u zabrakło.
+
+== V ===========================================================================
+
+== 1 == ------------------------------------------------------------------------
+ Scanning for new media. Wybieram nie.
+ Nie potrzebuję szukać czegoś czego nie ma.
+
+ Debiana sciągam z Polski -> deb.debian.org -> Nie mam potrzeby używać HTTP
+ proxy i nawet go nie znam, więc zostawiam puste.
+
+ Proxy to takie zabezpieczenie, pośrednik między mną, a serwerem.
+
+ Nie dla ankiety.
+
+== 2 == ------------------------------------------------------------------------
+ Teraz mnie pyta czy zainstalować dodatkowe oprogramowanie. Tak naprawdę to
+ teraz mam wybrać w jaki sposób mój system ma się prezentować i działać.
+
+ - Debian desktop environment - instaluje pulpit zadań i wymaga jednego 
+  z wyglądów podanych poniżej. Dlatego domyślnie jest zaznaczony również GNOME.
+
+ - Wszystkie od GNOME do LXQT to są różnie skomponowane środowiska graficzne.
+  Niektóre ładniejsze, niektóre brzydsze, a inne by mogły działać
+  na kartoflu. Nie mam narazie swoich preferencji więc zostaje domyślne GNOME.
+
+ - SSH server - "SSH oznacza Secure Shell i jest protokołem bezpiecznego zdalnego
+  logowania i innych bezpiecznych usług sieciowych w niezabezpieczonej sieci."
+
+  Z tego co zrozumiałem z internetów to mogę wybrać czy z maszyną którą obenie
+  konfiguruję będzie się można łączyć za pomocą SSH. Czyli jeśli to byłby
+  jakiś komputer w firmie i zaznaczył bym mu SSH server to miałbym
+  możliwość się z nim połączyć np. z domu z mojego komputera tak jak łączę się
+  teraz z uczelnią.
+
+ - web server - "Serwer sieciowy to oprogramowanie komputerowe i podstawowy sprzęt,
+  który akceptuje żądania za pośrednictwem protokołu HTTP."
+  Podobnie jak z SSH tylko że tym razem będziemy korzystać z protokołu HTTP.
+
+ Nie porzebuję się łączyć do mojej maszyny wirtualnej z innego komputera,
+ więc nie zaznaczam, ale warto zapamiętać tą opcję na przyszłość.
+
+ - Standard system unilities - Zawiera standardowe narzędzia systemowe.
+  Nie zaszkodzi zaznaczyć. Lepiej mieć niż nie mieć.
+  (https://csmojo.com/posts/what-debian-standard-system-utilities-include.html)
+
+ Jedziemy dalej
+
+== 3 == ------------------------------------------------------------------------
+ Pyta mnie czy zainstalować GRUB. GRUB to bootloader czyli program
+ odpowiedzialny za uruchamianie komputera z wybranym przez nas systemem 
+ operacyjnym. Bez niego, lub innego bootloadera system się nie załaduje.
+ Zatem: Tak dla jego instalacji i wybieramy nasz dysk, który wykryło.
+ Manulanie nie ma co wpisywać bo mam tylko jeden dysk, który wykryło.
+
+ Teraz mogę wybrać czy mi się uruchomi Debian GNU/Linux, lub opcje
+ zaawansowane. W zaawansowanych można jeszcze uruchomić 
+ nasz system w "recovery mode".
+
+ W przypadku FATAL error należy wejść w ustanienia virtualboxa i zmienić
+ opcje urchamiania na dysk twardy lub za każdym razem męczyć F12 i samemu
+ wybierać z czego ma się odpalać.
+
+--------------------------------------------------------------------------------
+ Dodatkowe informacje.
+ Instalacja GRUB-a na Master Boot Record (MBR), a Boot record.
+ Jeżeli GRUB będzie jedynym programem rozruchowym, to instalujemy go na MBR,
+ jako że to tam komputer szuka bootloadera. Gdy na MBR znajduje się już inny
+ bootloader to możemy zainstalować GRUB-a na Boot Recordzie i kazać pierwszemu
+ programowi znajdująccemu się w MBR uruchomić/przekierować na GRUB-a.
+
+== 4 == ------------------------------------------------------------------------
+
+ Wybieram Debian GNU/Linux.
+ System się uruchamia i prosi o dane logowania.
+ Działa.
+
+
+

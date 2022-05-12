@@ -1,0 +1,34 @@
+================================================================================
+Zadanie 4 - Eksperymenty
+================================================================================
+ls -la  - polecenie wykonuje się tak jak powinno.
+
+x=("ls -l")
+
+$x - jak wpiszemy tylko $x (wyświetl zawarość zmiennej) to polecenie w niej
+ zawarte się wykonuje. 
+
+echo $x - Polecenie echo zgodnie z definicją man-a wyświetla linię tekstu na
+ terminal. Zatem echo wyświetla zawartość zmiennej x w tym przypadku ls -l .
+ Podaczs użycia echo, bash nie wykonuje polecenia w zmiennej, tylko wypiuje jej
+ zawartość na okno terminala. To samo dotyczy: echo $x , echo "$x"
+ Różnica jest w przypadku echo '$x', które  wypisuje dosłownie $x .
+
+================================================================================
+echo $((2+2)) -  Podwójny nawias by najpierw policzyło, a dopiero potem
+                 wyświetliło na terminal.
+
+Liczneie jak w podstawówce. W przypadku echo $(2+2) wywala że nie ma takiego
+polecenia. Tak też działa: echo $[(2+2)] .
+
+Gdy chcemy uzyskać większą dokładność obliczeń możemy skorzystać z polecenia bc
+(Basic Calculator), które umożliwia między innymi uzykanie większej dokładności
+obliczeń. Np:
+
+echo "scale=2 ; 5/2" | bc
+
+Dzielimy pięć przez dwa informując kalkulator że chcemy uzyskać wynik z 
+dokładnością do dwóch miejsc po przecinku (scale=2).
+ 
+
+
