@@ -1,6 +1,6 @@
 Zadanie: instalacja debiana
 
-Pierwszy krok to odpowiednie skonfigurowanie VM VirtualBoxa, czyli stworzenie maszyny, dysku wirtualnego, dobranie odpowiedniego typu dysku (u mnie jest to VDI, poniewaz nie planuje uzywac innego oproramowania do wirtualizacji) oraz jego wielkosc (wybieramy czy chcemy żeby dysk zostal utworzony ze stalym rozmiarem, czy chcemy zeby rozmiar zwiekszal sie dynamicznie az do osiagniecia ustalonej wczesniej wartosci).
+Pierwszy krok to odpowiednie skonfigurowanie VM VirtualBoxa, czyli stworzenie maszyny, dysku wirtualnego, dobranie odpowiedniego typu dysku (u mnie jest to VDI, poniewaz nie planuje uzywac innego oproramowania do wirtualizacji) oraz jego wielkosc (wybieramy czy chcemy żeby dysk zostal utworzony ze stalym rozmiarem, czy chcemy zeby rozmiar zwiekszal sie dynamicznie az do osiagniecia ustalonej wczesniej wartosci). Mój dysk ma rozmiar 10 GB, jest to nieco więcej niż sugeruje VM (8 GB).
 
 Spośród dostępnych opcji typu dysku mamy do wyboru:
 - VDI (VirtualBox Disk Image) - format VirtualBoxa, dziala z nim najlepiej
@@ -9,7 +9,7 @@ Spośród dostępnych opcji typu dysku mamy do wyboru:
 
 Nalezalo wczesniej pobrac plik z obrazem instalacji systemu a nastepnie podpiac go w odpowienim miejscu. Plik podpinamy w ustawieniach naszego systemu w VM (settings > storage > controler: IDE > optical drive > plik_z_systemem.iso). W ten sposob mozemy niejako zasymulowac wlozenie plytki z systemem do napedu.
 
-Nastepnie uruchamiamy maszyne i mamy 2 opcje instalacji: graphical install (instalator graficzny) oraz install (ta opcja pozwoli na glebsze skonfigurowanie systemu). Na poczatku wybieramy jezyk w jakim chcemy obslugiwac nasz system (angielski w moim przypadku, poniewaz w razie problemow latweiej znalezc odpowiedz w internecie) a nastepnie region w ktorym sie znajdujemy (np. other > Europe > Poland). Dalej wpisujemy nazwe hosta, haslo dla roota oraz tworzymy nowego uzytkownika.
+Nastepnie uruchamiamy maszyne i mamy 2 opcje instalacji: graphical install (instalator graficzny) oraz install (ta opcja pozwoli na glebsze skonfigurowanie systemu). Na poczatku wybieramy jezyk w jakim chcemy obslugiwac nasz system (angielski w moim przypadku, poniewaz w razie problemow latweiej znalezc odpowiedz w internecie) a nastepnie region w ktorym sie znajdujemy (np. other > Europe > Poland). Później wybieramy kodowanie znaków oraz układ klawiatury, w moim przypadku en_US.UTF-8 oraz polski układ co pozwoli mi na pisanie liter diakrytycznych. Dalej wpisujemy nazwe hosta, haslo dla roota oraz tworzymy nowego uzytkownika.
 
 Kolejny krok to stworzenie partycji i przydzial miejsca na dysku.
 
@@ -21,8 +21,21 @@ Pojawiają się takie opcje partycjonowania dysku:
  
 Wybieramy opcję manual, pozwoli to na ręczny wybrór rozmiaru partycji oraz systemu plików (Ext4 to opcja natywna dla Linuxa). Za pomocą tej opcji możemy utworzyc 4 partycje podstawowe i nieograniczona ilosc partycji logicznych.
 
-Dalej wybieramy region oraz serwer z ktorego bedziemy pobierac aktualizacje/programy. Wybor odpowiedniego serwera pozwoli na szybsze pobieranie plikow.
+Wybieramy dysk, klikamy create a new partition oraz wyznaczamy jej wielkość (będzie to partycja rozruchowa), 2 GB w zupełności starczą. Dalej wybieramy typ (primary lub logical) oraz w jakim miejscu ma zostać sworzona partycja (beginning lub end). Primary zawiera OS i sluży do boot'owania, logical do przechowywania danych. Klikamy primary oraz beginning (jako że bedzie to partycja uruchamiająca system musi być na początku). Dalej pokazuje nam się okno ustawień partycji, w nim ustawiamy mount point (folder do którego przypisana jest hierarchia plików systemu), wybieramy "/ " (root - katalog zawierający wszystkie inne katalogi). Resztę wolnego miejsca przeznaczam na kolejna partycję, tym razem logiczną. W okienku zamiast systemu plików ext4 wybieram swap area (swap to partycja służąca do tymczasowego przechowywania danych w sytuacji, gdy ich ilość przekracza zasoby wolnej pamięci RAM).
 
-Na koncu pozostają nam dodatkowe opcje do zainstalowania (służy do tego tasksel) np. serwer SSH, abyśmy mogli zdalnie połączyć się z komputerem oraz mozliwosc instalacji GRUBA (taki jakby program posredniczacy miedzy UEFI a systemem, za jego pomoca mozemy m.in. wybrac wersje kernela). Sam GRUB służy do uruchamiania systemów operacyjnych, jest najpopularniejszym bootloaderem (oprogramowaniem uruchamianym podczas startu komputera, służącym do załadowania systemu operacyjnego do pamięci operacyjnej) na dystrybucjach linuxa. Nie, GRUB nie jest potrzebny, potrzebny jest za to wspomniany wczesniej bootloader. Alternatywami dla GRUBA moga byc m. in. LILO, BURG, Syslinux.
+Dalej wybieramy region oraz serwer z ktorego bedziemy pobierac aktualizacje/programy. Wybor odpowiedniego serwera pozwoli na szybsze pobieranie plików.
+
+Na koncu pozostają nam dodatkowe opcje do zainstalowania (służy do tego tasksel) oraz mozliwosc instalacji GRUBA (taki jakby program posredniczacy miedzy UEFI a systemem, za jego pomoca mozemy m.in. wybrac wersje kernela).
+
+Opcje tasksela:
+- Debian desktop environment - instaluje pulpit zadań i wymaga jednego z wyglądów podanych poniżej, domyślnie GNOME
+- GNOME ... LXqt to środowiska graficzne
+- SSH server - protokół bezpiecznego zdalnego logowania
+- web server - pozawala na łączenie z serwerem za pośrednictwem protokołu HTTP
+- Standard system unilities - standardowe narzędzia systemowe
+
+Mnie interesują tylko standardowe narzedzia.
+
+Sam GRUB służy do uruchamiania systemów operacyjnych, jest najpopularniejszym bootloaderem (oprogramowaniem uruchamianym podczas startu komputera, służącym do załadowania systemu operacyjnego do pamięci operacyjnej) na dystrybucjach linuxa. Nie, GRUB nie jest potrzebny, potrzebny jest za to wspomniany wczesniej bootloader. Alternatywami dla GRUBa moga byc m. in. LILO, BURG, Syslinux. Jeżeli GRUB będzie jedynym programem rozruchowym, to instalujemy go na MBR (tam komputer szuka bootloadera). Gdy na MBR znajduje się już inny bootloader to możemy zainstalować GRUBa na BR i kazać pierwszemu programowi znajdującemu się w MBR uruchomić/przekierować na GRUBa.
 
 
