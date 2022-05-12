@@ -1,0 +1,142 @@
+Ćwiczenia 1 
+
+(do każdego skryptu chmod 766)
+
+1. vim jeden
+
+#!/bin/bash
+
+if [ $# -gt 1 ]; then
+	echo $1
+else 
+	echo "NIE PODANO ARGUMENTOW"
+fi
+
+2. vim conf.sh
+
+#!/bin/bash
+
+if [ -e config.cfg ]; then
+	cat config.cfg
+elif [ $# -gt 1 ]; then
+	cat $1
+else
+	echo "BLAD"
+fi
+
+3. vim skrypt
+
+#!/bin/bash 
+
+nazwapliku="$(basename $0)"
+rozszerzenie="${nazwapliku##*.}"
+
+if [[ ${rozszerzenie} == sh ]]; then
+	echo ${nazwapliku}
+else
+	echo "Rozszerzenia nie znaleziono"
+	mv $0 ${0}.sh 
+fi 
+
+4. vim filecout.sh 
+
+#!/bin/bash
+
+filecount=$(ls -p | grep -v / | wc -l)
+
+if [ $filecount -gt 5 ]; then
+	echo "Jest wiecej niz 5 plikow"
+fi
+
+Ćwiczenia 2.
+
+1. vim liczby.sh 
+
+#!/bin/bash 
+
+for i in {10..2..1}; do echo $i; done
+
+2. vim argumenty.sh 
+
+#!/bin/bash 
+
+for i in "$@"; do echo $i; done
+
+3. vim pliki.sh 
+
+for i in $(ls -p | grep -v /); do echo "Prosze Państwa oto plik" $i; done
+
+lub 
+
+for i in $(find . -maxdepth 1 -type f); do echo "Prosze Państwa oto plik" $i; done
+
+4. vim c.sh
+
+#!/bin/bash 
+
+for i in $(find . -maxdepth 1 -type f -iname "*.c");do
+	cc $i -o {i::-2}
+done
+
+5. vim lista.sh 
+
+Ćwiczenia 3.
+
+1. 
+
+a) vim kolor
+
+#!/bin/bash
+
+kolor() {
+	echo -e "${1}${2}\e[0m"
+}
+
+b) 
+~$ chmod 766 kolor
+~$ . ./kolor
+~$ kolor "\e[33m" "CZESC"
+
+2. 
+
+a) vim fibonacci
+
+#!/bin/bash
+
+fibonacci() {
+	
+if [ $1 -le 0 ]; then
+	echo 0 - jeżeli argument równy jest 0 skrypt wyświetli 0
+fi
+
+if [ $1 -le 2 ]; then
+	echo 1
+else
+	a=$(fib $[$1-1]) - zmienna dla poprzedniego argumentu 
+	b=$(fib $[$1-2]) - zmienna dla argumentu przed poprzednim 
+	echo $(($a+$b)) - skrypt wyświetli odpowiedni wyraz ciągu fibonacciego w zależności od podanego argumentu.
+fi
+} 
+
+
+
+
+
+PRACA DOMOWA 
+
+vim spr.sh 
+
+#!/bin/bash 
+
+if [[ ${1:0:1} =~ [A-Z] && ${1:1:20} =~ [a-z] ]]; then
+	echo IMIE
+fi
+
+if [[ ${1:0:2} =~ [0-9] && ${1:2:1} == - && {1:3:2} =~ [0-9] && ${#1} == 6 ]]; then 
+	echo KOD POCZTOWY 
+fi 
+
+if [[ ${1} =~ [A-Za-z0-9.]+@[A-Za-z0-9]+.[a-z] ]]; then
+	echo E-MAIL
+fi 
+

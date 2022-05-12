@@ -60,27 +60,9 @@ echo &Y (tu pokazuję "bash:tekst:Tekst: nie znaleziono polecenia)
 d)A=Ala
 echo $A ma kota, a kot ma ${A}ę (konsola: Ala ma kota, a kot ma Alaę)
 
-Ćwiczenie 3.
+Ćwiczenie 3. 
 
-a) Sprawdzenie bez wpisania żadnego skryptu:
-$*, $@, $0, $1, $2 - nie wyświetla mi nic
-$# - wyświetla 0
-$? - kod zakończenia ostatniego polecenia 
-$$ - PID procesu bieżącej powłoki
-$! - PID ostatniego uruchomionego procesu w tle
-
-TU SPRAWDZĘ PO WPISANIU SKRYPTU:
-$* -
-$@ -
-$0 -
-$1 -
-$2 - 
-$# -
-$? - 
-$$ - 
-$! - 
-
-b) PATH - zmienna wskazuję na jakąś lokalizacje pliku (jakaś ścieżka?)
+PATH - zmienna wskazuję na jakąś lokalizacje pliku (jakaś ścieżka?)
 RANDOM - losowa liczba wygenerowana przez bash 
 PWD - zmienna pokazująca naszą teraźniejszą lokalizacje działa tak samo jak komenda pwd
 PS1 - konsola wyświetla mi [1] 20741 następnie bash: PS1: nie znaleziono polecenia następnie informacje o zakończeniu echo, nie wiem co to oznacza, w internecie jest to zmienna znaku zachęty
@@ -95,7 +77,7 @@ ZM=`ls -la` (wyświetla katalogi i pliki ułożone jeden pod drugim)
 Ćwiczenie 4.
 
 Wpisałam(Zadziałało):
-X-'ls -l'
+X-`ls -l`
 $X
 
 Po wpisaniu:
@@ -107,3 +89,81 @@ echo $((2+2)) (Wyświetli 4)
 X=5
 echo $((2*X)) (Wyświetli 10)
 
+Ćwiczenie 5a. (Przy każdym zadaniu używam chmod 766 nazwaskryptu.sh)
+ 
+1. 
+vim pszetżkole.sh
+
+2. W vim:
+#!/bin/bash
+
+echo $1 ma kota, kot ma $1 | sed s/a$/ę/g | sed 's/\([^ę]\)/\1a/g'
+
+3.
+./pszetżkole Ala
+
+Ala ma kota, a kot ma Alę
+
+oraz dany skryt działa również na imiona męskie 
+
+./pszetżkole Stefan
+
+Stefan ma kota, a kot ma Stefana
+
+Ćwiczenie 5b.
+
+1.
+vim tekst.sh 
+
+2. W vim:
+
+#!/bin/bash
+
+dlugosc=&{#1}
+
+echo ${1:0:1} - wypisze pierwszy znak tekstu
+echo ${1:dlugosc-1:1} - wypisze ostatni znak
+echo -e $1 | sed s/SOP/`echo -e "\e[32mSOP\e[0m"`/g - po godzinie męczenia się z tym zadaniem zrozumiałam różnicę pomiedzy ' a ` :) i teraz reszta zadań też poszła szybciej 
+
+3. ./tekst.sh SOP
+
+Wyświetli 
+
+S
+P
+SOP (na zielono)
+
+Ćwiczenie 5b. Wersja z if 
+
+1. vim tekst1.sh
+
+#!/bin/bash
+
+if [ "SOP" == "$1" ]; then
+	echo -e "\e[32mSOP\e[0m"
+fi 
+
+2. ./tekst1.sh SOP
+
+Wyświetli SOP w kolorze zielonym.
+
+
+Zadanie domowe 6
+
+1. vim imiee.sh
+
+#!/bin/bash
+
+sed s/Marta/`echo -e "\e[31mMarta\e[0m"`/g $1 
+
+(zmienia każde wystąpienie 'Marta' na czerwone 'Marta', kolor ustawiamy przez wybranie liczby np. 35 to magenta, 30 czerwony a w poprzednim zadaniu używaliśmy 32 -zielony, $1 na końcu to argument który używamy)
+
+2. vim imie.txt 
+
+Mam na imie Marta, Jestem Marta.
+
+3. ./imiee.sh imie.txt 
+
+Wyświeli na konsoli 
+
+Mam na imie Marta(w kolorze czerwonym), Jestem Marta(w kolorze czerwonym).
