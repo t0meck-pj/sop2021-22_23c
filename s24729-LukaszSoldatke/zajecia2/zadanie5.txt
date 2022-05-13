@@ -1,0 +1,51 @@
+Zajecia 2 - Zadanie 5a
+-----------------------------------------------------------------------------------------
+Opis zadania:
+
+Pamiętasz jedno z zadań poprzednich?
+Przerób je tak, aby tekst wypisywał się poprawnie.
+Napisz skrypt, który będzie wypisywał taki tekst także dla imion męskich. Pomijamy zdrobnienia i imiona które się dziwnie odmieniają (na przykład Marek). Niech skrypt ten przyjmuje jeden argument - imię. Przykładowe wywołanie: ...
+Czy jest to możliwe w czystym bash-u?
+-----------------------------------------------------------------------------------------
+Napisalem skrypt w postaci:
+
+	#!/bin/bash
+	
+	str=$1
+	lastLetter=${str: -1}
+	
+	echo str $str
+	echo lastLetter $lastLetter
+	
+	case "$lastLetter" in
+        	"a") echo $str ma kota, a kot ma ${str/a/ę} ;;
+        	"k") echo $str ma kota, a kot ma ${str/k/ka} ;;
+        	"w") echo $str ma kota, a kot ma ${str/w/wa} ;;
+	esac
+	
+Wykorzystalem tam zmienna przechowujaca ostatnia litere argumentu (imienia) i w zaleznosci od tej 
+zmiennej wypisywany jest za pomoca instrukcji case tekst z poprawnie odmienionym imieniem.
+
+-----------------------------------------------------------------------------------------
+Zajecia 2 - Zadanie 5b
+-----------------------------------------------------------------------------------------
+Opis zadania:
+
+Napisz skrypt, który wczyta jako argument jakiś tekst. Skrypt ten wypisze kolejno:
+1. Pierwszy znak z argumentu
+2. Ostatni znak z argumentu
+3. Zamieni w argumencie tekst SOP na tekst poniżej (zastosuj echo z przełącznikiem -e):
+-----------------------------------------------------------------------------------------
+W tym celu napisalem nastepujacy skrypt:
+
+	#!/bin/bash
+
+	str=$1
+	length=${#str}
+	echo ${str:0:1}
+	echo ${str:$(($length-1)):1}
+	echo -e ${str/SOP/"\e[32mSOP\e[0m"}
+	
+	
+Za pomoca operacji na lancuchach znakow uzyskalem oczekiwany efekt.
+

@@ -89,8 +89,8 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 		konfiguruje menedzera pakietow wybierajac serwer, preferencje dotyczace danych 
 		statystycznych, opcjonalne oprogramowanie wraz ze srodowiskami graficznymi, lokalizacje 
 		instalacji bootloadera GRUB.
-	- Install - Podobnie jak wyzej, jednak bez interfejsu graficznego, a wlasciwie z uproszczonym 
-		srodowiskiem graficznym. Kolejne kroki instalacji opisane ponizej w punkcie 7.
+	- Install - Podobnie jak wyzej, jednak z uzyciem prostego interfejsu, tzw. interfejsu tekstowego 
+		(TUI, text-based user interface). Kolejne kroki instalacji opisane ponizej w punkcie 7.
 	- Advanced options - dodatkowe zaawansowane sposoby instalacji takie jak: zaawansowana 
 		instalacja (w porownaniu do zwyklej zawiera m.in. dodatkowe opcje ulatwien dostepnosci, 
 		sprawdzenie integralnosci nosnika instalacyjnego, zapis logow debugowania czy uzycie 
@@ -107,7 +107,9 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 
 7. Instalacja za pomoca opcji Install:
 	1. Na poczatku pojawia sie wybor jezyka ktory bedzie domyslnym jezykiem wyswietlanym w systemie 
-		- wybieram English.
+		- wybieram English, poniewaz jest to calkiem dobra praktyka ktora czasem moze np. 
+			zapobiec pewnym problemom zwiazanym chociazby ze znakami specyficznymi dla 
+			danego jezyka
 	2. Nastepnie pojawia sie pytanie o lokalizacje, wybieram kolejno other/Europe/Poland.
 	3. Wybieram kodowanie en_US.UTF-8
 	4. Keymap to use - wybieram American English
@@ -117,23 +119,87 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 	8. Wprowadzam nazwe dla domyslnego, standardowego uzytkownika nie bedacego rootem oraz haslo
 	9. Wyswietlone zostalo zapytanie o sposob wykorzystania przestrzeni dyskowej, wybieram reczne 
 		partycjonowanie ("manual"), nastepnie pozycje po srodku na ktorej widnieje moj 
-		wirtualny dysk. Potwierdzam utworzenie pustej partycji na nosniku. W tym miejscu 
+		wirtualny dysk. Potwierdzam utworzenie nowej, czystej tablicy partycji. W tym miejscu 
 		pojawiaja sie rowniez opcje sluzace do konfiguracji macierzy dyskowych/LVM/
 		zaszyfrowanych woluminow, czy tez woluminow iSCSI ja jednak wybieram pozycje widniejaca 
-		ponizej tych opcji i ponizej nazwy dysku reprezentujaca wolna przestrzen. Wybieram 
-		Create new partition. Zakladajac ze rozmiar partycji wymiany swap powinnien miec 
-		pojemnosc 1.5x pojemnosc pamieci RAM (ramu dla tej maszyny jest 4 GB) odejmuje od 
-		34.4 GB dostepnego miejsca te 6 GB ktore bedzie przeznaczone na swap i wprowadzam 
-		wartosc 28.4 GB dla tworzonej partycji glownej. Dobrze jest zamiast jednej partycji 
-		stworzyc kilka oddzielajac od siebie takie katalogi jak np. /home czy /usr, jednak na 
-		potrzeby tego zadania tworze jedna partycje (wybierajac dla niej nastepnie opcje: 
-		primary (typ), beginning (lokalizacja), ext4 (system plikow), / (punkt montowania) oraz 
-		partycje wymiany swap (podobnie jak poprzednia partycje wykorzystujac pozostala 
-		przestrzen, logical, use as: swap area). Zmiany zatwierdzam i czekam az dane partycje 
-		#1 i #5 zostana sformatowane, a system zainstalowany. Nastepnie konfiguruje menedzer 
-		pakietow, wybierajac kraj i odpowiedni serwer (w moim przypadku wybralem domyslny 
-		deb.debian.org). W trakcie instalacji instalator pyta o dodatkowe oprogramowanie takie 
-		jak srodowiska graficzne, ktore mozna zainstalowac wraz z systemem, odpowiednie zaznacza 
-		sie spacja, wybieram dodatkowowo SSH server i przechodze dalej. Jako ze na dysku 
-		znajdowac sie bedzie tylko jeden system, bootloader GRUB instaluje na glownej partycji.
+		ponizej tych opcji i ponizej nazwy dysku reprezentujaca wolna przestrzen. LVM, logical 
+		volume manager jest mechanizmem sluzacym do zarzadzania przestrzenia pamieci masowej, 
+		uzywany zwlaszcza wtedy kiedy zachodzi potrzeba utworzenia tzw. dysku wirtualnego, 
+		mogacego skladac sie z wielu partycji znajdujacych sie na wielu roznych fizycznych 
+		dyskach. iSCSI (internet Small Computer System Interface) jest z kolei protokolem 
+		pozwalajacaym na korzystanie z dyskow twardych na wielu komputerach poprzez siec 
+		Ethernet w obrebie tzw. SAN (Storage Area Network). Nie uzylem tutaj LVM ani iSCSI ze 
+		wzgledu na charakter zadania, gdzie nalezalo utworzyc jedna maszyne wirtualna i 
+		zainstalowac na niej system, bez uwzgledniania rozwiazan macierzowych czy sieciowych 
+		jezeli chodzi o dyski. Następnie wybieram Create new partition. Zakladajac ze rozmiar 
+		partycji wymiany swap powinnien miec pojemnosc 1.5x pojemnosc pamieci RAM (ramu dla tej 
+		maszyny jest 4 GB) odejmuje od 34.4 GB dostepnego miejsca te 6 GB ktore bedzie 
+		przeznaczone na swap i wprowadzam wartosc 28.4 GB dla tworzonej partycji glownej. Dobrze 
+		jest zamiast jednej partycji stworzyc kilka oddzielajac od siebie takie katalogi jak np. 
+		/home czy /usr, jednak na potrzeby tego zadania tworze jedna partycje (wybierajac dla 
+		niej nastepnie opcje: primary (typ), beginning (lokalizacja), ext4 (system plikow), 
+		/ (punkt montowania) oraz partycje wymiany swap (podobnie jak poprzednia partycje 
+		wykorzystujac pozostala przestrzen, logical, use as: swap area). Zmiany zatwierdzam i 
+		czekam az dane partycje #1 i #5 zostana sformatowane, a system zainstalowany. Jezeli 
+		chodzi o systemy plikow to istnieje tutaj wiele mozliwosci, niektore sa systemami z 
+		tzw. ksiegowaniem (czyli sposobem zapisu danych na dysku uprzednio zapisywanych w 
+		dzienniku, co ma minimalizowac ryzyko utraty danych), inne bez ksiegowania.
+		Dostepne systemy plikow to: 
+		- ext4 (z ksiegowaniem) - Aktualnie najpopularniejszy system plikow uzywany z Linuksem, 
+			nastepca systemu ext3, wzgledem ktorego znacznie zwiekszono limity rozmiaru. 
+			Wstecznie kompatybilny z ext2 oraz ext3.
+		- ext3 (z ksiegowaniem) - Oparty na ext2, jednak dodano do niego mechanizm ksiegowania. 
+			Ext3 mozna konwertowac do ext2 i odwrotnie. Minusem jest ciezkie odzyskiwanie 
+			utraconych danych.
+		- ext2 - Druga wersja rozszerzonego systemu plikow dla Linuksa. Wprowadzono do niej m.in. 
+			mozliwosc rozpoznawania uszkodzen systemu plikow oraz ich naprawe za pomoca 
+			programu e2fsck oraz mechanizm majacy zapobiegac znacznej fragmentacji danych, 
+			co bylo problemem pierwszego ext.
+		- btrfs (z ksiegowaniem) - (B-tree File System) System plikow stworzony przez 
+			Oracle. Domyslny m.in. dla dystrybucji openSUSE i Fedora.
+		- JFS (z ksiegowaniem) - (Journaled File System) - Opracowany przez IBM 64-bitowy 
+			system plikow.
+		- XFS (z ksiegowaniem) - Implementacja zaprojektowanego przez Silicon Graphics z mysla o 
+			systemie IRIX 64-bitowego systemu plikow. Umozliwia obsluge duzych dyskow 
+			twardych i zawiera szereg zalet jezeli chodzi o zastosowania serwerowe, czy w 
+			wydajnych stacjach roboczych.
+		- FAT16 - 16-bitowa odmiana systemu FAT (File Allocation Table)
+		- FAT32 - 32-bitowa odmiana systemu FAT
+		- przestrzen wymiany swap - Partycja, ktora system moze wykorzystywac do przechowywania 
+			tymczasowych danych najczesciej w przypadku przekroczenia dostepnej pamieci RAM
+		- fizyczny wolumin dla szyfrowania
+		- fizyczny wolumin dla RAID
+		- fizyczny wolumin dla LVM
+		Rozroznia sie dwa typy partycji - podstawowe i logiczne. Partycji logicznych na dysku moze byc 
+		dowolna ilosc, jednak partycji podstawowych moze byc maksymalnie 4. W przypadku kiedy 
+		chcemy utworzyc zarowno partycje podstawowe jak i logiczne partycji podstawowych bedzie 
+		moglo byc maksymalnie 3, w miejsce czwartej zostanie wowczas utworzona partycja 
+		rozszerzona ktora bedzie zawierala partycje logiczne. Wynikaja z tego tez numery ktorymi 
+		zostaly oznaczone nowotworzone partycje (#1 i #5 zamiast #1 i #2). Partycja 
+		podstawowa zostala oznaczona numerem 1, natomiast partycja logiczna (pierwsza na 
+		partycji rozszerzonej) oznaczona zostala numerem 5 z uwzglednieniem tego ze partycji 
+		podstawowych mogloby byc wlasnie 4. Dodatkowe partycje podstawowe moglyby np. zostac 
+		utworzone pozniej i powinny znajdowac sie obok siebie. Zostala rowniez ustawiona flaga 
+		bootujaca, jest to 1-bajtowa wartosc na poczatku glownego rekordu rozruchowego (MBR), 
+		wskazujaca bootloaderowi czy dana partycja zawiera system do uruchomienia czy tez nie,
+		przyjmuje wartosci 0x80 kiedy takowa jest ustawiona oraz 0x00 w przeciwnym wypadku. W 
+		przypadku niektorych programow rozruchowych takich jak GRUB mozna uruchamiac system z 
+		partycji podstawowych i rozszerzonych nie majacych ustawionej flagi bootujacej.
+		Nastepnie konfiguruje menedzer pakietow, wybierajac kraj i odpowiedni serwer (w moim 
+		przypadku wybralem domyslny deb.debian.org). 
+		EDIT: Lepszym wyborem bylby serwer ftp.task.gda gdyz jest ulokowany blizej.
+		W trakcie instalacji instalator pyta o dodatkowe oprogramowanie takie jak srodowiska 
+		graficzne, ktore mozna zainstalowac wraz z systemem, odpowiednie zaznacza sie spacja, 
+		wybieram dodatkowowo SSH server i przechodze dalej. Jako ze na dysku znajdowac sie 
+		bedzie tylko jeden system, bootloader GRUB instaluje na glownej partycji. Innym sposobem 
+		moze byc instalacja GRUB-a na partycji zawierajacej lub majacej zawierac dany system 
+		Linux. Jest to wskazane w sytuacji kiedy na dysku znajdowac sie bedzie wiecej systemow 
+		operacyjnych, a zwlaszcza kiedy jednym z nich jest Windows, gdyz w przypadku umieszczenia 
+		GRUB-a na glownej partycji moga wystapic konflikty powodujace np zastapienie tego 
+		bootloadera programem rozruchowym Windowsa. Istneje rowniez wiele alternatyw dla GRUB-a 
+		a tymi bardziej znanymi z nich sa: BURG, LILO, czy Syslinux. Z reguly kiedy nie 
+		zainstalujemy GRUB-a nie bedziemy w stanie uruchomic systemu, jednak czasami pominiecie 
+		instalacji tego bootloadera bedzie uzasadnione, np. wtedy kiedy mamy juz zainstalowany 
+		jakis inny program rozruchowy np. z innej dystrybucji Linuxa znajdujacej sie juz na 
+		dysku lub chcemy po prostu zainstalowac inny niz GRUB.
 		Po zainstalowaniu GRUBa system jest gotowy do uzytku.

@@ -1,0 +1,23 @@
+Zajecia 2 - Zadanie 1
+-----------------------------------------------------------------------------------------
+Opis zadania:
+
+Napisz skrypt wyświetlający na terminalu tekst "Witamy w terminalu". Skorzystaj z komendy echo oraz informacji podanych powyżej. Pamiętaj o atrybutach i o tym jak się wywołuje programy.
+-----------------------------------------------------------------------------------------
+1. Otwieram terminal, a następnie nowy plik o nazwie zad1.sh (.sh - umowne rozszerzenie skryptow dla powloki bash, mogloby byc inne lub mogloby go nie byc nawet wcale) w edytorze nano poleceniem nano zad1.sh. Zapisuje w nim nastepujaca tresc:
+
+	#!/bin/bash
+	
+	echo "Witaj w terminalu"
+	
+	
+#!/bin/bash - to tzw. shebang, oznacza informacje o tym jaka powloka ma zostac uzyta do interpretacji skryptu (tutaj bash), jezeli go brakuje do jego zinterpretowania zostanie uzyta domyslna powloka systemu.
+
+echo - jest poleceniem wyswietlajacym tresc na oknie terminala. Mozna do niego zastosowac np. atrybut -e co pozwala na wyswietlanie znakow specjalnych w tym np. polskich znakow diakrytycznych. Tresc ktora ma zostac wypisana na terminal powinna byc ujeta w cudzyslow.
+
+Plik zapisuje za pomoca CTRL+O i wychodze z edytora.
+
+2. Aby uruchomic skrypt nadaje mu odpowiednie uprawnienia a dokladnie uprawnienie do jego wykonywania za pomoca polecenia chmod u+x zad1.sh. Poleceniem ls -la sprawdzam ze skrypt ma odpowiednie uprawnienia.
+
+3. Skrypt uruchamiam poleceniem ./zad1.sh (./ - oznacza biezacy katalog, za pomoca tego uruchamia sie skrypty), w wyniku czego w linii polecen widnieje napis Witamy w terminalu.
+
