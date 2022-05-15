@@ -11,6 +11,6 @@ blue=$(echo -e "\e[34m")
 k0=$(echo -e "\e[0m")
 
 C3-1() {
-echo -e "${1}${2}$k0"
+	echo -e "${1}${2}$k0"
 }
 

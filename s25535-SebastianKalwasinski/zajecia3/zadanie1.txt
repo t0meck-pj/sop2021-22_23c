@@ -117,7 +117,7 @@ jeden mówi że interesuje nas tylko bierzący katalog. type -f oznacza że szuk
 plików (-d dla katalogów), potem potok do word countera który ma za zadanie 
 zliczać ilość wierszy (argument -l), które otrzymuje of find-a.
 
-Wypisywanie gre-em polega na wypisaniu zawartości bierzącego katalogu za
+Wypisywanie grep-em polega na wypisaniu zawartości bierzącego katalogu za
 pomocą polecenia ls z argumentem -p , który dopisuje do katalogów slash-a.
 Potem grep łapie wynik działania ls i zlicza wszystkie wystąpienia, które nie
 pasują do wzorca wyszukiwania (nasz slash).

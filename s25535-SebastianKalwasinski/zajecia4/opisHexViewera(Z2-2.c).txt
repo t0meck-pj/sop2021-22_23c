@@ -1,0 +1,147 @@
+================================================================================
+bool sprawdź(unsigned int x)
+
+Funkcja sprawdzająca czy podany znak jest znakiem, z podanego zakresu.
+Miałem niesamowity problem z zapisaniem polskich znaków diakretycznych np "ą",
+więc w akcie desperacji wszyskie znaki które nie są w zakresie od 32 do 126
+włącznie, są uznawane za "nie ok" i funkcja zwraca false. 
+
+================================================================================
+unsigned int okreslRozmiar(char* sciezka)
+
+Funkcja zwraca ilość znaków w pliku w postaci u-int. Jak to działa po polskiemu:
+
+Każdy otwarty plik ma wskaźnik, który wspkazuje na aktualny element w pliku.
+Wkaźnik pozycji. Dlatego piszemy FILE* nazwaWskaźnika, bo tak naprawdę
+wyznaczamy wskaźnik na pierwszą pozycję w pliku.
+Jak wczytamy element z pozycji np. fscanf-em to wskaźnik jest inkrementowany,
+dzięki czemu nie wczytujemy tego samego elementu w kółko tylko następne.
+My tego nie widzimy, ale tak jest.
+Można wykorzystać fakt istnienia tego wskaźnika poleceniem fseek, który "ustawia
+wskaźnik pozycji skojarzony ze strumieniem (naszym plikiem) na nową pozycję."
+
+Są takie trzy przydatne opcje fseek:
+
+SEEK_SET - oznacza początek pliku
+SEEK_CURR - obecna pozycja wskaźnika
+SEEK_END - oznacza koniec pliku
+
+Linia fseek(plik, 0, SEEK_END) ustawi mi wkaźnik na ostatną pozycję w pliku,
+a linia ftell (ftell zwraca obecną pozycję wskaźnika) zwróci mi pozycję
+ostatniego elementu. Pozycja to moja ilość elementów, lub rozmiar tablcy
+jak kto woli.
+
+================================================================================
+wczytaj(char* sciezka, char* tablica)
+
+Funkcja kopiująca znaki z pliku do tablicy dynamicznej. Ponieważ tablica nie
+może być zwracana przez funkcje, muszę używać wskaźnika do tej, którą deklaruję
+w funkcji main, a co za tym idzie zawsze działam na orginale nie na kopiach.
+
+Skoro zawsze działam na orginale to w funkcjach gdzie nie ma nastąpić zmiana w 
+zawartości tablicy, zabezpieczam ją magicznym słowem const co oznacza tyle że
+jest tylko do odczytu. W zasadzie nie muszę tego robić bo wiem co się dzieje
+w funkcjach, ale nie miałem tej pewności gdy pisałem ten program i w sumie
+nie zaszkodzi jak tak zostanie.
+
+Ponieważ wiem ile elementów ma plik mogę zadeklarować tablicę dynamiczną, a 
+do wczytywania tych elementów użyć pętli z określoną liczbą powtórzeń.
+
+Zanim jednak znak zostanie skopiowany do tablicy zostaje on sprawdzony czy
+przypadkiem nie jest znakiem "nie ok", jeśli jest nie ok to zostaje zastąpiony
+kropką. Nie byłem w stanie wczytać tego "ą" do tablicy i po paru godzinach i
+wypłakaniu tego problemu w poduszkę, stwierdziłem że na jego miejsce wejdzie
+co innego.
+
+================================================================================
+void offset(int poz)
+
+Funkcja wypisująca offset/pozycję w pliku.
+
+================================================================================
+void heksy(const char* tablica, int wier, int poz)
+
+Funkcja wypisująca elementy z tablicy w postaci heksadecymalnej.
+
+================================================================================
+void znaczki(const char* tablica, const int wier, const int poz)
+
+Funkcja wypisująca elementy z tablicy w postaci char.
+
+Część zakomentowana.
+Na początku założyłem że tablica przechowa wszytkie elementy, a dopiero te,
+które nie są drukowalne zostaną zmienione na kropkę.
+
+===============================================================================
+int main(int argc, char** argv)
+
+Funkcja główna. Wykorzystuje inne funkcje zamknięte w pętli by wyświetlić
+ostateczy wynik działania programu.
+
+Można zmienić ilość kolumn w wierszu według woli zmieniając wartość 16, na jaką
+chcemy (1 nawet nawet, ale takie to 128 już mniej). Nie robiłem z tego dodatkowego
+argumentu do podania programowi by już nie robić zmieszania.
+Oczywiście nic nie stoi na przeszkodzie by to zrobić.
+
+Używam nieskończonej pętli, która zostaje zerwana (break;) po wyświeleniu
+ostatniego niepełnego wiersza. Ilość jej cylki jest określana na podstawie
+operacji artmetycznych z użyciem rozmiaru tablicy, długości wiersza i obecnej
+iteracji pętli. 
+
+Piersza iteracja zaczyna od pozycji 0 następna od 16, potem 32 itd. Co każdą
+iterację pozycja jest zwiększana o 16, bo tyle znaków zostało wyświetlonych.
+
+Rozmiar jest traktowany jako pozostała ilość znaków do wyświetlenia i zmniejsza
+się o wielkość wiersza z każdą iteracją. 
+
+Gdy wiersz jest większy niż rozmiar wykonuje się ostatnia mniejsza iteracja.
+Zamiast wysyłać rozmiar wiersza wysyłana jest pozostała ilość znaków do
+wyświetlenia.
+
+Teraz przykład bo trochę zamotałem:
+
+rozmiar = 70
+wiersz = 16
+pozycja = 0
+
+i | ilość znaków do wyświetlenia | ile znaków ma wyświetlić | pozycja w tablicy
+
+Start:
+
+iteracja 0, 70 16 0
+iteracja 1, 54 16 16
+iteracja 2, 38 16 32
+iteracja 3, 22 16 48
+iteracja 4, 6  16 64
+iteracja 5, 0  6  70
+
+Koniec:
+
+Dodatkowo ostatni niepełny wiersz jest wypełniany spacjami by ładnie
+wyświetlało.
+
+16 - 6 = 10 spacji do postawienia
+
+===============================================================================
+Uwagi.
+
+= 1 =
+Tablicy dynamicznej nie trzeba natychmiast deklarować. Z tym miałem problem, bo
+jak to zrobić by "nie mieszać deklaracji z kodem". Wystarczy podać typ danych, 
+nazwę i może czekać na swoją kolej.
+
+
+= 2 =
+strcpy(sciezka, argv[1]);
+
+Kopiowanie stringa, przydatne, nie trzeba kombinować. Kopiowanie ścieżki z
+argv do tablicy.
+wymaga biblioteki <string.h>
+
+strcpy(tablica1, tablica2)
+
+= 3 =
+By bool działał potrzeba biblioteki <stdbool.h>
+
+
+

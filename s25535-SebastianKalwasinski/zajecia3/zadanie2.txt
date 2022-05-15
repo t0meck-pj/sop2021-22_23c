@@ -53,7 +53,7 @@ Pętla for iteruje po wynikach działania polecenia find.
 
 --------------------------------------------------------------------------------
 Ważne:
-- By pętla działała poprawnie nie można zamknąć zmiennej w cudzysłowiu.
+- By pętla działała w cudzysłowie należy dodatkowo ustawić wartośc dla IFS .
   W przeciwnym razie pętla potraktuje ją jako jeden argument zamiast
   porozdzielać i skończy się na jednej iteracji.
 
@@ -74,16 +74,22 @@ Polecenie do wykonania zamknięte w pętli by wykonało się dla każdego pliku.
 ================================================================================
 Skrypt: C2-5
 
-Narazie bida. Wymyśliłem że mogę każdy znak przechwycić do talbicy, tylko że
-narazie mi to nie wychodzi, a to rozwiązanie jest zapewne bardzo zasobożerne.
+Chyba przeszedłem samego siebie w tym zadaniu. Po maratonie w języku C wróciłem
+z radosnego kodowania wszytkiego linia za linią do zwyczaju zamykania za dużego
+kodu w funkcjach. Czytelniejsze i łatwiej zrozumieć o co chodzi.
 
-while read -n1 znak ; do
-echo $znak
-done < $pliki
+Sugestia by użyć napisu zamiast tablicy, lub innych metod zadziałała jak
+błogosławieństwo. Wystarczło później poszukać jak łączyć napisy w całość
+(konkatenacja) pozamykać i kod w pętlach. 
 
-Ta pętla wyświetla wszystkie znaki po kolei. Nie wiem czy da się zrobić tak
-by wyświetlała odwrotnie. AWK jeszcze nie umiem, a pewnie coś ciekawego ma.
-Narazie to zostawiam.
+Uwagi: 
+
+W funkcji wczytajPlik jest zmienna string która przyjmuje wartość, a raczej
+brak widocznej wartości "string=". Prosty sposób na wyzerowanie zmiennej.
+
+Dalej jest string=$string$linia . Jest to wcześniej wspomniana konkatenacja.
+Do mojego napisu dodaję kolejne wiersze z pliku, dzięi czemu zawratość pliku
+zapisana jest w postaci jednego napisu.
 
 
 
