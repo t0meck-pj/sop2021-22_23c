@@ -11,7 +11,7 @@ unsigned int okreslRozmiar(char* sciezka)
 
 Funkcja zwraca ilość znaków w pliku w postaci u-int. Jak to działa po polskiemu:
 
-Każdy otwarty plik ma wskaźnik, który wspkazuje na aktualny element w pliku.
+Każdy otwarty plik ma wskaźnik, który wskazuje na aktualny element w pliku.
 Wkaźnik pozycji. Dlatego piszemy FILE* nazwaWskaźnika, bo tak naprawdę
 wyznaczamy wskaźnik na pierwszą pozycję w pliku.
 Jak wczytamy element z pozycji np. fscanf-em to wskaźnik jest inkrementowany,

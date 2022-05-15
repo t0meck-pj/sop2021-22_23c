@@ -21,5 +21,5 @@ int main(){
 			printf("Twoja liczba = %d\n", liczba);	
 		}
 	}
-return 0; 
+	return 0; 
 }
