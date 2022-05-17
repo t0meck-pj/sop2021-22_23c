@@ -1,0 +1,22 @@
+================================================================================
+Zadanie polega na rodzieleniu zadań pomiędzy dzieko i rodzica z warunkiem że
+to wynik dziecka będzie wyświetlony jako pierwszy.
+
+W zasadzie znowu kopiuj wklej z zadania drugiego z tą różnicą że tym razem
+używam funkcji wait(), a nie waitpid(). Jest poprostu któtsza i spełnia 
+swoje obecne zadanie.
+
+Ważnym szczegółem jest miejsce gdzie wait się znajduje. Umieściłem go zaraz po 
+forku w kodzie rodzica dzięki czemu rodzic nie zacznie wykonywać swojego kodu
+dopóki dziecko nie skończy.
+
+Z ciekawości dodałem na końcu kod drukujący mi status. Rodzic zwraca 0, czyli
+kod dziecka wykonał się poprawnie, a dziecko zwraca ustalone wcześniej 100.
+Gdy nie było tego 100 to wyświetlało w zasadzie liczby pseudolosowe ponieważ
+zmienna status w dzieku nie miała zmienionej wartości(bo niby jak miałoby to
+zrobić bez zakodowania tego) i wyświetlała to co akurat w pamięci siedziało.
+
+================================================================================
+
+
+ 
