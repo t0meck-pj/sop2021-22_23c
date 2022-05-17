@@ -32,11 +32,11 @@ miejsca w pamięci i zwraca nam na nie wskaźnik. Zarówno to miejsce jak i
 wskaźnik do tego miejsca umieszczamy w strukturze, którą możemy nazwać
 ogniwem (nazywają "node" po angielsku) w naszym łańcuchu, którym jest lista.
 
-Taki jeden node odpowiada jedej pozycji w tablicy, ale może przechowywać więcej
+Taki jeden node odpowiada jednej pozycji w tablicy, ale może przechowywać więcej
 niż jedną zmienną, co też jest zaletą listy.
 
 W języku C istnieje operator strzałki ( -> ), który umożliwia dostanie
-się do zmiennych zawartych w struktórze albo unii.
+się do zmiennych zawartych w strukturze albo unii.
 
 Mam strukturę, która się nazywa node przechowującą dane i wskaźnik na te dane.
 
@@ -78,7 +78,7 @@ Należy bardzo uważać by przed utratą adresu na ogniwo, najpierw zwolnić pam
 którą zajmuje, albo komputer po niedługim czasie umrze.
 
 ================================================================================
-W zasadzie wszytkie funkcje w kodzie polegają na umiejętnym posłiwaniem się
+W zasadzie wszytkie funkcje w kodzie polegają na umiejętnym posługiwaniem się
 wcześniej omówioną wiedzą. Mamy zawsze wskaźnik na pierwsze ogniwo naszej listy
 (nazywamy go head) i za jego pomocą i operatora strzałki żąglujemy adresami
 dodająć bądź usuwając poszczególne ogniwa. 

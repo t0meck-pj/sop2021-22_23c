@@ -5,7 +5,7 @@ dostatecznie łopatologicznie, na pytania:" ale o co chodzi, po co mi to, jak
 tego używać itd."
 
 Robię to dla siebie by już nie chce mi się szukać po raz kolejny instrukcji jak
-co, po co, na co.. Oczywiście nie bronę innym też zaglądać.
+co, po co, na co.. Oczywiście nie bronię innym też zaglądać.
 
 Teraz trochę opisu.
 
@@ -20,7 +20,7 @@ argc to ilość argumentów które podajemy z wiersza poleceń do programu.
 
 WAŻNE. Argument o pozycji 0 to ścieżka do programu który uruchamiamy
 prowadząca z bieżącego katalogu. Należy mieć to na uwadze by pętle i inne
-elementy polegające na pozycjach, które z zasady zaczynami liczć od zera tym
+elementy polegające na pozycjach, które z zasady zaczynamy liczć od zera, tym
 razem zacząć od jeden! Zatem nasz pierwszy argument ma przypisaną jedynkę.
 
 *argv[] to wskaźnik na tablicę znaków (char) przechowującą argumenty, które
@@ -29,7 +29,7 @@ podaliśmy w wierszu poleceń. Dlaczego tak dziwacznie?
 "Nazwa tablicy to wskaźnik na adres jej pierwszego elemetu"
 
 Zmienna String to tak naprawdę tablica znaków char, które wyświetlone po kolei
-dają stringa. Przykład:
+dają string. Przykład:
 
 String = "Ala" to jest to samo co: char tablica[] = {'A','l','a'}
 

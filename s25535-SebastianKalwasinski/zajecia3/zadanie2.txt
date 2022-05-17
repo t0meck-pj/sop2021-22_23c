@@ -88,7 +88,7 @@ W funkcji wczytajPlik jest zmienna string która przyjmuje wartość, a raczej
 brak widocznej wartości "string=". Prosty sposób na wyzerowanie zmiennej.
 
 Dalej jest string=$string$linia . Jest to wcześniej wspomniana konkatenacja.
-Do mojego napisu dodaję kolejne wiersze z pliku, dzięi czemu zawratość pliku
+Do mojego napisu dodaję kolejne wiersze z pliku, dzięki czemu zawratość pliku
 zapisana jest w postaci jednego napisu.
 
 

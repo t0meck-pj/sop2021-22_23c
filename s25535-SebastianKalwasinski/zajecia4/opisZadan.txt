@@ -4,8 +4,8 @@ Opisy zadań, które nie łapią się do schematów.
 Z3-1.c
 
 Głównym punktem zainteresowania tego zadania jest zdefiniowanie własnej zmiennej
-(nie chodzi o struct), dzięki której będziemy w łatwy sposób zamknąc funkcje w
-tablicy. 
+(nie chodzi o struct), dzięki której będziemy mogli w łatwy sposób zamknąc
+funkcje w tablicy. 
 
 W tablicy umieszczamy wskaźnik na funkcję, a nie funkcję ponieważ próba 
 umieszczenia funkcji tablicy skończy się na tym że kompilator będzie od nas

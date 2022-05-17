@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int liczba = 0;
-int wynik = 0;
-
 int main() {
 	
+	int liczba = 0;
+	int wynik = 0;
+
 	printf("Podaj swoje liczby\nPodaj 0 by przerwac\n");
 	do {
 		scanf("%d", &liczba);

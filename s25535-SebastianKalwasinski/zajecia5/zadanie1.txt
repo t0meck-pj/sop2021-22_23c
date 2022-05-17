@@ -1,0 +1,14 @@
+================================================================================
+Zadanie polega na napisaniu programu, który na talerzu daje nam swój PID,
+i zabiciu go z użyciem tego pidu: kill (nr.PID).
+
+PID - to numer obecnego procesu, czyli mojego programu.
+PPID - to numer procesu rodzica tego procesu, w tym przypadku powłoki bash.
+
+getpid() - funkcja zwracająca PID, wymaga biblioteki: <unistd.h>
+getppid() - funkcja zwracająca PPID, wymaga biblioteki: <unistd.h>
+
+================================================================================
+
+
+
