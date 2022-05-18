@@ -1,12 +1,12 @@
 ================================================================================
-Opis zadania nr.5 był przed opisem nr.4 więc ten tylko dodatkiem.
+Opis zadania nr.5 był przed opisem nr.4 więc ten jest tylko dodatkiem.
 
 Napisz program, który wywoła 100 procesów taki że każdy potomomek bedzie miał
 potomka.
 Czyli będzie jeden główny rodzic, a potem sznurek typu potomek->potomek->potomek
 
 Zadanie prawie takie samo jak piąte tylko że z pętli wychodzi proces rodzica, a
-nie proces potomny, by tylko potomkowie dalej byli kopiowani.
+nie proces potomny, by tylko potomkowie byli dalej kopiowani.
 
 By dobrze zorganizować odbieranie statusów procesów potomych wystarczy zdać
 sobie sprawę z tego że w zasadzie każdy proces potomny będzie rodzicem oprócz
