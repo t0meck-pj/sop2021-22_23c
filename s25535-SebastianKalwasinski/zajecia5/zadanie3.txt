@@ -1,5 +1,5 @@
 ================================================================================
-Zadanie polega na rodzieleniu zadań pomiędzy dzieko i rodzica z warunkiem że
+Zadanie polega na rodzieleniu zadań pomiędzy dziecko i rodzica z warunkiem że
 to wynik dziecka będzie wyświetlony jako pierwszy.
 
 W zasadzie znowu kopiuj wklej z zadania drugiego z tą różnicą że tym razem
