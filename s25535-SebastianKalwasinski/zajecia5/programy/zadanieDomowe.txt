@@ -1,6 +1,6 @@
 ================================================================================
-Zadanie polega na utworzeniu drzewa procesów w takie sposób że główny rodzic ma
-dwóch potmków, a tych dwóch potomków ma po dwóch potomków.
+Zadanie polega na utworzeniu drzewa procesów w taki sposób że główny rodzic ma
+dwóch potomków, a tych dwóch potomków ma po dwóch potomków.
 
 A        Zakodowałem to w taki sposób by było widać powtarzalność kodu.
 |\       Zwykle nie powinno się tak robić, ale łatwiej potrafiłem zwizualizować
