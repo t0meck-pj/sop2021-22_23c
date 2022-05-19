@@ -1,0 +1,100 @@
+================================================================================
+Na początek trochę definicji, najlepiej po chłopsku.
+
+Lista to taka tablica tylko że jej elemety nie są zarezerwowane w pamięci jednym
+ciągiem, jeden za drugim, ale są porozrzucane po różnych adresach, a nie zaraz
+po sobie. Głównymi zaletami takiego rozwiązania są m.in.
+
+-Nie trzeba z góry zakładać ile elementów ma przechowywać. Jak trzeba można dodać
+ a jak nie to odjąć jakiś element tym samym zwalniając na bieżąco miejsce w 
+ pamięci, by nie musiało się kurzyć.
+
+-Jak chcemy dodać jakiś element pomiędzy dwa inne, to śmiało możemy, na co
+ tablica nam nie pozwoli. Nie wyczaruje nam nagle adresu pomiędzy dwoma już
+ zajętymi.
+
+A wady to:
+
+-Lista zużywa więcej miejsca w pamięci niż tablica. Wskaźniki i funkcje nie
+ są za darmo.
+
+-Nie ma bezpośredniego dostępu do elementów listy. Trzeba grzecznie
+ przeiterować od początku do tego elementu, który chcemy, po całej reszcie,
+ a to kosztuje czas.
+
+Lista jednostronnie wiązana ponieważ element poprzedzający zawiera wskaźnik
+na element następny, ale nie na odwrót. Element następny nie ma dostępu do 
+elementu poprzeniego, jak w przypadku listy dwustronnie wiązanej.
+
+================================================================================
+Podstawą działania Listy jest funkcja malloc, która rezerwuje określoną ilość
+miejsca w pamięci i zwraca nam na nie wskaźnik. Zarówno to miejsce jak i
+wskaźnik do tego miejsca umieszczamy w strukturze, którą możemy nazwać
+ogniwem (nazywają "node" po angielsku) w naszym łańcuchu, którym jest lista.
+
+Taki jeden node odpowiada jednej pozycji w tablicy, ale może przechowywać więcej
+niż jedną zmienną, co też jest zaletą listy.
+
+W języku C istnieje operator strzałki ( -> ), który umożliwia dostanie
+się do zmiennych zawartych w strukturze albo unii.
+
+Mam strukturę, która się nazywa node przechowującą dane i wskaźnik na te dane.
+
+by dostać się do tych danych piszemy: node->data
+by dostać się do wskaźnika napiszemy: node->link
+
+Budowa ogniwa:
+
+struct node{	
+   int data
+   struct node* link 
+};
+
+Utworzymy teraz jedno ogniwo listy i przypiszmy mu wartości.
+
+wskaźnik1* = malloc(sizeof(struct ogniwo));
+wskaźnik1 -> data = 10;
+wskaźnik1 -> link = NULL;
+
+W ten sposób przypisaliśmy wartości do zmiennych w pierwszym ogniwie.
+Ponieważ wskaźnik w ogniwie nie wskazuje narazie na nic przypisujemy mu NULL,
+by mieć pewność że faktycznie nic tam nie ma.
+
+Gdy utworzymy drugie ogniwo w naszym łańcuchu to należy połączyć je z pierwszym;
+Zasada deklaracji ogniwa jest ta sama, ale na końcu łączymy je z poprzednim:
+
+wskaźnik1 -> link = wskaźnik2
+
+Dzięki temu pierwsze ogniwo przechowuje adres w pamięci drugiego ogniwa i ma
+do niego dostęp.
+Możemy się do niego dostać i ustawić wartość liczby w drugim ogniwie na 20.
+
+wskaźnik1 -> link -> liczba = 20;
+
+Wskaźnik na piersze ogniwo, przechodzimy przez wskaźnik na drugie ogniwo i
+ustawiamy wartość liczby w drugim ogniwie.
+
+Należy bardzo uważać by przed utratą adresu na ogniwo, najpierw zwolnić pamięć
+którą zajmuje, albo komputer po niedługim czasie umrze.
+
+================================================================================
+W zasadzie wszytkie funkcje w kodzie polegają na umiejętnym posługiwaniem się
+wcześniej omówioną wiedzą. Mamy zawsze wskaźnik na pierwsze ogniwo naszej listy
+(nazywamy go head) i za jego pomocą i operatora strzałki żąglujemy adresami
+dodająć bądź usuwając poszczególne ogniwa. 
+
+Wartym obserwacji jest fakt że funkcje, które działają na końcu listy nie muszą
+nic zwracać podczas gdy funkcje majstrujące przy początku listy muszą zwrócić
+nowy adres head-a w przeciwnym razie dostęp do całej listy zastanie utracony.
+
+Należy na to bardzo uważać, najlepiej na kartce rozpisać, bo każda linia kodu
+działająca na adresach musi być wykonana w odpowiednim czasie, a head to 
+nasza jedyna droga dostępu do listy.
+
+Nie ma co ukrywać że zasady działania listy są zgapione z internetu,
+ale zrozumienie jak to działa i złożenie w jeden program to już trochę udziału
+w tym miałem, co nie jest takie proste jak w ciągu tygodnia lepiej się
+nauczyłem korzystać z C, niż C++ przez parę miesięcy.
+
+
+

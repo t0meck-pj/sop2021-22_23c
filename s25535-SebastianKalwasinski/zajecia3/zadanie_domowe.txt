@@ -3,14 +3,23 @@ Zadanie domowe: Droga krzyżowa regexów
 ================================================================================
 Składnia, którą użyłem:
 
- ^ - Początek mojego słowa
+ ^ - Początek mojego wiersza
  $ - koniec mojego słowa
 [] - W nawiasie kwadratowym znajduje się zakres dopuszczalnych znaków, lub
      poprostu wypisana po kolei znaki na które pozwalamy, przy czym każdy znak
      specjalny należy potraktować backslashem, by nie były interpretowane.
+[^ ] - Zaprzeczenie zawartości nawiasu kwadratowego, czyli zakres znaków, które
+     nie są dopuszczalne.
  * - Dopasuj zero lub więcej znaków z zakresu, który podałeś przed gwiazdką.
+ + - Dopasuj jeden lub więcej znaków z zakresu, podany przed plusem.
 {} - Dopasuj daną ilość znaków z zakresu np. {5} oznacza pięć znaków, nie 
      więcej nie mniej.
+
+Dodatkowo:
+
+{2,7} - Składnia z zakresem np. od 2 do 7.
+{2,}  - Minimum 2
+{,10} - Maksymalnie 10
 
 Przykład:  ^[a-z]*@[0-3]{5}$
 

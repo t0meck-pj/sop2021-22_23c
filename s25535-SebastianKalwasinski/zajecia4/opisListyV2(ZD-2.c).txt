@@ -1,0 +1,37 @@
+================================================================================
+Opis listy dwustronnie wiązanej
+================================================================================
+Najłatwiej zacząć od wymienienia różnic.
+Ogniwo(node), listy zawiera adres nie tylko do elementu następnego, ale i
+poprzedniego tym samym umożliwiając odwoływanie się wstecz listy.
+Dodatkowo dodałem jeszcze drugi wskaźnik który pokazuje na koniec listy(tail).
+Dzięki temu możemy używać, albo head-a, albo tail-a w zależności z czym jest
+łatwiej lub działa szybciej.
+
+Niestety ma to też swoje konsekwencje, bo trzeba
+zadbać by nie tylko head, ale i tail były na swoim miejscu co nie raz dało się
+we znaki. Dzięki temu napisany program ma napisane trochę testów, i parę kartek
+zostało doszczętnie zabazgranych na śmierć by ta lista działała. Mam nadzieję
+że babole, które miały wyjść to wyszły.
+
+Po co w ogóle lista dwustronnie wiązana?
+Na to pytanie padła już odpowiedź. Dostęp naprzód jak i wstecz listy jest o 
+wiele wygodniejszy tylko trzeba dobrze to zaimplementować.
+
+Dla wygody i większego zrozumienia co się dzieje dodałem jeszcze informację
+na co aktualnie pokazuje head i tail. Ponieważ node musi zawierać dane oraz dwa
+wskaźniki kod zaczął się robić powtarzalny, więc zamknąłem proces tworzenia
+node-a w funkcji, która rezerwuje miejsce na node, przypisuje mu odpowiednie
+wartości i zwraca wskaźnik do niego by potem móc go przyłączyć do listy.
+
+Funkcje dodawania i usuwania elementu na konkretnej pozycji można by jakoś
+ładniej napisać, ale fakt że się udało narazie mnie zadowala. 
+
+Tak samo jak w przypadku listy jednostronnie wiązanej, tutaj też musimy
+umiejętnie posługiwać się wskaźnikami oraz operatorem strzałki.
+Jakbym miał komuś wytłumaczyć co tak naprawdę w tych funkcjach się dzieje
+to potrzebowałbym kartki i czegoś do pisania, bo sam tekst jest zrozumiały
+tylko dla tych, którzy już wiedzą o co chodzi.
+
+
+
