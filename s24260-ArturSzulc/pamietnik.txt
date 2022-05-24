@@ -25,3 +25,20 @@ programowaniem skryptowym w bashu, zauważyłem duze podobieństwo jeśli chodzi
 Kochany Pamietniczku na ostatnich zajeciach zagłebilismy sie w temacie skladni basha, a mianowicie w jaki sposób działają if'y, pętle, konstrukcja warunkowa switch,
 zauważyłem że czasem lepiej jest użyć switch niż tworzyć kilkanaście zagłębień else if, moim zdaniem poprawia to czytelność kodu. Nauczylismy się także w jaki posób 
 tworzy się [definiuje] funkcje i do czego one służą. Najtrudniejsze jednak przede mną zadanie domowe wiem że jeszcze troche przede mną jeśli chodzi o regexa :/ 
+
+
+2022-04-30
+
+Na ostanich zajeciach dowiedzielismy sie o pisaniu progamów w c, ciekawym doswiadczeniem było przedstawienie przez prowadzacego kodu ( nie pamietam juz co robił :( ) w którym nie
+nie wystapiła żadna instrukcja warunkowa. Najcieższym podczas robienia zadań okazał się regex, tak jak podejrzewałem. Jedna z nowości która się dowiedziałem była kompilacja plików gcc dla programów 
+napisanych w jezyku c oraz g++ dla programów napisanych w języku c++. Kolejną nowością było przykazywanie argumentów do programu argc oraz argv gdzie argv[0] to nazwa programu a argc to liczba argumentów;
+Nie zrobiłem jeszcze wszystkich zadań, ale powoli i systematycznie staram się je robić.
+
+2022-05-14
+
+Na ostanich zajeciach dowiedzielismy sie na temat procesów, tak jak powiedział nam prowadzacy to nie jest prosty temat i trzeba go przekodzic, nigdy nie słyszałem o czymś takim wcześniej, 
+o słowie fork już gdzieś słyszałem ale nie wiem gdzie :/, jednak skojarzyłem to sobie z funkcja rekurencyjną [uważam że działanie jest podobne], z która miałem troche do czynienia. Podczas kodowania zadan 
+najtrudniejszy okazało się zadanie nr 4, stwierdziłem wiec ze zrobie zadanie domowe które wydawało mi się łatwiejsze, chwile poszukałem, chwile pomyślałem i zrobiłem zadanie domowe które otworzyło mi oczy 
+w jaki sposób zrobic zadanie nr 4, długo sie nie zastanawiałem :D. 
+
+
