@@ -62,11 +62,13 @@ echo $A ma kota, a kot ma ${A}ę (konsola: Ala ma kota, a kot ma Alaę)
 
 Ćwiczenie 3. 
 
-PATH - zmienna wskazuję na jakąś lokalizacje pliku (jakaś ścieżka?)
+PATH - zmienna środowiskowa, która przechowuje pliki wykonywalne. Gdy uruchamiamy dowolne polecenie powłoka wyszukuje katalogi PATH dla docelowego pliku wykonywalnego i uruchamia go.
 RANDOM - losowa liczba wygenerowana przez bash 
 PWD - zmienna pokazująca naszą teraźniejszą lokalizacje działa tak samo jak komenda pwd
 PS1 - konsola wyświetla mi [1] 20741 następnie bash: PS1: nie znaleziono polecenia następnie informacje o zakończeniu echo, nie wiem co to oznacza, w internecie jest to zmienna znaku zachęty
-USER - wyświetla nazwe użytkownika w tym przypadku mój numer indeksu
+po wpisaniu echo $PS1 - 
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$
+USER - wyświetla nazwe użytkownika w tym przypadku 's' i mój numer indeksu
 HOSTNAME - wyświetla nazwe hosta (szuflandia)
 OSTYPE - wyświetla nazwe systemu operacyjnego, na którym pracujemy (linux-gnu)
 
@@ -77,11 +79,11 @@ ZM=`ls -la` (wyświetla katalogi i pliki ułożone jeden pod drugim)
 Ćwiczenie 4.
 
 Wpisałam(Zadziałało):
-X-`ls -l`
+X=`ls -l`
 $X
 
 Po wpisaniu:
-echo &X (wyświetla się "ls -l")
+echo $X (wyświetla się "ls -l")
  
 Ćwiczenie 5.
 

@@ -17,9 +17,9 @@ fi
 #!/bin/bash
 
 if [ -e config.cfg ]; then
-	cat config.cfg
+	cat config.cfg // użyłam tutaj cat, ponieważ w internecie przeczytałam, że "Pliki CFG mogą przechowywać dane w formacie binarnym lub tekstowym" i niestety nie wpadłam na pomysł jak inaczej go otworzyć
 elif [ $# -gt 1 ]; then
-	cat $1
+	cat $1 // Tutaj to samo nie jestem pewna jaki to będzie plik a nie znam uniwersalnego otwierania plików z różnymi rozszerzeniami 
 else
 	echo "BLAD"
 fi
@@ -99,22 +99,23 @@ b)
 
 2. 
 
-a) vim fibonacci
+a) vim fib
 
 #!/bin/bash
 
-fibonacci() {
+fib() {
 	
 if [ $1 -le 0 ]; then
-	echo 0 - jeżeli argument równy jest 0 skrypt wyświetli 0
+	return 0 - jeżeli argument równy jest 0 skrypt wyświetli 0
 fi
 
 if [ $1 -le 2 ]; then
-	echo 1
+	return 1
 else
 	a=$(fib $[$1-1]) - zmienna dla poprzedniego argumentu 
 	b=$(fib $[$1-2]) - zmienna dla argumentu przed poprzednim 
-	echo $(($a+$b)) - skrypt wyświetli odpowiedni wyraz ciągu fibonacciego w zależności od podanego argumentu.
+	c=$(($a+$b)) - skrypt wyświetli odpowiedni wyraz ciągu fibonacciego w zależności od podanego argumentu.
+	return $c 
 fi
 } 
 
