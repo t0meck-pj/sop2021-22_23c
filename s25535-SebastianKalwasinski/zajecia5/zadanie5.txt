@@ -1,0 +1,49 @@
+================================================================================
+Zadanie polega na utworzeniu 100 procesów mających tego samego rodzica.
+
+Wynokane przed zadaniem nr.4 (o tym by każde dziecko miało dziecko), bo w fazie
+eksperymentów zadanie 5 wyszło mi wcześniej niż 4.
+
+================================================================================
+Przed forkiem zapisujemy PID rodzica by później się do niego odwołać w warunku
+sprawdzającym czy to na pewno jest ten najpierwsiejszy rodzic.
+
+Potem jest pętla while z funkcją fork(). Taki generator procesów potomnych.
+Wykonuje się tyle razy ile chcemy takich procesów.
+
+Wartość zwracana z forka dla dziecka to 0, a dla rodzica jest niezerowa.
+Można to wykorzystać i wyjść z pętli dziecka za pomocą break-a gdy jest to
+proces potomy by nie mnożył się dalej, a jeśli jest to rodzić to dalej będzie
+tworzył swoje kopie aż pętla osiągnie zadaną wartość. Tyle, cała magia.
+
+================================================================================
+Teraz jeszcze pojawia się problem jak te wszystkie dzieci odebrać. Rodzic z
+setką dzieci potrzebowałby paru autobusów.
+
+ALE, skoro użyliśmy pętli do tworzenia procesów potomych, to możemy też użyć
+pętli do ich odbierania. Kiedy zakończyć pętlę? W niekótrych zadaniach,
+dodatkowo wyświetlałem status przed zakończeniem procesu. Teraz to się przyda.
+Każde dziecko będzie miało status 0 ponieważ "return 0". Dopóki są procesy
+potomne, dopóty warunek będzie spełniony.
+
+Zatem: Jeśli jest co odbierać, odbieraj.
+Dodatkowo można wyświetlić, który proces został odbebrany ponieważ wait()
+zwraca PID tego procesu. 
+Jeszcze raz. W naszej zmiennej status odbierany proces zapisuje to co zwraca, a
+waitpid zwraca PID tego procesu.
+
+Tyle, dużo tej magii było.
+
+================================================================================
+W kodzie znajduje się jeszcze zakomentowany scanf jak chciałem zobaczyć jak
+wygląda drzewo procesów. Procesy potomne w tym drzewie było oznaczane jako
+<defunct> co oznacza że były to procesy zombie. Owszem tak było ponieważ, jak
+wcześniej tłumaczyłem proces, którego status nie został odebrany na czas w
+programie zmienia się w proces zombie i grzecznie czeka na rodzica.
+Dopóki rodzic jeszcze działa, system operacyjny nie zabije takiego potomka.
+Oczywiście po wykonaniu scanf wszystko wracało do normy.
+
+================================================================================
+
+
+

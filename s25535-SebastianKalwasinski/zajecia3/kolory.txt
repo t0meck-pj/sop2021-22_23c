@@ -1,0 +1,29 @@
+================================================================================
+W ramach ćwiczeń i zachęcony sugestią prowadzącego utworzyłem skrypt 
+przeznaczony do souceowania zawierający podstawowe kody kolorów zamknięte w
+zmiennych nazwanych po nazwie koloru. 
+
+Nie jest to idealne rozwiązanie i myśląc nad tym dłużej można by to ulepszyć,
+ale idealność nie była moim celem. Co z tego wyniosłem?
+
+-Czy umiem jeszcze sourcować
+-Przećwiczyć tworzenie zmiennych
+-Po raz kolejny przypomniałem sobie że przed \bin\bash jest backslash (;¬_¬)
+
+Pewnie coś jeszcze, ale raczej najważniejsze jest wymienione
+
+Co jest nie ok w skrypcie? 
+
+-echo $red\mójnapis$k0
+
+-Nie chce mi się pisać dolara przed zmienną.
+-Zamiast spacji jest backslash, by nie było spacji przed moim tekstem.
+ (Backshlash łatwiej mi się pisze niż klamry ${red}).
+-Trzeba wyzerować na końcu. 
+
+Czy można to poprawić? Skoro każde polecenie może przyjmować
+dodatkowo różne parametry np: ls -la gdzie ls to polecenie, a -la to dodatkowe
+parametry to ten skrypt też tak można przerobić.
+
+np: K -red "Mójnapis"
+

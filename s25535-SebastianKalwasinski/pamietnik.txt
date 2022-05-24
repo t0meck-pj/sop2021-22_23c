@@ -148,7 +148,7 @@ sed-a się tak nie boję. To nie zmienia faktu że do dobrego opanowania regexó
 nie doszedłem.
 
 ================================================================================
-22-04-02
+2022-04-02
 
 Pamiętnika część trzecia.
 
@@ -188,6 +188,25 @@ egzamin którego z całego serduszka chcę ominąć bo to dobre dla serduszka
 nie mieć egzaminów.
 
 Ale regexa już coś umiem (^ω^), s25535.
+
+================================================================================
+2022-04-23
+
+Nie wiem co mam tak właściwie napisać.
+
+ A nie... kłamałem... w sume mam pomysł. Zachaczenie tematu czym jest lista
+jednostronnie wiązana i dwustronnie wiązana na zajęciach pomogłoby naprowadzić
+jak się za to w ogóle zabrać. Chyba że takie nakłonienie studentów by sami
+to znaleźli co to jest, jest działaniem celowym to wtedy nie mam pretensji.
+Nie szukałem tego długo, ale zobaczenie gołego polecenia: zaimplementuj listę
+jednostronnie wiązaną po raz pierwszy, wywołuje reakcję "ale o co chodzi?"
+Albo chociaż jakaś popowiedź typu: "Przyda się operator sczałki" ( ￣ω￣).
+
+Tak po za tym. Oprócz spędzenia nad tymi zadaniami za dużo czasu w stosunku do
+innych przedmiotów to nie było aż tak źle. Zacząłem nawet myśleć że można by
+zaimplementować listę czterokrotnie wiązaną, czyli w zasadzie taką tablicę 
+dwuwymiarową. Problem w tym że to bardziej z ciekawości niż miałoby być
+użyteczne, a sama implementacja to z początku pewnie koszmar jakiś jest.
 
 
 
