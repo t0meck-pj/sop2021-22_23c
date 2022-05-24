@@ -24,5 +24,11 @@ wysłana?
 Potrzebuję podpowiedzi bo nie wiem z czego korzystać, oprócz katalogu, który
 by zastąpił pipe.
 
+EDIT: Przerobiłem ten program by korzystał z katalogu. Używałby dwóch
+procesów potomnych i jednego rodzica. Próbowałem używać sygnałów, które by
+zatrzymywały i wznawiały działanie potomków, ale SIGSTOP się nie sprawdza.
+On zatrzyumuje działanie procesu, a ja bym potrzebawał by go uśpićm, by działał,
+ale stał w miejscu.
+
 
 
