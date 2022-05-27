@@ -1,0 +1,171 @@
+Zjazd drugi:
+
+Ćwiczenie 1.
+
+a) Zmienna programowa tworzenie:
+ZMIENNA=wartość
+
+Jeżeli dłuższe słowo to używamy "", ważne w przypadku używania innych zmiennych w tej zmiennej lub wartośći.
+
+W przypadku ciągu bez innych zmiennych lub wartości oraz bez (') możemy używać również ('').
+
+b)Zmienna środowiskowa (widoczna w podpowłokach i programach wykonawanych w danej powłoce) tworzenie:
+
+export ZMIENNA=wartość
+
+lub
+
+ZMIENNA=wartosc
+export ZMIENNA
+
+c) Usuwanie takich zmiennych:
+
+export -n ZMIENNA 
+
+lub 
+
+unset ZMIENNA 
+
+d) Odczytywanie zmiennej 
+
+$ZMIENNA
+lub
+${ZMIENNA} (kiedy zmienna ma cyfry lub wywołujemy komende) 
+
+Cwiczenie 2.
+
+a) X=tekst
+echo $X (konsola pokazuje 'test')
+bash
+echo $X (tutaj nie pokazuje nic)
+
+b) X=Test dłuższy (Tu już błąd - ponieważ powinniśmy użyć ("") lub ('').
+echo $X
+
+c) X="Tekst 1"
+Y="tekst:$X"
+echo "$Y"
+(Tu wywołana została zmienna Y, która ma w sobie zmienną X, więc użyliśmy (""), aby widoczne były obie, czyli konsola wyświetli - tekst:Tekst1)
+Y='tekst:$X'
+echo "$Y"
+(Tutaj konsola wyświetli tekst:$X, przez użycie (''))
+Y=tekst:$X
+echo "$Y"
+(Tutaj jak w pierwszym przykładzie - tekst:Tekst1, więc jeżeli chcemy, żeby konsola wyświetliła nam zmienne, które zawiera dana zmienna możemy nie użyć nic przy deklaracji zmiennej Y lub (""))
+
+Jeżeli wpiszemy 
+echo '$Y' (konsola wyświetli $Y)
+echo &Y (tu pokazuję "bash:tekst:Tekst: nie znaleziono polecenia)
+
+d)A=Ala
+echo $A ma kota, a kot ma ${A}ę (konsola: Ala ma kota, a kot ma Alaę)
+
+Ćwiczenie 3. 
+
+PATH - zmienna środowiskowa, która przechowuje pliki wykonywalne. Gdy uruchamiamy dowolne polecenie powłoka wyszukuje katalogi PATH dla docelowego pliku wykonywalnego i uruchamia go.
+RANDOM - losowa liczba wygenerowana przez bash 
+PWD - zmienna pokazująca naszą teraźniejszą lokalizacje działa tak samo jak komenda pwd
+PS1 - konsola wyświetla mi [1] 20741 następnie bash: PS1: nie znaleziono polecenia następnie informacje o zakończeniu echo, nie wiem co to oznacza, w internecie jest to zmienna znaku zachęty
+po wpisaniu echo $PS1 - 
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$
+USER - wyświetla nazwe użytkownika w tym przypadku 's' i mój numer indeksu
+HOSTNAME - wyświetla nazwe hosta (szuflandia)
+OSTYPE - wyświetla nazwe systemu operacyjnego, na którym pracujemy (linux-gnu)
+
+c)
+ZM=$(ls -la) (wyświetla mi wszystko jednym ciągiem)
+ZM=`ls -la` (wyświetla katalogi i pliki ułożone jeden pod drugim)
+
+Ćwiczenie 4.
+
+Wpisałam(Zadziałało):
+X=`ls -l`
+$X
+
+Po wpisaniu:
+echo $X (wyświetla się "ls -l")
+ 
+Ćwiczenie 5.
+
+echo $((2+2)) (Wyświetli 4)
+X=5
+echo $((2*X)) (Wyświetli 10)
+
+Ćwiczenie 5a. (Przy każdym zadaniu używam chmod 766 nazwaskryptu.sh)
+ 
+1. 
+vim pszetżkole.sh
+
+2. W vim:
+#!/bin/bash
+
+echo $1 ma kota, kot ma $1 | sed s/a$/ę/g | sed 's/\([^ę]\)/\1a/g'
+
+3.
+./pszetżkole Ala
+
+Ala ma kota, a kot ma Alę
+
+oraz dany skryt działa również na imiona męskie 
+
+./pszetżkole Stefan
+
+Stefan ma kota, a kot ma Stefana
+
+Ćwiczenie 5b.
+
+1.
+vim tekst.sh 
+
+2. W vim:
+
+#!/bin/bash
+
+dlugosc=&{#1}
+
+echo ${1:0:1} - wypisze pierwszy znak tekstu
+echo ${1:dlugosc-1:1} - wypisze ostatni znak
+echo -e $1 | sed s/SOP/`echo -e "\e[32mSOP\e[0m"`/g - po godzinie męczenia się z tym zadaniem zrozumiałam różnicę pomiedzy ' a ` :) i teraz reszta zadań też poszła szybciej 
+
+3. ./tekst.sh SOP
+
+Wyświetli 
+
+S
+P
+SOP (na zielono)
+
+Ćwiczenie 5b. Wersja z if 
+
+1. vim tekst1.sh
+
+#!/bin/bash
+
+if [ "SOP" == "$1" ]; then
+	echo -e "\e[32mSOP\e[0m"
+fi 
+
+2. ./tekst1.sh SOP
+
+Wyświetli SOP w kolorze zielonym.
+
+
+Zadanie domowe 6
+
+1. vim imiee.sh
+
+#!/bin/bash
+
+sed s/Marta/`echo -e "\e[31mMarta\e[0m"`/g $1 
+
+(zmienia każde wystąpienie 'Marta' na czerwone 'Marta', kolor ustawiamy przez wybranie liczby np. 35 to magenta, 30 czerwony a w poprzednim zadaniu używaliśmy 32 -zielony, $1 na końcu to argument który używamy)
+
+2. vim imie.txt 
+
+Mam na imie Marta, Jestem Marta.
+
+3. ./imiee.sh imie.txt 
+
+Wyświeli na konsoli 
+
+Mam na imie Marta(w kolorze czerwonym), Jestem Marta(w kolorze czerwonym).

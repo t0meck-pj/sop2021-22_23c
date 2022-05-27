@@ -1,0 +1,28 @@
+Pamiętnik SOP 2022
+
+1.Opis zajec
+2.Czego sie nauczylas/es
+3.Co jest dla Ciebie jeszcze niejasne i musisz poglebic temat
+4.Co bylo zaskakujacego
+5.Twoje przemyslenia o calych zajeciach i zadaniach
+
+- 05.03.2022 
+
+1. Na pierwszych zajęciach instalowaliśmy debiana na maszynie wirtualnej.
+2. Instalować debiana.
+3. Nie do końca zrozumiałam partycje i przydzielanie pamięci. 
+4. Ilość ustawień do zmiany podczas instalacji.
+5. Dużo informacji do zapamiętania co gdzie i jak trzeba kliknąć i zmienić, bardzo żałuję, że robiłam to na komputerze uczelnianym. Teraz nie jestem pewna czy instalacja na moim koputerze dobrze przebiegła. 
+
+- 19.03.2022
+
+Nie było mnie na zajęciach, ćwiczenia odrobiłam w domu. Niestety jeszcze nie wiem jak tworzyć skrypty, ale na pewno po przejrzeniu wykładów nadrobię dany materiał. Po konsultacjach udało mi się nadrobić materiał i wydaję mi się, że w miarę dobrze go rozumiem. Dziękuję :).
+
+- 02.04.2022
+
+1. Na trzecich zajęciach kontynuowaliśmy podstawy bash. Pętle, funkcje,tablice oraz if-y, bardzo cieszy mnie fakt, że są chociaż troszkę podobne do tych w c++, które mieliśmy na poprzedim semestrze.
+2. Nauczyłam się jak poprawnie budować pęlte,fukcje - odpowiednie nawiasy, kończenie 'fi' jak ważne są spacje oraz tab.
+3. Poznaliśmy tylko podstawy, więc na pewno dużo zadań można by było rozwiązać prostszymi sposobami niż ja.
+4. Zaskoczyła mnie nawet możliość pisania funkcji w bashu.
+5. Po zrobieniu zadań i pracy domowej myślę, że bash ma wiele dobrych możliwośći do zaoferowania użytkownikowi i jak bardzo denerwują mnie moje błędy przez np. złe postawienie spacji, ale użycie nieprawidłowego znaku. 
+
