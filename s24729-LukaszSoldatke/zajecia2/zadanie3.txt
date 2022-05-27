@@ -1,0 +1,14 @@
+Zajecia 2 - Zadanie 3
+-----------------------------------------------------------------------------------------
+Opis zadania:
+
+Zobacz co przechowują zmienne i opisz jak rozumiesz uzyskany wynik. Do czego on jest i kiedy może się wg Ciebie przydać:
+-----------------------------------------------------------------------------------------
+1. PATH - Zmienna srodowiskowa zawierajaca liste folderow (takich jak np. /usr/local/sbin) w ktorych znajduja sie pliki wykonywalne, ktore mozna uruchomic podajac ich nazwe bez podawania pelnej ich sciezki. Poszczegolne katalogi oddzielone sa tam dwukropkiem.
+2. RANDOM - Zmienna przechowujaca jakas losowa liczbe, przydatne kiedy potrzebujemy sobie takowa wygenerowac
+3. PWD - Przechowuje sciezke aktualnie otworzonego katalogu, mozna tego uzyc np. kiedy skrypt musialby odniesc sie do jakiegos pliku znajdujacego sie w tym samym folderze lub w tym folderze przeprowadzic jakies inne dzialanie takie jak np. utworzenie w nim nowego katalogu czy pliku
+4. PS1 - Zawiera informacje o tzw. znaku zachety, sekwencji poprzedzajacej wpisywane przez uzytkownika polecenia w konsoli takie jak jego tresc, kolor czy znak, modyfikujac te zmienna mozna spersonalizowac sobie wedlug wlasnego uznania to co bedzie zawsze poprzedzalo wpisywane w terminalu komendy
+5. USER - Zawiera nazwe aktualnie zalogowanego uzytkownika, przydatne wtedy kiedy zachodzi potrzeba odwolania sie do np. katalogu domowego aktualnego uzytkownika, aby przykladowo utworzyc tam nowy katalog lub plik
+6. HOSTNAME - Zawiera nazwe hosta, pozwala na identyfikacje danego urzadzenia wsrod innych
+7. OSTYPE - Przechowuje informacje o rodzaju uzywanego systemu operacyjnego, moze sie przydac np. kiedy piszemy jakis program i w zaleznosci od danego systemu operacyjnego ma zostac uzyty inny zestaw instrukcji
+

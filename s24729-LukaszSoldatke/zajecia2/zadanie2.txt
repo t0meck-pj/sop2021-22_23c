@@ -1,0 +1,31 @@
+Zajecia 2 - Zadanie 2
+-----------------------------------------------------------------------------------------
+Opis zadania:
+
+Zobacz taką serię poleceń:
+-----------------------------------------------------------------------------------------
+1. Po pierwszym uzyciu polecenia echo $X na terminal zostalo wypisane: tekst , czyli wartosc zmiennej X. Natomiast po wpisaniu polecenia bash i ponownym uzyciu echo $X nie zostalo wypisane nic. Stalo sie tak dlatego ze zostala uruchomiona nowa instancja powloki bash w ktorej to zmienna X juz nie istniala.
+
+2. Wynikiem uzycia polecenia X=Tekst dłuższy bylo wypisanie informacji o tym ze nie znaleziono polecenia dłuższy, a zmienna X nie zostala wcale utworzona, co mozna bylo zobaczyc po uzyciu echo $X, kiedy to nic nie zostalo wypisane. Aby to naprawic i do zmiennej X zapisac wartosc Tekst dłuższy mozna zastosowac jeden z dwoch sposobow na zapisanie wielowyrazowej wartosci: ujac wartosc zmiennej w cudzyslowie lub apostrofie. W tym przypadku obie metody zadzialaja tak samo i dadza oczekiwany efekt w postaci zapisania do zmiennej Tekst dłuższy , co mozna ponownie sprawdzic za pomoca echo $X.
+
+3. Wynikiem uzycia kolejno polecen:
+	X="Tekst 1"
+	Y="Tekst:$X"
+	echo "$Y"
+było:
+	Tekst:Tekst 1
+	
+	Y='tekst:$X'
+	echo "$Y"
+było:
+	tekst:$X
+	
+	Y=tekst:$X
+	echo "$Y"
+było:
+	tekst:Tekst 1
+
+W przypadku uzycia cudzyslowiow w deklaracji zmiennej moze byc kilka slow i znakow rozdzielanych spacjami, znaki specjalne sa w tym przypadku interpretowane, zmienne tlumaczone na wartosci, natomiast w przypadku uzycia apostrofow mozna przekazac dowolny ciag znakow, ktory nie zawiera apostrofow, to co znajdzie sie pomiedzy apostrofami zostanie zapisane do zmiennej w sposob doslowny, dokladny bez interpretacji znakow specjalnych czy tlumaczenia zmiennych na wartosci.
+
+4. Wynik polecenia: Ala ma kota, a kot ma Alaę
+
