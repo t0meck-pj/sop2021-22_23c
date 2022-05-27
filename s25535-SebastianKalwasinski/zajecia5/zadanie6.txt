@@ -1,0 +1,34 @@
+================================================================================
+Normalnie tutaj opisuję na czym zadanie ma polegać/ jaki jest cel
+ostateczny zadania/co student ma zrozumieć przez wykonywanie go, problem w tym
+że nie wiem czego mam się konkretnie nauczyć, jaką umiejętność opanować.
+
+To ma być prosty program czatu. Przeszukując internet znajdywałem rozwiązania
+powiązane z socketami gdzie rodzic robił za server, a potomkowie za client-ów.
+Ale to będzie dopiero na następnym zjeździe więc musi być inny sposób.
+
+Narazie zrealizowałem to zadanie bez użycia katalogu za pomocą potoków(pipe).
+
+Są dwa potoki:
+rodzic --> potomek
+potomek ---> rodzic
+
+Procesy "wysyłają do siebie wiadomości" za pomocą tych potoków.
+Z kolei jakbym miał użyć katalogu to takie potoki nie będą potrzebe.
+Tylko w jaki sposób miałbym dać znać procesowi że może już odczytać wiadomość,
+skoro sygnały też będą na następnym zjeździe. I czy to nie było by
+problematyczne wstrzelić się w moment gdzie mam wysłać sygnał do drugiego 
+procesu że ma się zatrzymać, albo wznowić działanie, jak wiadomośc zostanie
+wysłana?
+
+Potrzebuję podpowiedzi bo nie wiem z czego korzystać, oprócz katalogu, który
+by zastąpił pipe.
+
+EDIT: Przerobiłem ten program by korzystał z katalogu. Używałby dwóch
+procesów potomnych i jednego rodzica. Próbowałem używać sygnałów, które by
+zatrzymywały i wznawiały działanie potomków, ale SIGSTOP się nie sprawdza.
+On zatrzyumuje działanie procesu, a ja bym potrzebawał by go uśpićm, by działał,
+ale stał w miejscu.
+
+
+

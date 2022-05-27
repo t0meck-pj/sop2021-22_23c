@@ -208,5 +208,32 @@ zaimplementować listę czterokrotnie wiązaną, czyli w zasadzie taką tablicę
 dwuwymiarową. Problem w tym że to bardziej z ciekawości niż miałoby być
 użyteczne, a sama implementacja to z początku pewnie koszmar jakiś jest.
 
+================================================================================
+2022-05-14
+
+Pamiętnika część piąta.
+
+Podobno fork miał być trudny do zrozumienia. Miał... Wychodzi na to że 
+prezentacja forka "ala debuger" robi swoje. Nagranie też dużo pomogło, bo można
+było do tego wrócić i analizować ile się chciało co z kolei eliminowało wiele
+niedogodności, np: sklerozę. Wskazówki typu: "zobacz to, bo się przyda" też
+robią robotę. Zadanie domowe byłoby trudniejsze gdyby nie pojawiła się sugestia
+że polecenie ps może wyświetlać drzewa procesów. (ps f).
+
+Z kolei polecenie zadania szóstego wydaje się dla mnie zbyt ogólne.
+Rozmuiem fakt żeby nie dawać wsztkiego na srebrnej tacy, ale nie wiem 
+czego się odemnie oczekuje poprzez napisanie programu czatu, co tak naprawdę
+mam zrobić? Procesy mają się ze sobą komunikować? Mają działać naprzemiennie?
+A może nie muszę używać forka? Jeden proces też może pisać wiadomości, a potem
+je odczytywać. To ma działać na jednym terminalu czy na kilku tak jakby się
+od takiego programu oczekiwało? Ale z kolei miałbyć prosty, czyli bez
+udziwnień i utrudnień.
+
+To zadanie zdanie się zahaczać o następne zajęcia.
+
+s25535
+
+================================================================================
+
 
 
