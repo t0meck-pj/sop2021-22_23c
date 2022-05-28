@@ -38,3 +38,21 @@ ono najbardziej wymagajace ze wszystkich dotychczasowych ale dzieki niemu udalo 
 wyrazen regularnych :) Szczerze powiedziawszy nie wiedzialem, ze w bashu mamy tyle mozliwosci jesli chodzi o 
 pisanie skryptow, choc nie watpie ze jest to dopiero wierzcholek gory lodowej. 
 
+
+----------------------------------------------
+13-05-2022
+
+Na poprzednich zajeciach zajelismy sie podstawami programowania w C/C++. Zajecia zaczelismy od przypomnienia sobie
+podstawowej wiedzy (zmienne, tablice, petle, instrukcje warunkowe itp). Na tych zajeciach bardzo zaciekawila mnie
+reczna kompilacja plikow, poniewaz nigdy wczesniej nie mialem z nia stycznosci a zawsze ciekawilo mnie to w jaki
+sposob programisci kompiluja pliki w konsoli. Teraz juz wiem jak to samemu to zrobic :)
+
+
+----------------------------------------------
+23-05-2022
+
+Na ostatnich zajeciach zajmowalismy sie procesami a dokladnie pisaniem programow w C, ktore moga m.in. odczytywac PID
+oraz PPID danego procesu. Poznalismy funkcje takie jak: wait, waitpid, getpid, getppid jak rowniez funkcje fork(), 
+ktora wymagala od nas doglebnego przeanalizowania zasady jej dzialania - ale sie udalo. Jesli chodzi o zadania domowe, 
+ktore byly do wykonania to udalo sie je zrobic choc nie wszystkie byly tak latwe na jakie wygladaly po pierwszym 
+przeczytaniu.
