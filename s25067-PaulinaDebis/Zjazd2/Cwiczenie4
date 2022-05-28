@@ -1,0 +1,9 @@
+Komenda ls -l wylistosuje zawartosc katalogu
+
+Wpisanie w terminal samej kolendy ls -l dziala tak jak powinno
+
+Nastepnie w terminalu napisalam: X='ls -l', czyli utworzylam nowa zmienna X, do ktorej przypisalam ls -l.
+Wywoluje w terminalu zmienna X, poprzez wpisanie: echo $X. Wynikiem tego dzialania jest wydrukowanie tego co zostalo dopisane do
+wartosci X jako tekst a nie jako dzialajaca komenda.
+Jezeli chcemy zeby komenda zadzialala i spelnila swoja funckje to zmienna X wywolujemy w terminalu poprzez wpisanie $X bez "echo",,
+lun echo "$X".
