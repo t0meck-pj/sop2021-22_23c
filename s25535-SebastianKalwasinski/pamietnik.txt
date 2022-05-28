@@ -148,7 +148,7 @@ sed-a się tak nie boję. To nie zmienia faktu że do dobrego opanowania regexó
 nie doszedłem.
 
 ================================================================================
-22-04-02
+2022-04-02
 
 Pamiętnika część trzecia.
 
@@ -188,6 +188,52 @@ egzamin którego z całego serduszka chcę ominąć bo to dobre dla serduszka
 nie mieć egzaminów.
 
 Ale regexa już coś umiem (^ω^), s25535.
+
+================================================================================
+2022-04-23
+
+Nie wiem co mam tak właściwie napisać.
+
+ A nie... kłamałem... w sume mam pomysł. Zachaczenie tematu czym jest lista
+jednostronnie wiązana i dwustronnie wiązana na zajęciach pomogłoby naprowadzić
+jak się za to w ogóle zabrać. Chyba że takie nakłonienie studentów by sami
+to znaleźli co to jest, jest działaniem celowym to wtedy nie mam pretensji.
+Nie szukałem tego długo, ale zobaczenie gołego polecenia: zaimplementuj listę
+jednostronnie wiązaną po raz pierwszy, wywołuje reakcję "ale o co chodzi?"
+Albo chociaż jakaś popowiedź typu: "Przyda się operator sczałki" ( ￣ω￣).
+
+Tak po za tym. Oprócz spędzenia nad tymi zadaniami za dużo czasu w stosunku do
+innych przedmiotów to nie było aż tak źle. Zacząłem nawet myśleć że można by
+zaimplementować listę czterokrotnie wiązaną, czyli w zasadzie taką tablicę 
+dwuwymiarową. Problem w tym że to bardziej z ciekawości niż miałoby być
+użyteczne, a sama implementacja to z początku pewnie koszmar jakiś jest.
+
+================================================================================
+2022-05-14
+
+Pamiętnika część piąta.
+
+Podobno fork miał być trudny do zrozumienia. Miał... Wychodzi na to że 
+prezentacja forka "ala debuger" robi swoje. Nagranie też dużo pomogło, bo można
+było do tego wrócić i analizować ile się chciało co z kolei eliminowało wiele
+niedogodności, np: sklerozę. Wskazówki typu: "zobacz to, bo się przyda" też
+robią robotę. Zadanie domowe byłoby trudniejsze gdyby nie pojawiła się sugestia
+że polecenie ps może wyświetlać drzewa procesów. (ps f).
+
+Z kolei polecenie zadania szóstego wydaje się dla mnie zbyt ogólne.
+Rozmuiem fakt żeby nie dawać wsztkiego na srebrnej tacy, ale nie wiem 
+czego się odemnie oczekuje poprzez napisanie programu czatu, co tak naprawdę
+mam zrobić? Procesy mają się ze sobą komunikować? Mają działać naprzemiennie?
+A może nie muszę używać forka? Jeden proces też może pisać wiadomości, a potem
+je odczytywać. To ma działać na jednym terminalu czy na kilku tak jakby się
+od takiego programu oczekiwało? Ale z kolei miałbyć prosty, czyli bez
+udziwnień i utrudnień.
+
+To zadanie zdanie się zahaczać o następne zajęcia.
+
+s25535
+
+================================================================================
 
 
 

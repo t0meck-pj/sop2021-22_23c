@@ -1,0 +1,24 @@
+Zajecia 2 - Zadanie 4
+------------------------------------------------------------------------------------------------
+Opis zadania:
+
+Wykonaj komendę ls -l w podpowłoce i przypisz ją do zmiennej X.
+
+Wyświetl zawartość tej zmiennej.
+
+Spraw, aby nie było różnicy (co najwyżej kolorki) między zwykłym wykonaniem komendy:
+
+ls -l
+
+a wypisaniem zawartości zmiennej X. Nie będzie dobrego rezultatu gdy zrobimy tak:
+
+echo $X
+
+Zastanów się dlaczego.
+------------------------------------------------------------------------------------------------
+Uzywam polecenia bash, aby otworzyc nowa podpowloke po czym uzywam X=$(ls -l --color) , aby przypisac komende ls -l do zmiennej X. Nastepnie echo $X aby ja wyswietlic i otrzymuje to samo co po wykonaniu polecenia ls -l jednak wszystko jest w jednym ciagu, co pogarsza czytelnosc. Aby uzyskac wieksza 
+czytelnosc poczatkowo sprobowalem zmienic IFS na \n , za pomoca polecenia IFS='\n', wtedy problem 
+calej tresci w jednym ciagu znikl oddzielajac poprawnie zawartosc nowa linia, jednak takie rozwiazanie 
+rowniez ma wade poniewaz w wynikach listowania znikaja litery n. Sprobowalem wiec zmienic jeszcze raz 
+IFS, tym razem na pusta wartosc uzywajac polecenia IFS= , po czym efekt byl taki jakiego mozna byloby sie spodziewac - z oddzieleniem i bez brakujacych liter.
+

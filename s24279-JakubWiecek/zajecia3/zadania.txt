@@ -1,0 +1,206 @@
+Zadanie 1.
+---
+Cwiczenie 1.1
+
+#!/bin/bash
+if [[ $# > 1 ]]; then
+        echo "$1"
+else    
+        echo "Nie podano parametru"
+fi
+
+----
+Cwiczenie 1.2
+
+#!/bin/bash
+if [[ -e "./config.cfg" ]]; then
+        cat config.cfg
+elif [[ $# > 0 ]]; then
+        echo "$1"
+else
+        echo "Blad"
+fi      
+
+----
+Cwiczenie 1.3
+Dobrze zrozumialem, ze skrypt ma sprawdzac, czy plik skryptowy, ma sprawdzac swoje rozszerzenie?
+Bo jesli nie ma, to nie bedzie skryptem i sie nie wykona, wiec nie bedzie mogl sobie dodac .sh na koncu.
+Chyba, ze chodzi o przypadek, gdy mamy komende dodana do $PATH.
+
+a)regex
+
+#!/bin/bash
+if [[ $0 =~ \.sh$ ]]; then
+        echo "Ten plk ma rozszerzenie .sh"
+else
+        mv $0 $0.sh
+fi
+
+b)porównanie ostatnich trzech znakow
+
+#!/bin/bash
+if [[ ${0: -3} == .sh ]]; then
+        echo "Ten plk ma rozszerzenie .sh"
+else    
+        echo "drugi warunek"
+fi
+
+c)wyciaganie napisow
+
+#!/bin/bash
+if [[ "${0##*.}" == sh ]]; then
+        echo "Ten plk ma rozszerzenie .sh"
+else    
+        mv $0 $0.sh
+fi
+
+----
+cwiczenie 1.4
+
+#!/bin/bash
+if [[ "$(ls | wc -w)" > 5 ]]; then
+        echo "Ten plk ma rozszerzenie .sh"
+else
+        mv $0 $0.sh
+fi
+
+-----------------------------------------------------------------------------
+
+Zadanie 2
+
+cwiczenie 2.1
+
+#!/bin/bash
+for i in {10..1..2}; do
+        echo $i;
+done    
+
+----
+cwiczenie 2.2
+
+#!/bin/bash
+for i in "$@"; do
+        echo "$i"
+done    
+
+----
+cwiczenia 2.3
+
+#!/bin/bash
+file=$(ls)
+for i in $file; do
+        echo "Przed Panstwem plik: $i"
+done
+
+----
+cwiczenie 2.4
+
+#!/bin/bash
+files=$(ls *.c)
+for i in $files; do
+        echo $(cc $i -o ${i%.*})
+done    
+
+----
+cwieczenie 2.5
+
+Wersja "easy"
+#!/bin/bash
+for i in $(ls); do
+        cat $i
+done    
+for i in $(ls -r); do
+        tac $i
+done
+
+Wersja mniej-easy
+#!/bin/bash
+files=$(ls)
+characters=$(cat $files)
+for ((i = 0; i<${#characters}; i++)); do
+        echo "${characters:$i:1}"
+done
+echo "I w druga strone:  "
+for ((i = ${#characters}; i>=0; i--)); do
+        echo "${characters:$i:1}"
+done
+
+---------------------------------------------
+Zadanie 3.
+
+cwiczenie 3.1
+
+#!/bin/bash
+colorful () {
+if [[ $2 == "red" ]]; then
+
+        echo -e "\e[31m$1\e[0m"
+elif [[ $2 == "green" ]]; then 
+        echo -e "\e[32m$1\e[0m"
+elif [[ $2 == "blue" ]]; then 
+        echo -e "\e[34m$1\e[0m"
+elif [[ $2 == "white" ]]; then
+        echo -e "\e[37m$1\e[0m"
+elif [[ $2 == "cyan" ]]; then 
+        echo -e "\e[36m$1\e[0m"
+else
+        echo "Nie mam takiego kolor"
+fi
+}
+
+colorful $1 $2
+
+----
+cwiczenie 3.2
+
+
+#!/bin/bash
+Fibonacci () {
+if [[ $1 -le 1 ]]; then
+        echo "1"
+else
+        echo "$(( $(Fibonacci $(($1-1))) + $(Fibonacci $(($1-2))) ))"
+fi
+}
+Fibonacci "$1"
+
+***Z echo wychodzi bez problemu, ale return nie moge rozgryzc w ogole. W "najlepszym" wypadku wyrzucalo mi same "1"
+
+#!/bin/bash
+Fibonacci () {
+if [[ $1 -le 1 ]]; then
+        echo "1"
+else
+        return "$(( $(Fibonacci $(($1-1))) + $(Fibonacci $(($1-2))) ))"
+fi
+}
+for (( i=0; i < $1; i++)); do
+        Fibonacci
+        echo "$?"
+done
+
+-----------------------
+ZADANIE DOMOWE
+#!/bin/bash
+if [[ $1 =~ [0-9][0-9]-[0-9][0-9][0-9] ]]; then
+        echo "Kod pocztowy"
+elif [[ $1 =~ .@. ]]; then
+        echo "E-mail"
+elif [[ $1 =~ ^[A-Z][^0-9]* ]]; then
+        echo "Imie"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+================================================================================
+Zadanie polega na utworzeniu drzewa procesów w taki sposób że główny rodzic ma
+dwóch potomków, a tych dwóch potomków ma po dwóch potomków.
+
+A        Zakodowałem to w taki sposób by było widać powtarzalność kodu.
+|\       Zwykle nie powinno się tak robić, ale łatwiej potrafiłem zwizualizować
+| \      sobie co się dzieje z procesami patrząc na kod, dzięki temu nie miałem
+B  C     większych problemów z odbieraniem procesów potomnych przez procesy
+|\  \\   rodziców. Sam kod nie zawiera nic nowego czym odbiegał by od poprzenich
+| | | |  zadań. Jednynie na co należy uważać to by nie nadpisać zmiennych,
+D E F G  których nie chcemy nadpisywać by nie utracić potrzebnych nam danych.
+
+================================================================================
+
+
+

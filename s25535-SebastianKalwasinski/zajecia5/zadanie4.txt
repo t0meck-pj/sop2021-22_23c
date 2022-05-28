@@ -1,0 +1,26 @@
+================================================================================
+Opis zadania nr.5 był przed opisem nr.4 więc ten jest tylko dodatkiem.
+
+Napisz program, który wywoła 100 procesów taki że każdy potomomek bedzie miał
+potomka.
+Czyli będzie jeden główny rodzic, a potem sznurek typu potomek->potomek->potomek
+
+Zadanie prawie takie samo jak piąte tylko że z pętli wychodzi proces rodzica, a
+nie proces potomny, by tylko potomkowie byli dalej kopiowani.
+
+By dobrze zorganizować odbieranie statusów procesów potomych wystarczy zdać
+sobie sprawę z tego że w zasadzie każdy proces potomny będzie rodzicem oprócz
+tego, który zostanie utworzony jako ostatni, ale on już nie będzie miał kogo
+odebrać.
+
+Wystarczy zatem postawić warunek: Jeśli jesteś rodzicem, czekaj na dziecko.
+I w ten oto sposób utworzy się sznureczek oczekiwania na to jedno dziecko,
+które nie zostało rodzicem i będzie się po kolei zwalniał aż do rodzica
+głównego.
+
+Po wykonaniu programu można zauważyć tą zależność śledząc wartości PID i PPID.
+
+================================================================================
+
+
+

@@ -38,12 +38,25 @@ skryptów. $1 = pierwszy argument, $2 = drugi argument.
 ================================================================================
 Skrypt: C3-2 
 
-Nie rozumiem zabardzo działania return w bashu. Wiem że może on tylko zwracać
-liczby modulo z 256. Zatem tym ograniczeniem jest natura return, który jest
-przez basha używany do zwracania kodu błędu w postaci numeru, który nie
-przekroczy 256. Zatem ciąg fibonacciego doszedłby do 233 i zacząłby jechać 
-od nowa (powiedzmy że od nowa). Problem w tym że nie potrafię teraz tego napisać
-bo nie mam dostatecznej wiedzy na temat składni.
+Skrypt łopatologicznie przeanalizowany z góry na dół n ilości razy by końcu
+wpaść na ten swietny pomysł i najzwyczajniej w świecie wywołać funkcję po nazwie
+znajdując się w tej funkcji. Potem można zebrać return z tej funkcji w zmienną.
+
+Taka przekombinowana rekurencja. Trochę czasu zajeło by w końcu sprawdzić co
+się stanie jak w funkcji wywołam samą siebie i co będzie się znajdowało w $? .
+
+Oczywiście przed tym musiałem łopatologicznie popodawać co funkcja ma zwracać
+bym wiedział co mam otrzymać i móc cokolwiek z tego wywnioskować.
+Zostawiłem część mojego modus operandi by było widać gdzie nastąpił przełom.
+(￣ω￣)
+
+"Czy są jakieś ograniczenia".
+return zwraca wartość z funkcji w skrypcie, NIE wychodzi z programu jak w
+C++. Dodatkowo może zwracać TYLKO liczby z zakresu 0-255. Jak wartość liczby,
+którą funkcja próbuje zwrócić, przekroczy 255 to return zaczyna jechać od 0.
+Czyli jak echo wyświetli 377 to return pokaże 121 (377-256 = 121).
+
+================================================================================
 
 
 

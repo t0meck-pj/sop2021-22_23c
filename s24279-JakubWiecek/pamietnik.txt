@@ -1,3 +1,27 @@
+24-04-2022
+
+Drogi pamietniku,
+na wczorajszych zajeciach zaczelismy zajecia z C/C++. Bardziej bedziemy sie skupiac na samym C prawdopodobnie, poniewaz
+pod wzgledem systemow operacyjnych/administracji, jest to bardziej przydatny jezyk pod wzgledem zarzadzania pamiecia 
+(z tego co czytalem). Fajnie, ze mamy juz podstawy z C++, wiec bedzie mozna odrazu zaglebic sie w temat. Roznica taka, ze
+bedziemy kompilowac tylko w terminalu. Na samych zajeciach, omowilismy z prowadzacym zadania, ktore mamy zrobic oraz
+wytlumaczyl nam rozne niuanse zwiazane z samym jezykiem C. Jednym z cwiczen bedzie np. tworzenie programu, nie uzywajac 
+if'ow. Pomoze to zwiekszyc wydajnosc programu i ogolnie jest ciekawym rozwiazaniem, bo jednak if czasem "kusi", zeby go uzyc
+mimo wszystko. Zobaczymy jak to pojdzie w zadaniach..
+
+
+---------------------------------------------
+23-04-2022
+
+Drogi pamietniku,
+
+Tym razem troche mam obsuwe z opisem dla Ciebie, ale zadania zrobilem. Na zjezdzie przed swietami, mielismy ciag dalszy
+skryptow, wiec jako tako, nie mam nic  nowego Tobie do opowiedzenia. Na pewno duzo sie nauczylem robiac zadania, bo
+bylo ich bardzo duzo, ale to dobrze. Mielismy 3 tyg przerwy, wiec byl czas na to. Musze sobie to jeszcze powtorzyc dla utrwalenia, 
+bo juz na zajeciach idziemy dalej, a same skrypty sa na pewno przydatne. Warto sie w nie zaglebic samemu.
+
+JW
+
 ------------------------------------------------------------------------------------------------------------
 26-03-2022
 

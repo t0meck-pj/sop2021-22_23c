@@ -1,0 +1,8 @@
+Zajecia 1. 05/03/2022
+
+Na dzisiejszych zajeciach nauczylem sie instalacji Debiana, tworzenia  partycji w linuxie oraz kilka przydatnych funkcji w VM VirtualBox
+
+Zajecia 2. 19/03/2022
+
+Na dzisiejszych zajeciach nauczylem sie podstaw pisania skryptów w BASHu
+

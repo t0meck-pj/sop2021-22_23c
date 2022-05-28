@@ -1,0 +1,22 @@
+echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
+echo $RANDOM
+14404
+
+echo $PWD
+/home/ubuntu/Desktop/Zajecia/SOP/sop2021-22_23c/s25067-PaulinaDebis/Zjazd2
+
+echo $PS1
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+
+echo $USER
+ubuntu
+
+echo $HOSTNAME
+bss-ubu1804
+
+echo $OSTYPE
+linux-gnu
+
+

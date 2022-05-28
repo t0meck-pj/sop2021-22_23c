@@ -1,0 +1,77 @@
+================================================================================
+Zadanie polega na przetestowaniu działania funkcji fork().
+
+W zasadzie zgapione, tylko ponazywane inaczej, ale w trakcie tego zgapiania
+pojawiały się pytania "dlaczego tak?".
+
+================================================================================
+Dlaczego PID rodzica i PID warunkowy nie są typu "int" tylko typu "pid_t"?
+Z grubsza chodzi o zgodniość pomiędzy platformami na których są używane.
+Różne platformy mają różne wymagania dotyczące rozmiaru PID procesu.
+Te nowsze chcą aby PID miał większy rozmiar, podczas gdy starsze tego nie
+wymagają. Wymyślono więc pid_t, który zostaje zdefiniowany w odpowiedni sposób
+zgodnie z oczekiwaniami platformy, której używamy. Dzięki temu nie ma problemów
+ze zgodnością.
+
+================================================================================
+Co zwraca fork()?
+Na początku nazwałem PID który zwraca fork() PID_dziecka, ale to nie była do
+końca prawda. fork() zwraca wartość zależnie od tego dla kogo go zwraca.
+
+-Zwraca PID dziecka rodzicowi
+-Zwraca 0 dziecku
+-Zwraca -1 rodzicowi podczas nieudanego forka, a dziecko nie jest tworzone.
+
+Zatem musiałem tą zmienną przechrzcić na PID_warunkowy. To chyba najbaradziej
+do mnie przemawia w tym momencie, ponieważ fork() ma postawiony warunek i 
+w zależności od niego, co innego może nam zwrócić.
+
+================================================================================
+Dlaczego w trzecim warunku muszę porównywać: PID_rodzica == getpid() ?
+Na początku nie było to dla mnie oczywiste, ale przecież dziecko nie będzie
+miało PID-u rodzica. Zatem zmienna, którą tworzymy na początku:
+PID_rodzica = getpid(), może nie być aktualna gdy dojdzemy do tego warunku
+ponieważ w międzyczasie użyliśmy fork-a, co spowodowało że w jednym 
+procesie, PID rodzica jest dalej ten sam, ale w drugim już nie.
+
+================================================================================
+Po co mi int status = 0?
+
+man waitpid()...
+Szablon waitpid-a:
+
+pid_t waitpid(pid_t pid, int *status, int options);
+
+waitpid - czekaj na zmiany w stanie dziecka i oczekuj informacji od dziecka.
+
+Zmany stanu:
+-Usunięcie dziecka (nie chodzi o aborcję).
+-Dziecko zostało zatrzymane przez sygnał (czerwone światło na skrzyżowaniu).
+-Dziecko zostało wznowione przez sygnał (zielone)
+
+--------------------------------------------------------------------------------
+W przypadku zakończenia procesu dziecka, waitpid zostaje wykonany, a system
+może zwolnić pamięć. Jeśli waitpid nie zostanie wykonany, a dzieko zostanie
+zakończone to pozostanie ono w stanie zombie. 
+Jeszcze raz po polskiemu bo jak to czytałem w man-ie to nie mogłem tego
+zrozumieć.
+
+Dzieko kończy szkołę, ale rodzic nie czeka (brak waitpid) przed szkołą na
+swoją pociechę. Kończy się to na tym że dziecko czeka na rodzica, który nie
+przyjdzie bo np. umarł, a dziecko będzie tam sobie czekało aż do swojej
+śmierci. Trochę ponuro, ale wiadomo o co chodzi.
+
+Zatem proces zobmbie nie polega na tym że proces rodzica został zakończony
+przed procesem dziecka, ale na tym że stan procesu dziecka nie został 
+odebrany przez proces rodzica. Oczywiście nie ma co ukrywać że jest to zwykle
+wina tego że rodzic zakończył działanie przed dzieckiem. Chyba że ktoś nie 
+umie pisać programów i zapomniał o waitpid.
+
+--------------------------------------------------------------------------------
+EDIT: Zmienna status przechowuje to co dziecko zwraca np. 0 z return 0; i tyle.
+Trochę taka dygresja wyszła, ale ten opis o procesie zombie może zostać,bo w
+zasadzie jest na temat i mówi co się stanie gdy tego statusu od dziecka nie
+przyjmiemy.
+
+
+

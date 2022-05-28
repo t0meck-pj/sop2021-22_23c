@@ -1,0 +1,4 @@
+X=$(ls -l)	- tworzymy zmienna X z przypisanym wynikiem komendy ls -l
+echo $X		  - wypisuje nam wyniki jeden za drugim (polecenie echo wyswietla tylko linie tekstu, nie korzysta z formatowania)
+
+echo "$X"	  - wypisze wyniki jeden pod drugim tak jak po normanym wpisaniu ls -l

@@ -1,0 +1,33 @@
+2022-03-05
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie, a wlasciwie w duzej mierze 
+przypomnialem sobie jak pobrac i zainstalowac Linuxa (Debiana) na maszynie wirtualnej, w jaki sposob 
+taka maszyne skonfigurowac, na co przy tej konfiguracji zwrocic uwage, aby proces instalacji przebiegal 
+bezproblemowo i jak ten proces sobie ulatwic m.in. przy instalacji na wielu komputerach. Najpierw 
+pobralismy obraz ISO ze strony Debiana, po czym utworzylismy nowa maszyne wirtualna, odpowiednio ja 
+skonfigurowalismy, m.in. wybierajac adekwatne ustawienia kolejnosci bootowania, ilosc wirtualnej pamieci 
+RAM czy uzywanego do instalacji obrazu instalacyjnego. Potem przeszlismy przez proces instalacji, 
+rozpatrujac rozne opcje. Proces ten nie byl mi obcy z racji tego, ze zdarzalo mi sie nie raz instalowac 
+Linuxa, najczesciej Ubuntu ktory jest pochodna Debiana jednak znalazlo sie wiele opcji ktorych wczesniej 
+nie znalem a okazuja sie bardzo przydatne i ulatwiajace znacznie instalacje systemu. Uwazam ze zajecia 
+byly ciekawe i przyda mi sie to na przyszlosc.
+
+2022-03-19
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie podstaw skryptowania w Linuksie, w 
+powloce bash, czym sa takie skrypty i na jakiej zasadzie dzialaja, jak sa zbudowane. Zaczynaja sie one 
+od tzw. shebanga (#!/bin/bash - w przypadku basha), dalej zawieraja odpowiednie polecenia. Mozna w nich 
+uzywac roznych konstrukcji podobnych do tych chociazby z jezyka C++, takich jak konstrukcje warunkowe 
+if/else czy petle. Linuksowe skrypty zazwyczaj posiadaja rozszerzenie ".sh" i uruchamia sie je 
+najczesciej poprzez dodanie "./" przed nazwa skryptu np. ./skrypt.sh , jednak przed uruchomieniem nalezy 
+nadac mu odpowienie uprawnienia (do wykonywania) np. uzywajac polecenia chmod u+x skrypt.sh . Na 
+zajeciach wykonalismy kilka praktycznych przykladow z wykorzystaniem wypisywania tekstu na okno konsoli, 
+uzycia instrukcji warunkowych czy wyrazen regularnych. Uwazam ze pisanie skryptow jest ciekawe i moze 
+byc bardzo praktyczne, przydatne zwlaszcza wtedy kiedy zachodzi potrzeba zautomatyzowania sobie pewnych 
+dzialan ktore mozna wykonywac z poziomu powloki. Mozna w ten sposob zaoszczedzic duzo czasu - wielokrotne 
+wprowadzanie poszczegolnych komend mozna zastapic jednym, dobrze napisanym skryptem, mogacym na dodatek 
+wykonywac rozne polecenia w zaleznosci od zachodzacych warunkow.
+
+2022-04-02
+Moj kochany pamietniczku na dzisiejszych zajeciach bardziej zaglebilismy sie w temat skryptowania w bashu. Dowiedzialem sie wiecej na temat instrukcji warunkowych, petli, tablic czy funkcji. 
+Wszystko to omowilismy sobie na przykladzie bardzo praktycznych zadan, skryptow ktore moga znaczaco 
+ulatwic prace, pozwalajac nam chociazby np. szybko znalezc to czego szukamy, sprawdzic ile razy wystapilo, czy porownac cos z tym co nas faktycznie interesuje.
+
