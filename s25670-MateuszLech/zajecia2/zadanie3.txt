@@ -1,0 +1,7 @@
+PATH - lista katalogow, ktore sa przeszukiwane w poszukiwaniu plikow wykonywalnych, pomocne przy szukaniu scieżki do konkretnego programu
+RANDOM - generuje (pseudo)losową liczbe, nie trzeba pisać osobnej funkcji
+PWD - ścieżka bezwzględna do katalogu w którym się obecnie znajdujemy, może przydać się w programach, które będą potrzebowały aktualną pozycję użytkownika
+PS1 - tekst, który informuje użytkownika, że system czeka na wprowadzenie danych
+USER - nazwa uzytkownika
+HOSTNAME - nazwa hosta 
+OSTYPE - informacje o systemie

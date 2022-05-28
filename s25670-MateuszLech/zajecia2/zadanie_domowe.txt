@@ -1,0 +1,4 @@
+#!/bin/bash
+	
+X=$(echo -e "\\e[31mMateusz\\e[0m")
+sed s/Mateusz/${X}/g $1
