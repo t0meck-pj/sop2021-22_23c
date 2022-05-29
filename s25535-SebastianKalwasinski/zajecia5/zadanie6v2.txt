@@ -1,0 +1,16 @@
+================================================================================
+W tym zadaniu procesy mają komunikować się ze sobą za pomocą pliku.
+
+Robią to... wow...
+Do blokowania konkretnego procesu użyłem pustego pliku o nazie "lock", którego
+celem jest instnieć lub nie istnieć i w zależności od tego dany proces może
+się wykonywać.
+
+Funkcja access zwraca 0 gdy warunki zostały spełnione. F_OK oznacza że plik  ma
+istnieć. Można jeszcze sprawdzić czy plik ma zadane bity wykonywalności, ale
+tego nie potrzebowałem, bo on miał tylko być na miejscu i nic więcej.
+
+================================================================================
+
+
+
