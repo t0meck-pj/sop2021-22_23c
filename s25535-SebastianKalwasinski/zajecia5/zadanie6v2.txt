@@ -6,9 +6,10 @@ Do blokowania konkretnego procesu użyłem pustego pliku o nazie "lock", któreg
 celem jest instnieć lub nie istnieć i w zależności od tego dany proces może
 się wykonywać.
 
-Funkcja access zwraca 0 gdy warunki zostały spełnione. F_OK oznacza że plik  ma
-istnieć. Można jeszcze sprawdzić czy plik ma zadane bity wykonywalności, ale
-tego nie potrzebowałem, bo on miał tylko być na miejscu i nic więcej.
+Funkcja access służy do sprawdzenia stanu podanego pliku. Zwraca 0 gdy warunki
+zostały spełnione. F_OK to warunek że plik ma istnieć. Można jeszcze sprawdzić
+czy plik ma zadane bity wykonywalności, ale tego nie potrzebowałem, bo na 
+potrzeby zadania miał tylko być na miejscu i nic więcej.
 
 ================================================================================
 
