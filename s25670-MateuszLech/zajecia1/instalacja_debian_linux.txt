@@ -19,23 +19,32 @@ Pojawiają się takie opcje partycjonowania dysku:
 	- Guided - use entire disk and set up encryptedLVM; to samo co wyzej, tylko partycje sa szyfrowane
 	- Manual - reczne ustawienie partycji
  
-Wybieramy opcję manual, pozwoli to na ręczny wybrór rozmiaru partycji oraz systemu plików (Ext4 to opcja natywna dla Linuxa). Za pomocą tej opcji możemy utworzyc 4 partycje podstawowe i nieograniczona ilosc partycji logicznych.
+Wybieramy opcję manual, pozwoli to na ręczny wybrór rozmiaru partycji oraz systemu plików* (Ext4 to opcja natywna dla Linuxa). Za pomocą tej opcji możemy utworzyc 4 partycje podstawowe i nieograniczona ilosc partycji logicznych.
 
 Wybieramy dysk, klikamy create a new partition oraz wyznaczamy jej wielkość (będzie to partycja rozruchowa), 2 GB w zupełności starczą. Dalej wybieramy typ (primary lub logical) oraz w jakim miejscu ma zostać sworzona partycja (beginning lub end). Primary zawiera OS i sluży do boot'owania, logical do przechowywania danych. Klikamy primary oraz beginning (jako że bedzie to partycja uruchamiająca system musi być na początku). Dalej pokazuje nam się okno ustawień partycji, w nim ustawiamy mount point (folder do którego przypisana jest hierarchia plików systemu), wybieramy "/ " (root - katalog zawierający wszystkie inne katalogi). Resztę wolnego miejsca przeznaczam na kolejna partycję, tym razem logiczną. W okienku zamiast systemu plików ext4 wybieram swap area (swap to partycja służąca do tymczasowego przechowywania danych w sytuacji, gdy ich ilość przekracza zasoby wolnej pamięci RAM).
 
-Dalej wybieramy region oraz serwer z ktorego bedziemy pobierac aktualizacje/programy. Wybor odpowiedniego serwera pozwoli na szybsze pobieranie plików.
+Dalej wybieramy region oraz serwer z ktorego bedziemy pobierac aktualizacje/programy. Wybor odpowiedniego serwera oraz regionu pozwoli na szybsze pobieranie plików, dlatego w moim przypadku wybór padł na Polska i deb.debian.org.
 
 Na koncu pozostają nam dodatkowe opcje do zainstalowania (służy do tego tasksel) oraz mozliwosc instalacji GRUBA (taki jakby program posredniczacy miedzy UEFI a systemem, za jego pomoca mozemy m.in. wybrac wersje kernela).
 
 Opcje tasksela:
 - Debian desktop environment - instaluje pulpit zadań i wymaga jednego z wyglądów podanych poniżej, domyślnie GNOME
-- GNOME ... LXqt to środowiska graficzne
+- od GNOME do LXqt to środowiska graficzne, różniące się przede wszystkim wyglądem oraz wymaganiami. Więcej o nich na: https://wiki.debian.org/DesktopEnvironment
 - SSH server - protokół bezpiecznego zdalnego logowania
 - web server - pozawala na łączenie z serwerem za pośrednictwem protokołu HTTP
-- Standard system unilities - standardowe narzędzia systemowe
+- Standard system unilities - standardowe narzędzia systemowe**
 
 Mnie interesują tylko standardowe narzedzia.
 
 Sam GRUB służy do uruchamiania systemów operacyjnych, jest najpopularniejszym bootloaderem (oprogramowaniem uruchamianym podczas startu komputera, służącym do załadowania systemu operacyjnego do pamięci operacyjnej) na dystrybucjach linuxa. Nie, GRUB nie jest potrzebny, potrzebny jest za to wspomniany wczesniej bootloader. Alternatywami dla GRUBa moga byc m. in. LILO, BURG, Syslinux. Jeżeli GRUB będzie jedynym programem rozruchowym, to instalujemy go na MBR (tam komputer szuka bootloadera). Gdy na MBR znajduje się już inny bootloader to możemy zainstalować GRUBa na BR i kazać pierwszemu programowi znajdującemu się w MBR uruchomić/przekierować na GRUBa.
 
 
+*główne systemów plików używane w GNU/Linuxie:
+Ext2 - Drugi rozszerzony system plików jest używany przez wiele dystrybucji Linuksa.
+Ext3 - Ext2 tylko z dodanym tzw. plikiem dziennika - narzędziem umożliwiającym łatwe odzyskanie danych w przypadku awarii systemu plików
+Ext4 - Czwarty rozszerzony system plików jest używany przez wiele dystrybucji Linuksa. Wydłuża limity przechowywania.
+JFS - System plików z kronikowaniem został wprowadzony przez firmę IBM i jest nadal obsługiwany, chociaż został zastąpiony przez Ext4.
+XFS - Opcja 64-bitowa jest przeważnie obsługiwana w ramach systemu Red Hat.
+ReiserFS - Format pliku używany w kilku dystrybucjach, jednak w dużej mierze został zastąpiony przez Ext3.
+
+**pełną listę narzędzi możemy znaleźć na oficjialnej stronie poświęconej Debianowi: https://packages.debian.org/unstable/live-task-standard
