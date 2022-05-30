@@ -12,30 +12,32 @@ int main(){
 	FILE* plik;
 	int x = 1;
 
-	plik = fopen("./czat", "w+");
+	plik = fopen("/tmp/czat", "w+");
 	if(plik == NULL){
 		printf("Blad plikiu\n");
 		return 1;
 	}
+
 	pid = fork();
 
 	if(pid == 0){
 		/*potomek*/
 		char wiadomosc[81];
-		sleep(1);
 		
 		while(x == 1){
-			while(access("./lock", F_OK) == 0){
+			while(access("/tmp/lock", F_OK) == 0){
 				fgets(wiadomosc, 80, stdin);
-                                fputs(wiadomosc, plik);				
+                                fputs(wiadomosc, plik);
+
+				
 				fgets(wiadomosc, 80, plik);
 				printf("Rodzic napisal: %s", wiadomosc);
 
 				if(strcmp(wiadomosc, koniec) == 0){
-					remove("./lock");
+					remove("/tmp/lock");
 					return 0;
 				}
-				remove("./lock");
+				remove("/tmp/lock");
 			}
 		}
 	}
@@ -44,10 +46,9 @@ int main(){
 		int status = -1;
 
 		printf("Rodzic zaczyna\n");
-		fopen("./lock", "w");
-		
+		fopen("/tmp/lock", "w");
 		while(x == 1){
-			while(access("./lock", F_OK) != 0){
+			while(access("/tmp/lock", F_OK) != 0){
 				fgets(wiadomosc, 80, stdin);
 				fputs(wiadomosc, plik);
 				fgets(wiadomosc, 80, plik);
@@ -55,18 +56,19 @@ int main(){
 				
 				if(strcmp(wiadomosc, koniec) == 0){
                                         x = 0;
-					fopen("./lock", "w");
+					fopen("/tmp/lock", "w");
                                         break;
                                 }
-				fopen("./lock", "w");
+				fopen("/tmp/lock", "w");
 			}
 		}
 		wait(&status);
 		fclose(plik);
-		remove("./czat");
-		remove("./lock");
+		remove("/tmp/czat");
+		remove("/tmp/lock");
 		printf("Status = %d\n", status);
 	}
+
 	return 0;
 }
 
