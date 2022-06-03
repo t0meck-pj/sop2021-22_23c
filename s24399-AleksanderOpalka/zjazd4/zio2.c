@@ -12,7 +12,6 @@ int main(int argc, char** argv) {
 	char *file_name=argv[1];
 	char *numbers=load_to_table(file_name);
 	char *temporary_table=malloc(sizeof(char));
-	long int size;
 	int actual_location;
 	int multipler=-1;
 	int i;
@@ -76,4 +75,5 @@ char* load_to_table(char* path_name){
 	}
 
 	return numbers;
+
 }
