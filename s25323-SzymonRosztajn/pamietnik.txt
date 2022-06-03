@@ -1,0 +1,18 @@
+2022.03.05
+
+Drogi pamiętniczku na ostatnich zajęciach nauczyłem się jak zainstalować debiana manulanie. Przeszliśmy przez całą isntalację krok po kroku.
+Dzięki temu dowiedziałem się jak wiele rzeczy można ustawić podczas takiej instalacji. Dobrym przykładem będzie partycjonowanie dysku.
+Jest tam wiele opcji do wyboru i dzięki dokładnemu wytłumaczeniu przez prowadzącego mogłem zozrumieć, która opcja będzie dla mnie najlepsza.
+
+Genrelanie wszystkie kroki były bardzo dobrze i szczegółowo wytłumaczone, żebym mógł zrozumieć jak moje wybory wypływają na działanie systemu. 
+Satysfakcjonujące było jak ukończyłem proces instalacji, a system uruchomił się poprawnie.
+
+
+2022.03.19
+
+Drogi pamiętniczku na ostatnich zajęciach poznałem czym są skrypty. Prowadzący zrobił szczegółowe omówienie teoretyczne, a potem pokazywał jak używać
+ich w praktyce. Fascynujące jest, że do ich pisania wystarcza sam notatnik.
+Bardzo ważną rzeczą, którą prowadzący podkreślił to "shebang", czyli sekwencja znaków umieszczana na samym początku skryptu. 
+Dowiedziałem też się czym są zmienne systemowe
+
+
