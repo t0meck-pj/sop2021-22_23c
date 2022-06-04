@@ -15,4 +15,14 @@ ich w praktyce. Fascynujące jest, że do ich pisania wystarcza sam notatnik.
 Bardzo ważną rzeczą, którą prowadzący podkreślił to "shebang", czyli sekwencja znaków umieszczana na samym początku skryptu. 
 Dowiedziałem też się czym są zmienne systemowe
 
+2022.04.02
+ 
+Drogi pamiętniczku na ostatnich zajęciach uczyliśmy się tworzenia skryptów z użyciem "if" oraz pętli.
+Omówione zostało działanie tablic, fukncji, oraz switch'a. Switch okazał się bardzo przydantym narzędziem,
+znacznie poprawia czytelnośćkodu i jest mniej pisania.
+
+2022.03.23
+
+Drogi pamiętniczku na ostatnich zajęciach niestety mnie nie było.
+
 
