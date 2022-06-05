@@ -1,0 +1,158 @@
+================================================================================
+Server:
+
+uchwyt_dla_servera/gniazdo_servera = socket(AF_INET, SCOK_STREAM, 0)
+
+Używamy funkcji socket by otrzymać uchwyt (handle), czyli taki unikalny
+identyfikator, który umożliwia korzystanie z plików, lub innych zasobów wejścia/
+wyjścia jak np. gniazdo sieciowe.
+Na podobnej zasadzie otwieramy pliki i też otrzymujemy uchwyt do pliku.
+--------------------------------------------------------------------------------
+socket zadziałał - zwraca deskryptor pliku (file descriptor) czyli taki handle.
+socket zawiódł - zwraca -1 gdy np: nie ma pozwolenia na tworzenie socketów
+
+--------------------------------------------------------------------------------
+Przekazujemy tej funkcji:
+
+1. Typ domeny: AF_INET, dla protokołów internetowych IPv4.
+Czyli gdy chcemy korzystać z neta, a nie tylko z lokalnej maszyny, ale z
+tej drugiej też możemy.
+
+2. Typ: SOCK_STREAM, czyli gniazdo strumieniowe. Oznacza że znaki będą
+odczytywane w ciągłym strumieniu, a nie np. porcjami.
+
+3. Protokół. Zostawiamy na 0. Wtedy system operacyjny sam wybierze z jakiego
+protokołu będzie korzystał.
+
+================================================================================
+<netinet/in.h>
+
+bzero((char*) &serv_addr, sizeof(serv_addr));
+serv_addr.sin_family = AF_INET;
+serv_addr.sin_addr.s_addr = INADDR_ANY;
+serv_addr.sin_port = htons(PORT);
+
+struct sockaddr_in {
+        short   sin_family;
+        u_short sin_port;
+        struct  in_addr sin_addr;
+        char    sin_zero[8];
+};
+
+struct serv_addr_in jest to taka struktura, która zawiera adres internetowy
+i umożliwia jego konfigurację konfigurację np. nazwę hosta (IP), numer portu
+i jakie adresy może przyjmować, gdy client próbuje się połączyć.
+
+bzero służy do skasowania zawartości pamięci wkazanej przez wskaźnik.
+Można też odwółać się pod podany adres w pamięci w tym przyadku &serv_addr.
+Zaczyna od miejsca gdzie ten wskaźnik wskazuje i kasuje tyle ile jest podane
+jako drugi parametr funkcji bzero. Kasuje w sensie zeruje NULLem '\0'.
+
+Funkcje htonl, htons, ntohl, ntohs konwertują wartości między kolejnością
+bajtów hosta i sieci.
+
+================================================================================
+Po tych formalnościach teraz już z górki.
+
+Po tym jak otrzymaliśmy nasz uchwyt dla servera należy mu przypisać adres.
+"bind nadaje gniazdu, sockfd, lokalny adres my_addr.  my_addr ma długość addrlen
+bajtów. Tradycyjnie nazywa się to "przyznaniem gniazdu nazwy". Gdy gniazdo jest
+utworzone za pomocą polecenia socket(2), istnieje ono w przestrzeni nazw
+(rodzina  adresów), ale nie ma przyznanej żadnej nazwy"
+
+Czyli po polsku trzeba dać imię naszemu gnazdu by można je było wołać po tym
+imienu, chociaż to bardziej przypisanie adresu do nazwy.
+
+bind(gniazdo_servera, (struct sockaddr*) &serv_addr, sizeof(serv_addr)
+
+bind musi być przerzutowany na struct sockaddr* by zadziałał.
+--------------------------------------------------------------------------------
+bind zadziałał - zwraca 0, gniazdo jest powiązane z adresem.
+bind zawiódł - zwraca -1, np. adres jest już używany.
+
+--------------------------------------------------------------------------------
+================================================================================
+listen - mówi że wsazane gniazdo ma być używane przez funckję accept.
+
+listen(gniazdo_servera, 10)
+
+nazwa gniazda + długość kolejki, czyli ile połączeń może czekać w kolejce do
+akceptacji.
+
+--------------------------------------------------------------------------------
+listen zadziałał - zwraca 0, podane gniazdo będzie używane przez accept-a.
+listen zawiódł - zwraca -1, np. już inne gniazdo słucha na zadanym porcie.
+
+--------------------------------------------------------------------------------
+================================================================================ 
+accept - akceptuje połączenie od clienta
+
+gniazdo_clienta = accept(gniazdo_servera, (struct sockaddr*) NULL, NULL);
+
+--------------------------------------------------------------------------------
+accept zadziałał - zwraca file descriptor (uchwyt) tylko że tym razem dla 
+zaakceptowanego gnazda.
+accept zawiódł - zwraca -1, np. pierwszy parametr accept-a jest nieaktualny.
+
+--------------------------------------------------------------------------------
+================================================================================
+Teraz możemy używać uzyskane gniazdo clienta do wysyłania na nie danych
+za pomocą funkcji write
+
+write(gniazdo na które wysyłamy dane, dane, rozmiar danych)
+
+--------------------------------------------------------------------------------
+write zadziałał - zwraca ilość wysłanych bajtów
+write zawiódł - zwraca -1 np nie ma takiego gniazda na które chcemy wysłać dane.
+
+--------------------------------------------------------------------------------
+
+================================================================================
+read działa podobnie tylko że rozmiar danych oznacza ile chcemy ich odczytać
+a nie wysłać, a sam read zwraca ilość odebranych znaków. Reszta w zasadzie to 
+samo.
+
+================================================================================
+Client:
+
+Robimy bardzo podobnie jak w przypadku servera, a nawet mniej.
+
+Zamiast listen i accept mamy connect, które łączy clienta z serverem, czyli
+odpowiada na oczekiwanie accept-a.
+
+Z kąd connect wie gdzie się połączyć? Wcześniej podajemu mu numer portu na
+który ma się łączyć i zamiast ustawiać jak w przypadku servera jakie połączenia
+ma akceptować ustawiamy nazwę hosta:
+
+to:
+serv_addr.sin_addr.s_addr = INADDR_ANY;
+
+na to:
+serv_addr.sin_addr.s_addr = inet_addr(127.0.0.1);
+
+================================================================================
+
+Inne:
+
+Dostępne dla nas hosty są od 1024 do 65 535 pod warunkiem że są nieużywane.
+Nazwa hosta to 127.0.0.1 ponieważ to nazwa dla localhost, oznacza że
+łączymy się z tej samej maszyny, na której server działa.
+
+--------------------------------------------------------------------------------
+1.otrzymanie gniazda
+2.konfigurowanie adresu
+3.listen (dla servera)
+4.accept/connect
+5.załatwianie swoich spraw.
+6.close(nazwa gniazda).
+
+--------------------------------------------------------------------------------
+
+<arpa/inet.h>* //inet_addr
+<strings.h>    // bzero
+<netinet/in.h> // serv_addr, INADDR_ANY, htons
+
+================================================================================
+
+
+
