@@ -1,0 +1,12 @@
+1.Pobieramy obraz systemu debian
+2.Na virtualbox wybieramy nowy i dodajemy nowa maszynę, którą nazywamy np. debian, wersja powinna sama podstawić się pod debiana wtedy.
+3.Następnie wybieramy ilość pamięci
+4.Później wybieramy czy chcemy stworzyć dysk twardy czy używać już istniejącego i wybieramy 
+„Stwórz wirtualny dysk twardy”
+5.Następnie wybieramy „Typ pliku z wirtualnym dyskiem”. Tam wybieramy VDI
+6.Wybieramy pamięć na fizycznym dysku twardym „Stały rozmiar”
+7.Lokalizacja pliku i rozmiar np. 32 GB
+8.Jak maszyna już jest stworzona w ustawieniach wybieramy PAMIĘĆ-NAPĘD OPTYCZNY. W polu parametry naciskamy na ikonkę płyty, w którym wybieramy opcję Choose/Create a Virtual Optical Disk, następnie na dodaj później w folderze wybieramy wcześniej pobranego debiana
+9.Później wybieramy uruchom
+10.Po wyborze języka kraju i strefy czasowej ustawiamy wielkości partycji.
+11.Wpisujemy login oraz hasło, którym chcemy się logować następnie robimy to samo dla nowych użytkowników.
