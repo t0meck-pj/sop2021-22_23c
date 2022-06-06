@@ -1,0 +1,37 @@
+1.Pobranie obrazu Debiana,
+2.Tworzymy nowa wirtualna maszyne w Vitrualbox'ie
+3.Ustawiamy pojemnosc RAM dla naszej maszyny,
+4.Tworzymy virtualny dysk dla naszej maszyny(3 opcje VDI,VHD,VMDK)
+VDI-standardowy format dysku dla Oracle'a,
+VHD-format dysku dla Windowsa,
+VMDK-Dysk od VMware, najwieksza wydajnosc,
+5.Ustawiamy typ przydzielania miejsca na dysku(przydzielanie dynamiczne lub stale),
+Dysk dynamiczny jest wolneijszy, ale nie zabiera calej ilosci dysku, tylko dynamicznie dodaje miejsce do dysku w razie potrzeby,
+6.Ustawiamy pojemnosc dysku,
+7.W sekcji system wyłączamy bootowanie z Floopy,
+8.Podczas startu maszyny klikamy F12 i przechodzimy tym sposobem do Boot Menu
+9.Ustawiamy jezyk na Angielski, aby latwiej znalezc jakies potrzebne informacje w internecie(moim zdaniem),
+10.Ustawiamy region na Polske,(other > Europe > Poland),
+11.Poprzedni krok zwroci na brak ustawien lokalnych dla Polski, dla tego wybieramy klawiature i ustawienia UK,
+12.Konfiguracja sieci, ustawiamy hostname dla sieci pomijajac domene,
+13.Tworzymy dane logowania dla ROOT'a i Usera,
+14.Tworzymy partycje dysku(Wybieramy opcje Guided)
+-Wybieramy dysk i potwierdzamy,
+-Wybieramy ponownie nasz dysk,(FREE SPACE),
+-Tworzymy nowa partycje(Create new partition),
+-Podajemy jej rozmiar(czyli miejsce na BOOT'a, zazwyczaj wystarczy 1GB),
+-Wybieramy Priamry
+-Ze wzgledu na rodzaj partycji musimy ustawic ja na poczatku(partycja uruchamiajaca),
+-Ustawiamy mount point naszej partycji na /boot, orazj jej nazwe rowniez na boot
+-Konczymy konfiguracje tej partycji,
+15.Tworzymy partycje logiczne na pozostalym miejscu za pomoca LVM,
+-Konfigurujemy LVM(tak->opcje utworzena grupy),
+-Nazywamy grupe i zaznaczamy pozostala wolna czesc dysku,
+-Tworzymy nowa partycje i postepujemy podobnie jak w przypadku boota, czyli ustawiamy mount point i label,
+-Pierwsza partycja logiczna powinnien byc swap, jego wilekosc powinna rownac sie przyznany RAM + 500MB,
+-Tworzymy pozostale partycje takie jak: /home, /root, /tmp, /var/* itd.,
+-Konfigurujemy utworzone przez nas partycje, ustawiamy "use as" na EXT4 ( oprócz partycji SWAP, której ustawiamy SWAP AREA), a mount point na nazwe jej odpowiadajaca),
+-Dla partycji var/* mount point trzeba podac recznie (np. na var/log podajemy mount point var/log),
+-Po dodaniu i skonfigurowaniu partycji klikamy Finish Partitioning, 
+16.Ustawiamy serwer z ktorego maja zostac pobrane pakiety linuxa(najlepiej najblizszy nam),
+17.Wybieramy, ktore "udogodnienia" chcemy zainstalowac, w naszym przypadku odznaczamy GUI i wybieramy standard system utilities
