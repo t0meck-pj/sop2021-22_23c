@@ -1,1 +1,66 @@
-Zad 1:
+Zadanie 1:
+#!/bin/bash
+echo -e "Witaj w terminalu"
+
+Zadanie 2:
+X=test
+Przypisałem „tekst” do zmiennej X. 
+echo $X
+Po wywołaniu echo w konsoli pokazało się „tekst”.
+bash
+Otworzyłem nowy proces bash'a.
+echo $X
+Teraz zmienna jest pusta, ponieważ nie została wyeksportowana z poprzedniego procesu basha.
+
+X=Tekst dłuższy
+Błędne jest tutaj przypisanie wartości do zmiennej. Powinniśmy użyć ‘ lub ‘’.
+‘ – używamy, gdy cala zmienna ma być tylko ciagiem znakow
+‘’ – tutaj wartość zmiennej jest poprawnie wyswietlana
+
+Konsola: Ala ma kota, a kot ma Alaę
+
+Zadanie 3:
+PATH – wypisuje sciezki do folderow zawierających programy/funkcje/komendy.
+Pozwala nam to także na dodanie do tej zmiennej sciezki do katalogu z programem, ułatwia to wykonywanie skryptow, polecen etc.
+RANDOM – zwraca losowa liczbe, może się przydać gdy piszemy jakiś skrypt i musimy wylosować jakas liczba
+PWD – zwraca sciezke aktulanie otwartego katalogu. Pomaga odnaleźć swoja obecna pozycje w systemie. 
+PS1 - jest głównym monitem wyświetlanym przed każdym poleceniem. Pozwala nam na personalizowanie terminala. Np. dodanie godziny, pokazanie ilości wolnej pamięci.
+USER – wyswietla nazwe obecnego usera
+HOSTNAME – zwraca nazwe hosta
+OSTYPE – zwraca rodzaj typ systemy operacyjnego 
+
+Zadanie 4:
+Użycie echo $ls -l, nie będzie takie samo jakbyśmy użyli samego ls -l, dlatego, że echo wywoluje tylko to co jest w zmiennej i nie formatuje tego w żaden sposób. 
+Aby wygladaly tak samo należy uzyc $X.
+
+Zadanie 5:
+5a:
+#!/bin/bash
+A=Ala
+echo "$A ma kota, kot ma ${A%a}e"
+
+#!/bin/bash
+if [  "${name: -1}"  =  "a" ]; then
+echo "$name ma kota, kot ma ${name/%a/e} "
+else
+echo "$name ma kota, kot ma $namea"
+fi	
+5b:
+1:
+#!/bin/bash
+echo  ${1:0:1}
+2:
+#!/bin/bash
+echo ${1: -1}
+3:
+echo -e "\e[32mSOP\e[0m"
+
+
+Zadanie 6:
+#!/bin/bash
+A=Ala
+echo  -e "$A ma kota, kot ma $A" | sed 's/a$/e/g'
+
+Zadanie domowe:
+#!/bin/bash
+sed -e s/Szymon/`echo -e "\e[31mSzymon\e[0m"`/g $1
