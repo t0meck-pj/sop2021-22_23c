@@ -1,22 +1,52 @@
 echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
+PATH to zmienna środowiskowa, która informuje powłokę, w których katalogach ma szukać plików wykonywalnych w
+odpowiedzi na polecenia wydane przez użytkownika. 
+PATH składa się z serii rozdzielonych dwukropkami ścieżek bezweględnych, które są przechowywane w plikach 
+tekstowych. Za każdym razem, gdy użytkownik wpisze w wierszu poleceń, które nie jest wbudowane w powłokę 
+lub które nie zawiera jego bezweględnej ścieżki, powłoka przeszukuje katalogi, które stanowią ścieżką 
+wyszukiwania uytkownika, aż znajdzie plik wykonywalny o tej nazwie.
+Użycie zmiennej PATH do znalezienia konkretnych plików eliminuje potrzebę zapamiętania, w których katalogach
+dane pliki się znajdują i co za tym idzie wpisywania bezwzględnych nazw ścieżek.
+
+
 echo $RANDOM
 14404
+
+RANDOM to zmienna powłoki, która służy do generowania pseudolosowych 16-bitowych liczb całkowitych z zakresu
+0-32767. Możemy ograniczać przedział liczb, ustalając dolna lub górną granicę.
 
 echo $PWD
 /home/ubuntu/Desktop/Zajecia/SOP/sop2021-22_23c/s25067-PaulinaDebis/Zjazd2
 
+pwd - Print Working Directory - polecenie wypisujące ścieżkę katalogu roboczego, zaczynając od katalogu 
+głównego
+Polecenie ma dwie flagi pwd -L -> drukuje ścieżkę symboliczną; pwd -P -> drukuje aktualną ścieżkę.
+Może być użyte w celu znalezienia drogi w strukturze plików, lub do przekazania katalogu roboczego w 
+skrypcie Bash
+$PWD to zmienna środowiskowa, która przechowuje ścieżkę bieżącego katalogu
+
 echo $PS1
 \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+
+Wartość parametru PS1 jest używana jako posdtawowy ciąg zachęty. Wartość domyślna to \s-\v\$.
+Znak $ oznacza, że bieżący użytkownik jest ↓żytkownikiem standardowym. Użytkownik root byłby identyfikowany
+ za pomocą znaku #.
 
 echo $USER
 ubuntu
 
+Komenda user służy do wyświetlania nazw użytkowników aktualnie zalogowanych na bieżącym hoście.
+
 echo $HOSTNAME
 bss-ubu1804
+
+Polecenie hostname służy do przeglądania lub zmiany domeny i nazwy hosta systemu. Może również sprawdzić 
+adres IP komputera.
 
 echo $OSTYPE
 linux-gnu
 
+Komenda zwraca informację o typie systemu operacyjnego działającego na maszynie
 
