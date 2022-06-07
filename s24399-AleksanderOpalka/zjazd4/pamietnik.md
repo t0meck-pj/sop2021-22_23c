@@ -20,4 +20,4 @@ Mysle ze to moze wyjsc nam na dobre w sumie
 
 ### Przemyslenia
 
-Ciekwe czego mnie naucza zadania.
+Ciekawe czego mnie naucza zadania.
