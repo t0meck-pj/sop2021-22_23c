@@ -56,3 +56,16 @@ oraz PPID danego procesu. Poznalismy funkcje takie jak: wait, waitpid, getpid, g
 ktora wymagala od nas doglebnego przeanalizowania zasady jej dzialania - ale sie udalo. Jesli chodzi o zadania domowe, 
 ktore byly do wykonania to udalo sie je zrobic choc nie wszystkie byly tak latwe na jakie wygladaly po pierwszym 
 przeczytaniu.
+
+
+----------------------------------------------
+10-06-2022
+
+Na poprzednich zajeciach zajmowalismy sie omawianiem sygnalow oraz socketow. Nie bede ukrywal ale nie byl to
+najlatwiejszy temat. Jesli chodzi o sygnaly to dalo sie je dosc latwo pojac, poznalismy takie funkcje jak signal
+oraz sigaction, ktore otworzyly mi oczy na nowe mozliwosci zwiazane z przechwytywaniem sygnalow w systemie. Natomiast
+jesli chodzi o sockety to caly temat musialem sobie na spokojnie przetrawic i przeczytac jeszcze w domu wczesniej 
+podane nam linki, ktore mialy nam pomoc zrozumiec zasade dzialania socketow. Po przeczytaniu wszystkich tych 
+tutoriali, caly material znaczaco mi sie rozjasnil. Jesli chodzi o zadania ze zjazdu to niestety nie udalo mi sie
+wykonac ich wszystkich ze wzgledu na brak czasu i przygotowania na nadchodzace kolokwia. Dwa zadania, ktore udalo
+mi sie zrobic - opracowalem wspolnie z Arturem Szulcem (s24260)
