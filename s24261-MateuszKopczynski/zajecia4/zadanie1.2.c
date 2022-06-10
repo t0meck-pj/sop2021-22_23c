@@ -15,5 +15,7 @@ int main() {
     result += number;
   }
 
-  return printf("Sum of numbers = %d \n", result);
+  printf("Sum of numbers = %d \n", result);
+
+  return result;
 }
