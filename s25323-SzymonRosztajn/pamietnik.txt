@@ -26,3 +26,15 @@ znacznie poprawia czytelnośćkodu i jest mniej pisania.
 Drogi pamiętniczku na ostatnich zajęciach niestety mnie nie było.
 
 
+2022.05.14
+Drogi pamiętniczku na ostatnich zajęciach dowiedzieliśmy sie o pisaniu programów w c, mam już podstawy z c++ więc łatwiej zrozumieć temat.
+Ciekawe było przedstawienie przez prowadzącego kodu w którym nie było żadnej instrukcji warunkowa. 
+Zauważone wyraźnie było na zajęciach, aby zawsze się zastanowić przed użyciem „if”. Dla optymalizacji lepiej używać tego jak najmniej.
+
+2022.05.28
+
+Drogi pamiętniczku na ostatnich zajęciach dowiedzieliśmy się jak odczytywać PID i PPID i fukncje związane z nimi(wait, waitpid, getppid).
+Poznaliśmy też funkcję fork(), która była porządnie wytłumaczona, więc można było ją dobrze zrozumieć. 
+
+
+
