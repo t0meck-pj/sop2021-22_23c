@@ -17,5 +17,6 @@ int main() {
             sum += number;
         }
 
-        return printf("Wynik to: %d \n", sum);
+       	printf("Wynik to: %d \n", sum);
+	return sum;
 }
