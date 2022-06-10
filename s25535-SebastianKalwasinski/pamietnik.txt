@@ -234,6 +234,25 @@ To zadanie zdanie się zahaczać o następne zajęcia.
 s25535
 
 ================================================================================
+2022-05-28
+
+Pamiętnika część szósta.
+
+To były ciężkie zajęcia. Jak zwykle nagranie DUŻO pomogło by przebrnąć przez tą
+męczarnię, ale dalej czegoś brakowało by w makówce odrazu zatrybiło. Może było
+za mało czasu. Niemniej jednak, jakoś się dało to zrobić, chociaż nie mówię że
+wszytko jestem w stanie dokładnie zrozumieć bo na to potrzeba by minóstwo czasu,
+którego teraz będzie znaczny niedobór.
+
+Już nie robię zadań dokładnie tak jak w poleceniu. Fakt że udało się doprowadzić
+server i clienta do działania w tak ograniczonym czasie to sukces sam w sobie.
+Jak będę chciał to rozwijać to mam czas po drugim semestrze. Od dawna mnie korci
+by kupić sobie raspberry Pi. Te zajęcia to może być dobry wstęp do własnego
+mini servera domowego.
+
+s25535
+
+================================================================================
 
 
 

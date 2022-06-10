@@ -1,0 +1,23 @@
+================================================================================
+To zadanie to w zasadzie przeróbka na szybko zadania nr.3 by server był w 
+stanie przyjmować więcej niż jedno połączenie naraz. I fakt połączyłem dwa
+programy clienta jednocześnie do tego samego servera. Oczywiście server nie 
+jest w stanie dać o tym znać bo ma swojego rodzaju kolejkę wyświetkania na
+konsoli więc nawet jak drugie połączenie się zakończy to server i tak poczeka
+z wyświetleniem na to które połączyło się pierwsze.
+
+Lista zabronionych hostów polegała by na porówynaniu nazwy hosta który się
+łączy z serverem z tym, z listy i odrzucaniu jeśli by tam figurowała.
+Nazwę tego hosta można wyciągnąć z 'struct sockaddr_in' , a ten drugi
+z tablicy stringów.
+
+Log zdarzeń w zasadzie mam tylko to nie jest zapisywane do pliku a
+wyświetlane na konsolę. Wystarczyło by przekierować to na plik.
+
+Dlaczego tych zadań nie robię? Dowiedziałem się jakbym miał je zrobić gdybym
+miał czas, ale teraz mnie gonią kolokwia ;_; i jednak dobrym pomysłem jest
+się pouczyć niż siedzieć nad kodem.
+
+================================================================================
+
+
