@@ -1,0 +1,23 @@
+Zadanie 1.1-1.3
+
+#include <iostream>
+#include <unistd.h>
+
+       pid_t getpid(void);
+       pid_t getppid(void);
+
+using namespace std;
+
+int main()
+{
+    int x;
+    cout << "PID " << getpid() << endl;
+    cout << "PPID " << getppid() << endl;
+    cin >> x;
+    return 0;
+}
+
+---- a pozniej w terminalu wpisac "kill <nr pid z programu wyzej>"
+Po wywolaniu kill, terminal z programu wyzej, zakonczy sie z opisem "terminated".
+
+------------------------------------------
