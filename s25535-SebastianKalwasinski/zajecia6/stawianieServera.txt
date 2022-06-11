@@ -40,7 +40,7 @@ struct sockaddr_in {
 };
 
 struct serv_addr_in jest to taka struktura, która zawiera adres internetowy
-i umożliwia jego konfigurację konfigurację np. nazwę hosta (IP), numer portu
+i umożliwia jego konfigurację np. nazwę hosta (IP), numer portu
 i jakie adresy może przyjmować, gdy client próbuje się połączyć.
 
 bzero służy do skasowania zawartości pamięci wkazanej przez wskaźnik.
@@ -72,7 +72,7 @@ bind zawiódł - zwraca -1, np. adres jest już używany.
 
 --------------------------------------------------------------------------------
 ================================================================================
-listen - mówi że wsazane gniazdo ma być używane przez funckję accept.
+listen - mówi że wskazane gniazdo ma być używane przez funckję accept.
 
 listen(gniazdo_servera, 10)
 
@@ -91,7 +91,7 @@ gniazdo_clienta = accept(gniazdo_servera, (struct sockaddr*) NULL, NULL);
 
 --------------------------------------------------------------------------------
 accept zadziałał - zwraca file descriptor (uchwyt) tylko że tym razem dla 
-zaakceptowanego gnazda.
+zaakceptowanego gniazda.
 accept zawiódł - zwraca -1, np. pierwszy parametr accept-a jest nieaktualny.
 
 --------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ serv_addr.sin_addr.s_addr = inet_addr(127.0.0.1);
 
 Inne:
 
-Dostępne dla nas hosty są od 1024 do 65 535 pod warunkiem że są nieużywane.
+Dostępne dla nas porty są od 1024 do 65 535 pod warunkiem że są nieużywane.
 Nazwa hosta to 127.0.0.1 ponieważ to nazwa dla localhost, oznacza że
 łączymy się z tej samej maszyny, na której server działa.
 
