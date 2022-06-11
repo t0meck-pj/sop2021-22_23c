@@ -1,7 +1,7 @@
-#!bin/bash
+#!/bin/bash
 
-for i in $(ls); do
+for i in $(find . -maxdepth 1 -type f); do
 
-	echo "Patrzcie Panstwo, oto plik: $i"
+	echo Patrzcie Panstwo, oto plik: $i
 
 done

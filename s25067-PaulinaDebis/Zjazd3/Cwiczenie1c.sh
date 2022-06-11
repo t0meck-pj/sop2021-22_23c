@@ -1,9 +1,16 @@
 #!/bin/bash
 
-rozszerzenie="${filename##*.}"
+X=`basename "$0"`
 
-if [ "${rozszerzenie}"  -ne "sh" ]; then
-	mv "filename" "filename.sh"
+rozszerzenie=`${X##*.}`
+
+if 	[[ $rozszerzenie -eq "sh" ]]; then
+	echo Nazwa pliku jest ok 
+	
+else	
+	echo Stara nazwa pliku ${X}
+	mv $0 ${0}.sh
+	echo Nowa nazwa pliku ${X}
 fi
 
 
