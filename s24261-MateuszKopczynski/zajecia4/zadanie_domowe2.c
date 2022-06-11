@@ -30,6 +30,7 @@ int main() {
     addOnEnd(&head, 6);
     displayList(head);
     sizeOfList(head);
+    free(head);
 
     return 0;
 }
