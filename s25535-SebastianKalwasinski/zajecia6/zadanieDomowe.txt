@@ -19,5 +19,12 @@ miał czas, ale teraz mnie gonią kolokwia ;_; i jednak dobrym pomysłem jest
 się pouczyć niż siedzieć nad kodem.
 
 ================================================================================
+Po konsultacji z Panem prowadzącym wykłady uznaliśmy/doszliśmy do wniosku że
+ten wait, przez który server nie obsługiwał wielu clientów naraz jest zbędny
+i można się go najzwyczajniej w świecie pozbyć, bo nie jest do niczego
+potrzebny w tym zadaniu.
+
+================================================================================
+
 
 
