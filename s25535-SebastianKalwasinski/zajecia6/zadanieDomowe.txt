@@ -2,7 +2,7 @@
 To zadanie to w zasadzie przeróbka na szybko zadania nr.3 by server był w 
 stanie przyjmować więcej niż jedno połączenie naraz. I fakt połączyłem dwa
 programy clienta jednocześnie do tego samego servera. Oczywiście server nie 
-jest w stanie dać o tym znać bo ma swojego rodzaju kolejkę wyświetkania na
+jest w stanie dać o tym znać bo ma swojego rodzaju kolejkę wyświetlania na
 konsoli więc nawet jak drugie połączenie się zakończy to server i tak poczeka
 z wyświetleniem na to które połączyło się pierwsze.
 
@@ -19,5 +19,12 @@ miał czas, ale teraz mnie gonią kolokwia ;_; i jednak dobrym pomysłem jest
 się pouczyć niż siedzieć nad kodem.
 
 ================================================================================
+Po konsultacji z Panem prowadzącym wykłady uznaliśmy/doszliśmy do wniosku że
+ten wait, przez który server nie obsługiwał wielu clientów naraz jest zbędny
+i można się go najzwyczajniej w świecie pozbyć, bo nie jest do niczego
+potrzebny w tym zadaniu.
+
+================================================================================
+
 
 
