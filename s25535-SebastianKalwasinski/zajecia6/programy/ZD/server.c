@@ -102,12 +102,12 @@ int main(){
 			}
 			break;
 		}
-		if(pid > 0){
+		/*if(pid > 0){
 			int status = -1;
 			while(wait(&status) > 0){
 				printf("Odbieram proces potomny\n");
 			}
-		}
+		}*/
 	}
 	return 0;
 }
