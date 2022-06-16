@@ -50,9 +50,8 @@ echo -e "Witamy w terminalu"
 
 ### Zadanie 4
 
-#### X=("ls -l")
+#### X=$(ls -l)
 
-- Wypisuje to tylko zawartosc zmiennej X, surowo czyli doslownie zawartosc cudzyslownia. A nie zawartosc bierzacego katalogu.
-- Komenda ```echo $x ``` wyswietla zawartosc zmiennej, nie wykonuje zawartosci zmiennej.
+
 
 
