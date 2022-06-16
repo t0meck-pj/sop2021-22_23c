@@ -1,0 +1,22 @@
+================================================================================
+Zadanie polega na napisaniu własnej funkcji do obsługi konkretnego sygnału
+
+W main-ie informujemy że jeżeli program otrzyma sygnał SIGUSR1 to program ma
+przejść do przygotowanej przez nas funckji niezależnie od tego co takeigo
+teraz ten program porabia. Takie wywołanie funkcji z rozpychaniem się łokciami,
+by być pierwszym najważniejszym i to nie musi być wywołanie w samym programie.
+
+Nasza funkcja zwraca void i przyjmuje inta, który jest numerem naszego sygnału.
+
+Taki sygnał możemy wysłać do programu za pomocą polecenia kill -sigusr1 "pid".
+Wbrew nazwie kill nie służy tylko do wysyłania sygnału uśmiercania, ale może
+wysłać też każdy inny, jeżeli tylko podamy go jako parametr z którym kill jest
+wywoływany. Oczywiście trzeba też podać pid procesu do którego wysyłamy sygnał.
+
+Jeszcze napisałem funkcjię stoper, która po 3 sekundach wysyła sygnał SIGUSR1
+do programu (samego siebie) bo czemu by nie.
+
+================================================================================
+
+
+

@@ -1,0 +1,21 @@
+================================================================================
+Zadanie polega na używaniu sygnałów by zmusić program do pożądanych przez nas
+reakcji.
+
+#define _POSIX_SOURCE musi być w przeciwnym wypadku --ansii będzie się rzucać
+o kill-a, że nie ma takiej funkcji zadeklarowanej.
+
+fopen z opcją "w+" by tworzyło nowy plik jak go nie ma. r+ nie tworzy nowego.
+ctrl + C to SIGINT
+
+W przypadku tego zadania możnaby użyć raise zamiast kill-a.
+
+To zadanie żywcem czerpie z poprzednich. Jedyna dla mnie nowość to korzystanie
+z fscanf i fprintf bo te funkcje potrafią odczytać int-a zamiast stringa.
+W zasadzie to nigdy nie wiem jaki jest złoty środek i raz używam, fgets, a raz
+fscanf. Zależy od potrzeb i możliwości
+
+================================================================================
+
+
+

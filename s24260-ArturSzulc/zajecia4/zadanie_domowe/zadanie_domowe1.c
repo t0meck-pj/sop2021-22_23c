@@ -40,6 +40,7 @@ int main()
         switch (option)
         {
             case 0:
+		free(head);
                 return 0;
             case 1:
                 printf("Wpisz liczbe jaka chcesz dodac: ");
