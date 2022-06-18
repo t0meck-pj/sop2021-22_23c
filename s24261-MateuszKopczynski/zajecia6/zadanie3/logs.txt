@@ -1,0 +1,27 @@
+
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Server socket was created 
+[-] Error on binding 
+[+] Listening 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
