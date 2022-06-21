@@ -1,6 +1,6 @@
 #!/bin/bash
 
-numbOfFiles=$(find . | wc -l)
+numbOfFiles=$(ls -p | grep -vc /)
 
 if [ $numbOfFiles -gt 5 ]; then
 	echo "Jest wiecej niz 5 plików"
