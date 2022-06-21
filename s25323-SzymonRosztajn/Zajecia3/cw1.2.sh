@@ -1,10 +1,8 @@
 #!/bin/bash
-
-if [ -f "config.cfg" ]; then
-	cat "config.cfg"
-elif [[ $1 ]]; then
-	echo "$1"
+if [[ -e "./config.cfg" ]]; then
+        cat config.cfg
+elif [[ $# > 0 ]]; then
+        echo "$1"
 else
-	echo "Blad"
-fi
-
+        echo "Blad!"
+fi  
