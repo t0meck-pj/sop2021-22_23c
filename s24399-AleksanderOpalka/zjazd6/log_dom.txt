@@ -1,0 +1,8 @@
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
