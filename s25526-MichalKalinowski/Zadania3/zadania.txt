@@ -14,12 +14,12 @@ Zadanie 1.2
 
 #!/bin/bash
 
-if [[ -e "./config.cfg" ]]; then
+if [[ -e "config.cfg" ]]; then
 	cat config.cfg
-elif [[ $# > 0 ]]; then
-	echo "$1"
+elif [[ $1 ]]; then
+	echo -e  "$1"
 else
-	echo "Err"
+	echo -e "Err"
 fi
 
 #####################################
@@ -48,7 +48,9 @@ Zadanie 1.4
 
 #!/bin/bash
 
-if [[ ($"ls" | wc -l) > 5 ]]; then
+pliki=$(ls -la | grep '^-' | wc -l) 
+
+if [[ $pliki > 5 ]]; then
 	echo "Jest wiecej niz 5 plikow"
 fi
 
@@ -131,9 +133,9 @@ Zadanie domowe
 
 if [[ $1 =~ [0-9][0-9]-[0-9][0-9][0-9] ]]; then
 	echo "Podano kod pocztowy"
-elif [[ $1 =~ [*@*] ]]; then
+elif [[ $1 =~ [A-Za-z0-9]+@[A-Za-z0-9+.[a-z] ]]; then
 	echo "Podano E-mail"
-elif [[ $1 =~ ^[A-Z} ]]; then
+elif [[ $1 =~ ^[A-Z][a-z][a-ząęćźńłó]{3,} ]]; then
 	echo "Podano Imie"
 fi
 

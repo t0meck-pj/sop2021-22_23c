@@ -59,9 +59,13 @@ Zadanie 5b
 
 #!/bin/bash
 
+I=$1
+
 echo "Pierszy znak argumentu: ${I:0:1}"
 echo "Ostatni znak argumentu: ${I: -1}"
-echo -e "${I/SOP/\\e[32mSOP\\e0m"
+if ["$I" == "SOP"]; then
+	echo -e ${str/SOP/"\e[32mSOP\e[0m"
+fi
 
 #####################################
 
@@ -80,3 +84,4 @@ Zadanie domowe
 plik = $1
 
 echo "$plik" | sed -e "/s/michal/\x1b[31mmichal\x1v[0m/g"
+
