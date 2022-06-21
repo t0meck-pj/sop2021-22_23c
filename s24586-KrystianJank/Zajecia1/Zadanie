@@ -1,0 +1,21 @@
+Zajecia 1: Instalacja systemu linux na maszynach wirtualnych
+1.Otwieramy Virtualboxa i następnie klikamy zakładkę Nowa
+2.Wybieramy typ/co chcemy zainstalować oraz nazwe
+3.Przydzielamy rozmiar pamieci (przydzieliłem 4096 MB)
+4.Następnie wybieramy typ pliku z wirtualnym dyskiem VDI
+5.PRzydzielam dynamicznie pamiec na fizycznym dysku twardym
+6.Ustawiłem gdzie ma się znajdować obraz pliku i jego rozmiar
+7.Pobieramy obraz Debiana
+8.W ustawionach utworzonego Debiana podpinam w zakładce pamięc pobrany obraz
+9.Dopiero teraz startuje Debiana i ustawiam tym razem opcje instalacji graficznej
+10.Wybieram jezyk Angielski (Żeby w razie jakichkolwiek problemów łatwiej znalezc rozwiazenie)
+11.Lokacje other a nastepnie Poland
+12.Nastepnie UTF-8 i konfiguracje klawiatury 
+13.Ustawiam nazwe/hasło domeny roota
+14.Potem Nazwe uzytkownika i hasło 
+15.Ustawiam partycje dysku
+16.Po drobnej instalacji ustawiamy skąd chcemy pobrać pakiety
+17.Wybieramy co jeszcze chcemy doinstalować
+18.Po instalacji zostaliśmy zapytani czy chcemy zainstalować GRUB boot loader na dysku głównym (tak chcemy ponieważ innaczej mielibyśmy problem 
+z załadowaniem systemu operacyjnego)
+19.Na samym końcu jesteśmy zmuszeni do restatu 

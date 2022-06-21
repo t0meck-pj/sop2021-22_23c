@@ -1,0 +1,170 @@
+Zadanie 1.
+
+1. vim 
+
+#include <iostream>
+#include <unistd.h>
+
+int main(){
+
+	int x;
+
+	cout<<"PID = "<<getpid()<<endl;
+	cout<<"PPID = "<<getppid()<<endl;
+	cin<<x;
+	
+	return 0;
+}
+
+2. g++ -Wall --ansi --pedantic -o Zadanie1 Zadanie1.cpp 
+
+./Zadanie1
+
+PID = 22032
+PPID = 20088
+
+Teraz włączam drugi terminal i w nim wpisuje "kill 22032", program zostaje "zabity" w pierwszym terminalu.
+
+Zadanie 2.
+
+1. vim 
+
+#include<iostream>
+#include<unistd.h›
+#include<sys/types.h›
+#include<sys/wait.h>
+
+using namespace std;
+
+int main () {
+	pid_t pidl=getpid();
+	pid_t pid2 = fork();
+	
+	if (pid2 > 0) {
+		cout‹<"Pid rodzica= "<<getpid() <<endl;
+		cout<<"Ppid rodzica="<<getppid() <<endl;
+	}
+
+	else {
+		cout<<"Pid dziecka= "<<getpid () <<endl;
+		cout<<"Ppid dziecka= "<<getppid () <<endl;
+	}
+	if (pidl=-getpid()) {
+		int stan=0;
+		waitpid (0, &stan, 0)
+	}
+
+	return 0;
+}
+
+Zadanie 3.
+
+#include<iostream>
+#include<unistd.h›
+#include<sys/types.h›
+#include<sys/wait.h>
+
+using namespace std;
+
+int main (int argc, char* argv[]) {
+
+	int x = atoi(argv[1])
+	pid_t pidl = getpid();
+	pid_t pid2 = fork();
+	
+	if (argv[1] == NULL) {
+		cout‹<"NIE PODANO ARGUMENTU"<<endl;
+		return 0;
+	}
+
+	if(pid1==getpid()){	
+		int stan=0;
+		waitpid(-1,&stan,0);
+	}
+
+	if(pid2==0){
+		cout<<"PROCES DZIECKA"<<endl;
+		
+		for(int i=0;i<x;i++){
+			if(i%2!=0){
+				cout<<i<<endl;
+			}
+		}
+	}
+	else{
+		cout<<"PROCES RODZICA"<<endl;
+		int suma=0;
+		for(int i=0;i<x;i++){
+			suma=suma+i;
+		}
+		cout<<suma<<endl;
+	}
+	return 0;
+}
+
+Zadanie 4.
+
+#include<iostream>
+#include<unistd.h›
+#include<sys/types.h›
+#include<sys/wait.h>
+
+using namespace std;
+
+int main () {
+
+	int x = 100;
+	pid_t pidl = getpid();
+	pid_t pid2 = fork();
+	
+	if(pid2==0){
+		cout<< "JESTEM DZIECKIEM NUMER: 1" << endl;
+		cout << "PID: "<<getpid()<<endl;
+		for(int i=0;i<x-1;i++){
+			if(fork()==0){
+				cout<<"JESTEM DZIECKIEM NUMER: "<<i+2<<endl;
+				cout<<"PID: "<<getpid()<<endl;
+				exit(0);
+			}	
+		}
+		return 0;
+	}
+	else{
+		cout<<"JESTEM RODZICEM MOJ PID TO: "<<getpid()<<endl;
+	}
+	if(pid1==getpid()){
+		wait(NULL);
+	}
+	return 0;
+}
+
+Zadanie 5.
+
+#include<iostream>
+#include<stdlib.h>
+#include<unistd.h›
+#include<sys/types.h›
+#include<sys/wait.h>
+
+using namespace std;
+
+int main(){
+
+	for(int i=0;i<100;i++){
+
+		if(fork() == 0){
+			cout<<"PID DZIECKA: "<<getpid();
+			cout<<"PID RODZICA: "<<getppid();
+			exit(0);
+		}
+	}
+
+
+	for(int i=0;i<100;i++){
+		wait(NULL);
+	}
+	return 0;
+}
+
+Zadanie 6.
+

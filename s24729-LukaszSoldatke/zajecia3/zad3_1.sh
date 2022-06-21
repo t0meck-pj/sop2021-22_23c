@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PS1COPY=$PS1
 STRING=$1
 
 if [[ $2 == black ]]; then COLOR='\033[0;30m'; fi
@@ -16,3 +17,5 @@ function f1 {
 }
 
 f1
+
+PS1=$PS1COPY

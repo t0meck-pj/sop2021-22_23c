@@ -1,3 +1,29 @@
+----------------------------------------------
+05-06-2022
+
+Drogi pamietniku,
+
+troche Cie zaniedbalem ostatnio niestety. Maj byl dosyc intensywnym miesiacem i bylem zmuszony zrezygnowac z niektorych 
+rzeczy. Ale juz jestem spowrotem i nadrabiam zaleglosci. Po ostatnim wpisie, na kolejnych zajeciach, kontynuowalismy temat 
+C/C++. Tym razem weszlismy juz w proces.
+
+Poznalismy narzedzie, ktorym jest funkcja fork(). 
+Uzywajac jej tworzymy nowy proces, ktory wywodzi sie z pierwotnego procesu. Taka relacja rodzic-dziecko jak w dziedziczeniu. 
+Kazdy proces posiada PID i PPID. PID to glowne ID procesu, a PPID to ID procesu rodzica, z ktorego wywodzi sie dany proces.
+Dzieki zadaniom moglismy sie troche "pobawic" fork'iem. Z pomoca funkcji getpid(), getppid() i strumienia wyjscia, moglismy
+w zadaniach obserwowac, jakie sa zaleznosci miedzy poszczegolnymi procesami. 
+Dopiero skonczylem te zadania i nie powiem, byla to troche lamiglowka, ale finalnie, udalo sie. Na pewno do tego jeszcze zajrze
+przed kolokwium, bo niby rozumiem jak to dziala, ale ja pojawiaja sie warunki, aby np. rodzic czekal na zakonczenie procesu 
+dziecka, to przyznam, mozna sie pogubic. Mam nadzieje, ze uda mi sie to ogarnac, bo mam jeszcze pare rzeczy do zrobienia i 
+chcialbym sie z tym wyrobic najpierw.
+
+Co do zajec z sygnalow/socketow, musze zadrobic nagrane zajecia, poniewaz nie moglem sie pojawic w tamten weekend na
+uczelni. Ale patrzac na zadania, to wyglada to zarowno przerazajaco, jak i ciekawie. Mam nadzieje, ze nie polegne tam.
+
+Do nastepnego.
+
+-------------------------------------------------------------
+
 24-04-2022
 
 Drogi pamietniku,
