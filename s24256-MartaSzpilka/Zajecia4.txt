@@ -1,0 +1,131 @@
+Zadanie 1
+
+1. vim
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+	int x,y;
+	int wynik=0;
+	
+	cout<<"Ile liczb chcesz wprowadzić?\n";
+	cin>>x;
+	cout<<"Podaj liczby\n";
+
+	for(int i=0;i<x;i++){	
+		cin>>y;
+		wynik = wynik + y;
+	}
+
+	cout<<wynik;
+	}
+
+Zadanie 2
+
+1. vim
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+	int x,y;
+	int wynik=0;
+	
+	cout<<"Ile liczb chcesz wprowadzić?\n";
+	cin>>x;
+	cout<<"Podaj liczby\n";
+
+	for(int i=0;i<x;i++){	
+		cin>>y;
+		wynik = wynik + y;
+	}
+
+	return wynik;
+	}
+
+Zadanie 3
+
+1. vim 
+
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[]){
+
+int h = atoi(argv[1]);
+
+for(int i=0;i<h;i++){
+	for(int j=0;j<h-i-1;j++){
+		cout<<" ";
+	}
+
+	for(int j=0;j<i*2+1;j++){
+		cout<<"*";
+	}
+	
+	cout<<endl;
+}
+}
+
+Zadanie 1 -IO
+
+1. vim
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]){
+
+	int *liczba;
+	int rozmiar;
+	int x,y;
+	int liczba[100];
+	FILE* plik=fopen(argv[1], "r");
+
+	if(plik != NULL){
+		fscanf(plik, "%d", &rozmiar);
+		liczba = (int*)calloc(rozmiar,sizeof(int));
+
+		for(int i=0;i<rozmiar;i++){
+			fscanf(plik,"%d",&liczba[i]);
+		}
+		
+		for(int i=rozmiar;i>=0;i--){
+			printf("%d",liczba[i]);
+		}
+	}
+	else{
+		printf("Podaj ilosc liczb do wczytania");
+		scanf("%d",x);
+		for(int i=0;i<x;i++){
+			scanf("%d",y);
+			liczby[i]=y;
+		}
+
+		for(int i=x-1;i>=0;i--){
+			printf("%d",liczby[i]);
+		}
+	}
+	free(liczba);
+	fclose(plik);
+	return 0;
+	}
+
+
+	
+Zadanie 2-IO
+
+1.vim 
+
+
+
+
+
+
+

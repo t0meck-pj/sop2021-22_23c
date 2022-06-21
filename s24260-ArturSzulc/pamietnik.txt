@@ -42,3 +42,19 @@ najtrudniejszy okazało się zadanie nr 4, stwierdziłem wiec ze zrobie zadanie 
 w jaki sposób zrobic zadanie nr 4, długo sie nie zastanawiałem :D. 
 
 
+2022-06-10
+
+Na ostatnim zjeździe dowiedzielismy sie w jaki sposób działaja sygnały oraz sockety, jeśli chodzi o sygnały to mamy 
+dwie funkcje signal oraz sigaction, signal to funkcja która pozwala nam zdefiniować co ma się zadziac na dany sygnał
+SIGINT - ctrl+c - 2
+SIGKILL - 9 
+Jesli chodzi o sygnały to signal działa w taki sposób że jeśli otrzymujemy sygnał to akcja sie wykonuje i jesli dostaniemy
+kolejny to akcja sie zatrzyma i wykona obsługe innego sygnału po czym wróci spowrotem od akcji pierwszego. Jesli chodzi
+o sigaction to to co zrozumiałem to definiujemy handler tak samo jak signal tylko żę jesli przyjdzie inny sygnał po pierwszym 
+to program nie skoczy do tego nowego tylko skończy pierwszy. 
+
+Co do socketów to pamietam ze sam socket zawiera w sobie port i adress ip i jest od zdefiniowany i dla serwera i dla clienta,
+TCP oraz UDP to TCP jest bezpieczniejszy na straty pamieci, a UDP tak jak przykłąd ze stadionem napełni ciagiem tyle ile wejdzie, 
+metody jakie były to socket() która tworzy socket, htons(), read() która czytała dane i zapisywała do bufora, niestety nie udało mi się
+przetestować działania i oczytać sie bardziej na temat socketów, ponieważ czeka mnie jak i innych kolegów i koleżanek dość sporo kolokwiów. :/ 
+Co do zadań to zrobiłem tylko 1 i 2 dla sygnałów, zrobiłem je wraz z pomocą Mateusza Kopczyńskiego (s24261).

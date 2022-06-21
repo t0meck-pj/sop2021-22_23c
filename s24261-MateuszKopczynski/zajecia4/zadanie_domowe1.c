@@ -26,6 +26,7 @@ int main() {
     removeOnEnd(&head);
     displayList(head);
     sizeOfList(head);
+    free(head);
 
     return 0;
 }
