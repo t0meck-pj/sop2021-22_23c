@@ -17,5 +17,6 @@ int main() {
         result+=temporary_number;
     }
     
-    return printf("Result: %d \n", result);
+    printf("Result: %d \n", result);
+    return result;
 }
