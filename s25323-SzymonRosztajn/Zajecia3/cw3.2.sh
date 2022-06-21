@@ -13,7 +13,7 @@ fibonacci() {
 	number=$(($number+$value))
 	value=$(($number-$value))
 	iteration=$((iteration + 1))
-	fibonacci $howManyIteration
+	fibonacci $numbOfIteration
 }
 
-fibonacci $howManyIteration
+fibonacci $numbOfIteration
