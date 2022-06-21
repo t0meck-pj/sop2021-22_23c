@@ -34,7 +34,8 @@ X=$(ls -l) - przypisuje ls -l do zmiennej
 echo $X - wypisze wynik
 
 Roznica pomiedzy zwyklym wykonaniem komendy, a wypisaniem zawartosci zmiennej jest taka, ze polecenie echo wyswietlanam linie tekstu. 
-Natomiast polecenie ls -l wyswietla nam wynik w bardziej przejrzysty sposob. Sposob aby wyswietlic zawartosc zmiennej w takim sam sposob jak robi to polecenie ls -l tyle ze bez kolorkow to echo "${X}".
+Natomiast polecenie ls -l wyswietla nam wynik w bardziej przejrzysty sposob. Sposob aby wyswietlic zawartosc zmiennej w takim sam sposob 
+jak robi to polecenie ls -l tyle, ze bez kolorkow, to echo "${X}".
 
 Zadanie 5:
 5a:
