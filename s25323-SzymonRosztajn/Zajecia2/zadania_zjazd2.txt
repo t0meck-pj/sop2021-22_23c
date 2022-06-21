@@ -30,8 +30,11 @@ HOSTNAME – zwraca nazwe hosta
 OSTYPE – zwraca rodzaj typ systemy operacyjnego 
 
 Zadanie 4:
-Użycie echo $ls -l, nie będzie takie samo jakbyśmy użyli samego ls -l, dlatego, że echo wywoluje tylko to co jest w zmiennej i nie formatuje tego w żaden sposób. 
-Aby wygladaly tak samo należy uzyc $X.
+X=$(ls -l) - przypisuje ls -l do zmiennej
+echo $X - wypisze wynik
+
+Roznica pomiedzy zwyklym wykonaniem komendy, a wypisaniem zawartosci zmiennej jest taka, ze polecenie echo wyswietlanam linie tekstu. 
+Natomiast polecenie ls -l wyswietla nam wynik w bardziej przejrzysty sposob. Sposob aby wyswietlic zawartosc zmiennej w takim sam sposob jak robi to polecenie ls -l tyle ze bez kolorkow to echo "${X}".
 
 Zadanie 5:
 5a:
