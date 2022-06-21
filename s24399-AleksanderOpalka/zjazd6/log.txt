@@ -1,0 +1,22 @@
+[+] Binding: OK ! 
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Sending file content: OK !
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Sending file content: OK !
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Sending file content: OK !
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[-] Client accepton a socket: Error !
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[-] Client accepton a socket: Error !
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[-] Client accepton a socket: Error !
+[+] Creation of the socket: OK !
+[+] Binding: OK ! 
+[+] Sending file content: OK !
