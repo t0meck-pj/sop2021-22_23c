@@ -1,9 +1,11 @@
 #!/bin/bash
 
-if [ -f "config.cfg" ]; then
-	cat "config.cfg"
+file="config.cfg"
+
+if [[ -e $FILE ]]; then
+	echo -e "$(./$FILE)"
 elif [[ $1 ]]; then
-	echo "$1"
+	echo -e "$(./"$1")"
 else
 	echo "Error"
 fi

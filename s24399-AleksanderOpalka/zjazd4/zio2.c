@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
 
 	char *file_name=argv[1];
 	char *numbers=load_to_table(file_name);
-	char *temporary_table=malloc(sizeof(char));
+	char *temporary_table=calloc(512,sizeof(char));
 	int actual_location;
 	int multipler=-1;
 	int i;
@@ -61,7 +61,7 @@ char* load_to_table(char* path_name){
 
 	FILE *file=fopen(path_name,"r");
 	unsigned char character=0;
-	char *numbers=malloc(sizeof(char));
+	char *numbers=malloc(1000 * sizeof(char));
 	int counter=0;
 
 	while(!feof(file)){
@@ -73,6 +73,8 @@ char* load_to_table(char* path_name){
 		numbers[counter]=character;
 		counter+=1;
 	}
+
+	fclose(file);
 
 	return numbers;
 

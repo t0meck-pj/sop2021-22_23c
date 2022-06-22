@@ -2,12 +2,15 @@
 
 function fibonacci(){
   if [ $1 -le 1 ]; then
-    echo 0
-  elif [ $1 -eq 2 ]; then
-    echo 1
+    return "$1"
   else
-     echo $(( $(fibonacci $(($1 - 1)) ) + $(fibonacci $(($1 - 2)) ) ))
+    fibonacci $(($1-1))
+    local part1=$?
+    fibonacci $(($1-2))
+    local part2=$?
+    return $((part1+part2))
   fi
 }
 
-echo $(fibonacci $1)
+fibonacci 13
+echo $?
