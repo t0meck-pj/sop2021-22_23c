@@ -6,3 +6,18 @@ Zajecia 2. 19/03/2022
 
 Na dzisiejszych zajeciach nauczylem sie podstaw pisania skryptów w BASHu
 
+Zajecia 3. 02/04/2022
+
+Na dzisiejszych zajeciach nauczylem sie obsługi pętili, if'ów, tablic oraz funkcji w BASHu
+
+Zajecia 4. 23/04/2022
+
+Na dzisiejszych zajeciach nauczylem sie działania głównych elementów jezyka C
+
+Zajecia 5. 14/05/2022
+
+Na dzisiejszych zajeciach nauczylem sie jak operować procesami za pomocą jezyka C
+
+Zajecia 6. 28/05/2022
+
+Na dzisiejszych zajeciach starałem się zrozumieć jak korzystać ze sygnałów oraz socketów w C
