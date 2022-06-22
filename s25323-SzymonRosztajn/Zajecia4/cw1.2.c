@@ -6,7 +6,7 @@ int main() {
     int result=0;
     int i;
 
-    printf("Wprowadz liczbe numerow do wpisania: ");
+    printf("Enter how many numbers do you want to enter: ");
     scanf("%d",&repetitions);
 
     for (i = 0; i < repetitions; i++){
@@ -17,6 +17,5 @@ int main() {
         result+=temporary_number;
     }
     
-    printf("Result: %d \n", result);
     return result;
 }
