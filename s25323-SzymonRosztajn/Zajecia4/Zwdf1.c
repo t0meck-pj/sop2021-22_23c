@@ -62,7 +62,7 @@ int main(){
     get_function_id(&function_id);
     get_iterations(&iterations);
 
-    table_user_numbers=malloc(sizeof(int));
+    table_user_numbers=malloc(10000 * sizeof(int));
 
     for(index=0;index<iterations;index++){
         printf("Liczba nr: %d - ",index+1);
