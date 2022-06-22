@@ -2,6 +2,7 @@
 
 funkcja() {
     echo -e "\e[$2m$1"
+    tput sgr0
 }
 
 funkcja "czarny" 30
