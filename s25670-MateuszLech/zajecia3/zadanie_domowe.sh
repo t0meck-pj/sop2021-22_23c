@@ -1,14 +1,13 @@
 #!/bin/bash
 
-if [[ $1 =~ ^[0-9][0-9]+'-'+[0-9][0-9][0-9] ]]; then
-	echo "Kod pocztowy"
+if [[ $1 =~ ^([0-9]{2}-[0-9]{3})$ ]]; then
+        echo "$1 - kod pocztowy"
 
-elif [[ $1 =~ ^[A-Z][a-ząćęłńóśźż] ]]; then
-	echo imię
+elif [[ $1 =~ ^([A-ZĄŚĆÓŻŹ]{1}[a-ząśćóżź]+)$ ]]; then
+        echo "$1 - imie"
 
-elif [[ $1 =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$ ]]; then
-	echo email
-
+elif [[ $1 =~ ^[A-Za-z0-9\!\@\#\$\%\^\&\*\(\)\_\-\+\=]*@[a-z\.]+$ ]]; then
+        echo "$1 - email"
 else
 	echo "Nie wiem co to"
 fi
