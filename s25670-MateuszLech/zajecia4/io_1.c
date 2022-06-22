@@ -48,11 +48,8 @@ int main(int argc, char **argv)
     {
         printf("%d\n", numbers_arr[loop]);
     }
-
-    if (numbers_arr != NULL)
-    {
-        free(numbers_arr);
-    }
-
+    
+    free(numbers_arr); 
+    
     return 0;
 }
