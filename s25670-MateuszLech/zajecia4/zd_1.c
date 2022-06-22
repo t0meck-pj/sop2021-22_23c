@@ -35,6 +35,9 @@ int main()
         switch (option)
         {
             case 0:
+                free(head);
+                free(head->next);
+                free(head->next->next);
                 return 0;
             case 1:
                 print_list(head);
