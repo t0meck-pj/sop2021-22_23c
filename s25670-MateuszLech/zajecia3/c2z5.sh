@@ -1,25 +1,36 @@
 #!/bin/bash
 
-X=$(ls -l | grep -e "^-" | awk '{print $9}')
-
-# tworze tablice
-declare -a tablica
-
-count=0
-
-for A in $X; do 
-    tablica[$count]=$A
-    (( count++ ))
-done
-
 # w normalnej kolejnosci 
-for B in ${tablica[@]}; do 
-    echo $B
-done
+normalnie(){
+        for ((i = 0; i < $dlugosc; i++)); do
+                local wynik=${string:i:1}
+                printf "$wynik"
+        done
+        printf "\n"
+        }
 
 # w odwrotnej kolejnosci
-echo 
-echo "Odwrotna kolejność"
-for (( i=(( ${#tablica[@]} -1 )); i>=0; i-- )); do 
-    echo ${tablica[$i]}
+odwrotnie(){
+        for ((i = $dlugosc; i >= 0; i--)); do
+                local wynik=${string:i:1}
+                printf "$wynik"
+        done
+        printf "\n"
+        }
+        
+# czytaj plik
+czytaj(){
+        string=
+        while read linia; do
+                string=$string$linia
+        done < $1
+        dlugosc=${#string}
+        }
+        
+# wyswietl
+for i in $*; do
+        czytaj $i
+        normalnie
+        odwrotnie
+        printf "\n"
 done
