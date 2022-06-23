@@ -1,0 +1,141 @@
+Zadanie 1.
+#!/bin/bash
+if [ $#  -gt 1 ];  then
+echo $1
+else
+echo nie podano parametow
+fi
+
+
+# Jeśli ilosć argumentów jest większa od 1 [ $#  -gt 1 ]
+# wypisz pierwszy argument
+# jesli brak wypisz nie podano parametów
+
+
+Zadanie 2.
+#!/bin/bash
+$tutaj=$(pwd)
+if [ -e $tutaj/config.cfg ]; then
+$tutaj/config.cfg
+elif [ $# -gt 0 ] &&  [ -e $tutaj/$1]; then
+tutaj/$1
+else 
+echo blad
+fi
+
+#Przypisujemy polecenie pwd do zmiennej tutaj
+# -e istnieje
+#Jeśli w bierzącym katalogu instnieje plik config.cfg wtedy nalezy go uruchomic 
+#Jesli podano jakikolwiek argument i w bierzącym katalogu ktore nazwe podano jako pierwszy argument wtedy nalezy go wykonac
+#jesli zadne z powyzszych wtedy wyswietl bład
+
+Zadanie 3.
+#!/bin/bash
+nazwapliku="$(basename $0)"
+nazwa="${filename%.*}"
+rozszerzenie="${filename##*.}"
+
+echo "nazwapliku: ${nazwapliku}"
+echo "nazwa: ${nazwa}"
+echo "rozszerzenie: ${rozszerzenie}"
+
+if ["${rozszerzenie}" !="sh" ]; then
+echo Brak
+mv $0 ${0}.sh	
+fi
+
+#basename zwraca nazwe $0 oznacza ścieżka do bierzącego pliku 
+#nazwa="${filename%.*}" = interesuje nas nazwa czyli  to co jest przed kropką->obcinamy 
+#rozszerzenie="${filename##*.}" = tutaj interesuje nas rozszerzenie czyli wszystko to co 
+#jest po kropce.Wazne jest tez to czy jest uzyte dwa razy,oznacza to czy ma być"zachłanne" 
+#"obcinanie" dlatego w rozszerzeniu nie potrzebujemy tego co jest po lewej streonie od kropki.
+# w skrócie to | %. od lewej |#.po prawej
+
+Zadanie 4.
+#!/bin/bash
+Licz=$(find . -maxdepth 1 | grep -v  / | wc -l)
+if [ $Licz -gt 5 ]; then
+echo Znaleziono więcej niz 5 plikow w katalogów
+else
+echo nie ma tylu plikow
+fi
+
+#Przypisujemy do zmiennej Licz to aby szukało w bieżączym katalogu, grep -v oznacza, --invert-match 
+#czyli to czego nie szukamy,' / ' bo to posiadają foldery mozemy to sprawdzic za pomocą ls i potem tylko wc -l do zliczenia wierszy 
+
+Zadanie 2.1
+Najprostszy możliwy sposób (komendą)-> seq 10 -2 1 
+#w sequ podajemy początek krok i do jakiej liczby (Zaczynamy z 10 krok co -2 do 1)
+
+Zadanie 2.2
+#!/bin/bash
+for i in "$*";do 
+echo $i
+done
+echo wynik
+for i in "$@"; do
+echo $i
+done
+
+#$*
+
+#Roznica miedzy $* i $@  pierwsza opcja uzywa do rozdzielenia parametrow pierwszego znaku z IFS.
+# przykład dla lepszego zrozumienia:
+
+#!/bin/bash
+echo "Z *:"
+for arg in "$*"; do echo "<$arg>"; done
+echo
+echo "Z @:"
+for arg in "$@"; do echo "<$arg>"; done
+ 
+
+$ /tmp/test.sh 1  2 "3  4"
+Z *:
+<1 2 3  4>
+
+Z @:
+<1>
+<2>
+<3  4>
+
+Zadanie 2.3
+#!/bin/bash
+for i in $(ls); do
+
+	echo "Patrzcie Panstwo, oto plik: $i"
+
+
+
+done
+
+Zadanie 2.4
+find . maxdepth 1 -type f -iname "*.c"
+
+#Mozna to zrobić jednym poleceniem find . maxdepth 1 szuka nam w bierzącym katalogu (alternatywa pwd), -type f czyli plik ,-iname "*.c" z rozszerzeniem c
+
+Zadanie 3
+
+#!/bin/bash
+echo -n 'Do ilu ma liczyć: '
+read term
+i=0
+j=1
+function fibo() {
+for (( c=0; c<term; c++ )) ; do
+    (( n=i+j ))
+    (( i=j ))
+    (( j=n ))
+    echo $i
+done 
+}
+fibo
+echo Koniec wypisywania
+
+
+
+
+
+
+
+

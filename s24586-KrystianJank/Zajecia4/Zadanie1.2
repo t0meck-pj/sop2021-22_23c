@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    int x=0,y=0;	
+	printf("Podaj liczby\n");
+        printf("Aby przerwać nacisnij 0 \n");
+        do {
+		scanf("%d", &x);
+		y += x;
+    	} while(x != 0);
+	printf("Twoj wynik jest tym razem w returnie \n");
+    
+    return  y ;
+}

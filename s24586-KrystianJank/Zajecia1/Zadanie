@@ -1,21 +1,53 @@
 Zajecia 1: Instalacja systemu linux na maszynach wirtualnych
 1.Otwieramy Virtualboxa i następnie klikamy zakładkę Nowa
 2.Wybieramy typ/co chcemy zainstalować oraz nazwe
-3.Przydzielamy rozmiar pamieci (przydzieliłem 4096 MB)
-4.Następnie wybieramy typ pliku z wirtualnym dyskiem VDI
-5.PRzydzielam dynamicznie pamiec na fizycznym dysku twardym
-6.Ustawiłem gdzie ma się znajdować obraz pliku i jego rozmiar
+3.Przydzielamy rozmiar pamieci (przydzieliłem 4096 MB) 
+Przydzieliłem 4096MB =4 GB  wystarczająco żeby system działał sprawnie
+(1GB=1024MB) 
+Jeśli przydzielilibyśmy mniej/wiecej pamieci nie będącą potęgą 2 instalacja nadal zadziała
+4.Następnie wybieramy typ pliku z wirtualnym dyskiem VDI 
+(Ponieważ mam pobrany obraz systemu ze strony Debiana oraz jest 	domyślny format dla  VirtualBoxa)
+Mamy jeszcze do wyboru:
+VHD-(Virtual HardDisk)  – format dysku rozwijany przez Microsoft, natywny dla oprogramowania wirtualizacyjnego 
+VMDK-(Virtual Machine Disk)- ten rodzaj dysku charakterystyczny jest dla oprogramowania wirtualizacyjnego VMWare. 
+5.Przydzielam dynamicznie pamiec na fizycznym dysku twardym (jest jeszcze opcja stałego rozmiaru fixed size
+jeśli wybieramy rozmiar dysku,na przykład 10GB, to wtedy od razu tworzony jest plik takiej wielkości dla wirtualizatora.
+ nawet jeśli w środku wirtualnej maszyny masz tylko 1GB danych.
+6.Ustawiłem gdzie ma się znajdować obraz pliku i jego rozmiar (Ustawiłem 20GB )
 7.Pobieramy obraz Debiana
 8.W ustawionach utworzonego Debiana podpinam w zakładce pamięc pobrany obraz
 9.Dopiero teraz startuje Debiana i ustawiam tym razem opcje instalacji graficznej
+Ustawiłem formę graficzną ponieważ chciałem zobaczyć tym razem jak to wygląda (na zajęciach zrobiliśmy to trochę inaczej)
+(Dużą zaletą jest to, że obsługuje więcej języków,jest także możliwość korzystania z myszy,)
+Graficzna wersja instalatora jest dostępna tylko dla ograniczonej liczby architektur, w tym Intel x86.
+Mamy jeszcze opcje:
+Install: Funkcjonalność instalatora graficznego jest zasadniczo taka sama jak zwykłego instalatora, ponieważ zasadniczo 
+używa tych samych programów, ale z innym interfejsem.
+-Advanced options:
+-Accessible dark comtrast installer menu:
+-Help:
+- Install with speech symthesis:
 10.Wybieram jezyk Angielski (Żeby w razie jakichkolwiek problemów łatwiej znalezc rozwiazenie)
 11.Lokacje other a nastepnie Poland
-12.Nastepnie UTF-8 i konfiguracje klawiatury 
-13.Ustawiam nazwe/hasło domeny roota
+12.Nastepnie UTF-8 i Polską konfiguracje klawiatury 
+13.Ustawiam nazwe domeny i następnie hasło do roota
 14.Potem Nazwe uzytkownika i hasło 
-15.Ustawiam partycje dysku
-16.Po drobnej instalacji ustawiamy skąd chcemy pobrać pakiety
+15.Ustawiam partycje
+Dostępne opcje to:
+Guided-use entire disk (Jeśli chcemy przeznaczyć cały dysk na Debiana możesz użyć tego partycjonowania)
+Guided-use entire disk and set up LVM (Logical Volume Manager – mechanizm systemu operacyjnego do zarządzania przestrzenią pamięci masowe)
+Dzięki temu narzędziu możemy w locie – podczas działania usług / system serwera www powiększać przestrzeń dyskową na stronę
+Guided-use entire disk and set up encrypted LVM <- tutaj to samo tylko zaszyfrowane 
+Manual-Tą opcje wybrałem,zeby wszysto sam ręcznie poustawiać,ustawiłem pierwszą partycje 500 MB jako primary jest jeszcze logical następnie ustawiamy jako boot 
+(słuszy to do uruchamiania systemu) reszta pasuje domyślnie.Następna partycja już większą (tez primary) i zostawiamy tą na mount point jako / (sam / służy jako główny katalog systemu)
+Możemy stworzyć jeszcze jakieś partycje typu home(user home directories),tmp(temporary files),srv(jeśli chcemy zrobić sobie serwer)
+Jeśli skończyliśmy klikamy done i finish
+16.Po drobnej instalacji ustawiamy skąd chcemy pobrać pakiety(Ustawiamy lokalizacje najbliżej nas żeby jak najszybciej pobrały sam się pakiety)
 17.Wybieramy co jeszcze chcemy doinstalować
 18.Po instalacji zostaliśmy zapytani czy chcemy zainstalować GRUB boot loader na dysku głównym (tak chcemy ponieważ innaczej mielibyśmy problem 
 z załadowaniem systemu operacyjnego)
+bootloader jest to rogram rozruchowy działający jako pierwszy po zakończeniu wykonywania przez BIOS procedury POST, 
+służący do załadowania systemu operacyjnego do pamięci operacyjnej komputera.
+Alternatywą może być  systemd-boot,ISOLINUX,LILO,gummiboot 
+Bazowa lokalizacja GRUB'A znajduje się w /boot/grub 
 19.Na samym końcu jesteśmy zmuszeni do restatu 
