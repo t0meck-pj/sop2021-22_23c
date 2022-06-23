@@ -1,0 +1,34 @@
+Zadanie 1
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+
+    int pid=getpid();
+    int ppid=getppid();
+    int input;
+    
+    printf("Aktualny PID: %d \nAktualny PPID: %d \n#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+
+    int pid=getpid();
+    int ppid=getppid();
+    int input;
+
+    printf("Aktualny PID: %d \nAktualny PPID: %d \n",pid,ppid);
+
+    printf("Wciskij dowolny klawisz aby kontynuowac");
+    scanf("%d",&input);
+
+    return 0;
+}
+",pid,ppid);
+
+    printf("Wciskij dowolny klawisz aby kontynuowac");
+    scanf("%d",&input);
+    
+    return 0;
+}
