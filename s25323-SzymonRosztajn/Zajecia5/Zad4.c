@@ -14,7 +14,7 @@ int main()
 int next_child(int i, int j) {
   if (i <= j) 
   {
-    printf("Poziom %d, PID: %d, PPID: %d \n", i, getpid(), getppid());
+    printf("Level %d, PID: %d, PPID: %d \n", i, getpid(), getppid());
       pid_t pid = fork();
 
       if (pid == -1) 
