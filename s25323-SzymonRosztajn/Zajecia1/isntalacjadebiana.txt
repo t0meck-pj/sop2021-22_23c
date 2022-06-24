@@ -1,0 +1,64 @@
+Instalacja debiana na VM:
+
+Aby zainstalować debiana na VirtualBoxie najpierw potrzeba ściągnąć go z internetu. 
+Włączamy VM, klikamy "nowa". Nadajemy jej nazwę i wybieramy typ (linux) i wersję (debian).
+Następnie wybieramy ilość pamięci ram, 4096mb w zupełności wystarczy (oficjlana strona debiana podaje, że wystaczy nawet 128mb, jednak ja ustawiam więcej,
+żeby wszystko napewno płynnie chodziło).
+Następnie musimy utworzyć wirtualny dysk twardy. Są 3 do wyboru, VDI, VHD i VMDK. My potrzebujemy
+tego najabrdziej standardowego czyli VDI(natywny format dysku dla oprogramowania VirtualBox). 
+(VHD format dysku rozwijany przez Microsoft używany w Hyper-V
+VMDK czyli rodzaj dysku charakterystyczny dla oprogramowań od firmy VMware takich jak VMware Workstation, VMware Server itd.)
+Po wyborze dysku musimy wybrać opcję przydzielania pamięci.
+Dynamiczna lub stała.
+
+-Stały (fixed size) - jeśli wybierzesz rozmiar dysku, np. 10GB, to wtedy od razu tworzony jest plik
+takiej wielkości dla wirtualizatora, nawet jeśli w środku maszyny masz tylko 1GB danych.
+
+-Dynamicznie przydzielany (dynamically allocated) - tu po wybraniu rozmiaru 10GB wirtualnego dysku
+tworzony jest niwielki plik o wielkości przybliżonej faktycznej ilości danych w maszynie.
+Automatycznie jest zwiększany w miarę potrzeb, aż do zdeklarowanej granicy czyli tu 10GB.
+
+Z racji, że nasza maszyna będzie służyła do celów testowych to wybieram
+dynamicznie przydzielany. Jeśli chcemy korzystać z maszny na codzień lepiej wybrać stały, maszyna
+będzie nieco szybsza, ponieważ dysk nie musi wykonywać operacji związanych z powiększaniem dysku.
+
+Ilość miejsca na dysku ustawiam na 10GB, nieco więcej niż zalecane, ale nie chciałbym go zapchać isntalując różne aplikacje. Lepiej dać z górką niż za mało.
+
+W ustawienaich maszyny możemy wyłączyć bootowanie z floppy i dysku twardego.
+W menu "pamięć" trzeba dodać do napędu wirtualnego naszego ściągniętego debiana.
+
+Gdy maszyna już jest skonfigurowana możemy ją uruchomić.
+
+Debiana będziemy instalować ręcznie (wybieramy opcje "install")
+
+Na początku wybieramy język (angielski) i region (Polska(znajdziemy go w Other->Europe)). Dzięki dobraniu odpowiedniego regionu,
+system sam dobierze takie informacje jak język, czas, kodowanie znaków, walutę itp.
+
+W następnym oknie wybieramy kodowanie en_US.UTF-8 (najbardziej uniwersalny standard kodowania znaków używany do reprezentacji tekstu do przetwarzania komputerowego).
+W kroku keymap to use - wybieramy American English.
+Potem prosi nas o podanie nazyw hosta(debian) i domeny (to omijamy).
+Następnie ustawiamy hasło dla roota.
+Potem ustawianie nazwy i hasła dla użytkownika.
+
+Kolejnym krokiem jest ustalenie partycji. Wybieramy opcję "guided-use entire disk", potwierdzamy kolejny komunikat.
+Wybieramy nasz dysk (ozn. Free space), będzie to partycja boot więc 1GB nam wystarczy.
+Wybieramy rodzaj jako podstawowa (zawiera system operacyjny i służy do bootowania). Wybiermay lokalizację nowej pamięci jako początek.
+Przenosi nas do okna ustawień partycji. Zmieniamy "mount point" na "/boot". Zmienieamy też jej nazwę w "label" na boot.
+
+Drugą partycję konfigurujemy w podobny sposób, tylko zamiast typu "primary" wybieramy "logical oraz zamiast "Ext4" wybieramy "swap area".
+Jej wielkość ustawiamy na dwukrotność pamięci RAM, czyli tutaj 8GB.
+
+Następnie wybieramy serwer lustrzany debiana (serwer, który zawiera wszytskie pakiety linuxa i inne powiązane programy, najlepiej Task, 
+gdyż jest najbliżej).
+
+W następnym kroku odznaczam "GNOME" oraz "Debian desktop enviroment". Zostawiam tylko "standard system utilities".
+
+Następnie potwierdzamy isntalację bootloade'a GRUB (grand unified bootloader), który jest programem rozruchowym, służacym do uruchomienia systemu operacyjnego.
+
+Gotowe, debiana uruchamia się.
+
+
+Żródła:
+https://www.debian.org/releases/jessie/mips/ch03s04.html.en
+https://wiki.debian.org/Swap
+https://docs.oracle.com/cd/E19455-01/806-0169/6j9hsml3j/index.html
