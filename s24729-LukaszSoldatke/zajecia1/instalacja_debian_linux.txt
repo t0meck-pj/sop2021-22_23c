@@ -19,17 +19,21 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 	(w moim przypadku "debian") VirtualBox rozpozna ze chodzi o ta a nie inna dystrybucje i 
 	wybierze domyslnie odpowiednie dla niej opcje (co mozna jednak zmienic wedlug wlasnych potrzeb). 
 	W nastepnym kroku wybieram ilosc przeznaczonej pamieci RAM dla tej maszyny, wybieram sobie 
-	4096 MB. Taka ilosc powinna pozwolic na bezproblemowe, plynne dzialanie maszyny. Potem tworze 
-	nowy, dynamicznie alokowany wirtualny dysk twardy w formacie VDI. Innymi mozliwosciami sa tutaj 
-	nie dodawanie zadnego pliku dysku (co jednak nie pozwoli na dzialanie systemu na maszynie jezeli 
-	nie dodamy pozniej zadnego zawierajacego system), oraz dodanie istniejacego juz wirtualnego 
-	dysku z pliku. Jako ze celem zadania jest czysta instalacja, wybralem wlasnie opcje utworzenia 
-	nowego dysku. Jego dynamiczna alokacja pozwala wykorzystac na dysku komputera tyle miejsca ile 
-	faktycznie jest zajmowane przez system i inne dane znajdujace sie aktualnie na wirtualnym dysku. 
-	Mozna rowniez utworzyc wirtualny dysk o stalym rozmiarze. Format VDI jest domyslnym formatem 
-	wirtualnych dyskow VirtualBoxa dlatego tez wlasnie go wybralem. Ma on pewne zalety takie jak 
-	przenosnosc oraz wzglednie dobra wydajnosc. Ustawiam rowniez limit rozmiaru pliku wirtualnego 
-	dysku na 32 GB, co jest iloscia pamieci ktora powinna mi wystarczyc.
+	4096 MB. Taka ilosc powinna pozwolic na bezproblemowe, plynne dzialanie maszyny, poniewaz zalecana 
+	iloscia pamiecia RAM dla tej wersji systemu jest 2GB. Potem tworze nowy, dynamicznie alokowany 
+	wirtualny dysk twardy w formacie VDI. Innymi mozliwosciami sa tutaj nie dodawanie zadnego pliku 
+	dysku (co jednak nie pozwoli na dzialanie systemu na maszynie jezeli nie dodamy pozniej zadnego 
+	zawierajacego system), oraz dodanie istniejacego juz wirtualnego dysku z pliku. Jako ze celem 
+	zadania jest czysta instalacja, wybralem wlasnie opcje utworzenia nowego dysku. Jego dynamiczna 
+	alokacja pozwala wykorzystac na dysku komputera tyle miejsca ile faktycznie jest zajmowane przez 
+	system i inne dane znajdujace sie aktualnie na wirtualnym dysku. Mozna rowniez utworzyc wirtualny 
+	dysk o stalym rozmiarze, dyski takie od razu zajmuja taka ilosc miejsca jaka im przydzielono, jednak 
+	sprawdzaja sie lepiej pod wzgledem wydajnosci. Format VDI jest domyslnym formatem wirtualnych dyskow 
+	VirtualBoxa dlatego tez wlasnie go wybralem. Ma on pewne zalety takie jak przenosnosc oraz wzglednie 
+	dobra wydajnosc. Mozliwe do wyboru sa jeszcze jednak formaty VHD (domyslny dla rozwiazan Microsoftu), 
+	oraz VMDK (domyslny dla rozwiazan VMWare). Ustawiam rowniez limit rozmiaru pliku wirtualnego dysku na 
+	32 GB, co jest iloscia pamieci ktora powinna mi wystarczyc uwzgledniajac ze minimalna ilosc miejsca na 
+	dysku powinna wynosic 10 GB.
  
 3. Wirtualna maszyna zostala utworzona, jednak pozostaje jeszcze kilka waznych ustawien, ktore nalezy 
 	lub dobrze byloby zmienic przed jej uruchomieniem. W tym celu klikam na maszyne prawym 
@@ -37,13 +41,16 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 	"wspoldzielony schowek" oraz "przeciaganie i upuszczanie" na "dwustronny" co umozliwi mi latwe 
 	przenoszenie plikow, czy tekstu pomiedzy systemem hosta a gosczonym Debianem. Potrafi to 
 	znaczaco ulatwic prace, jednak nie zawsze jest to pozadany efekt. Przykladem moga byc wirtualne 
-	maszyny ktore powinny byc jak najbardziej odizolowane od systemu gospodarza. W zakladce 
-	System/Plyta glowna nalezaloby odpowiednio ustawic liste urzadzen do rozruchu, co tez 
+	maszyny ktore powinny byc jak najbardziej odizolowane od systemu gospodarza. 
+	EDIT: Fajna sprawa, ale jednak niespecjalnie sie to tutaj przyda wiec mozna z tego zrezygnowac.
+	W zakladce System/Plyta glowna nalezaloby odpowiednio ustawic liste urzadzen do rozruchu, co tez 
 	zrobilem pozostawiajac naped optyczny i dysk twardy (w takiej kolejnosci). Jezeli mamy wiecej 
 	rdzeni procesora, mozna rozwazyc ile z nich chcemy aby nasza wirtualna maszyna uzywala oraz w 
 	jakim stopniu procentowym, ja pozostawilem te ustawienia na ich domyslnych wartosciach (1 rdzen, 
 	100%). W zakladce Ekran mozemy ustawic sobie w razie potrzeby ilosc pamieci wideo czy 
-	akceleracje 3D, co czasem tez sie przydaje. Tutaj zwiekszylem tylko pamiec wideo na 128 MB.
+	akceleracje 3D, co czasem tez sie przydaje.
+	EDIT: To tez ciekawa sprawa, jednak nie bardzo sie w tym przypadku przyda, wiec tutaj zwiekszylem 
+	tylko pamiec wideo na 128 MB.
 	Chcielibysmy zainstalowac i uruchomic na tej maszynie Debiana wiec wazne jest aby miec z czego. 
 	W tym celu w zakladce Pamiec pod kontrolerem IDE widoczne jest miejsce na obraz plyty, klikamy 
 	na niego i po prawej stronie przy polu naped optyczny widzimy mala ikonke plytki, klikamy na nia 
@@ -90,7 +97,10 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 		statystycznych, opcjonalne oprogramowanie wraz ze srodowiskami graficznymi, lokalizacje 
 		instalacji bootloadera GRUB.
 	- Install - Podobnie jak wyzej, jednak z uzyciem prostego interfejsu, tzw. interfejsu tekstowego 
-		(TUI, text-based user interface). Kolejne kroki instalacji opisane ponizej w punkcie 7.
+		(TUI, text-based user interface). Mozna go uzyc np. kiedy instalujemy system na jakims 
+		starym komputerze lub po prostu nie potrzebujemy aby instalator ladnie wygladal a 
+		chcielibysmy na takim sprzecie przez proces instalacji przejsc chociaz odrobine szybciej. 
+		Kolejne kroki instalacji opisane ponizej w punkcie 7.
 	- Advanced options - dodatkowe zaawansowane sposoby instalacji takie jak: zaawansowana 
 		instalacja (w porownaniu do zwyklej zawiera m.in. dodatkowe opcje ulatwien dostepnosci, 
 		sprawdzenie integralnosci nosnika instalacyjnego, zapis logow debugowania czy uzycie 
@@ -136,12 +146,14 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 		maszyny jest 4 GB) odejmuje od 34.4 GB dostepnego miejsca te 6 GB ktore bedzie 
 		przeznaczone na swap i wprowadzam wartosc 28.4 GB dla tworzonej partycji glownej. Dobrze 
 		jest zamiast jednej partycji stworzyc kilka oddzielajac od siebie takie katalogi jak np. 
-		/home czy /usr, jednak na potrzeby tego zadania tworze jedna partycje (wybierajac dla 
-		niej nastepnie opcje: primary (typ), beginning (lokalizacja), ext4 (system plikow), 
-		/ (punkt montowania) oraz partycje wymiany swap (podobnie jak poprzednia partycje 
-		wykorzystujac pozostala przestrzen, logical, use as: swap area). Zmiany zatwierdzam i 
-		czekam az dane partycje #1 i #5 zostana sformatowane, a system zainstalowany. Jezeli 
-		chodzi o systemy plikow to istnieje tutaj wiele mozliwosci, niektore sa systemami z 
+		/home czy /usr. Wydzielenie tych partycji umozliwia np. reczna aktualizacje systemu bez 
+		usuwania naszych najwazniejszych plikow, czy latwiejsze odzyskiwanie ich jezeli z cala 
+		glowna partycja cos sie stanie. Jednak na potrzeby tego zadania tworze jedna partycje 
+		(wybierajac dla niej nastepnie opcje: primary (typ), beginning (lokalizacja), ext4 
+		(system plikow), / (punkt montowania) oraz partycje wymiany swap (podobnie jak poprzednia 
+		partycje wykorzystujac pozostala przestrzen, logical, use as: swap area). Zmiany 
+		zatwierdzam i czekam az dane partycje #1 i #5 zostana sformatowane, a system zainstalowany. 
+		Jezeli chodzi o systemy plikow to istnieje tutaj wiele mozliwosci, niektore sa systemami z 
 		tzw. ksiegowaniem (czyli sposobem zapisu danych na dysku uprzednio zapisywanych w 
 		dzienniku, co ma minimalizowac ryzyko utraty danych), inne bez ksiegowania.
 		Dostepne systemy plikow to: 
@@ -170,8 +182,8 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 		- fizyczny wolumin dla szyfrowania
 		- fizyczny wolumin dla RAID
 		- fizyczny wolumin dla LVM
-		Rozroznia sie dwa typy partycji - podstawowe i logiczne. Partycji logicznych na dysku moze byc 
-		dowolna ilosc, jednak partycji podstawowych moze byc maksymalnie 4. W przypadku kiedy 
+		Rozroznia sie dwa typy partycji - podstawowe i logiczne. Partycji logicznych na dysku moze 
+		byc dowolna ilosc, jednak partycji podstawowych moze byc maksymalnie 4. W przypadku kiedy 
 		chcemy utworzyc zarowno partycje podstawowe jak i logiczne partycji podstawowych bedzie 
 		moglo byc maksymalnie 3, w miejsce czwartej zostanie wowczas utworzona partycja 
 		rozszerzona ktora bedzie zawierala partycje logiczne. Wynikaja z tego tez numery ktorymi 
@@ -189,17 +201,20 @@ opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja
 		przypadku wybralem domyslny deb.debian.org). 
 		EDIT: Lepszym wyborem bylby serwer ftp.task.gda gdyz jest ulokowany blizej.
 		W trakcie instalacji instalator pyta o dodatkowe oprogramowanie takie jak srodowiska 
-		graficzne, ktore mozna zainstalowac wraz z systemem, odpowiednie zaznacza sie spacja, 
-		wybieram dodatkowowo SSH server i przechodze dalej. Jako ze na dysku znajdowac sie 
-		bedzie tylko jeden system, bootloader GRUB instaluje na glownej partycji. Innym sposobem 
-		moze byc instalacja GRUB-a na partycji zawierajacej lub majacej zawierac dany system 
-		Linux. Jest to wskazane w sytuacji kiedy na dysku znajdowac sie bedzie wiecej systemow 
-		operacyjnych, a zwlaszcza kiedy jednym z nich jest Windows, gdyz w przypadku umieszczenia 
-		GRUB-a na glownej partycji moga wystapic konflikty powodujace np zastapienie tego 
-		bootloadera programem rozruchowym Windowsa. Istneje rowniez wiele alternatyw dla GRUB-a 
-		a tymi bardziej znanymi z nich sa: BURG, LILO, czy Syslinux. Z reguly kiedy nie 
-		zainstalujemy GRUB-a nie bedziemy w stanie uruchomic systemu, jednak czasami pominiecie 
+		graficzne, ktore mozna zainstalowac wraz z systemem, odpowiednie zaznacza sie spacja, do 
+		wyboru sa: GNOME, Xfce, GNOME Flashback, KDE Plasma, Cinnamon, MATE, LXDE, LXQT. 
+		wybieram dodatkowowo SSH server i przechodze dalej. 
+		EDIT: Serwer SSH w tym przypadku rowniez bedzie zbedny. Jezeli jednak chcialoby sie z niego
+		skorzystac, nalezaloby odpowiednio skonfigurowac przekierowywanie portow.
+		Jako ze na dysku znajdowac sie bedzie tylko jeden system, bootloader GRUB instaluje na 
+		glownej partycji. Innym sposobem moze byc instalacja GRUB-a na partycji zawierajacej lub 
+		majacej zawierac dany system Linux. Jest to wskazane w sytuacji kiedy na dysku znajdowac 
+		sie bedzie wiecej systemow operacyjnych, a zwlaszcza kiedy jednym z nich jest Windows, 
+		gdyz w przypadku umieszczenia GRUB-a na glownej partycji moga wystapic konflikty powodujace 
+		np zastapienie tego bootloadera programem rozruchowym Windowsa. Istneje rowniez wiele 
+		alternatyw dla GRUB-a a tymi bardziej znanymi z nich sa: BURG, LILO, czy Syslinux. Z reguly 
+		kiedy nie zainstalujemy GRUB-a nie bedziemy w stanie uruchomic systemu, jednak czasami pominiecie 
 		instalacji tego bootloadera bedzie uzasadnione, np. wtedy kiedy mamy juz zainstalowany 
-		jakis inny program rozruchowy np. z innej dystrybucji Linuxa znajdujacej sie juz na 
-		dysku lub chcemy po prostu zainstalowac inny niz GRUB.
+		jakis inny program rozruchowy np. z innej dystrybucji Linuxa znajdujacej sie juz na dysku lub 
+		chcemy po prostu zainstalowac inny niz GRUB.
 		Po zainstalowaniu GRUBa system jest gotowy do uzytku.

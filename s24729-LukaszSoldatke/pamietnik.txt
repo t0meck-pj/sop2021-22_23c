@@ -31,3 +31,23 @@ Moj kochany pamietniczku na dzisiejszych zajeciach bardziej zaglebilismy sie w t
 Wszystko to omowilismy sobie na przykladzie bardzo praktycznych zadan, skryptow ktore moga znaczaco 
 ulatwic prace, pozwalajac nam chociazby np. szybko znalezc to czego szukamy, sprawdzic ile razy wystapilo, czy porownac cos z tym co nas faktycznie interesuje.
 
+2022-04-23
+Moj kochany pamietniczku na dzisiejszych zajeciach zaczelismy temat jezyka C/C++. W pierwszym semestrze zaczynalismy nauke 
+programowania od jezyka C++, teraz dowiedzialem sie nieco wiecej o nim jak i o jezyku C, z ktorego to C++ sie wywodzi i ktory jest 
+szeroko wykorzystywany w programowaniu systemowym. Programowanie w nim wydaje mi sie nawet ciekawsze od programowania w C++, 
+chociaz przyzwyczajenie sie do pewnych rzeczy pewnie chwile mi zajmie...
+
+2022-05-14
+Moj kochany pamietniczku dzisiaj na zajeciach poszlismy troche dalej i zaglebilismy sie w temat procesow w C/C++. Przypomnialem 
+sobie co nie co o PID-ach z technikum i o tym jak z tego korzystac w C/C++. Sporo bylo tez o forkach, co na poczatku nie bylo dla 
+mnie wcale takie proste do zrozumienia, jednak pod koniec zajec wiedzialem juz w miare jak ich uzywac. Omowilismy ich 
+zastosowanie, tzn sa one wykorzystywane do tworzenia podprocesow, ktore moga w miedzyczasie zajmowac sie czym innym niz nasz 
+glowny proces, czasami przyspiesza to pewne dzialania innym razem np. umozliwia to obsluge wielu klientow kiedy chodzi o programy 
+serwerowe. Dowiedzielismy sie rowniez troche o make'u, czyli programie automatyzujacym kompilacje zlozonych programow i uzywanych 
+przez niego makefile'ach, czyli plikach ktore opisuja ten proces.
+
+2022-05-28
+Moj kochany pamietniczku dzisiaj tematem ostatnich przed kolokwium zajec byly sygnaly i sockety. Naturalnie jak to zazwyczaj bywa 
+na koncu uczymy sie tych najciezszych do zrozumienia rzeczy i tak tez jest w tym przypadku, wydaje mi sie ze sygnaly sa dosyc 
+zrozumiale, ale sockety i pisanie programow serwer-klient to juz troche ciezszy temat, niemniej mam nadzieje ze uda mi sie to 
+dobrze zrozumiec, dlatego ze pomimo ze nie jest to latwe wyglada interesujaco.
