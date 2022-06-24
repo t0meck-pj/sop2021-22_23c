@@ -1,0 +1,50 @@
+[-] Error no port provided 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Client connected 
+[-] File does not exist 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Client connected 
+[-] File does not exist 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
+[+] Server socket was created 
+[+] Binding successful 
+[+] Listening 
+[+] Client connected 
+[+] File was find and opened 
+[+] File was sent 
+[+] Client disconnected 
