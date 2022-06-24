@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() 
+{
+FILE *plik;
+if((plik=fopen("test.txt","r")) == NULL)
+{
+printf("Nie udalo sie wczytac");
+exit (1);
+}
+int liczba,wczytaj,i;
+scanf("%d", &wczytaj);
+
+	for (i = 1; i <= wczytaj; i++) 
+	{
+      if (fscanf(plik, "%d", &liczba));
+      
+      printf("%d \n", liczba);
+    }
+    
+fclose(plik);
+    
+    return 0;
+}

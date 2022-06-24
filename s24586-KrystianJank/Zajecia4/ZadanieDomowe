@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+  
+struct Node {
+    int data;
+    struct Node* next;
+};
+  
+
+void Wypiszliste(struct Node* n)
+{
+    while (n != NULL) {
+        printf("%d ", n->data);
+        n = n->next;
+    }
+}
+  
+int main()
+{
+    struct Node* head = NULL;
+    struct Node* pierwszy = NULL;
+    struct Node* drugi = NULL;
+    struct Node* trzeci= NULL;
+    struct Node* czwarty = NULL;
+  
+    
+    head = (struct Node*)malloc(sizeof(struct Node));
+    pierwszy = (struct Node*)malloc(sizeof(struct Node));
+    drugi = (struct Node*)malloc(sizeof(struct Node));
+    trzeci = (struct Node*)malloc(sizeof(struct Node));
+    czwarty = (struct Node*)malloc(sizeof(struct Node));
+    
+  
+    head->data = 1; 
+    head->next = pierwszy; 
+  
+    pierwszy->data = 2; 
+    pierwszy->next = drugi;
+  
+    drugi->data = 3; 
+    drugi->next = trzeci;
+    
+    trzeci->data = 4;
+    trzeci->next = czwarty;
+    
+    czwarty->data = 5;
+    czwarty->next = NULL;
+    
+    
+  
+    Wypiszliste(head);
+  
+    return 0;
+}

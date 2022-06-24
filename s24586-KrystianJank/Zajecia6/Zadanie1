@@ -1,0 +1,18 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <signal.h>
+
+void zlap(int numer) {
+  printf("Dostałem sygnał...");
+  exit(0);
+}
+
+int main(void) {
+  signal(SIGUSR1, zlap);
+   printf("Moj pid to %d \n :",getpid());
+  int x;
+  do{
+      
+  }while(x=1);
+  return 0;
+}

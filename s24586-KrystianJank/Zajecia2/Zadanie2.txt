@@ -1,0 +1,107 @@
+Ćwiczenie 1
+
+#!/bin/bash
+
+echo "Witamy w terminalu"
+
+Ćwiczenie 2
+
+a)
+
+X=tekst ->"Zapisujemy do zmiennej X tekst"
+
+echo $X ->"Wypisujemy wartość z X"
+
+bash    ->"Polecenie to czyta ze standardowego wejścia i wynik wypisuje na standardowe wyjście"
+
+echo $X ->"Znowu wypisuje wartość z X"
+
+b)
+
+Wystarczy że dodamy cudzysłów 
+
+X="Tekst dłuższy"
+
+echo $X
+
+c)
+
+Nie wiem czy tak oczekiwane było zrobienie tego ćwiczenia ale wyszło
+
+#!/bin/bash
+
+A=Al
+
+echo $A'a' ma kota, a kot ma ${A}ę
+
+ 
+
+Ćwiczenie 3
+
+$PATH- informuje powłokę, w których katalogach ma szukać plików wykonywalnych
+
+$Random-losuje nam liczby z zakresu przykładowe uzycie echo $((1 + $RANDOM % 10))
+
+$PWD-Wypisuje scieszkę na której obecnie pracujemy
+
+$USER-Wypisuje nazwa uzytykownika
+
+$HOSTNAME-Wypisuje nazwa hosta
+
+$OSTYPE-Wypisuje nazwe jądro systemu operacyjnego (linux-gnu)
+
+
+
+Ćwiczenie 4
+
+trzeba dodac \n jeszcze zeby nie wypisało nam po spacji tylko po enterze 
+
+#!/bin/bash
+
+X=$(ls -l)
+
+echo -e "$X\n"
+
+
+
+Ćwiczenia 5
+
+Chyba jednak nie chodziło o to w cwiczeniu 3 bo powinno to wyglądac tak
+
+a)#!/bin/bash
+
+A=Ala
+
+echo $A ma kota, a kot ma ${A/a/ę}
+
+a)Podałem zmieną Kuba
+
+./plik3 Kuba
+
+------------
+
+#!/bin/bash
+
+echo $1 ma kota, a kot ma ${1/a/ę}
+
+5b)
+
+#!/bin/bash
+
+echo $1
+
+echo ${1:0:1}
+
+A=${#1}
+
+echo ${1:($A-1)}
+
+Zadanie 6 DOMOWE
+
+./plik3 Krystian
+
+#!/bin/bash
+
+echo $1
+
+echo -e "\e[0;31m $1  \e[0m "
