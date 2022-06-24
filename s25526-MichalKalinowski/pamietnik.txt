@@ -36,3 +36,21 @@ Drogi pamietniku,
 
 5 zjazd byl chyba jak do tej pory najciekawszy, mianowicie nauczylismy sie pisania programow w C, ktore moga tworzyc nowe procesy i odczytywac ich PID, poznalismy rowniez funkcje fork(),
 ktora nie nalezy do najlatwiejszych do zrozumiena, ale sie udalo.
+
+################################################################################
+
+28-05-2022
+
+Drogi pamietniku,
+
+Alez sie podzialo, ciezka sprawa, mianowicie sygnaly i sockety. Temat bardzo ciekawy i mocno istotny w pracy programisty, sam w pracy mialem z nim do czynienia, moze w troche inny sposob,
+ale o cos sie otarlem, mimo to nie bylo latwo, i chyba do tej pory nie jest zbyt latwo, teoria jest w miare prosta i przejzysta, ale wporwadzic ja do praktyki to juz wyzsza szkola :)
+
+################################################################################
+
+11-06-2022
+
+Drogi pamietniku,
+
+Na minionych zajeciach nastal dzien sadu, na szczescie moglismy korzystac z materialow z naszej strony, w ktorych jest sporo wiadomosci, jakos poszlo i to nie najgorzej, chyba warto bylo
+zarwac 3 noce :D

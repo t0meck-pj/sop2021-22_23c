@@ -1,0 +1,74 @@
+Zadanie 1
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
+
+
+void handler(int sigNum)
+{
+    printf("I got a signal, it's my ending: %d\n",sigNum);
+    exit(1);
+}
+
+int main()
+{
+    
+    signal(SIGUSR1,handler);
+    printf("My PID: %d \n",getpid());
+    
+    for(;;){};
+    
+    return 0;
+}
+
+Zadanie 2
+
+#include <signal.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+void sigUsrFn()
+    {
+	    printf("Wykryto probe uruchomienia drugiej instancji programu.\n");
+      exit(1);
+    }
+
+void sigIntFn()
+    {
+    remove("/tmp/lock");
+    }
+	
+int main() 
+{
+    FILE* file;
+    
+    signal(SIGUSR1, sigUsrFn);
+    signal(SIGINT, sigIntFn);
+    
+    file = fopen("/tmp/lock", "r");
+    
+  if (file) 
+    {
+        int pid;
+        fscanf(file, "%d", &pid);
+        fclose(file);
+        
+        while(1) 
+        { sleep(1);}       
+    }
+    else
+    {
+      int pid;
+		  file=fopen("/tmp/lock","w+");
+		  fscanf(file,"%d",&pid);
+      
+		  kill(pid,SIGUSR1);
+    }
+    
+    return 0;
+}
+
+
+Zadania wykanane wspolnie wraz z Szymon Rosztajn
