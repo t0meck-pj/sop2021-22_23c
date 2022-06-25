@@ -1,0 +1,175 @@
+Zadanie 1
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+
+    int pid=getpid();
+    int ppid=getppid();
+    int input;
+
+    printf("Aktualny PID: %d \n",pid);
+    printf("Aktualny PPID: %d \n",ppid);
+    printf("Wciskij dowolny klawisz aby kontynuowac");
+    scanf("%d",&input);
+
+    return 0;
+}
+
+Zadanie 2
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+
+    int wartoscFork=fork();
+
+    printf("Wartość Forka = %d \n",wartoscFork);
+
+    if (wartoscFork > 0) {
+		printf("PID rodzica: %d \n", getpid());
+		printf("PID rodzica rodzica (dziadka :D ): %d \n", getppid());
+	} else if(wartoscFork==0){
+		printf("PID dziecka: %d \n", getpid());
+        printf("PID dziecka rodzica (procesu) %d \n", getppid());
+	}
+    
+    return 0;
+}
+
+Zadanie 3
+
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+
+int main(int argc, char* argv[])
+{
+        int wynik = 0; 
+        int wartoscFork = fork();
+        int input;
+
+        input=atoi(argv[1]);
+
+        if (wartoscFork > 0) {
+                waitpid(0, 0, 0);
+                for (int i = 0; i <= input; i++) {
+                    wynik += i;
+                }
+
+                printf("Wynik = %d \n", wynik);
+        } else {
+                for (int i = 0; i <= input; i++) {
+                    if (i % 2 == 1) printf("Numer: %d \n", i);
+                }
+        }
+
+        return 0;
+}
+
+Zadanie 4
+
+#include <stdlib.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int main(){
+    
+    int status=0;
+    int numer =0;
+    
+    printf("PID rodzica: %d \n",getpid());
+    printf("PPID: %d \n",getppid());
+    
+    
+    for (numer = 0; numer < 100; numer++){
+        
+        int numerProcesu=fork();
+        
+        if (numerProcesu>0){
+            waitpid(-1,&status,0);
+            printf("Wyłączam numer: %d \n",numer+1);
+            return 0;
+        }
+        else if(numerProcesu==0){
+            printf("Numer dziecka: %d PID: %d, PPID %d\n",numer+1,getpid(),getppid());
+        }
+
+    }
+    
+    return 0;
+}
+
+Zadanie 5
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+
+	int i;
+
+	for (i = 0; i <= 100; i++) {
+	
+	if (fork() == 0) {
+		
+		printf("Numer dziecka:  %d , PID %d , PPID %d \n",i,getpid(),getppid());    
+		return 0;
+
+		}
+	}
+
+	for (i = 0; i <= 100; i++) {
+
+	waitpid(0, 0, 0);
+
+	}
+
+	return 0;
+}
+
+
+Zadanie Domowe
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main(){
+    
+        int wartoscFork=fork();
+
+
+    if (wartoscFork>0){
+        printf("PID procesu głównego: %d \n",getpid());
+        wartoscFork=fork();
+    }
+    if(wartoscFork==0){
+
+        int wartoscSubFork=fork();
+
+        if(wartoscSubFork>0){
+            printf("PID podprocesu :%d \n",getpid());
+            wartoscSubFork=fork();
+        }
+
+        if(wartoscSubFork==0){
+            printf("PID podprocesu podprocesu:%d \n",getpid());
+        }
+
+    }
+    
+    
+    return 0;
+}
+
+W niektórych zadaniach pomagał mi kolega Aleksander Opałka, finalnie załapłem o co chodzi :)

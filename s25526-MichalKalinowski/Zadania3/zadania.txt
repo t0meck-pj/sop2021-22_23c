@@ -1,0 +1,142 @@
+Zadanie 1.1
+
+#!/bin/bash
+
+if [[ $# > 1 ]]; then
+	echo "$1"
+else
+	echo "Nie podano parametru"
+fi
+
+####################################
+
+Zadanie 1.2
+
+#!/bin/bash
+
+if [[ -e "config.cfg" ]]; then
+	cat config.cfg
+elif [[ $1 ]]; then
+	echo -e  "$1"
+else
+	echo -e "Err"
+fi
+
+#####################################
+
+Zadanie 1.3
+
+#!/bin/bash
+
+if [[ $0 =~ \.sh ]]; then
+	echo "Mam rozszerzenie .sh czyli jestem skryptem"
+else
+	mv $0 $0.sh
+fi
+
+#druga opcja
+
+if [[ $0: -3 == .sh ]]; then
+	echo "Mam rozszerzenie .sh czyli jestem skryptem"
+else
+	mv $0 $0.sh
+fi
+
+#####################################
+
+Zadanie 1.4
+
+#!/bin/bash
+
+pliki=$(ls -la | grep '^-' | wc -l) 
+
+if [[ $pliki > 5 ]]; then
+	echo "Jest wiecej niz 5 plikow"
+fi
+
+####################################
+
+Zadanie 2.1
+
+for i in {10..1..2}; do
+	echo "$i"
+done
+
+####################################
+
+Zadanie 2.2
+
+for i in "$@"; do
+	echo "$i"
+done
+
+####################################
+
+Zadanie 2.3
+
+pliki=$(ls)
+
+for i in $pliki; do
+	echo "przed panstwem plik: $i"
+done
+
+####################################
+
+Zadanie 2.4
+
+pliki=$(ls | grep c)
+
+for i in $pliki; do
+	echo $(cc $i -o${i%.*})
+done
+
+####################################
+
+Zadanie 3.1
+
+teczowe_misie(){
+
+if [[ $2 == "green" ]]; then
+	echo -e "\e[32m$1\e[0m"
+elif [[ $2 == "blue" ]]; then
+	echo -e "\e[34m$1\e[0m"
+elif [[ $2 == "red" ]]; then
+	echo -e "\e[31m$1\e[0m"
+else 
+	echo "bledny kolor"
+fi
+}
+
+teczowe_misie $1 $2
+
+###################################
+
+Zadanie 3.2
+
+ciag_fibonacciego(){
+
+ile=$1
+pierwszaliczba=0
+drugaliczba=1
+
+for ((i=0; i<$ile; i++)); do
+	echo  "$pierwszaliczba "
+	tmp=$((pierwszaliczba + drugaliczba))
+	pierwszaliczba=$drugaliczba
+done
+
+Musze przyznac ze tutaj musialem siegnac do geeksforgeeks.org/fibonacci-series-bash/ ,ale finalnie zrozumialem o co chodzi, przynajmniej z "echo"
+
+###################################
+
+Zadanie domowe
+
+if [[ $1 =~ [0-9][0-9]-[0-9][0-9][0-9] ]]; then
+	echo "Podano kod pocztowy"
+elif [[ $1 =~ [A-Za-z0-9]+@[A-Za-z0-9+.[a-z] ]]; then
+	echo "Podano E-mail"
+elif [[ $1 =~ ^[A-Z][a-z][a-ząęćźńłó]{3,} ]]; then
+	echo "Podano Imie"
+fi
+
+

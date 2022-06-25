@@ -1,0 +1,87 @@
+Zadanie 1
+
+#!/bin/bash
+echo -e "Witamy w Terminalu"
+
+####################################
+
+Zadanie 2
+
+X=halo
+echo $X
+bash
+echo $X
+
+Nadajac wartosc textowa do zmiennej X moglem ja wywolac za pomoca echo $X, lecz po otwarciu nowego procesu bash, wywolanie zmiennej nie zadziala, jest to spowodowane nie wyeksportowaniem zmiennej do kolejnego procesu.
+
+Y=halo slychac mnie
+echo $Y
+
+Jest to niepoprawne zapisanie zmiennej, do przypisania ciagu wyrazow do zmiennej musimy umiescic ciag wyrazuw w " " lub ' '
+
+#####################################
+
+Zadanie 3
+
+RANDOM - wyswietla losowa liczbe, szczerze nie wiem gdzie sie moze przydac. :/
+PWD - zmienna przechowujaca aktulana sciezke, przydaje sie do rozezniana w ktorym miejscu systemu jestesmy 
+PATH - zmienna przechowujaca sciezki do folderow, funkcji, komend, uzywanych przez basha, przydatna w momencie szukania powodu czemu nie działa dane wywolanie, mozna do niej wyeksportowac
+sciezke do katalogu z programem/skryptem etc. co ulatwi nam wywolywanie tego skryptu(brak koniecznosci podania calej sciezki)
+USER- zmienna przechowujaca nazwe uzytkownika, przydatana do sprawdzenia na jakim userze jestesmy zalogowani,
+HOSTNAME - zmienna przechowujaca nazwe hosta,
+OSTYPE - zmienna przechowujaca nazwe/typ/rodzaj (mam ma mysli dystrybucje, typu debian/centos itd) systemu operacyjnego.
+
+######################################
+
+Zadanie 4
+
+Komenda ls -l, wypisze wszystkie pliki i katalogi w oddzielnych linijkach, natomiast przypisujac ls -l do zmiennej x (przy zapisaniu komendy do zmiennej starszym sposobem x=$(ls -l)),
+i wywolujac echo $x wszystko wypisze sie w 1 linii, jest to spowodowane tym, ze przy wywolaniu echo $x brakuje cudzyslowiow ( echo $"x"), dzieje sie tak dla tego, ze bash w pierwszym 
+przypadku bash dzieli slowa na pola w outpucie, a o ile dobrze rozumiem w drugim wypadku traktuje je jako ciag wyrazow juz podzielonych.
+
+######################################
+
+Zadanie 5a
+
+#!/bin/bash
+
+I=$1
+
+if [ ${I: -1} = "[Aa]" ]; then
+echo "$I ma kota, a kot ma ${I::-1}ę"
+else
+echo "$I ma kota, a kot ma ${I}a"
+fi
+
+#####################################
+
+Zadanie 5b
+
+#!/bin/bash
+
+I=$1
+
+echo "Pierszy znak argumentu: ${I:0:1}"
+echo "Ostatni znak argumentu: ${I: -1}"
+if ["$I" == "SOP"]; then
+	echo -e ${str/SOP/"\e[32mSOP\e[0m"
+fi
+
+#####################################
+
+Zadanie 6
+
+A=Ala
+
+echo $A ma kota, a kot ma $A | sed s/$a/ę/g  #(s - zamiana znaku, a$ - wskazanie ostatniego znaku zmiennej do zamiany, ę -  znak do wstawienia, g - globalnie)
+
+#####################################
+
+Zadanie domowe
+
+#!bin/bash
+
+plik = $1
+
+echo "$plik" | sed -e "/s/michal/\x1b[31mmichal\x1v[0m/g"
+

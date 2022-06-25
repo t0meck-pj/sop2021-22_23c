@@ -1,0 +1,65 @@
+1. Pobieramy obraz wirtualnej maszyny z internetu,
+2. Odpalamy Virtual Boxa,
+3. Klikamy "Nowa" w VB,
+4. Nadajemy nazwę naszej maszynie i wybieramy jaki system operacyjny chcemy instalować,
+5. Przydzielamy ilość pamięci RAM, (wystarczy 2GB (2048 MB)),
+6. Tworzymy wirtualny dysk dla naszej maszyny (opcja numer 2),
+7. Następnie wybieramy typ naszego dysku, mamy 3 opcje do wyboru:
+- VDI - standardowy format dysku dla Oracle
+- VHD - standardowy format dysku dla Windows'a
+- VMDK - format dysku stworzony przez VMware
+- Ja wybieram VDI
+8. Wybieramy czy nasz dysk ma mieć stałą wielkość, czy może ma być dynamicznie przydzielany w razie potrzeby.
+- Dynamicznie przydzielany dysk oznacza, że nasza maszyna zabierze z naszego dysku, tyle ile faktycznie potrzebuje do użytku tzn. jeżeli nasze pliki przekroczą np. o 512MB maksymalny zadeklarowany rozmiar dysku, to zostanie do niego dołączone 512MB, nie więcej.
+- Dysk ze stałą wielkością nie zmienia swoich rozmiarów, bez względu na ilość dodawanych lub usuwanych plików.
+- Najlepiej wybrać dynamicznie przydzielany, tak jak ja :)
+9. Ustawiamy lokalizację naszego "dysku", i miejsce jakie chcemy na niego przeznaczyć i klikamy utwórz, (ja wybrałem 16 GB),
+10. Klikamy w naszą maszynę i przechodzimy do ustawień.
+- W zakładce "System" odznaczmy z kolejności bootowania "Floppy" i "Dysk Twardy" ( umożliwi to nam skorzystanie z klawisza F12, który pozwoli nam wejść do menu bootowania przy pierwszym uruchamianiu systemu)
+- Są tu również inne opcje, np. możemy zmienić ilość przydzielonej pamięci RAM.
+- Po konfiuracji kliakmy OK.
+11. Uruchamiamy naszą maszynę, po jej uruchomieniu, powinna zapytać nas o lokalizację obrazu Virtualnej Maszyny (tej którą pobraliśmy na początku), podajemy tutaj jej lokalizację i kliamy uruchom.
+12. Przechodzimy do instalacji naszego systemu,
+- Wybieramy opcję "Install",
+- Wybieramy język (najlepiej angielski) naszej maszyny i nasz region, Polska znajduję się w (Other -> Europe -> Polska),
+- Konfigurujemy nazwę hosta (nazwę systemu, która będzie widoczna w sieci), (domenę pomijamy),
+- Tworzymy hasło do użytkownika root,
+- Tworzymy konto dla użytkownika (nadajemy nazwę i hasło),
+13. Zaczynamy tworzyć partycję naszego dysku, mamy do wyboru 4 opcje:
+- Guided - use entire disk - 
+- Guided - use entire disk and set up LVM
+- Guided - use entire disk and set up encrypted LVM
+- Manual - to ją wybieramy
+
+Tworzenie partycji:
+
+I. Wybieramy nasz dysk i potwierdzamy komunikat.
+II. Utworzył się, oznaczony jako FREE SPACE, klikamy w niego, a następnie w "Create new partition"
+III. Wybieramy rozmiar partycji (jako 1 należy stworzyć partycję /boot więc wystarczy 1GB), następnie wybieramy rodzaj partycji,
+- Wybieramy "Priamry" ponieważ służy ona do bootowania, rodzaj "Logical" służy do przechowoywania pików.
+- Ustawiamy jej miejsce w pamięci, partycja do bootowania powinna znajdować się na początku, więc wybieramy Beggining
+- Jesteśmy w ustawieniach partycji, musimy ustawić jej mount point(folder - chierarchia, całego systemu), wybieramy /boot
+- W wierszu label wpisujemy boot i klikamy "Done seting up the partition"
+IV. Tworzymy partycje logiczne, klikamy w dysk oznaczony FREE SPACE, a następnie w "Create new partition"
+- Ustawiamy jej rozmiar (będzie to partycja SWAP, więc należy nadać rozmiar przydzielonego ramu + 512 MB, wybieramy rodzaj partycji "Logical" oraz jej lokalizację, "End"
+- Ustawiamy jej "Use as: " na "SWAP AREA", a w miejscu label wpisujemy SWAP
+V. Tworzymy pozostałe partycjie analogicznie do poprzedniej,
+- Ustawiamy rozmiar, rodzaj partycji i lokalizację
+- Ustawiamy jej mount point, label i "Use as: " na Ext4 journaling file system
+
+Partycje do utworzenia:
+- /home
+- /root
+- /tmp
+- /var
+- /var-log i /var-mail (dla tych 2 partycji musimy ręcznie podać mount point, odpowiednio var/log i var/mail
+
+14. Klikamy Finish partitioning and write changes to disk i potwierdzamy zmiany,
+15. Rozpocznie się podstawowa instalacja systemu,
+16. Instalator poprosi nas o wybranie "Mirror Archive", czyli miejsca skąd ma pobrać resztę systemu (najlepiej wybrać Polskę dla szybszej instalacji)
+17. Rozpocznie się właściwa instalacja systemu, w jej trakcie zostaniemy zapytani jakie opcje chcemy zainstalować na naszej maszynie, ja wybrałem web server, SSH server i standard system utilities
+18. Gotowe, można już śmigać na debianie :)
+
+
+
+
